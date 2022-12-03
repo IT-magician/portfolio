@@ -1,0 +1,23 @@
+.about{
+    &_data{
+        text-align: center;
+    }
+
+    &_description span{
+        font-size: $h2-font-size;
+        font-weight: $font-semi-bold;
+        color: $first-color;
+    }
+
+    &_number{
+        font-size: $h1-font-size;
+        color: $first-color;
+        display: block;
+    }
+
+    &_img{
+        justify-self: center;
+        width: 220px;
+        border-radius: .5rem;
+    }
+}

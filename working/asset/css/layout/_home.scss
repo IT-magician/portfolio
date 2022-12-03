@@ -1,0 +1,66 @@
+.home{
+    background-color: #000;
+    overflow: hidden;
+
+    
+    
+    &_container{
+        position: relative;
+        height: calc(100vh - $header-height);
+        grid-template-rows: repeat(2, max-content);
+        align-content: space-around;
+        row-gap: 2rem;
+
+    }
+
+    &_data{
+        border-left: 4px solid $first-color;
+        // color: $first-color-lighten;
+        padding-left: 1.5rem;
+        z-index: $z-tooltip;
+    }
+
+    &_name{
+        font-size: $biggest-font-size;
+    }
+
+    &_greeting, &_profession{
+        display: block;
+        font-weight: $font-bold;
+    }
+
+    &_greeting{
+        font-size:$small-font-size;
+    }
+
+    &_professional{
+        font-size: $normal-font-size;
+        margin-bottom: $mb-3;
+    }
+
+    &_img{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        img{
+            width: 240px;
+        }
+    }
+
+    &_social{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_social-icon{
+        width: max-content;
+        font-weight: $h2-font-size;
+        margin-bottom: $mb-2;
+        // color: $first-color-lighten;
+
+        &:hover{
+            color: darken($first-color-dark, 25);
+        }
+    }
+}

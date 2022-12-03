@@ -1,0 +1,50 @@
+$header-height: 3rem;
+
+
+// ========================= colors =========================
+// https://colorhunt.co/palette/fff8ea9e7676815b5b594545
+$first-color: #815B5B;
+$first-color-dark: #594545;
+$text-color: #9E7676;
+$first-color-light: #FFF8EA;
+$first-color-lighten: #FFF;
+
+// ========================= font and typography =========================
+$body-font: 'Poppins', sans-serif;
+$biggest-font-size: 2.5rem;
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1.125rem;
+$normal-font-size: .938rem;
+$small-font-size: .813rem;
+$smaller-font-size: .75rem;
+
+// ========================= font weight =========================
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+// ========================= margenes =========================
+$mb-1: .5rem;
+$mb-2: 1rem;
+$mb-3: 1.5rem;
+$mb-4: 2.0rem;
+$mb-5: 2.5rem;
+$mb-6: 3rem;
+
+// ========================= z-index =========================
+$z-normal: 1;
+$z-tooltip: 10;
+$z-fixed: 100;
+
+
+
+@media screen and (min-width: 768px){
+    $biggest-font-size: 4.5rem;
+    $h1-font-size: 2.25rem;
+    $h2-font-size: 1.5rem;
+    $h3-font-size: 1.12rem;
+    $normal-font-size: 1rem;
+    $small-font-size: .875rem;
+    $smaller-font-size: .813rem;
+}

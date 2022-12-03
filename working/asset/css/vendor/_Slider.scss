@@ -1,0 +1,19 @@
+.testimonial{
+    &_client{
+        font-size: $small-font-size;
+        color:$first-color-light;
+        margin-bottom: $mb-2;
+    }
+}
+
+.swiper{
+    
+
+    &-pagination{
+        position: initial;
+
+        &-bullet-active{
+            background-color: $first-color;
+        }
+    }
+}

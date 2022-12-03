@@ -1,0 +1,32 @@
+.skills{
+    &_data{
+        padding: 3rem 1rem;
+        background-color: #fff;
+        border-radius: .5rem;
+        text-align: center;
+        transition: .4s;
+        box-shadow: 0 4px 6px rgba(#aebecd,.3);
+
+        &:hover{
+            transform: translateY(-.5rem);
+            box-shadow: 0 6px 12px rgba(#aebecd,1.5);
+        }
+    }
+
+    &_icon, &_title{
+        margin-bottom: $mb-2;
+        color: $first-color;
+    }
+
+    &_icon{
+        font-size: 3rem;
+    }
+
+    &_title{
+        font-size: $h3-font-size;
+    }
+
+    &_description{
+        margin-bottom: $mb-1;
+    }
+}

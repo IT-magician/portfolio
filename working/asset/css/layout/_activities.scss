@@ -1,0 +1,44 @@
+.activities{
+    &_container{
+        overflow-x: hidden;
+
+        
+        &:has(img:hover){
+            // background-color: red;
+            overflow: visible;
+        }
+    }
+
+    &_content{
+        display: grid;
+        background-color: $first-color-dark;
+        color: $first-color-lighten;
+        border-radius: .5rem;
+        padding: 2rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(#aebecd,.25);
+    }
+
+    &_img{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        justify-self: center;
+        margin-bottom: $mb-1;
+
+        &:hover{
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            z-index: $z-fixed;
+
+        }
+    }
+
+    font-size: $small-font-size;
+    color: $first-color-light;
+    margin-bottom: 8rem;
+}

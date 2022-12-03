@@ -1,0 +1,39 @@
+.footer{
+    background-color: $first-color-dark;
+    color: $first-color-lighten;
+    text-align: center;
+
+    &_container{
+        padding: 3rem 0;
+    }
+
+    &_title{
+        font-size: $h1-font-size;
+        margin-bottom: $mb-1;
+        font-weight: $font-semi-bold;
+    }
+
+    &_description{
+        margin-bottom: $mb-3;
+    }
+
+    &_social{
+        margin-bottom: $mb-6;
+    }
+
+    &_link{
+        font-size: 1.4rem;
+        color: $first-color-lighten;
+        margin: 0 $mb-1;
+        transition: .3s;
+
+        &:hover{
+            color: $first-color-light;
+        }
+    }
+
+    &_copyright{
+        font-size: $small-font-size;
+        color: $first-color-light;
+    }
+}

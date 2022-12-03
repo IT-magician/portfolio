@@ -1,0 +1,42 @@
+.button{
+    display: inline-block;
+    background-color: $first-color;
+    color: $first-color-lighten;
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+    transition: .3s;
+margin: $mb-1;
+    // margin: $mb-1;
+
+    &:hover{
+        display: inline-block;
+        background-color: lighten($color: $first-color, $amount: 15);
+    }
+
+    &_home{
+        opacity: 1;
+    }
+
+    &-light{
+        background-color: $first-color-light;
+    }
+
+    &-white{
+        background-color: $first-color-lighten;
+        color: $first-color-dark;
+
+        &:hover{
+            background-color: $first-color-lighten;
+        }
+    }
+
+    &-link{
+        background: none;
+        color: $first-color;
+        padding: 0;
+
+        &:hover{
+            background: none;
+        }
+    }
+}

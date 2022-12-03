@@ -1,0 +1,52 @@
+@import 'abstracts/variables';
+@import 'base/reset';
+@import 'layout/class';
+@import 'components/common';
+@import 'layout/header';
+@import 'layout/home';
+@import 'layout/about';
+@import 'layout/qualification';
+@import 'layout/skills';
+@import 'layout/portfolio';
+@import 'layout/activities';
+@import 'layout/footer';
+@import 'vendor/Slider';
+
+
+.bd-container{
+    // max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin-left: $mb-2;
+    margin-right: $mb-2;
+}
+
+.bd-grid{
+    display:grid;
+    gap: 1.5rem;
+}
+
+.section{
+    padding: 4rem 0 2rem;
+
+    &-title, &-susbtitle{
+        text-align: center;
+    }
+
+    &-title{
+        font-size: $h1-font-size;
+        color: $first-color;
+        margin-bottom: $mb-3;
+    }
+
+    &-subtitle{
+        display: block;
+        font-size: $small-font-size;
+        font-weight: $font-semi-bold;
+    }
+}
+
+.l-main{
+    
+    // top:$header-height; // ??? 몰러... 선생님은 이거 안적었어
+}
+
