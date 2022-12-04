@@ -27,7 +27,8 @@
         margin-bottom: $mb-1;
 
         &:hover{
-            position: relative;
+            // position: relative;
+            position: absolute;
             left: 0;
             top: 0;
             width: 100%;
@@ -40,5 +41,6 @@
 
     font-size: $small-font-size;
     color: $first-color-light;
-    margin-bottom: 8rem;
+    margin-top: $mb-4;
+    margin-bottom: 6rem;
 }

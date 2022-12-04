@@ -85,4 +85,4 @@
 .content input:not(:placeholder-shown) + span::after {
   width: 50%;
   transform: scaleX(2);
-}/*# sourceMappingURL=animate_bg.css.map */
+}

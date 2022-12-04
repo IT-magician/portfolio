@@ -347,7 +347,6 @@ img {
   padding: 0.5rem;
   margin: 1rem;
   position: relative;
-  z-index: 100;
 }
 .portfolio-details-view-img:hover {
   width: 750px;
@@ -421,7 +420,8 @@ img {
 .activities {
   font-size: 0.813rem;
   color: #FFF8EA;
-  margin-bottom: 8rem;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
 }
 .activities_container {
   overflow-x: hidden;
@@ -446,7 +446,7 @@ img {
   margin-bottom: 0.5rem;
 }
 .activities_img:hover {
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;

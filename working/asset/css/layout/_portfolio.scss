@@ -63,12 +63,12 @@
                 padding: $mb-1;
                 margin: $mb-2;
                 position: relative;
-                z-index: $z-fixed;
 
                 &:hover{
                     // position: absolute;
                     // top: 0;
                     width: 750px;
+                //z-index: $z-fixed;
                     
                 }
             }
