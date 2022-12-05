@@ -348,8 +348,15 @@ img {
   margin: 1rem;
   position: relative;
 }
+.portfolio-details-view-img::after {
+  content: attr(title-attr);
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  list-style: circle outside none;
+}
 .portfolio-details-view-img:hover {
   width: 750px;
+  z-index: 100;
 }
 .portfolio_item {
   margin: 0 1rem;

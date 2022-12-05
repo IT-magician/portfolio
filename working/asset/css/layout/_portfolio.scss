@@ -64,11 +64,18 @@
                 margin: $mb-2;
                 position: relative;
 
+                &::after{
+                    content: attr(title-attr);
+                    margin-bottom: $mb-2;
+                    margin-left: $mb-1;
+                    list-style: circle outside none;
+                }
+
                 &:hover{
                     // position: absolute;
                     // top: 0;
                     width: 750px;
-                //z-index: $z-fixed;
+                    z-index: $z-fixed;
                     
                 }
             }
