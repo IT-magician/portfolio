@@ -388,7 +388,7 @@ img {
   max-height: calc(100vh - 3rem);
   box-shadow: -5px 2px 10px #aebecd, 0 12px 20px #815B5B;
   padding: 1rem;
-  overflow-y: auto;
+  overflow: auto;
 }
 .portfolio_img {
   width: 100%;
@@ -424,6 +424,13 @@ img {
     flex-wrap: wrap;
   }
 }
+.unfold {
+  max-height: calc(100vh - 3rem);
+  box-shadow: -5px 2px 10px #aebecd, 0 12px 20px #815B5B;
+  padding: 1rem;
+  overflow: auto;
+}
+
 .activities {
   font-size: 0.813rem;
   color: #FFF8EA;

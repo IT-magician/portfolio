@@ -40,13 +40,14 @@
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0.25em;
   box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
-  left: 50%;
   padding: 2.5rem;
   position: fixed;
   text-align: center;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   min-width: 500px;
+  white-space: pre-line;
 }
 .content-input {
   color: #333;
@@ -85,4 +86,14 @@
 .content input:not(:placeholder-shown) + span::after {
   width: 50%;
   transform: scaleX(2);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    min-width: auto;
+    width: 200px;
+    text-align: start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }

@@ -7,8 +7,16 @@ const mixer = mixitup('.portfolio_container', {
     }
 })
 
+const portfolio_contents = document.querySelectorAll(".portfolio_content")
 
+portfolio_contents.forEach(element => {
+console.log(element.querySelector("input[type='checkbox']"))
 
+  element.querySelector("input[type='checkbox']").addEventListener("change", function (e) {
+    if (this.checked) element.querySelector(".portfolio-details").classList.add("unfold")
+    else element.querySelector(".portfolio-details").classList.remove("unfold")
+  })
+})
 
 
 const swiper = new Swiper('.activities_container', {

@@ -5,13 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Hello</title>
 
     <link rel="stylesheet" href="animate_bg.css">
+
+    <link rel="shortcut icon" href="./cv.png" type="image/x-icon">
 
     <!-- =============== Vue ===============
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script> -->
+
+    <style>
+        :root{
+            --first-color: #815B5B;
+            --first-color-lighten: #a78282;
+            --first-color-lightenest: #FFF8EA;
+        }
+
+
+        .button{
+            display: inline-block;
+            background-color: var(--first-color);
+            color: var(--first-color-lightenest);
+            padding: .75rem 1rem;
+            border-radius: .25rem;
+            transition: .3s;
+            margin: .5rem;
+
+            text-decoration: none;
+        }
+        .button:hover{
+            display: inline-block;
+            background-color: var(--first-color-lighten);
+        }
+    </style>
 </head>
 
 <body>
@@ -21,13 +48,13 @@
         <div class="bg"></div>
 
 
-        <div class="content" style="white-space:pre-line;white-space:pre-wrap;">
-            늦어도 22년 12월 둘째주까지는 '포트폴리오'를 올리겠습니다.
-            (내용을 채우는데 시간이 걸리고 있습니다... 내용을 고민하고, 또 고민하며 최대한 인연이 닿을수있도록 하고 싶은 바램입니다.)
+        <div class="content">
+            안녕하세요,
+            머리속의 아이디어를 현실로 만드는 사람으로 성장하여, 세상을 발전시키고 싶은 개발자 '김태훈'입니다.
 
             <div>
                 
-                <a href="./working/index.html" style="color:#2f2f2f91;">작업중인 것 보러가기</a>
+                <a href="./working/index.html" class="button">포트폴리오 보러가기</a>
             </div>
         </div>
 

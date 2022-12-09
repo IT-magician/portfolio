@@ -1,3 +1,12 @@
+@mixin unfold{
+    max-height: calc(100vh - $header-height);
+
+    box-shadow: -5px 2px 10px #aebecd,
+        0 12px 20px $first-color;
+    padding: $mb-2;
+    overflow: auto;
+}
+
 .portfolio{
     text-align: center;
 
@@ -115,12 +124,7 @@
             display: none;
         }
         &:has(input:checked) .portfolio-details{
-            max-height: calc(100vh - $header-height);
-
-            box-shadow: -5px 2px 10px #aebecd,
-                        0 12px 20px $first-color;
-            padding: $mb-2;
-            overflow-y: auto;
+            @include unfold;
             
         }
     }
@@ -163,4 +167,8 @@
         flex-wrap: wrap;
     }
     
+}
+
+.unfold{
+    @include unfold;
 }

@@ -37,13 +37,16 @@ $mb-2-5: 2.5rem;
   background-color: rgba(255, 255, 255, .8);
   border-radius: .25em;
   box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
-  left: 50%;
   padding: $mb-2-5;
   position: fixed;
   text-align: center;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   min-width: 500px;
+
+
+  white-space: pre-line;
 
   &-input {
     color: #333;
@@ -79,11 +82,25 @@ $mb-2-5: 2.5rem;
 
   input:focus+span::after,
   input:not(:placeholder-shown)+span::after // input에 데이터가 있을 경우임. input:placeholder-shown은 placeholder가 있으면 선택해주는 접근제한자이다.
-  {
+
+    {
     // width: 100%;
     width: 50%;
     transform: scaleX(2);
   }
 
 
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    min-width: auto;
+    width: 200px;
+    text-align: start;
+
+    margin: {
+      left: 1rem;
+      right: 1rem;
+    }
+  }
 }
