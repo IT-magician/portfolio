@@ -204,9 +204,7 @@ img {
   position: absolute;
   right: 0;
   bottom: 0;
-}
-.home_img img {
-  width: 240px;
+  width: 480px;
 }
 .home_social {
   display: flex;
@@ -223,6 +221,11 @@ img {
   color: #110d0d;
 }
 
+@media screen and (max-width: 768px) {
+  .home_img {
+    width: 240px;
+  }
+}
 .about_data {
   text-align: center;
 }
@@ -357,6 +360,7 @@ img {
 .portfolio-details-view-img:hover {
   width: 750px;
   z-index: 100;
+  z-index: var(--z-index);
 }
 .portfolio_item {
   margin: 0 1rem;
@@ -429,6 +433,20 @@ img {
   box-shadow: -5px 2px 10px #aebecd, 0 12px 20px #815B5B;
   padding: 1rem;
   overflow: auto;
+}
+
+.z-index {
+  z-index: var(--z-index);
+}
+.z-index:hover {
+  transform: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .activities {

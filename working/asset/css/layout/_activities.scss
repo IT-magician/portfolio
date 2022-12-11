@@ -1,32 +1,32 @@
-.activities{
-    &_container{
+.activities {
+    &_container {
         overflow-x: hidden;
 
-        
-        &:has(img:hover){
+
+        &:has(img:hover) {
             // background-color: red;
             overflow: visible;
         }
     }
 
-    &_content{
+    &_content {
         display: grid;
         background-color: $first-color-dark;
         color: $first-color-lighten;
         border-radius: .5rem;
         padding: 2rem 1rem;
         text-align: center;
-        box-shadow: 0 4px 8px rgba(#aebecd,.25);
+        box-shadow: 0 4px 8px rgba(#aebecd, .25);
     }
 
-    &_img{
+    &_img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
         justify-self: center;
         margin-bottom: $mb-1;
 
-        &:hover{
+        &:hover {
             // position: relative;
             position: absolute;
             left: 0;

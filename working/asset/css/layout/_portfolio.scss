@@ -1,4 +1,4 @@
-@mixin unfold{
+@mixin unfold {
     max-height: calc(100vh - $header-height);
 
     box-shadow: -5px 2px 10px #aebecd,
@@ -7,16 +7,16 @@
     overflow: auto;
 }
 
-.portfolio{
+.portfolio {
     text-align: center;
 
-    &-icon{
+    &-icon {
         position: relative;
         margin-right: $mb-1;
     }
 
-    &_container{
-        text-align:initial;
+    &_container {
+        text-align: initial;
 
         padding: {
             left: $mb-2;
@@ -24,7 +24,7 @@
         }
     }
 
-    &-details{
+    &-details {
         position: relative;
         max-height: 0;
         overflow: hidden;
@@ -34,27 +34,27 @@
         line-height: $normal-font-size;
 
 
-        &:hover{
+        &:hover {
             transform: translate(2.5px, -5px);
             border-radius: 5px;
         }
-        
 
 
 
-        li{
+
+        li {
             box-shadow: 2px 2px 8px rgba($color: $first-color, $alpha: .45);
             border-radius: 2.5px;
             padding: $mb-1;
         }
 
-        ol{
+        ol {
             // white-space:pre-line;
             display: flex;
             margin-bottom: $mb-1;
         }
 
-        &-view{
+        &-view {
             position: relative;
             width: 450px;
             height: auto;
@@ -64,111 +64,135 @@
             // justify-content: center;
             // flex-direction: column;
 
-            &-link{
+            &-link {
                 margin: $mb-1 auto;
             }
 
-            &-img{
+            &-img {
                 padding: $mb-1;
                 margin: $mb-2;
                 position: relative;
 
-                &::after{
+                &::after {
                     content: attr(title-attr);
                     margin-bottom: $mb-2;
                     margin-left: $mb-1;
                     list-style: circle outside none;
                 }
 
-                &:hover{
+                &:hover {
                     // position: absolute;
                     // top: 0;
                     width: 750px;
                     z-index: $z-fixed;
-                    
+                    z-index: var(--z-index);
                 }
             }
         }
     }
 
-    &_item{
+    &_item {
         margin: 0 $mb-2;
         cursor: pointer;
     }
 
-    &-item-text{
+    &-item-text {
         // white-space: pre-line;
     }
 
-    &_content{
+    &_content {
         background-color: #fff;
         border-radius: .5rem;
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(#aebecd, .3);
 
-        &:hover{
+        &:hover {
             box-shadow: 0 6px 8px rgba(#aebecd, .5);
         }
 
-        &:hover &_img{
+        &:hover &_img {
             transform: scale(1.5);
         }
 
-        
 
-        .label{
+
+        .label {
             cursor: pointer;
             user-select: none;
         }
-        input[type='checkbox']{
+
+        input[type='checkbox'] {
             display: none;
         }
-        &:has(input:checked) .portfolio-details{
+
+        &:has(input:checked) .portfolio-details {
             @include unfold;
-            
+
         }
     }
 
-    &_img{
+    &_img {
         width: 100%;
         transition: .4s;
     }
 
-    &_data{
+    &_data {
         padding: 1.5rem;
     }
 
-    &_subtitle{
+    &_subtitle {
         font-size: $small-font-size;
         color: lighten($color: $first-color, $amount: 20);
     }
 
-    &_title{
+    &_title {
         font-size: $h3-font-size;
         color: $first-color;
         margin: $mb-2 0;
     }
 }
 
-.test{
+.test {
     margin-bottom: 10px;
 }
 
-.test2{
+.test2 {
     margin: 10px;
 }
 
-.ytp-title-channel>*{
+.ytp-title-channel>* {
     display: none !important;
 }
 
 @media screen and (max-width: 768px) {
-    .portfolio-details{
+    .portfolio-details {
         flex-wrap: wrap;
     }
-    
+
 }
 
-.unfold{
+.unfold {
     @include unfold;
+}
+
+.z-index {
+    z-index: var(--z-index);
+    // background-color: #f2f2f2;
+
+    &:hover {
+        // transform: translate(12.5px, -25px);
+        transform: none;
+    }
+
+    // &:first-child:hover {
+    //     transform: translate(5px, -5px);
+    // }
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
