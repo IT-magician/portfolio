@@ -103,7 +103,7 @@ ScrollReveal().reveal('.home_profession', {
 ScrollReveal().reveal('.home_img', {
   origin: 'right',
   distance: '50px',
-  delay: 300,
+  delay: 200,
   duration: 500,
   reset: true,
 });
