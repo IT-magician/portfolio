@@ -19,8 +19,8 @@
         text-align: initial;
 
         padding: {
-            left: $mb-2;
-            right: $mb-2;
+            left: 25px;
+            right: 25px;
         }
     }
 
@@ -31,8 +31,12 @@
         transition: .1s ease-in-out;
         display: flex;
         justify-content: space-between;
-        line-height: $normal-font-size;
+        line-height: $h3-font-size;
 
+        & .is-inner {
+            margin: 25px;
+            margin-top: 50px;
+        }
 
         &:hover {
             transform: translate(2.5px, -5px);
@@ -73,11 +77,19 @@
                 margin: $mb-2;
                 position: relative;
 
+                & video {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+
                 &::after {
-                    content: attr(title-attr);
+                    content: '* ' attr(title-attr);
                     margin-bottom: $mb-2;
                     margin-left: $mb-1;
-                    list-style: circle outside none;
+                    white-space: pre;
+                    width: 450px;
+                    word-break: break-all;
                 }
 
                 &:hover {
@@ -85,7 +97,6 @@
                     // top: 0;
                     width: 750px;
                     z-index: $z-fixed;
-                    z-index: var(--z-index);
                 }
             }
         }

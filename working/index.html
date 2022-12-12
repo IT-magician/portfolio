@@ -22,6 +22,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <link rel="stylesheet" href="asset/css/main.css">
 
     <style>
@@ -244,28 +246,22 @@
                     <div class="portfolio-details">
                         <div class="portfolio-details-view">
                             <div class="portfolio-details-view-img" title-attr="Landing Page">
-                                <img title="landing-page"
-                                    src="https://lh5.googleusercontent.com/0nKejyAsqrhQP7zLx8xh0WVUeaogbaMq5do3KsJTZi3lZ2E5M7EQKsC03dHT3YGmuSc=w2400">
+                                <video src="./asset/img/landing.mp4" autoplay playsinline loop></video>
                             </div>
                             <div class="portfolio-details-view-img" title-attr="Home Page">
-                                <img title="home-page"
-                                    src="https://lh6.googleusercontent.com/Y3ixBLwC1dsoGO2HbNbRc-wwfwU75zQoQSQkeob3Suenm89c_7fYWWpLYd9Wk06DZcM=w2400">
+                                <video src="./asset/img/home.mp4" autoplay playsinline loop></video>
                             </div>
                             <div class="portfolio-details-view-img" title-attr="Building Search Page">
-                                <img title="building-search-page"
-                                    src="https://lh5.googleusercontent.com/Ca7VDF4tIDJ2w9iak4R5S1aiiJTQAsn5hKTbJSrH9M8GPtfMo_Bd_CPqJvofpNPDBNI=w2400">
+                                <video src="./asset/img/building.mp4" autoplay playsinline loop></video>
                             </div>
                             <div class="portfolio-details-view-img" title-attr="Park Search Page">
-                                <img title="park-search-page & visit-review-writing-example(board write example)"
-                                    src="https://drive.google.com/uc?export=view&id=1M8P_9SLPU2vbcwaaFYnJhHRJ6dGiTjAh">
+                                <video src="./asset/img/explore.mp4" autoplay playsinline loop></video>
                             </div>
                             <div class="portfolio-details-view-img" title-attr="게시판 Page">
-                                <img title="board-list-page"
-                                    src="https://drive.google.com/uc?export=view&id=169Kzyns0XSbwtiU1S-8YjKMPjzo9SUUB">
+                                <video src="./asset/img/board.mp4" autoplay playsinline loop></video>
                             </div>
                             <div class="portfolio-details-view-img" title-attr="사용자 계정정보 수정">
-                                <img title="account-info-access-page"
-                                    src="https://drive.google.com/uc?export=view&id=113jfNRYv3sKxOTKRjCv7QRbzhQEKcZsn">
+                                <video src="./asset/img/account.mp4" autoplay playsinline loop></video>
                             </div>
 
 
@@ -348,6 +344,13 @@
                                         HTML & Javascript & SCSS
                                     </div>
                                 </ol>
+                                <ol>
+                                    <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                    <div class="portfolio-item-text">
+                                        Javascript Library : 'summernote'
+                                    </div>
+                                </ol>
                             </li>
                             <li>
                                 <h4>사용자 편의를 위해 했던 것</h4>
@@ -365,13 +368,13 @@
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        FE
+                                        Front End
                                     </div>
                                 </ol>
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        Login & Account Info edit
+                                        Login & Account Info edit Backend
                                     </div>
                                 </ol>
                                 <ol>
@@ -383,19 +386,19 @@
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        Landing 페이지
+                                        Landing 페이지 Backend
                                     </div>
                                 </ol>
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        Home 페이지
+                                        Home 페이지 Backend
                                     </div>
                                 </ol>
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        아파트 매매 정보 조회
+                                        아파트 매매 정보 조회 Backend
                                     </div>
                                     <div class="portfolio-item-text">
                                     </div>
@@ -403,7 +406,7 @@
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        게시판(이미지 업로드 및 다운로드 처리(Spring, DB 등록),게시글 업로드 및 조회, 게시글 카테고리 필터링)
+                                        게시판(이미지 업로드 및 다운로드 처리(Spring, DB 등록),게시글 업로드 및 조회, 게시글 카테고리 필터링) Backend
                                     </div>
                                 </ol>
                             </li>
@@ -424,7 +427,7 @@
                     </div>
                     <div class="portfolio-details">
                         <ul>
-                            <li class="portfolio-details hide-scrollbar">
+                            <li class="portfolio-details hide-scrollbar is-inner">
                                 <div class="left">
                                     <h4>version2</h4>
                                     <div class="portfolio-details-view">
@@ -435,12 +438,46 @@
                                         <div class="portfolio-details-view-img" title-attr="회원가입"><img src="./asset/img/craft2/4.png" alt=""></div>
                                         <div class="portfolio-details-view-img" title-attr="사용자 정보 수정(user 계정)"><img src="./asset/img/craft2/5.png" alt=""></div>
                                         <div class="portfolio-details-view-img" title-attr="사용자 정보 수정(admin 계정)"><img src="./asset/img/craft2/6.png" alt=""></div>
-                                        <div class="portfolio-details-view-img" title-attr="xml data loading(공공데이터 포털 다운로드, 지연시 렉이 아님을 사용자에게 보여주기 위한 페이지)"><img src="./asset/img/craft2/7.png" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="xml data loading &#xa; (공공데이터 포털 다운로드 양이 많아서 화면에 표시하는게 지연 될때, 렉이 아님을 사용자에게 보여주기 위한 페이지)"><img src="./asset/img/craft2/7.png" alt=""></div>
                                     </div>
                                 </div>
                                 
                                 <div class="right">
                                     <ul>
+                                        <li>
+                                            <h4>프로젝트 제작 미션</h4>
+                                            순수 자바스크립트만으로 공공데이터 포탈의 데이터를 받아와서, 화면에 표시하는 과제입니다.
+                                        </li>
+                                        <li>
+                                            <h4>결과</h4>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Vue.js 없이 Javascript만으로 SPA(Single Page Application)를 만들었습니다. </br>&nbsp;&nbsp;다시 고친다면 프레임워크를 사용하여 더 신경써야할 부분에 에너지를 써서 완성도를 높히고, XmlHttpRequest의 onprogress속성을 사용하여 정확한 다운로드 진행률을 보여줄 계획입니다.
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    지도와 함께 볼 수 있는 '아파트 상세 검색'은 'click'이벤트를 추가하였습니다.
+                                                    </br>오른쪽에 있는 card를 누르면, 지도의 center가 해당 아파트의 위치로 이동하게 했습니다.
+                                                    </br>해당 아파트에 해당하지 않는 InfoWindow를 닫고, 하나의 InfoWindow만 열어서 사용자가 내용에 집중하도록 만들었습니다.
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    계정 권한에 따라 사용자 정보를 수정할 수 있게 했습니다.
+                                                    </br>(admin 계정 권한을 별도로 추가했던 이유는 실제 사용자를 위해서입니다. 데이터센터 근무경험에서 관리자 권한을 분리하지 않아서 자주 문제가 생겼던 기억이 있어서, 권한 분리를 통해 사용성을 높히려고 만들어습니다.)
+                                                </div>
+                                            </ol>
+                                        </li>
                                         <li>
                                             <h4>사용한 기술</h4>
                                             <ol>
@@ -448,7 +485,6 @@
 
                                                 <div class="portfolio-item-text">
                                                     Vanila JS & ES6
-                                                </br>- Vue.js 없이 Javascript만으로 SPA(Single Page Application)를 만들었습니다. </br>&nbsp;&nbsp;다시 고친다면 프레임워크를 사용하여 더 신경써야할 부분에 에너지를 써서 완성도를 높히고, XmlHttpRequest의 onprogress속성을 사용하여 정확한 다운로드 진행률을 보여줄 계획입니다.
                                                 </div>
                                             </ol>
                                             <ol>
@@ -465,7 +501,49 @@
                                                     Rest API by Javascript for use of getting data
                                                 </div>
                                             </ol>
+                                        </li>
+                                        <li>
+                                            <h4>역할</h4>
+                                            
+                                         
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
 
+                                                <div class="portfolio-item-text">
+                                                    프론트 작성
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    최근에 검색한 아파트를 Stack 자료구조에 넣고, 이것을 Dashboard에서 표시하도록 만들었습니다.
+                                                </div>
+                                            </ol>
+
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    대쉬보드 동작(사용자의 검색 기록 표시(Recent Views)) 작성
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    아파트 실거래가 표시(Table 및 Kakao 지도)
+                                                </div>
+                                            </ol>
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    사용자 정보 수정(User 및 Admin 계정권한에 따라 수정가능하게 만들었습니다)
+                                                </div>
+                                            </ol>
                                         </li>
                                     </ul>
                                     
@@ -474,25 +552,329 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="portfolio-details z-index" --z-index="300">
-                                <h4>version3</h4>
-                                <div class="portfolio-details-view-link">
-                                    <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/3%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                            <li class="portfolio-details hide-scrollbar is-inner">
+
+                                <div class="left">
+                                    <h4>version3</h4>
+
+                                    <div class="portfolio-details-view">
+                                        <div class="portfolio-details-view-img" title-attr="메인 페이지"><img src="./asset/img/crafts3/main.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="회원가입"><img src="./asset/img/crafts3/register.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="회원가입 실패"><img src="./asset/img/crafts3/register_fail.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="로그인"><img src="./asset/img/crafts3/login.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="로그인 실패"><img src="./asset/img/crafts3/login_fail.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="로그인 성공"><img src="./asset/img/crafts3/login_success.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="사용자 선호 지역 설정 1"><img src="./asset/img/crafts3/userFavor-district1.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="사용자 선호 지역 설정 2"><img src="./asset/img/crafts3/userFavor-district2.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="건물 상세정보 검색 1"><img src="./asset/img/crafts3/search1.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="건물 상세정보 검색 2"><img src="./asset/img/crafts3/search2.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="최근에 사용자들이 검색한 건물 정보"><img src="./asset/img/crafts3/recent-search.PNG" alt=""></div>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <ul>
+                                        <li>
+                                            <h4>프로젝트 제작 미션</h4>
+                                            팀원들이 2번째 관통 때 만들었던 프로젝트를 JSP로 만드는 과제입니다.
+                                            </br>사용자 선호 지역을 저장하는 미션도 추가로 주어졌습니다.
+                                        </li>
+                                        <li>
+                                            <h4>결과</h4>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    기존 코드에서는 건물 상세 정보를 받아오기 위해 동까지 선택했던 것을 '구/군'까지만 선택해도 검색이 가능하도록 만들었습니다.
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    로그인 후 우측 상단의 사용자 ID를 선택하면, 사용자 선호 지역을 설정하는 페이지가 나오게 했습니다. 
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                        <li>
+                                            <h4>사용한 기술</h4>
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    HTML & CSS(SCSS) & Javascript
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Java Servlet
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    MySQL
+                                                </div>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <h4>역할</h4>
+                                            
+                                         
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    팀원이 만들었던 웹페이지에서 레이아웃 벗어나는 것 수정
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    아파트 상세정보 표시
+                                                    </br>(기존에 만들어져있던 것을 Backend를 사용해서 받아오는 구조로 수정)
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    사용자 선호 지역 설정 기능 제작
+                                                    (Front End & DB Table 설계)
+                                                </div>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="portfolio-details-view-link">
+                                        <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/3%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="portfolio-details z-index" --z-index="400">
-                                <h4>version4</h4>
-                                <div class="portfolio-details-view-link">
-                                    <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/4%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                            <li class="portfolio-details hide-scrollbar is-inner">
+
+                                <div class="left">
+                                    <h4>version4</h4>
+
+                                    <div class="portfolio-details-view">
+                                        <div class="portfolio-details-view-img" title-attr="메인 페이지"><img src="./asset/img/crafts3/main.PNG" alt=""></div>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <ul>
+                                        <li>
+                                            <h4>프로젝트 제작 미션</h4>
+                                            팀원들이 3번째 관통 때 만들었던 프로젝트를 Spring/Spring Boot로 만드는 과제입니다.
+                                        </li>
+                                        <li>
+                                            <h4>결과</h4>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    백엔드에서 Rest API로 Front End에 필요한 데이터를 전송하도록 설계했습니다.
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                        <li>
+                                            <h4>사용한 기술</h4>
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    HTML & CSS(SCSS) & Javascript
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Spring Boot
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    MySQL
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    MyBatis
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Rest API
+                                                </div>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <h4>역할</h4>
+                                            
+                                         
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    3번째 관통 때 맡았던 기능들을 Spring에 맞게 로직으로 옮김
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    JSP를 Spring으로 구조 변경함
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="portfolio-details-view-link">
+                                        <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/4%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="portfolio-details z-index" --z-index="500">
-                                <h4>version5</h4>
-                                <div class="portfolio-details-view-link">
-                                    <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/5%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                            <li class="portfolio-details  hide-scrollbar is-inner">
+
+                                <div class="left">
+                                    <h4>version5</h4>
+
+                                    <div class="portfolio-details-view">
+                                        <div class="portfolio-details-view-img" title-attr="컴포넌트 구조화"><img src="./asset/img/crafts5/preview0.png" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="회원 가입 (Rest API 및 Vue 사용)"><img src="./asset/img/crafts5/preview1.png" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="로그인"><img src="./asset/img/crafts5/preview2.png" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="로그인 성공"><img src="./asset/img/crafts5/preview3.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="회원 정보 수정, 삭제"><img src="./asset/img/crafts5/preview4.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="아파트 매매 정보 조회"><img src="./asset/img/crafts5/preview5.PNG" alt=""></div>
+                                        <div class="portfolio-details-view-img" title-attr="클래스 다이어그램"><img src="./asset/img/crafts5/preview6.PNG" alt=""></div>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <ul>
+                                        <li>
+                                            <h4>프로젝트 제작 미션</h4>
+                                            팀원들이 3번째 관통 때 만들었던 프로젝트를 Vue.js 기반으로 만드는 과제입니다.
+                                        </li>
+                                        <li>
+                                            <h4>결과</h4>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Vue.js를 CLI가 아닌 CDN기반으로 시도했습니다.
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                        <li>
+                                            <h4>사용한 기술</h4>
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Vue.js
+                                                </div>
+                                            </ol>
+
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    HTML & CSS(SCSS) & Javascript
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Spring Boot
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    MySQL
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    MyBatis
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    Rest API
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                        <li>
+                                            <h4>역할</h4>
+                                            
+                                         
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    3번째 관통 때 맡았던 기능들을 Spring에 맞게 로직으로 옮김
+                                                </div>
+                                            </ol>
+                                            
+                                            <ol>
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+
+                                                <div class="portfolio-item-text">
+                                                    JSP를 Spring으로 구조 변경함
+                                                </div>
+                                            </ol>
+                                            
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="portfolio-details-view-link">
+                                        <a class="button" href="https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/5%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5">보러가기</a>
+                                    </div>
                                 </div>
                             </li>
 
+                            <li style="width: 100%;height: var(--scroll--mb);visibility: hidden;"></li> <!-- for scroll bottom margin -->
                             
                         </ul>
                     </div>
@@ -1787,7 +2169,7 @@
                     </a>
                 </div>
 
-                <p class="footer_copyright">&#169; 2022 TH. All rights reserved</p>
+                <p class="footer_copyright">&#169; 2022 김태훈. All rights reserved</p>
             </div>
         </footer>
     </main>
