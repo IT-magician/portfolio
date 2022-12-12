@@ -54,6 +54,13 @@ gsap.from(".nav_item", {
   stagger: .2
 })
 
+  gsap.from(".home_img",{
+    opacity: 0,
+    duration: 2,
+    delay: .5,
+    x: 60
+  })
+
 /* ScrollReveal */
 ScrollReveal().reveal('.nav_logo', {
   distance: '-50px',
@@ -100,13 +107,13 @@ ScrollReveal().reveal('.home_profession', {
 });
 
 
-ScrollReveal().reveal('.home_img', {
-  origin: 'right',
-  distance: '50px',
-  delay: 200,
-  duration: 500,
-  reset: true,
-});
+// ScrollReveal().reveal('.home_img', {
+//   origin: 'right',
+//   distance: '50px',
+//   delay: 200,
+//   duration: 500,
+//   reset: true,
+// });
 
 
 ScrollReveal().reveal('#about .about_description', {
