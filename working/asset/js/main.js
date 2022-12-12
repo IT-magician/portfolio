@@ -49,7 +49,7 @@ const swiper = new Swiper('.activities_container', {
 gsap.from(".nav_item", {
   opacity: 0,
   duration: 1,
-  delay: 1,
+  delay: .1,
   y: -60,
   stagger: .2
 })
