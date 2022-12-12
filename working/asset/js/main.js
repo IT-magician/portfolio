@@ -59,7 +59,7 @@ ScrollReveal().reveal('.nav_logo', {
   distance: '-50px',
   delay: 100,
   duration: 500,
-  reset: true,
+  // reset: true,
 });
 
 ScrollReveal().reveal('.home_social-icon', {
