@@ -12,41 +12,46 @@
 @import 'layout/footer';
 @import 'vendor/Slider';
 
+// .swiper-wrapper {
+//     display: flex;
+//     justify-content: center;
+// }
 
-.bd-container{
+
+.bd-container {
     // max-width: 1024px;
     width: calc(100% - 2rem);
     margin-left: $mb-2;
     margin-right: $mb-2;
 }
 
-.bd-grid{
-    display:grid;
+.bd-grid {
+    display: grid;
     gap: 1.5rem;
 }
 
-.section{
+.section {
     padding: 4rem 0 2rem;
 
-    &-title, &-susbtitle{
+    &-title,
+    &-susbtitle {
         text-align: center;
     }
 
-    &-title{
+    &-title {
         font-size: $h1-font-size;
         color: $first-color;
         margin-bottom: $mb-3;
     }
 
-    &-subtitle{
+    &-subtitle {
         display: block;
         font-size: $small-font-size;
         font-weight: $font-semi-bold;
     }
 }
 
-.l-main{
-    
+.l-main {
+
     // top:$header-height; // ??? 몰러... 선생님은 이거 안적었어
 }
-

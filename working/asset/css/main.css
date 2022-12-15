@@ -471,6 +471,9 @@ img {
 .activities_container:has(img:hover) {
   overflow: visible;
 }
+.activities_description {
+  text-align: justify;
+}
 .activities_content {
   display: grid;
   background-color: #594545;

@@ -20,7 +20,7 @@ portfolio_contents.forEach(element => {
 const swiper = new Swiper('.activities_container', {
   // Optional parameters
   // direction: 'vertical',
-  loop: true,
+  // loop: true,
   spaceBetween: 16,
   grabCursor: true,
 
@@ -54,12 +54,12 @@ gsap.from(".nav_item", {
   stagger: .2
 })
 
-  gsap.from(".home_img",{
-    opacity: 0,
-    duration: 2,
-    delay: .5,
-    x: 60
-  })
+gsap.from(".home_img", {
+  opacity: 0,
+  duration: 2,
+  delay: .5,
+  x: 60
+})
 
 /* ScrollReveal */
 ScrollReveal().reveal('.nav_logo', {

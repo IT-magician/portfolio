@@ -9,6 +9,10 @@
         }
     }
 
+    &_description {
+        text-align: justify;
+    }
+
     &_content {
         display: grid;
         background-color: $first-color-dark;
