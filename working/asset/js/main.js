@@ -149,9 +149,3 @@ ScrollReveal().reveal('.portfolio_content ', {
   // reset: true,
 });
 
-ScrollReveal().reveal('.activities_container ', {
-  distance: '100px',
-  delay: 250,
-  duration: 500,
-  reset: true,
-});
