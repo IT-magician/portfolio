@@ -1,21 +1,35 @@
-.about{
-    &_data{
+.about {
+    &_data {
         text-align: center;
     }
 
-    &_description span{
-        font-size: $h2-font-size;
-        font-weight: $font-semi-bold;
-        color: $first-color;
+    &_description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &_content {
+            font-size: $h2-font-size;
+            font-weight: $font-semi-bold;
+            color: $first-color;
+        }
+
+        &_sub_content {
+            font-size: $normal-font-size;
+            text-align: left;
+            display: inline-block;
+            width: 75%;
+        }
     }
 
-    &_number{
+    &_number {
         font-size: $h1-font-size;
         color: $first-color;
         display: block;
     }
 
-    &_img{
+    &_img {
         justify-self: center;
         width: 220px;
         border-radius: .5rem;

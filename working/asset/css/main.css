@@ -176,7 +176,6 @@ img {
 .home_container {
   position: relative;
   height: calc(100vh - 3rem);
-  grid-template-rows: repeat(2, -webkit-max-content);
   grid-template-rows: repeat(2, max-content);
   align-content: space-around;
   row-gap: 2rem;
@@ -211,7 +210,6 @@ img {
   flex-direction: column;
 }
 .home_social-icon {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   font-weight: 1.25rem;
@@ -229,10 +227,22 @@ img {
 .about_data {
   text-align: center;
 }
-.about_description span {
+.about_description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.about_description_content {
   font-size: 1.25rem;
   font-weight: 600;
   color: #815B5B;
+}
+.about_description_sub_content {
+  font-size: 0.938rem;
+  text-align: left;
+  display: inline-block;
+  width: 75%;
 }
 .about_number {
   font-size: 1.5rem;
@@ -392,7 +402,6 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .portfolio_content input[type=checkbox] {
@@ -572,4 +581,5 @@ img {
   display: block;
   font-size: 0.813rem;
   font-weight: 600;
+  margin-top: 1.5rem;
 }
