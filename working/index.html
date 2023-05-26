@@ -536,7 +536,8 @@
                                         Android 및 백엔드단에서 unknown host가 발생하는 문제
                                         </br>
                                         -> AWS Loadbalancer가 IPv4, IPv6의 2가지 방식의 주소를 갖는 문제 때문에, DNS resolve시에 IPv6이면
-                                        'http://[ipv6 주소]'로 변환해주야하는 문제를 개발팀에게 IPv4만을 사용하게 설정하는 방법을 알려줌
+                                        어플리케이션(안드로이드, 스프링)단에서
+                                        'http://[ipv6 주소]'로 변환해주야함. 이를 해결하기 위해 개발팀에게 IPv4만을 사용하게 설정하는 방법을 알려줌
                                     </div>
                                 </ol>
                                 <ol>
@@ -900,7 +901,7 @@
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     Redis를 사용하여 access_token 및 refresh_token 발급
-                                    </br>1) 기간지나면 자동으로 삭제되개 설정했음. 2) 해킹감지시에 토큰삭제를 목적으로 설계를 했음
+                                    </br>1) 기간지나면 자동으로 삭제되게 설정했음. 2) 해킹감지시에 토큰삭제를 목적으로 설계를 했음
                                 </ol>
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
