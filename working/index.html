@@ -17,12 +17,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <link href="dist/tingle.css" rel="stylesheet">
+    <script src="dist/tingle.js"></script>
 
     <link rel="stylesheet" href="asset/css/main.css">
 
@@ -31,6 +34,7 @@
             --scroll--mb: 1rem;
         }
     </style>
+
 </head>
 
 <body>
@@ -277,6 +281,78 @@
                     <h2 class="pontentiality_title">Languages</h2>
                     <div class="skills_description">C/C++, Java, Python
                     </div>
+                    <div class="skills_description_detail">
+                        <!-- <div class="skills_description_content">
+                            <div class="subject" style="position: relative;">
+                                <div class="skill-detail_img"
+                                    style="position: relative;width: 100px;display: inline-block;">
+                                    <img src="./asset/img/study.PNG">
+                                </div>
+
+                                <span class="intro"
+                                    style="position: absolute;height: 100%;width: 100px;display: inline-flex;flex-direction: column;justify-content: space-between;">
+                                    <div class="name">a</div>
+                                    <div class="rating">b</div>
+                                </span>
+                            </div>
+                            <div class="reasons">
+                                <li>
+                                    <ul>1</ul>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="skills_description_content">
+                            <div class="subject" style="position: relative;">
+                                <div class="skill-detail_img"
+                                    style="position: relative;width: 100px;display: inline-block;">
+                                    <img src="./asset/img/study.PNG">
+                                </div>
+
+                                <span class="intro"
+                                    style="position: absolute;height: 100%;width: 100px;display: inline-flex;flex-direction: column;justify-content: space-between;">
+                                    <div class="name">a</div>
+                                    <div class="rating">b</div>
+                                </span>
+                            </div>
+                            <div class="reasons">c</div>
+                        </div> -->
+
+
+                        <div class="skills-content">
+                            <div class="skills-subject">
+                                <div class="skills-detail_img">
+                                    <img src="./asset/img/study.PNG">
+                                </div>
+
+                                <span class="skills-intro">
+                                    <div class="name">a</div>
+                                    <div class="rating">b</div>
+                                </span>
+                            </div>
+                            <div class="skills-reasons">
+                                <li>
+                                    <ul>1</ul>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="skills-content">
+                            <div class="skills-subject">
+                                <div class="skills-detail_img">
+                                    <img src="./asset/img/study.PNG">
+                                </div>
+
+                                <span class="skills-intro">
+                                    <div class="name">a</div>
+                                    <div class="rating">b</div>
+                                </span>
+                            </div>
+                            <div class="skills-reasons">
+                                <li>
+                                    <ul>1</ul>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="skills_data">
@@ -285,6 +361,9 @@
                     <div class="skills_description">
                         Spring/Spring boot, JSP, JSTL, Servlet, Mysql, JPA, Elasticsearch
                         </br>Vue.js, Javascript, CSS/SCSS
+                    </div>
+                    <div class="skills_description_detail">
+                        Modal Content 2
                     </div>
                 </div>
 
@@ -297,6 +376,9 @@
                         Spring Cloud (Eureka Server, Gateway), NGINX</br>
                         AWS, GCP, Azure
                         IaC(Terraform)
+                    </div>
+                    <div class="skills_description_detail">
+                        <!-- Modal Content 3 -->
                     </div>
                 </div>
 
@@ -752,9 +834,13 @@
                                         </br>
                                         -> 원인 : ES에 원격으로 데이터를 넣는 속도가 원래 느리다고 함. 실제로 네이버 라인 등 ES를 사용하는 기업도 이러한 문제가 있어서,
                                         특정단위로 데이터를 쪼개는 병렬전송방식으로 운영하고 있음.
+                                        </br>(출처 : 유튜브의 라인 공식 컨퍼런스 채널)
                                         </br>
-                                        -> 노래목록은 정적데이터이기 때문에, 도커 컨테이너에 접속('docker exec -t Elasticsearch /bin/bash [rest
-                                        api 명령]')해서 데이터를 삽입함
+                                        해결한 방법 : 노래목록은 정적데이터이기 때문에, 도커 컨테이너에 접속해서 데이터를 삽입함('docker exec -t Elasticsearch
+                                        /bin/bash [rest api 명령어]'
+                                        </br></br>rest api 명령어의 예시 : curl -d
+                                        "key1=value1&key2=value2" -H "Content-Type: application/x-www-form-urlencoded"
+                                        -X POST http://localhost:9300/data)
                                     </div>
                                 </ol>
                                 <ol>
@@ -768,7 +854,8 @@
                                 <ol>
                                     <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                     <div class="portfolio-item-text">
-                                        한 팀원이 행동에 대해 문제가 있었음.이전팀에서 자신에 대한 안좋은 소문이 있다는 이유로 회의도 제대로 참여하지 않고, 같은 팀원에게 일부러
+                                        한 팀원이 행동에 대해 문제가 있었음.</br>
+                                        이전팀에서 자신에 대한 안좋은 소문이 있다는 이유로 회의도 제대로 참여하지 않고, 같은 팀원에게 일부러
                                         상처를 뱉는 말을 함. 해당 팀원에게 진심을 전해보기도 하고, 직장생활을
                                         했던 컨설턴트님으로부터 해결방법을 물어보면서 최대한 좋은 결과를 내기 위해 노력함. 결과적으로는 해당 팀원의 중도퇴소를 막고 프로젝트를
                                         성공적으로 마무리함.
@@ -3150,6 +3237,10 @@
                 </div>
 
                 <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev" style="--swiper-theme-color: #f2e6ce"></div>
+                <div class="swiper-button-next" style="--swiper-theme-color: #f2e6ce"></div>
             </div>
         </section>
 

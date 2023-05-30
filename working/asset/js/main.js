@@ -30,10 +30,10 @@ const swiper = new Swiper('.activities_container', {
     clickable: true,
   },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+  // // And if we need scrollbar
+  // scrollbar: {
+  //   el: '.swiper-scrollbar',
+  // },
 
   breakpoints: {
     640: {
@@ -43,7 +43,13 @@ const swiper = new Swiper('.activities_container', {
     1024: {
       slidesPerView: 3,
     }
-  }
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 
 gsap.from(".nav_item", {
@@ -148,4 +154,38 @@ ScrollReveal().reveal('.portfolio_content ', {
   duration: 500,
   // reset: true,
 });
+
+
+
+
+document.querySelectorAll('.skills_data').forEach(btn => {
+  const details = btn.querySelector('.skills_description_detail')
+  if (!details || details.innerHTML.trim().replace(/<\!--.*?-->/g, "") == "") return;
+
+  btn.style.cursor = 'Pointer';
+
+  btn.addEventListener('click', function () {
+    var myModal = new tingle.modal({
+      // callbacks
+      onClose: null,
+      onOpen: null,
+      beforeOpen: null,
+      beforeClose: null,
+      // enable modal footer
+      stickyFooter: false,
+      footer: false,
+      // additional CSS classes
+      cssClass: [],
+      // close label
+      closeLabel: 'Close',
+      // close methods
+      closeMethods: ['overlay', 'button', 'escape'],
+
+    });
+
+
+    myModal.setContent(details.innerHTML);
+    myModal.open();
+  });
+})
 

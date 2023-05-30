@@ -312,7 +312,39 @@ img {
 .skills_description {
   margin-bottom: 0.5rem;
 }
-
+.skills_description_detail {
+  display: none;
+}
+.skills_description_content {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.skills_description_content:nth-child(2n+1) {
+  margin-right: 10%;
+}
+.skills-content {
+  border-left: #f2e6ce solid 2.5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.skills-subject {
+  position: relative;
+}
+.skills-detail_img {
+  position: relative;
+  width: 100px;
+  display: inline-block;
+}
+.skills-intro {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 25px;
+}
 .portfolio {
   text-align: center;
 }
@@ -476,6 +508,7 @@ img {
 }
 .activities_container {
   overflow-x: hidden;
+  position: relative;
 }
 .activities_container:has(img:hover) {
   overflow: visible;

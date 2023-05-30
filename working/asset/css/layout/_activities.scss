@@ -1,6 +1,7 @@
 .activities {
     &_container {
         overflow-x: hidden;
+        position: relative;
 
 
         &:has(img:hover) {
