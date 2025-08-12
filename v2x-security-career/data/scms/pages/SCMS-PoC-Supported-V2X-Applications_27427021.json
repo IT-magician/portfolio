@@ -1,0 +1,580 @@
+{
+  "pageId": "SCMS-PoC-Supported-V2X-Applications_27427021",
+  "fileName": "SCMS-PoC-Supported-V2X-Applications_27427021.html",
+  "title": "SCMS CV Pilots Documentation : SCMS PoC Supported V2X Applications",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 21, 2018",
+  "content": "\n                    <p class=\"auto-cursor-target\">This is the list of supported V2X Applications for PoC and Pilot Deployment. See&nbsp;<a href=\"CAMP-PSID-Transfer-Process_91357193.html\"><abbr title=\"Crash Avoidance Metrics Partners\">CAMP</abbr> <abbr title=\"Provider Service Identifier\">PSID</abbr> Transfer Process</a> for a description of how the \"CV Pilot Application X\" PSIDs assigned to CAMP may be transferred to a different owner who will develop the application specification, which has to be done before the <a href=\"Environments-documentation_60719122.html\">SCMS PROD</a> stage will issue any certificate with the PSID.</p><p><br></p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"SCMSPoCSupportedV2XApplications-\"></span><div class=\"scroll-title-body\"><div class=\"table-wrap\"><table class=\"wrapped fixed-table confluenceTable\"><colgroup><col style=\"width: 41.0px;\"><col style=\"width: 132.0px;\"><col style=\"width: 146.0px;\"><col style=\"width: 130.0px;\"><col style=\"width: 131.0px;\"><col style=\"width: 164.0px;\"><col style=\"width: 134.0px;\"><col style=\"width: 105.0px;\"><col style=\"width: 100.0px;\"><col style=\"width: 94.0px;\"><col style=\"width: 105.0px;\"></colgroup><tbody><tr><th class=\"numberingColumn confluenceTh\"><br></th><th class=\"confluenceTh\">Application</th><th class=\"confluenceTh\">Application Category</th><th class=\"confluenceTh\"><p>PSID<br>(Hex value)<br><span class=\"confluence-link\">(Decimal value</span>)</p></th><th colspan=\"1\" class=\"confluenceTh\">Organization/ Documentation</th><th class=\"confluenceTh\"><abbr title=\"Service Specific Profile\">SSP</abbr> Notes</th><th class=\"confluenceTh\">Comments</th><th class=\"confluenceTh\">SSP Value to Appear in End Entity Certificates for CV Pilots</th><th colspan=\"1\" class=\"confluenceTh\"><abbr title=\"Connected Vehicles Pilot Deployment\">CVPD</abbr> Sites That Use It (to be completed)</th><th colspan=\"1\" class=\"confluenceTh\"><p>EE<br>Type</p></th><th colspan=\"1\" class=\"confluenceTh\">Certificate Type</th></tr><tr><td class=\"numberingColumn confluenceTd\">1</td><td class=\"confluenceTd\">Basic Safety Message (BSM)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20<br>(0x20)<br>(32)</p></td><td colspan=\"1\" class=\"confluenceTd\"><abbr title=\"Society of Automative Engineers\">SAE</abbr> J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">Support multiple <abbr title=\"Vehicle to Vehicle\">V2V</abbr> safety applications</td><td class=\"confluenceTd\">SSP: absent (default permissions)</td><td colspan=\"1\" class=\"confluenceTd\"><p>NYC</p><p><abbr title=\"Tampa Hillsborough Expressway Authority\">THEA</abbr></p><p>Wyoming</p></td><td colspan=\"1\" class=\"confluenceTd\"><abbr title=\"On Board Equipment\">OBE</abbr></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">2</td><td class=\"confluenceTd\">Vehicle Turning Right in Front of Bus Warning</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20<br>(0x20)<br>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">Assumes specific application in bus to analyze the received BSMs and determine if a warning should be provided to the bus driver</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">3</td><td class=\"confluenceTd\">Intelligent Traffic Signal System (I-SIG) In-Vehicle Information Potential</td><td class=\"confluenceTd\"><p>Current assumption is BSM inputs only</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20<br>(0x20)<br>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">Difficult to know the SSP requirements until the application design is more complete</td><td class=\"confluenceTd\">Difficult to know if there are other application messaging requirements until the application design is more complete</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">4</td><td class=\"confluenceTd\">Forward Collision Warning (FCW)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">5</td><td class=\"confluenceTd\">Emergency Electronic Brake Light (EEBL)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">6</td><td class=\"confluenceTd\">Blind Spot Warning (BSW)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">7</td><td class=\"confluenceTd\">Lane Change Warning/Assist (LCA)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">8</td><td class=\"confluenceTd\">Intersection Movement Assist&nbsp;</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">9</td><td class=\"confluenceTd\">Stationary Vehicle Ahead (SVA)</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">10</td><td class=\"confluenceTd\">Do Not Pass Warning</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/1 (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">11</td><td class=\"confluenceTd\">Probe Enabled Traffic Monitoring</td><td class=\"confluenceTd\"><p>BSM inputs</p><p>(BSM PSID)</p></td><td class=\"confluenceTd\"><p>0p20</p><p>(0x20)</p><p>(32)</p></td><td class=\"confluenceTd\">SAE J2735</td><td class=\"confluenceTd\">Detailed application description not available.</td><td class=\"confluenceTd\">Either&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary\" rel=\"nofollow\"><abbr title=\"Roadside Equipment\">RSE</abbr></a>&nbsp;just collects&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-BSM\" rel=\"nofollow\">BSM</a>s or RSE sends&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-WSA\" rel=\"nofollow\"><abbr title=\"WAVE Service Advertisement\">WSA</abbr></a>&nbsp;with probe request and then vehicle uses <abbr title=\"Internet Protocol\">IP</abbr> service to send requested information or establish two-way communications. In the case of probe request it isn't clear whether the probe request PSID needs to appear in a certificate.</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\" colspan=\"1\">12</td><td colspan=\"1\" class=\"confluenceTd\">WAVE security management</td><td colspan=\"1\" class=\"confluenceTd\">Support</td><td colspan=\"1\" class=\"confluenceTd\">0p23<br>(0x23)<br>(35)</td><td colspan=\"1\" class=\"confluenceTd\"><abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2</td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">13</td><td class=\"confluenceTd\">Misbehavior Reporting for Common Applications</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0p26<br>(0x26)<br>(38)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\">Detailed application description not available.</td><td class=\"confluenceTd\">NOTE: This PSID is also used for event data recording in <abbr title=\"New York City\">NYC</abbr>, because it already appears in the BSM certificate and because event data reporting is very similar to misbehavior reporting. <span class=\"inline-comment-marker\" data-ref=\"2d0fefb6-0b02-4d7c-8f91-722b4935689f\">But this is a bit of a hack.</span></td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Pseudonym Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">14</td><td class=\"confluenceTd\">Vulnerable Road Users Safety Application</td><td class=\"confluenceTd\">Vulnerable Road Users Safety PSID</td><td class=\"confluenceTd\">0p27<br>(0x27)<br>(39)</td><td class=\"confluenceTd\">SAE J2735 (data structure) / SAE J945/9 (application specification – draft)</td><td class=\"confluenceTd\">Detailed application description not available.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">15</td><td class=\"confluenceTd\">Differential <abbr title=\"Global Positioning System\">GPS</abbr> Corrections, Uncompressed</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0p80-00<br>(0x80)<br>(128)</td><td class=\"confluenceTd\">SAE J2735 (data structure)</td><td class=\"confluenceTd\">Detailed application description not available</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><p><abbr title=\"Traffic Management Center\">TMC</abbr> App</p></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">16</td><td class=\"confluenceTd\">Differential GPS Corrections, Compressed</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0p80-01<br>(0x81)<br>(129)</td><td class=\"confluenceTd\">SAE J2735 (data structure)</td><td class=\"confluenceTd\">Detailed application description not available</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">17</td><td class=\"confluenceTd\">Red Light Violation Warning / RSE</td><td class=\"confluenceTd\"><p>3 - Signal Violation Warning</p><p>(Intersection Safety and Awareness PSID. <abbr title=\"Signal Phase and Timing\">SPAT</abbr> &amp; <abbr title=\"Mobile Accessible Pedestrian\">MAP</abbr> use message ID to distinguish message type)</p></td><td class=\"confluenceTd\"><p>0p80-02<br>(0x82)<br>(130)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (data structure)</p><p>SAE J2945/2 (SSP framework)</p><p>SAE J2945/10 (application specification, in progress)</p><p><abbr title=\"Roadside Unit\">RSU</abbr> requirements document (partial application specification)</p></td><td class=\"confluenceTd\">Detailed application description not available. SAE subgroup has been tasked with developing SSP specification for SPAT; draft available.</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><p>RSE</p></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">18</td><td class=\"confluenceTd\">Pedestrian in Signalized Crosswalk Warning / RSE</td><td class=\"confluenceTd\"><p>16 - Pedestrian Warnings</p><p>(Intersection Safety and Awareness PSID. SPaT &amp; MAP use message ID to distinguish message type)</p></td><td class=\"confluenceTd\"><p>0p80-02</p><p>(0x82)</p><p>(130)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (data structure)</p><p>SAE J2945/2 (SSP framework)</p><p>SAE J2945/10 (application specification, in progress)</p><p>RSU requirements document (partial application specification)</p></td><td class=\"confluenceTd\"><p>SAE subgroup has been tasked with developing SSP specification for SPAT; draft available</p><p><br></p><p>May require SSP field to indicate that RSU is equipped with ability to detect pedestrians.</p></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">RSE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">19</td><td class=\"confluenceTd\">Mobile Accessible Pedestrian Signal System (PED-SIG)</td><td class=\"confluenceTd\"><p><abbr title=\"Signal Request Message\">SRM</abbr></p></td><td class=\"confluenceTd\">SRM&nbsp;– which PSID?</td><td class=\"confluenceTd\"><p>SAE J2735 (Data structure)</p><p>SAE J2945/11 (Application specification, in progress)</p></td><td class=\"confluenceTd\">Detailed application description being developed within Pilot Deployment projects. No SSP definition currently known.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">20</td><td class=\"confluenceTd\">Transit Signal Priority/ Special Vehicles</td><td class=\"confluenceTd\"><p>1 - Signal Pre-emption/Priority</p><p>(SignalRequest Message)</p></td><td class=\"confluenceTd\">SRM – which PSID?</td><td class=\"confluenceTd\"><p>SAE J2735 (Data structure)</p><p>SAE J2945/11 (Application specification, in progress)</p></td><td class=\"confluenceTd\">Detailed application description being developed within Pilot Deployment projects. No SSP definition currently known.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Identification Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">21</td><td class=\"confluenceTd\">Modified Eco-Speed Harmonization /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>2 - Speed Harmonization</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\">0p80-03<br>(0x83)<br>(131)</td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\"><abbr title=\"Traveler Information\">TIM</abbr></a>. Draft available.</td><td class=\"confluenceTd\">Not clear that this message will ever be signed by RSE; NYC and Wyoming approaches assume all&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>s are signed by TMC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">TMC App or RSU</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">22</td><td class=\"confluenceTd\">Modified Eco-Speed Harmonization /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>2 - Speed Harmonization</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03</p><p>(0x83)</p><p>(131)</p><br></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.&nbsp;SSP may differentiate between different speed harmonization categories (e.g., eco-, light vehicles, freight, transit)</td><td class=\"confluenceTd\">NYC and Wyoming approaches assume all&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>s are signed by TMC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">23</td><td class=\"confluenceTd\">Curve Speed Warning</td><td class=\"confluenceTd\"><p>8 - Curve Speed Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03</p><p>(0x83)</p><p>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">24</td><td class=\"confluenceTd\">Reduced Speed / Work Zone Warning /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03</p><p>(0x83)</p><p>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\"><p>SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</p></td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC, even for situations like this where they contain local information.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">25</td><td class=\"confluenceTd\">Reduced Speed / Work Zone Warning /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03</p><p>(0x83)</p><p>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\"><p>SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</p></td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC, even for situations like this where they contain local information.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">26</td><td class=\"confluenceTd\">Spot Specific Weather Warnings /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03</p><p>(0x83)</p><p>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC, even for situations like this where they contain local information.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">27</td><td class=\"confluenceTd\">Spot Specific Weather Warnings /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC, even for situations like this where they contain local information.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">28</td><td class=\"confluenceTd\">Variable Speed Limits /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>10 - Speed Zone</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">29</td><td class=\"confluenceTd\">Variable Speed Limits /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>10 - Speed Zone</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">30</td><td class=\"confluenceTd\">Speed Harmonization /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\">2 - Speed Harmonization</td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">31</td><td class=\"confluenceTd\">Speed Harmonization /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>2 - Speed Harmonization</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">32</td><td class=\"confluenceTd\">Work Zone Alerts /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">33</td><td class=\"confluenceTd\">Work Zone Alerts /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">34</td><td class=\"confluenceTd\">Truck Restrictions /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE\" rel=\"nofollow\">RSE</a></td><td class=\"confluenceTd\"><p>11 - Special Vehicle Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">35</td><td class=\"confluenceTd\">Truck Restrictions /&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC\" rel=\"nofollow\">TMC</a></td><td class=\"confluenceTd\"><p>11 - Special Vehicle Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">36</td><td class=\"confluenceTd\">Automatic Alerts for First Responders</td><td class=\"confluenceTd\"><p>11 - Special Vehicle Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\"><p>SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</p><p>Specific SSPs may need to be designated for messages to special vehicles</p></td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">37</td><td class=\"confluenceTd\">CV-enabled Weather-Responsive Variable Speed Limits</td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">38</td><td class=\"confluenceTd\">Road Weather Advisories for Trucks and Vehicles</td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\"><p>SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</p><p>Different SSPs may be needed to differentiate messages for different categories of vehicles</p><p><br></p></td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">39</td><td class=\"confluenceTd\">Emergency Communications and Evacuation (EVAC)</td><td class=\"confluenceTd\"><p>9 - Temporary Situation Warning</p><p>(Traveler Information and Roadside Signage PSID)</p></td><td class=\"confluenceTd\"><p>0p80-03<br>(0x83)<br>(131)</p></td><td class=\"confluenceTd\"><p>SAE J2735 (Data Structure)</p><p>SAE J2945/4 (Application specification, in progress)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\">SAE subgroup has been tasked with developing SSP specification for&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM\" rel=\"nofollow\">TIM</a>. Draft available.</td><td class=\"confluenceTd\">NYC is assuming that TIMs are signed by the TMC.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><span>TMC App or RSU</span></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">40</td><td class=\"confluenceTd\">Probe Data Collection</td><td class=\"confluenceTd\">BSM and alert event data collection for researchers<br><br>Regional extension of <abbr title=\"Peformance and Diagnostics Metrics\">PDM</abbr> / <abbr title=\"Provisioning Domain\">PVD</abbr><br>Alternatively: IPv6</td><td class=\"confluenceTd\">0p80-04<br>(0x84)<br>(132)</td><td class=\"confluenceTd\"><p>SAE J2735 (data structures)</p><p>SAE J2945/12 (application specification)</p><p>CVPD site-specific documents</p></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">Not clear that this appears in certificates – may appear only in WSAs?</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">41</td><td class=\"confluenceTd\">WAVE Service Advertisement</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0p80-07<br>(0x87)<br>(135)</td><td class=\"confluenceTd\">IEEE 1609.3</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\"><span>SSP: absent (default permissions)</span></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">42</td><td class=\"confluenceTd\">Peer-to-peer distribution of Security Management Information</td><td class=\"confluenceTd\">Peer-to-peer Certificate Distribution Psid</td><td class=\"confluenceTd\">0p80-08<br>(0x88)<br>(136)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">Doesn't appear in certificates</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">43</td><td class=\"confluenceTd\">Certificate Revocation List Application</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0p80-80<br>(0x100)<br>(256)</td><td class=\"confluenceTd\">IEEE 1609.2 (Data structures / SSP) / CAMP (application specification)</td><td class=\"confluenceTd\">&nbsp;</td><td class=\"confluenceTd\">Only appears in appPermissions of the <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr></td><td class=\"confluenceTd\">SSP: specific to <abbr title=\"Certificate Revocation List\">CRL</abbr> as specified in 1609.2 CRL ASN.1 module</td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">44</td><td class=\"confluenceTd\">Vehicle initiated distress notification</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pC0-00-02<br>(0x40-82)<br>(16,514)</td><td class=\"confluenceTd\">Wyoming <abbr title=\"Department of Transportation\">DOT</abbr></td><td class=\"confluenceTd\"><div class=\"content-wrapper\"><p><abbr title=\"Unaligned Packed Encoding Rules\">UPER</abbr>-encoded J2945/2 <abbr title=\"Dedicated Short Range Communication\">DSRC</abbr>-SSP containing a SSPentry. Version is set to 1, allowedSSPs is a SEQUENCE containing exactly one SSPentry field, as follows:</p><div class=\"code panel pdl\" style=\"border-width: 1px;\"><div class=\"codeContent panelContent pdl\">\n<pre class=\"syntaxhighlighter-pre\" data-syntaxhighlighter-params=\"brush: java; gutter: false; theme: Confluence\" data-theme=\"Confluence\">SSPentry ::= SEQUENCE {  \n   index  INTEGER(msg-travelerInformation),  -- 31\n   constraint  (SSPconstraintAll)            -- Boolean: True\n}</pre>\n</div></div><p><br></p></div></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><p>SSP (DSRC-SSP UPER encoded in hex): 00 80 01 F0 40</p><p>Entire 1609.2 PsidSsp structure as an OPAQUE OCTET STRING in COER: 80 02 40 82 80 05 00 80 01 F0 40</p></td><td class=\"confluenceTd\">Wyoming</td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Identification Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">45</td><td class=\"confluenceTd\">Transcore software update</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0pE0-00-00-03<br>(0x20-40-83)<br>(2,113,667)</td><td class=\"confluenceTd\">Transcore, Inc</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">46</td><td class=\"confluenceTd\">Over-the-air File Broadcast</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\">0pE0-00-00-08<br>(0x20-40-88)<br>(2,113,672)</td><td class=\"confluenceTd\">Siemens Industry, Inc.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">47</td><td class=\"confluenceTd\">Data Log Transfer</td><td class=\"confluenceTd\">Support</td><td class=\"confluenceTd\"><p>0pE0-00-00-09<br>(0x20-40-89)<br>(2,113,673)</p></td><td class=\"confluenceTd\">Siemens Industry, Inc.</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">48</td><td class=\"confluenceTd\">CV Pilot Application 3</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0A<br>(0x20-40-8A)<br>(2,113,674)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">49</td><td class=\"confluenceTd\">CV Pilot Application 4</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0B<br>(0x20-40-8B)<br>(2,113,675)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">50</td><td class=\"confluenceTd\">CV Pilot Application 5</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0C<br>(0x20-40-8C)<br>(2,113,676)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">51</td><td class=\"confluenceTd\"><p>CV Pilot Application 6</p></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0D<br>(0x20-40-8D)<br>(2,113,677)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">52</td><td class=\"confluenceTd\">CV Pilot Application 7</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0E<br>(0x20-40-8E)<br>(2,113,678)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">53</td><td class=\"confluenceTd\">CV Pilot Application 8</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-0F<br>(0x20-40-8F)<br>(2,113,679)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">54</td><td class=\"confluenceTd\">CV Pilot Application 9</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-10<br>(0x20-40-90)<br>(2,113,680)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">55</td><td class=\"confluenceTd\">CV Pilot Application 10</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-11<br>(0x20-40-91)<br>(2,113,681)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">56</td><td class=\"confluenceTd\">CV Pilot Application 11</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-12<br>(0x20-40-92)<br>(2,113,682)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">57</td><td class=\"confluenceTd\">CV Pilot Application 12</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\">0pE0-00-00-13<br>(0x20-40-93)<br>(2,113,683)</td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">58</td><td class=\"confluenceTd\">CV Pilot Application 13</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><p>0pE0-00-00-14<br>(0x20-40-94)<br>(2,113,684)</p></td><td class=\"confluenceTd\">Crash Avoidance Metrics Partners LLC</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td></tr><tr><td class=\"numberingColumn confluenceTd\">59</td><td class=\"confluenceTd\">CV Pilot traffic signal priority status</td><td class=\"confluenceTd\">SSM</td><td class=\"confluenceTd\">0pE0-00-00-15<br>(0x20-40-95)<br>(2,113,685)</td><td class=\"confluenceTd\">US Department of Transportation</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">RSU</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">60</td><td class=\"confluenceTd\">CV Pilot traffic signal request</td><td class=\"confluenceTd\">SRM</td><td class=\"confluenceTd\">0pE0-00-00-16<br>(0x20-40-96)<br>(2,113,686)</td><td class=\"confluenceTd\">US Department of Transportation</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\">OBE</td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Identification Certificate</a></td></tr><tr><td class=\"numberingColumn confluenceTd\">61</td><td class=\"confluenceTd\">CV Pilot MAP distribution</td><td class=\"confluenceTd\">MAP</td><td class=\"confluenceTd\">0pE0-00-00-17<br>(0x20-40-97)<br>(2,113,687)</td><td class=\"confluenceTd\">US Department of Transportation</td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><br></td><td colspan=\"1\" class=\"confluenceTd\"><a href=\"Certificate-Types_27427012.html\">Application Certificate</a></td></tr></tbody></table></div></div><div class=\"scroll-title-macro-title\"><strong>Supported V2X Applications</strong></div></div><p><span style=\"font-size: 12.0pt;font-family: &quot;Times New Roman&quot; , serif;\">UPER-encoded DSRC-SSP containing the SSPentry</span></p>\n                    ",
+  "links": [
+    {
+      "originalHref": "CAMP-PSID-Transfer-Process_91357193.html",
+      "text": "CAMP PSID Transfer Process",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Environments-documentation_60719122.html",
+      "text": "SCMS PROD",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-BSM",
+      "text": "BSM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-WSA",
+      "text": "WSA",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Pseudonym Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TMC",
+      "text": "TMC",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Glossary#Glossary-TIM",
+      "text": "TIM",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Application Certificate",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "V2X",
+      "definition": "Vehicle to Everything"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partners"
+    },
+    {
+      "term": "PSID",
+      "definition": "Provider Service Identifier"
+    },
+    {
+      "term": "SSP",
+      "definition": "Service Specific Profile"
+    },
+    {
+      "term": "CVPD",
+      "definition": "Connected Vehicles Pilot Deployment"
+    },
+    {
+      "term": "SAE",
+      "definition": "Society of Automative Engineers"
+    },
+    {
+      "term": "V2V",
+      "definition": "Vehicle to Vehicle"
+    },
+    {
+      "term": "THEA",
+      "definition": "Tampa Hillsborough Expressway Authority"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "RSE",
+      "definition": "Roadside Equipment"
+    },
+    {
+      "term": "WSA",
+      "definition": "WAVE Service Advertisement"
+    },
+    {
+      "term": "IP",
+      "definition": "Internet Protocol"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "NYC",
+      "definition": "New York City"
+    },
+    {
+      "term": "GPS",
+      "definition": "Global Positioning System"
+    },
+    {
+      "term": "TMC",
+      "definition": "Traffic Management Center"
+    },
+    {
+      "term": "SPAT",
+      "definition": "Signal Phase and Timing"
+    },
+    {
+      "term": "MAP",
+      "definition": "Mobile Accessible Pedestrian"
+    },
+    {
+      "term": "RSU",
+      "definition": "Roadside Unit"
+    },
+    {
+      "term": "SRM",
+      "definition": "Signal Request Message"
+    },
+    {
+      "term": "TIM",
+      "definition": "Traveler Information"
+    },
+    {
+      "term": "PDM",
+      "definition": "Peformance and Diagnostics Metrics"
+    },
+    {
+      "term": "PVD",
+      "definition": "Provisioning Domain"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "DOT",
+      "definition": "Department of Transportation"
+    },
+    {
+      "term": "UPER",
+      "definition": "Unaligned Packed Encoding Rules"
+    },
+    {
+      "term": "DSRC",
+      "definition": "Dedicated Short Range Communication"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.607Z"
+}

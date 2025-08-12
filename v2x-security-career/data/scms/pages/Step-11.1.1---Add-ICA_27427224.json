@@ -1,0 +1,101 @@
+{
+  "pageId": "Step-11.1.1---Add-ICA_27427224",
+  "fileName": "Step-11.1.1---Add-ICA_27427224.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ICA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.1: Add SCMS Component",
+      "href": "27427206.html"
+    },
+    {
+      "text": "Step 11.1.1: Add Non-Root SCMS Component",
+      "href": "27427207.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.1.1-AddICA-Goals\">Goals</h2><p>The Intermediate Certificate Authority (ICA) is a non-central, backend component of the SCMS. There may be many instances of ICAs within the system. The ICA authorizes all other non-central components including <abbr title=\"Enrollment Certificate Authorities\">ECAs</abbr>, <abbr title=\"Pseudonym Certificate Authorities\">PCAs</abbr>, <abbr title=\"Registration Authorities\">RAs</abbr>, <abbr title=\"Linkage Authorities\">LAs</abbr>, or additional ICAs. Adding a new ICA to the system makes the new ICA available to authorize new components.</p><p>An ICA is intended to be an offline component, meaning that it should be configured with no direct network access or address. A local ICA Manager operates the ICA manually. The specific details of how the operator presents messages to the ICA is implementation-specific and subject to review by a certification procedure approved by the SCMS Manager.</p><h2 id=\"Step11.1.1-AddICA-Procedure\">Procedure</h2><p>The procedure required for adding an ICA to the system depends on whether the new ICA is replacing a previously revoked or removed ICA or if it is a net-new component.</p><h3 id=\"Step11.1.1-AddICA-NewICA\">New ICA</h3><p>A new ICA must be properly set-up using the process described in the&nbsp;<a class=\"unresolved\" href=\"#\">Setup ICA</a> use case. Since the ICA operates offline, there are no network addresses or other parameters to configure when adding the ICA.</p><p>Note that if the new ICA issues a certificate for a PCA or RA, then the <a href=\"Step-11.1.1---Add-PCA_27427235.html\">Add PCA</a>&nbsp;use case will cause the ICA to be registered with the Policy Generator (PG) for inclusion in future&nbsp;<span>updates to the Global Certificate Chain File (GCCF). There is no need to register the <span class=\"inline-comment-marker\" data-ref=\"81690b08-8756-4f22-8856-f015c4434ba0\">ICA with the PG until a new PCA</span> or RA is added. All other components that are issued certificates by the ICA will make the ICA certificate available to recipients of their messages when required.<br></span></p><h3 id=\"Step11.1.1-AddICA-Re-CertifiedICA\">Re-Certified ICA</h3><p>An ICA certificate has a limited useful life that is shorter than the expiration period of the certificate. <span class=\"inline-comment-marker\" data-ref=\"746a1f73-d232-4be0-806d-2248e3cb7cd6\">When an ICA certificate is retired,</span> the current private key must be deleted, a new key pair must be generated, and a new certificate must be issued. There are no additional actions needed to add or enable the new ICA certificate. As with the procedure for adding a new ICA (above), there is no need to communicate the new ICA certificate to the PG or any other components.</p><h3 id=\"Step11.1.1-AddICA-ReplacementICA\">Replacement ICA</h3><p>When replacing an ICA that was previously removed or revoked, the new component must first be set up using&nbsp;<span>the&nbsp;</span><a class=\"unresolved\" href=\"#\">Setup ICA</a><span> use case. The local ICA Manager must then use the new component to re-issue certificates to all of the components that were previously authorized under the ICA that was removed or revoked, see&nbsp;<a href=\"Step-11.2.1---Revoke-ICA_27427279.html\">Step 11.2.1 - Revoke ICA</a> </span></p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.1-AddICA-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-2122217424\" class=\"refresh-module-id jira-table\">\n<p>\n  \n</p></div><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427224/27427226.xml\">Add_ICA.xml</a> (application/drawio)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "Setup ICA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.1.1---Add-PCA_27427235.html",
+      "text": "Add PCA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Setup ICA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.2.1---Revoke-ICA_27427279.html",
+      "text": "Step 11.2.1 - Revoke ICA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427224/27427226.xml",
+      "text": "Add_ICA.xml",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "ECAs",
+      "definition": "Enrollment Certificate Authorities"
+    },
+    {
+      "term": "PCAs",
+      "definition": "Pseudonym Certificate Authorities"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authorities"
+    },
+    {
+      "term": "LAs",
+      "definition": "Linkage Authorities"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427224/27427226.xml",
+      "text": "Add_ICA.xml"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.615Z"
+}

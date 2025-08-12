@@ -1,0 +1,139 @@
+{
+  "pageId": "27427262",
+  "fileName": "27427262.html",
+  "title": "SCMS CV Pilots Documentation : Hardware, Software and OS Security Requirements",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <h1 id=\"Hardware,SoftwareandOSSecurityRequirements-OverviewandGoals\">Overview and Goals</h1><p>This document describes hardware, software, and operating system security for systems that run <abbr title=\"Dedicated Short-Range Communications\">DSRC</abbr> applications and use cryptographic private keys and certificates in the format specified by <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> Standard 1609.2-2016 and that are issued by the Security Credentials Management System (SCMS).</p><p>The security requirements apply to two logically distinct sets of functional blocks:</p><ul><li><strong>Privileged applications</strong>: These applications run autonomously (i.e., do not require human intervention to start running) and either send or receive signed messages. They run on the <strong>host processor</strong>.</li><li><strong>Cryptographic operations</strong>: These operations use secret keys from symmetric cryptographic algorithms, or private keys from asymmetric cryptographic algorithms. They run on the <strong>Hardware Security Module (HSM)</strong>.</li></ul><p>The goals of these requirements are:</p><ol><li>Different privileged applications can have different sets of keys such that:<ol><li>A privileged application is able to sign with its own keys</li><li>A privileged application is not able to sign with keys reserved for use by a different privileged application</li><li>Non-privileged applications do not have any access to keys that are reserved for use by privileged applications</li></ol></li><li>No application has read access to key material – all key material is execute- or write-only</li><li>Keys used for verification are protected against unauthorized replacement</li><li>The system supports software/firmware update in such a way that the above properties continue to hold</li></ol><p>This document does not address processes for certifying that systems meet the requirements. Its purpose is simply to state the requirements.</p><h1 id=\"Hardware,SoftwareandOSSecurityRequirements-Architecturesec-architectures\">Architecture<span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-sec-architectures\"></span></h1><p>The requirements below cover three architectures.</p><ul><li class=\"confluence-link\"><a href=\"#Hardware,SoftwareandOSSecurityRequirements-IntegratedArchitecture\"><strong>Integrated architecture</strong></a>: The host processor and the HSM are the same processor</li><li><strong><a href=\"#Hardware,SoftwareandOSSecurityRequirements-ConnectedArchitecture\">Connected architecture</a></strong>: The host processor and the HSM are different, but they are physically connected using a connector that connects only those two processors. The only way to read or write data flowing between the two processors is by physically tapping into that connector.</li><li><strong><a href=\"#Hardware,SoftwareandOSSecurityRequirements-NetworkedArchitecture\">Networked architecture</a></strong>: The host processor and the HSM are different and connected over a network or bus that has other processors connected to it</li></ul><p>The document provides requirements for the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-host-processor\">host processor</a>&nbsp;and the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-hsm\">HSM</a> separately and then provides <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architecture-specific\">architecture-specific requirements</a> for the different architectures.</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-IntegratedArchitectureB\"></span><div class=\"scroll-title-body\"><p><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing that host processor and HSM are the same in integrated architecture\" src=\"attachments/27427262/27427266.png\" data-image-src=\"attachments/27427262/27427266.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427266\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"worddav450728f5537040a30338573ef0b60bb0.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427262\" data-linked-resource-container-version=\"7\"></span></p></div><div class=\"scroll-title-macro-title\"><strong>Integrated Architecture</strong></div></div><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-ConnectedArchitecture\"></span><div class=\"scroll-title-body\"><p><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing host processor and HSM are separate but connected physically in connected architecture\" src=\"attachments/27427262/27427265.png\" data-image-src=\"attachments/27427262/27427265.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427265\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"worddav100b5726012afe71f4ff7a4d84d7dcc5.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427262\" data-linked-resource-container-version=\"7\"></span></p></div><div class=\"scroll-title-macro-title\"><strong>Connected Architecture</strong></div></div><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-NetworkedArchitectureB\"></span><div class=\"scroll-title-body\"><p><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing host processor and HSM are separate and connected over a network alongside other processors in networked architecture\" src=\"attachments/27427262/27427264.png\" data-image-src=\"attachments/27427262/27427264.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427264\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"worddavb30e14046b96f7d33c227f422bfdc6a7.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427262\" data-linked-resource-container-version=\"7\"></span></p></div><div class=\"scroll-title-macro-title\"><strong>Networked Architecture</strong></div></div><h1 id=\"Hardware,SoftwareandOSSecurityRequirements-HostProcessorsec-Host-processor\">Host Processor<span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-sec-Host-processor\"></span></h1><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-ManufacturingandOperationalStates\">Manufacturing and Operational States</h2><p>The host processor and its software shall be <span class=\"inline-comment-marker\" data-ref=\"95a001f1-61df-4836-876c-cd5d8565b005\">delivered</span> in an <em>operational state</em> that implements all the protections below.</p><p>The host processor may be initialized while in a <em>manufacturing state</em> that does not implement all the protections.</p><p>A device may be designed so it can return from the operational state to the manufacturing state. If this functionality is provided, the transition shall wipe all privileged applications from the host processor and all keys from the HSM.&nbsp;The device may allow a user to perform a reset to a manufacturing state without any authentication if the mechanism for a reset guarantees that the user is physically present.</p><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-SecureBoot\">Secure Boot</h2><p>The host processor shall perform integrity checks on boot to ensure that it is in a known good software state. The integrity checks shall require the use of a hardware-protected value such that the integrity cannot be successfully compromised unless the hardware-protected value is modified. Examples of these integrity checks include signing the software such that the verification key is protected by hardware, or storing hashes via the <span class=\"inline-comment-marker\" data-ref=\"328ac600-9413-4df8-8a1a-3501d05aa431\">Platform Configuration Registry (PCR) mechanism of the Trusted Computing Group's (TCG) Trusted Platform Module (TPM).</span><br> The host processor integrity check shall verify the software and firmware configuration of the host processor such that:</p><ul><li>The host processor shall not allow any privileged application to sign until the integrity checks have passed</li><li>If the host processor fails the integrity checks, it shall not grant access for any process to private keys</li><li>If the host processor fails the integrity checks, it shall not allow any privileged application to operate</li></ul><p>The host processor integrity check shall carry out a check that stored root <abbr title=\"Certificate Authority\">CA</abbr> certificates have not been modified since they were last accessed.</p><ul><li>If this integrity check fails, the device shall reject all incoming signed messages that chain back to those root CA certificates as invalid.</li></ul><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-OperatingSystem\">Operating System</h2><p>The host processor operating system shall meet the following requirements (derived from <abbr title=\"Federal Information Processing Standards\">FIPS</abbr> 140-2 section 4.6.1):</p><ul><li>The operating system shall support roles, which are used as specified below. Each privileged application shall map to a <span class=\"inline-comment-marker\" data-ref=\"9364a011-dbcb-4c05-99b8-1cc883f7c6d4\">role</span>.</li><li>The discretionary access control mechanisms of the operating system shall be configured to:<ul><li>Specify the set of roles that has execute permissions on each private key stored within the HSM</li><li>Specify the set of roles that can modify (i.e., write, replace, and delete) programs and plaintext data stored at specific locations within the host processor boundary</li><li>Specify the set of roles that can read data stored within the host processor boundary and what data can be read by those roles</li><li>Specify the set of roles that can <span class=\"inline-comment-marker\" data-ref=\"cf5a385f-fba5-4ac2-8455-4622c03a528f\">enter cryptographic keys</span> (It is permissible for the host to require that all keys are generated on the device and that keys cannot be entered directly)</li></ul></li><li>The OS shall allow the following roles to operate without explicit authentication by a user:<ul><li>Processes that correspond to privileged applications, i.e., applications that are intended to run without user initiation or intervention, and that have execute access to private keys</li><li>Processes that update private key material to the HSM, i.e., to implement the butterfly key process specified within the SCMS documentation</li></ul></li><li>The OS may allow the following roles to operate without explicit authentication or may require authentication:<ul><li>Processes that install new software or firmware if that software or firmware is signed</li><li>Processes that write private key material to the HSM (It is permissible for the host to require that all keys are generated on the device and that keys cannot be entered directly)</li></ul></li><li>The OS may support the following roles and, if it supports them, shall require explicit authentication:<ul><li>Processes that modify or inspect executing processes</li></ul></li><li>The OS shall not allow the following roles to exist:<ul><li>Processes that read private cryptographic key material from the HSM (NOTE: The HSM as well must not provide this <span class=\"inline-comment-marker\" data-ref=\"51cb989b-221c-4e8a-b312-9ffd2fed3a96\">functionality</span>)</li></ul></li></ul><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-SecureUpdates\"><span class=\"inline-comment-marker\" data-ref=\"4b18f662-593e-4283-8ff7-09ecd5906d8c\">Secure Updates</span></h2><p>The host processor shall use the following mechanisms to ensure that its software and firmware can be securely updated:</p><ul><li>The host processor requires that all software installed be signed. When requested to install software, the host processor OS ensures that the software is signed by an authority with appropriate permissions before proceeding with the installation and rejects the installation if the signature or any of the validity checks on the software or its signing certificate fail.<ul><li>If this approach is taken, the integrity of the verification key shall be protected by local hardware, either by directly storing the key in local hardware, or by creating a chain of trust from the key to a hardware-protected key. The hardware protection shall be equivalent to FIPS 140-2 <span class=\"inline-comment-marker\" data-ref=\"c886c0fd-6cf5-42c4-903b-6c3b88b3abbf\">at the level appropriate to the device as a whole</span>.</li></ul></li><li>In addition, the host processor may require that only an authenticated user can install software.</li></ul><p>The update mechanism shall include mechanisms to prevent <span class=\"inline-comment-marker\" data-ref=\"cbd37c8d-f16d-44e3-bfe4-e9b805ac342c\">updates being rolled back.</span></p><h1 id=\"Hardware,SoftwareandOSSecurityRequirements-HSMsec-hsm\">HSM<span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-sec-hsm\"></span></h1><p>The HSM shall meet the requirements for an operating system given in FIPS 140-2 Level <span class=\"inline-comment-marker\" data-ref=\"46521330-8fb0-4c9b-8b29-147a30bfd52c\">2</span> except for the audit requirements and certain additional exceptions. The baseline requirements are the following:</p><ul><li>All cryptographic software and firmware shall be developed and installed in a form that protects the software and firmware source and executable code from unauthorized disclosure and modification</li><li>A cryptographic mechanism using an approved integrity technique (e.g., an approved message authentication code or digital signature algorithm) shall be applied to all cryptographic software and firmware components within the HSM<br><ul><li>The message authentication code may be used in the following circumstances only:<ul><li>If the HSM itself calculates the MAC when the software is installed using a secret key known only to the HSM and uses this secret key to verify the software on boot</li><li>If the software or firmware provider has a unique shared key with each distinct device and uses this to authenticate the software</li></ul></li></ul></li></ul><p>A Message Authentication Code (MAC) may not be used to protect the software unless the MAC key is unique to the HSM.</p><ul><li>All cryptographic software and firmware, cryptographic keys, and control and status information shall be under the control of an operating system that meets the functional requirements specified in the protection <span class=\"inline-comment-marker\" data-ref=\"dbe5754b-7b0d-4a37-99b5-4b9ce714f45c\">profiles listed in </span><span class=\"inline-comment-marker\" data-ref=\"eebf2a88-70c8-4d96-a247-766a72e83d0f\"><span class=\"inline-comment-marker\" data-ref=\"dbe5754b-7b0d-4a37-99b5-4b9ce714f45c\">FIPS 140-2 Annex B</span></span><span class=\"inline-comment-marker\" data-ref=\"dbe5754b-7b0d-4a37-99b5-4b9ce714f45c\"> and is capable of evaluation at the <abbr title=\"Common Criteria\">CC</abbr> evaluation assurance level <abbr title=\"Evaluation Assurance Level\">EAL2</abbr>, or an equivalent trusted operating system</span></li><li>To protect plaintext data, cryptographic software and firmware, cryptographic keys, and authentication data, the discretionary access control mechanisms of the operating system shall be configured to:<ul><li>Specify the set of roles that can execute stored cryptographic software and firmware</li><li>Specify the set of roles that can modify (i.e., write, replace, and delete) the following cryptographic module software or firmware components stored within the cryptographic boundary: cryptographic programs, cryptographic data (e.g., cryptographic keys and audit data), and plaintext data</li><li>Specify the set of roles that can read the following cryptographic software components stored within the cryptographic boundary: cryptographic data (e.g., cryptographic keys and audit data), and plaintext data</li><li>Specify the set of roles that can enter cryptographic keys</li></ul></li><li><p>The discretionary access control mechanisms may allow a role without explicit authorization to create a new cryptographic key by combining an existing key with new input&nbsp;if the device follows the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architectures\">Integrated&nbsp;or Connected Architectures</a>. The discretionary access control mechanisms shall require explicit authorization to create a new cryptographic key by combining an existing key with new input&nbsp;if the device follows the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architectures\">Networked Architecture</a>.</p></li><li><p>The discretionary access control mechanisms may allow a role without explicit authorization to execute stored cryptographic software and firmware if the device follows the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architectures\">Integrated or </a><a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architectures\">Connected Architectures</a>. The discretionary access control mechanisms shall require explicit authorization to execute stored cryptographic software and firmware if the device follows the <a href=\"#Hardware,SoftwareandOSSecurityRequirements-sec-architectures\">Networked Architecture</a>.</p></li><li><p>The discretionary access control mechanisms of the OS may allow automated software and firmware update if that update is carried out by a process that includes cryptographic checks to ensure the validity of the update prior to installation.</p></li><li><p>The operating system shall prevent all operators and executing processes from modifying executing cryptographic processes (i.e., loaded and executing cryptographic program images). In this case, executing processes refer to all non-operating system processes (i.e., operator-initiated), cryptographic or not.</p></li><li><p><span style=\"line-height: 1.42857;\">The operating system shall prevent operators and executing processes from reading cryptographic software stored within the cryptographic boundary.</span></p></li></ul><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-HardwareProtection\">Hardware Protection</h2><p><span class=\"inline-comment-marker\" data-ref=\"6b0f2687-4b13-48b5-9ef4-477d13dc99f0\">A HSM that requires low confidentiality and medium integrity shall store keys in tamper-evident hardware equivalent to FIPS 140-2 level 2.</span></p><p><span class=\"inline-comment-marker\" data-ref=\"6b0f2687-4b13-48b5-9ef4-477d13dc99f0\">A HSM that requires medium confidentiality and medium integrity shall store keys in tamper-evident hardware equivalent to FIPS 140-2 level 3.</span></p><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-RandomNumberGenerator\">Random Number Generator</h2><p>An HSM shall use a random number generator from the list of approved random number generators in <span class=\"inline-comment-marker\" data-ref=\"eec832b3-cf5e-44e1-a948-56d8aaf5fdeb\">FIPS 140-2 Annex C</span><span class=\"inline-comment-marker\" data-ref=\"eec832b3-cf5e-44e1-a948-56d8aaf5fdeb\">.</span></p><h1 id=\"Hardware,SoftwareandOSSecurityRequirements-Architecture-specificRequirementssec-architecture-specific\">Architecture-specific Requirements<span class=\"confluence-anchor-link\" id=\"Hardware,SoftwareandOSSecurityRequirements-sec-architecture-specific\"></span></h1><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-IntegratedArchitecture\">Integrated Architecture</h2><p>An integrated processor has no additional requirements beyond the ones identified above.</p><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-ConnectedArchitectureB\">Connected Architecture</h2><p>A connected processor has no additional requirements beyond the ones identified above.</p><h2 id=\"Hardware,SoftwareandOSSecurityRequirements-NetworkedArchitecture\">Networked Architecture</h2><p>In addition to the requirements identified above, the host processor must authenticate itself to the HSM with an authentication mechanism based in hardware with the same physical security level as the HSM itself.</p>\n                    ",
+  "links": [
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-IntegratedArchitecture",
+      "text": "Integrated architecture",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-ConnectedArchitecture",
+      "text": "Connected architecture",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-NetworkedArchitecture",
+      "text": "Networked architecture",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-host-processor",
+      "text": "host processor",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-hsm",
+      "text": "HSM",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architecture-specific",
+      "text": "architecture-specific requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architectures",
+      "text": "Integrated or Connected Architectures",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architectures",
+      "text": "Networked Architecture",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architectures",
+      "text": "Integrated or",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architectures",
+      "text": "Connected Architectures",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#Hardware,SoftwareandOSSecurityRequirements-sec-architectures",
+      "text": "Networked Architecture",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "OS",
+      "definition": "Operating System"
+    },
+    {
+      "term": "DSRC",
+      "definition": "Dedicated Short-Range Communications"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "FIPS",
+      "definition": "Federal Information Processing Standards"
+    },
+    {
+      "term": "CC",
+      "definition": "Common Criteria"
+    },
+    {
+      "term": "EAL2",
+      "definition": "Evaluation Assurance Level"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427262/27427266.png",
+      "text": "worddav450728f5537040a30338573ef0b60bb0.png"
+    },
+    {
+      "href": "attachments/27427262/27427265.png",
+      "text": "worddav100b5726012afe71f4ff7a4d84d7dcc5.png"
+    },
+    {
+      "href": "attachments/27427262/27427264.png",
+      "text": "worddavb30e14046b96f7d33c227f422bfdc6a7.png"
+    },
+    {
+      "href": "attachments/27427262/27427263.docx",
+      "text": "Memo-on-software-and-OS-security.docx"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.378Z"
+}

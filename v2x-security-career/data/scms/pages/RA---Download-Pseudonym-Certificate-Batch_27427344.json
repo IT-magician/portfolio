@@ -1,0 +1,124 @@
+{
+  "pageId": "RA---Download-Pseudonym-Certificate-Batch_27427344",
+  "fileName": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+  "title": "SCMS CV Pilots Documentation : RA - Download Pseudonym Certificate Batch",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 18, 2017",
+  "content": "\n                    <p><abbr title=\"On Board Equipment\">OBEs</abbr> use this service to download a batch of Pseudonym Certificates for a specific time period.</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><thead><tr><th colspan=\"1\" class=\"confluenceTh\">PORT</th><td colspan=\"1\" class=\"confluenceTd\">8892</td></tr><tr><th class=\"confluenceTh\">PATH</th><td class=\"confluenceTd\">/download/batch</td></tr></thead><tbody><tr><th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> Method</th><td class=\"confluenceTd\">GET</td></tr><tr><th colspan=\"1\" class=\"confluenceTh\">HTTP Request Body</th><td colspan=\"1\" class=\"confluenceTd\">Empty</td></tr><tr><th colspan=\"1\" class=\"confluenceTh\"><p>HTTP Request Headers</p></th><td colspan=\"1\" class=\"confluenceTd\"><p>HTTP Header 'Download-Req' containing a Base64 encoded <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#913\" class=\"external-link\" rel=\"nofollow\"><em>SecuredAuthenticatedDownloadRequest, </em></a>containing a <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#900\" class=\"external-link\" rel=\"nofollow\"><em>SignedAuthenticatedDownloadRequest, </em></a>containing a&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#304\" class=\"external-link\" rel=\"nofollow\"><em>ScopedAuthenticatedDownloadRequest</em>, </a>containing an&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#171\" class=\"external-link\" rel=\"nofollow\"><em>AuthenticatedDownloadRequest</em> </a>with&nbsp;a&nbsp;<em>filename&nbsp;</em>property of the form [0-9A-F]{16}_[0-9A-F]{1,8}.zip, where the first group of 16 hexadecimal digits is the device's request hash obtained from the <a href=\"RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html\">initial provision pseudonym certificate batch request</a>, and the second group of up to 8 hexadecimal digits is the i-value. Example: AB09281C9867DE53_F.zip corresponds to i value 15, for device with request hash AB09281C9867DE53.</p><p><strong>Range (optional) as defined in&nbsp;<a rel=\"nofollow\" class=\"external-link\" href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.2\"><abbr title=\"Request for Comments\">RFC</abbr> 2616</a>:</strong></p><p>To support partial downloads for resuming interrupted transfers. Examples:&nbsp;</p><ol><li>From byte offset 500 to 700: Range : bytes=500-700</li><li>Starting from byte offset 1000 to the end: Range : bytes=1000-</li></ol></td></tr><tr><th class=\"confluenceTh\">HTTP Response Body</th><td class=\"confluenceTd\">If no Range header is present, the entire zip file corresponding to the requested batch. If a Range header is present, the specified bytes of the referenced file.</td></tr></tbody></table></div><h3 id=\"RA-DownloadPseudonymCertificateBatch-Preconditions\">Preconditions</h3><ol><li>The requested batch has already been generated</li><li>The requesting device has not been previously revoked</li></ol><h3 id=\"RA-DownloadPseudonymCertificateBatch-Postconditions\">Postconditions</h3><ol><li>The zip file corresponding to the batch specification in the request <abbr title=\"Uniform Resource Locator\">URL</abbr> is returned.</li><li>The content of the zip file is organized as a flat directory containing&nbsp;<em>n&nbsp;</em>files (where 0 &lt;=&nbsp;<em>n</em>&nbsp;&lt;=&nbsp;<em>j_max</em>&nbsp;- 1) with the naming format:<ol><li><span style=\"line-height: 1.42857;\">X_Y (NOTE: no file extension)&nbsp;</span></li><li><span style=\"line-height: 1.42857;\">Where X is the i-value representing the SCMS I period in which the certificate is valid in hexadecimal</span></li><li><span style=\"line-height: 1.42857;\">Where Y is a sequence of \"j\" values from j = 0 to j = j_max-1&nbsp;in hexadecimal</span></li><li>Example zip file contents for period i=55, j = 20:<ol><li>&nbsp;37_0</li><li>&nbsp;37_1</li><li>...</li><li>37_12</li><li><span style=\"line-height: 20.0px;\">37_13</span></li></ol></li><li><span style=\"line-height: 20.0px;\">The contents of each individual file within the .zip is a binary <abbr title=\"Octet Encoding Rules\">OER</abbr> encoding of the appropriate <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/pca-ra.asn?at=refs%252Fheads%252Frelease%252F1.2.1#197\" class=\"external-link\" rel=\"nofollow\">SignedEncryptedCertificateResponse</a>.<br></span></li></ol></li></ol><h3 id=\"RA-DownloadPseudonymCertificateBatch-ErrorHandling\">Error Handling</h3><p>See \"RA-EE Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p><h3 id=\"RA-DownloadPseudonymCertificateBatch-QualityofService\">Quality of Service</h3><p>Estimated values are per logical unit, meaning multiple individual nodes can contribute to achieve the desired level of service. The number of files downloaded in a year is a function of the number of years in service:</p><p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" width=\"600\" src=\"attachments/27427344/27427345.png\" alt=\"A function to estimate  the total number of files downloaded in a given year based on the number of years the service has been provided\" data-image-src=\"attachments/27427344/27427345.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427345\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image2016-1-26 13:5:41.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427344\" data-linked-resource-container-version=\"10\"></span></p><p>which assumes 17 million vehicles are added each year.</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col><col><col><col><col></colgroup><thead><tr><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">Quality Metric</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">Rationale</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">1 Year</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">3 Years</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">5 Years</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">10 Years</div></th></tr></thead><tbody><tr><td class=\"confluenceTd\">Throughput</td><td colspan=\"1\" class=\"confluenceTd\"><p>Assuming 17 million new vehicles downloading the initial three years' worth of certificates (156 files) plus old cars downloading one year's worth of certificates (52 files).</p></td><td colspan=\"1\" class=\"confluenceTd\"><p>With no previous year vehicles:</p><p style=\"margin-left: 30.0px;\">17m x 52 weeks * 3 years = 2,652 million files</p><p>Divided by the number of seconds in a year:</p><p>2,652 million files /&nbsp;<span class=\"ya-q-full-text\">31,557,600 </span>seconds =&nbsp;<strong>85 files per second</strong></p></td><td colspan=\"1\" class=\"confluenceTd\"><p>With and two years' worth of old vehicles (34 million):</p><p style=\"margin-left: 30.0px;\">17m (new) + 34m (old)&nbsp;</p><p>Old cars only download one year's worth of certificates (52 files) while new cars download three years' worth of certificates (156 files) so:</p><p style=\"margin-left: 30.0px;\">(17m * 156 files) + (34m * 52 files) = 2,652 million files + 1,768 million files = 4,420 million files</p><p>Divided by the number of seconds in a year:</p><p>4,420 million files /<span class=\"ya-q-full-text\">31,557,600 </span>seconds =<strong>&nbsp;~141 files per second</strong></p></td><td colspan=\"1\" class=\"confluenceTd\"><p>With four years' worth of old vehicles (68 million):</p><p style=\"margin-left: 30.0px;\">17m (new) + 68m (old)&nbsp;</p><p>Old cars only download one year's worth of certificates (52 files) while new cars download three years' worth of certificates (156 files) so:</p><p style=\"margin-left: 30.0px;\">(17m * 156 files) + (68m * 52 files) = 2,652 million files + 3,536 million files = 6,188 million files</p><p>Divided by the number of seconds in a year:</p><p>6,188&nbsp;million files /<span class=\"ya-q-full-text\">31,557,600 </span>seconds =<strong>&nbsp;~197 files per second</strong></p></td><td colspan=\"1\" class=\"confluenceTd\"><p>At the end of the first 10 years, there will be a total of 170 million cars in the system out of which, 153 million will be old vehicles:&nbsp;</p><p style=\"margin-left: 30.0px;\">17m (new) + 153m (old)</p><p>The new cars will be downloading three years' worth of certificates (156 weeks), while the rest of the vehicles will be topping up only (52 weeks). Since each file contains one week's worth of certificates, we can express this in number of files:</p><p style=\"margin-left: 30.0px;\">(17m x 156 files) + (153m x 52 files) = (2,652mf + 7,956mf) = 10,608 million files</p><p>Divided by the number of seconds in a year:</p><p style=\"margin-left: 30.0px;\">15,028 million files /&nbsp;<span class=\"ya-q-full-text\">31,557,600 </span>seconds =&nbsp;<strong>~337 files per second</strong></p></td></tr></tbody></table></div><h3 id=\"RA-DownloadPseudonymCertificateBatch-QualityofProtection\">Quality of Protection</h3><ul><li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li><li>Supports at a minimum OpenSSL cipher suite ECDHE-ECDSA-AES128-SHA256</li><li>Uses certificate-based client authentication of data signed by the device enrollment certificate, validated at the application layer. This is a supplement to the one-way TLS authentication, to provide two-way authentication with a TLS/1609.2 hybrid scheme.</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#913",
+      "text": "SecuredAuthenticatedDownloadRequest,",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#900",
+      "text": "SignedAuthenticatedDownloadRequest,",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#304",
+      "text": "ScopedAuthenticatedDownloadRequest,",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#171",
+      "text": "AuthenticatedDownloadRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+      "text": "initial provision pseudonym certificate batch request",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.2",
+      "text": "RFC 2616",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/pca-ra.asn?at=refs%252Fheads%252Frelease%252F1.2.1#197",
+      "text": "SignedEncryptedCertificateResponse",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "OBEs",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "RFC",
+      "definition": "Request for Comments"
+    },
+    {
+      "term": "URL",
+      "definition": "Uniform Resource Locator"
+    },
+    {
+      "term": "OER",
+      "definition": "Octet Encoding Rules"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427344/27427346.png",
+      "text": "worddavdde4b4fb8ec42cae66d323d84d978f8a.png"
+    },
+    {
+      "href": "attachments/27427344/27427345.png",
+      "text": "image2016-1-26 13:5:41.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.585Z"
+}

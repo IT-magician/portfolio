@@ -1,0 +1,83 @@
+{
+  "pageId": "27427309",
+  "fileName": "27427309.html",
+  "title": "SCMS CV Pilots Documentation : Use Case 18: Provide and Enforce Technical Policies",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Jan 02, 2018",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"UseCase18:ProvideandEnforceTechnicalPolicies-Goals\">Goals</h2><ul><li>Provide mechanisms to create an SCMS manager configuration policy</li><li>Provide mechanisms to create policy settings and then distribute those policy settings to all SCMS components and <abbr title=\"End Entities\">EEs</abbr></li><li>Provide mechanisms for individual SCMS operators to define and distribute local policies to EEs</li><li>Provide mechanisms to distribute <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 certificates to SCMS components and EEs</li></ul><h2 id=\"UseCase18:ProvideandEnforceTechnicalPolicies-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The SCMS manager needs to set up a list of <span class=\"inline-comment-marker\" data-ref=\"2fd8a893-3235-4c43-b98c-562a1304de02\">SCMS manager, technical, configuration choices and, therefore</span>, will design technical, global policy files&nbsp;that are signed by the policy generator. The policy generator is an inherently centralized component.&nbsp;</p><p><span class=\"inline-comment-marker\" data-ref=\"c83d5efe-c8c6-4f08-8a64-2a0103b7644e\">There are local policy files affecting configurations for various SCMS components, as well as local policy files specifically for EEs. These local policy files may be signed by the appropriate SCMS component or secured through proprietary means approved by the SCMS manager. The global and local policy configuration options are displayed in&nbsp;<a href=\"27427310.html\">Step 18.1: Policy Configuration Options</a>.</span></p><p><span class=\"inline-comment-marker\" data-ref=\"c83d5efe-c8c6-4f08-8a64-2a0103b7644e\">Any changes in technical&nbsp;global policies will result in an updated global policy file. Global policies are categorized based on if they are relevant to EEs or non-relevant to EEs. &nbsp;All EE relevant policies are compiled and signed by the Policy Generator (PG). &nbsp;Non-EE relevant policies are then appended and the entire policy file is signed again. &nbsp;This structure allows global limits (signed by the central PG) to be securely communicated to EEs while allowing individual <abbr title=\"Registration Authority\">RAs</abbr> to assign customized values. This is described in&nbsp;<span class=\"confluence-link\"><a href=\"27427312.html\">Step 18.3: Generate Global Policy file</a></span>.</span></p><p><span class=\"inline-comment-marker\" data-ref=\"c83d5efe-c8c6-4f08-8a64-2a0103b7644e\">The local policy file is constructed by combining the complete, signed EE relevant section of the global policy file and RA specific custom policy values and/or local policies. &nbsp;Any of these changes in the technical policies, which directly affect the EEs operating under the jurisdiction of a particular RA, may also result in an updated local policy file. &nbsp;Changes to customized global policies or locally defined policies may also result in an updated local policy file. &nbsp;The local policy file is then signed by the RA.&nbsp; The EEs being operated by that RA should then download that RA's specific, updated, local policy file whenever the EE next communicates with the SCMS. &nbsp;</span>This is described in&nbsp;<a href=\"27427311.html\">Step 18.2: Generate Local Policies for EEs</a>.</p><p>There are also&nbsp;global certificate chain files, each version of which&nbsp;contains a copy of all SCMS component certificates. When any of these certificate chains change due to additions, revocations, and other revisions, the PG generates a new version of this file and distributes it to other SCMS components. In addition, each RA will create a local certificate chain file&nbsp;that contains (at a minimum) all of the <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr> certificate chains that are used to issue pseudonym certificates for the EEs&nbsp;under that RAs authority. These are described in <a href=\"41353502.html\">Step 18.5: Generate Global and Local Chain File</a>.</p><h2 id=\"UseCase18:ProvideandEnforceTechnicalPolicies-Assumptions\">Assumptions</h2><ul><li>The SCMS manager develops and documents global policies</li><li>Technical global policies may include acceptable ranges within which technical local policy options may be set</li></ul><h2 id=\"UseCase18:ProvideandEnforceTechnicalPolicies-Design\">Design</h2><p>There are three types of policies:</p><ul><li>Global policies<ul><li>Are mandatory policies that are defined by the SCMS Manager and their values set by the SCMS Manager</li><li>The values can be a single value, a list or a range</li><li>Global policies are further categorized as EE relevant and non-EE (or component) relevant</li><li>Are signed by the PG</li></ul></li><li>Custom policies<ul><li>Are global polices where a specific RA has modified the values</li><li>Only global policies that are list or range types my have custom values</li><li>The custom values can be single values, a list or a range</li><li>All custom values must be within the limits defined by the global values</li><li>Are signed by an RA</li></ul></li><li>Local policies<ul><li>Are operator-specific and not defined by the SCMS manager</li><li>Local policies shall not override or be substituted for policies/limits defined by the SCMS manager</li><li>Are signed by an RA</li></ul></li></ul><p>There are two types of certificate chain files</p><ul><li>Global certificate chain file<ul><li>Contains IEEE 1609.2 certificates of all SCMS components</li><li>Contains elector endorsements</li><li>Contains root <abbr title=\"Certificate Authority\">CA</abbr> endorsements</li></ul></li><li>Local certificate file<ul><li>Contains all IEEE 1609.2 certificates that are required by a specific EE(s) to validate certificates issued to the EE</li><li>Contains elector endorsements</li><li>Contains root CA endorsements</li><li>Optionally, contains other SCMS component IEEE 1609.2 certificates that may be useful to the EE (to validate messages from other EEs)</li></ul></li></ul><ul class=\"alternate\"><li><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">There is a global PG which is operated by the SCMS manager</span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">PG's certificate is signed by the top-level certificate (top-level <abbr title=\"Intermediate Certificate Authority\">ICA</abbr>, if available, and root CA otherwise)</span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">PG signs the technical global policy files using its complete security chain</span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"974d044e-eee2-466b-a512-0c116431f36a\"><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">The technical global policy files are mandatory sets of policies applicable to SCMS components and EEs</span></span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"974d044e-eee2-466b-a512-0c116431f36a\"><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">A repository includes technical global policies for all the different SCMS components and EEs</span></span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"974d044e-eee2-466b-a512-0c116431f36a\"><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">PG creates a technical global policy file containing global technical&nbsp;policies that are applicable to RAs and EEs and provides this file to all RAs</span></span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"974d044e-eee2-466b-a512-0c116431f36a\"><span><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">The respective RA conveys local policies, which are pertinent to EEs, and to the EEs through local policy files constructed by each RA</span></span></span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">For the PoC, the technical global policy files can be transferred manually</span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"3ece3a48-3618-475b-a22a-f8b98e1e6138\"><span class=\"inline-comment-marker\" data-ref=\"783e4c6e-33f1-498e-90d6-8651ce7d4043\">PG creates a Global Certificate Chain File (GCCF) containing all certificate chains of the overall SCMS and provides this file to all RAs</span><br></span></li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "27427310.html",
+      "text": "Step 18.1: Policy Configuration Options",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427312.html",
+      "text": "Step 18.3: Generate Global Policy file",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427311.html",
+      "text": "Step 18.2: Generate Local Policies for EEs",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353502.html",
+      "text": "Step 18.5: Generate Global and Local Chain File",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.407Z"
+}

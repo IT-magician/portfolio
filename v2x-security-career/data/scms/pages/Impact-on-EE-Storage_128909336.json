@@ -1,0 +1,67 @@
+{
+  "pageId": "Impact-on-EE-Storage_128909336",
+  "fileName": "Impact-on-EE-Storage_128909336.html",
+  "title": "SCMS CV\n                        Pilots Documentation : Impact on EE Storage",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Elector-based Root\n                                    Management",
+      "href": "Elector-based-Root-Management_27427051.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 20, 2018",
+  "content": "\n                    <p>The implementation of the elector scheme will affect how EE storage is used.</p>\n                    <ol>\n                        <li>An EE must be able to store securely a number of elector <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 self-signed\n                            certificates. In the <abbr title=\"Proof of Concept\">PoC</abbr>, three electors will be\n                            operational. Storage for four\n                            electors and\n                            elector endorsements must be available. In deployment, perhaps nine will be operational, and\n                            storage for ten is assumed.</li>\n                        <li>An EE must be able to store securely a number of Root <abbr title=\"Certificate Authority\">CA</abbr> self-signed\n                            certificates. In the\n                            PoC, there will be at most two (to allow for testing of Root replacement). In deployment,\n                            storage for ten is assumed. If the EE will check the votes&nbsp;on these Root CA self-signed\n                            certificates each time, then these need not be stored in the secure trust store.</li>\n                        <li>EEs must have secure software used to update the trust store through the correct processing\n                            of ballots. This also involves protection for basic parameters under which votes&nbsp;are acted\n                            upon, the <em>quorum</em>, which is an assumed number less than ten.</li>\n                    </ol>\n                    <p>Note that all EEs (and other SCMS components) must have a secure method for storing and\n                        recovering Root CA certificates. Developers of EE hardware and software may choose from a\n                        variety of methods for managing secure storage, but their chosen approach must be approved\n                        through an EE certification process. To demonstrate some of the various options that are\n                        available, three methods are suggested and described in the following diagram:</p>\n                    <ul>\n                        <li>Suggestion 1: Store the Root CA certificate directly in tamper-evident storage. This\n                            approach allows the EE to quickly access the Root CA certificate with no further validation\n                            (EE must validate it only once before it is placed in secure storage).</li>\n                        <li>Suggestion 2: The EE may store the endorsement message signed by the electors in secure\n                            storage to support peer-to-peer certificate learning of root CA certificates.</li>\n                        <li>Suggestion 3: The EE may validate the root CA certificate once and then store a hash of the\n                            certificate in tamper evident storage. Note that this is effectively the same as Suggestion\n                            2 since the endorsement itself will contain a hash of the root CA certificate, but the EE\n                            may choose to use a different hashing algorithm to optimize for speed or to reduce storage.\n                        </li>\n                    </ul>\n                    <p><br></p>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"ImpactonEEStorage-StorageRequirements\"></span>\n                        <div class=\"scroll-title-body\">\n                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Endorsement Structure with Levels and EE Storage\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909336/128909337.jpg\" data-image-src=\"attachments/128909336/128909337.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909337\" data-linked-resource-version=\"2\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Endorsement Structure + EE.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909336\" data-linked-resource-container-version=\"1\"></span></p>\n                        </div>\n                        <div class=\"scroll-title-macro-title\"><strong>EE Storage Requirements</strong></div>\n                    </div>\n                ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/128909336/128909338.jpg",
+      "text": "Endorsement Structure + EE.jpg"
+    },
+    {
+      "href": "attachments/128909336/128909337.jpg",
+      "text": "Endorsement Structure + EE.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.554Z"
+}

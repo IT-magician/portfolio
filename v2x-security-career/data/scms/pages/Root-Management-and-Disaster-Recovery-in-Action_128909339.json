@@ -1,0 +1,99 @@
+{
+  "pageId": "Root-Management-and-Disaster-Recovery-in-Action_128909339",
+  "fileName": "Root-Management-and-Disaster-Recovery-in-Action_128909339.html",
+  "title": "SCMS CV Pilots Documentation : Root Management and Disaster Recovery in Action",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Elector-based Root Management",
+      "href": "Elector-based-Root-Management_27427051.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 20, 2018",
+  "content": "\n                    <p>This section aims to show root management and disaster recovery in action. As a result, the revocation and replacement of an elector is described below:</p><ul><li>Day 1: Typical SCMS Operations</li><li>Day 2: Revoking an Elector</li><li>Day 3: SCMS Operating with 2 Electors Only</li><li>Day 4: Replacing a Elector</li><li>Day 5: SCMS Returning to Typical Operation</li></ul><p>The diagrams given below (and in sections above) are high-level summaries only, and do not contain all requirements for the SCMS components or the <abbr title=\"End Entities\">EEs</abbr>.</p><p><strong>Day 1</strong>:&nbsp;Typical SCMS Operations</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction-\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909349.jpg\" alt=\"Diagram of the relationship between electors and various Certificate Authorities\" data-image-src=\"attachments/128909339/128909349.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909349\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 1 - Typical Condition.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 1: Typical SCMS Operations</strong></div></div><p class=\"auto-cursor-target\"><strong>Day 2</strong>: Revoking an Elector</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction2\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909348.jpg\" alt=\"Diagram of Elector A certificate revocation\" data-image-src=\"attachments/128909339/128909348.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909348\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 2 - Revoke Level 0.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 2: Revoking an Elector</strong></div></div><p class=\"auto-cursor-target\">At Day 2, an elector has been revoked by votes from <em>m</em>&nbsp;electors (here <em>m</em>=2). These votes are included in the <abbr title=\"Certificate Revocation List\">CRL</abbr>. The CRL is distributed to all SCMS components and EEs. The SCMS is still operational.</p><p><strong>Day 3</strong>: SCMS operating with two electors only</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction3\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909347.jpg\" alt=\"Diagram of the SCMS still working without the revoked elector\" data-image-src=\"attachments/128909339/128909347.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909347\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 3 - 2 components only Level 0.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 3: SCMS Operating with Two Electors Only</strong></div></div><p class=\"auto-cursor-target\">In Day 3, the SCMS is operational with only two, non-revoked electors. Pseudonym certificates continue to validate and EEs to operate.</p><p><strong>Day 4</strong>: Replacing an Elector</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction4\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909346.jpg\" alt=\"Diagram with the new elector D added to the SCMS through voting by remaining trusted electors\" data-image-src=\"attachments/128909339/128909346.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909346\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 4 - Replacement Level 0.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 4: Replacing an Elector</strong></div></div><p>In Day 4, the SCMS Manager introduces a new elector through votes endorsing the new elector obtained from the two, remaining, non-revoked electors. Existing devices that do not recognize the new elector continue to operate. The SCMS Manager adds a new elector through a <em>Ballot</em> inserted into the Global Certificate Chain File (GCCF), which it then provides through the Policy Generator to <abbr title=\"Registration Authorities\">RAs</abbr>. The root management message includes votes from the electors, which the SCMS components and EEs will need to validated before performing the root management operation (adding the elector to the trust store). The SCMS Manager provides a new vote from the new elector for the existing root <abbr title=\"Certificate Authority\">CA</abbr> certificate and adds it to the GCCF as well. Even with the addition of the new elector,<span>&nbsp;pseudonym certificates continue to validate and EEs to operate.</span></p><p><strong>Day 5</strong>: SCMS Returning to Typical Operation</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction5\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909345.jpg\" alt=\"Diagram of the SCMS back in a steady state after the new elector D has been added\" data-image-src=\"attachments/128909339/128909345.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909345\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 5 - Steady State Level 0.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 5: SCMS Returning to Typical Operation</strong></div></div><p>In Day 5, the SCMS has been returned to an equivalent of the Initial State of Day 1 with a replacement elector.</p><p>&nbsp;</p><p>The following describes the revocation and replacement of a root CA certificate:</p><ul><li>Day 1: Typical SCMS operations</li><li>Day 2: Standing up a new root CA certificate</li><li>Day 3: Putting the SCMS backend trust relationships in place for the new root CA certificate</li><li>Day 4: Revoking the existing and adding the new root CA certificate</li><li>Day 5: Revoked root CA certificate, system non-functional</li><li>Day 6: System functionality restored</li></ul><p><strong>Day 1</strong>: Typical SCMS operations</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction6\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909349.jpg\" alt=\"Diagram of normal SCMS operations and relationships\" data-image-src=\"attachments/128909339/128909349.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909349\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 1 - Typical Condition.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 1: Typical SCMS Operations</strong></div></div><p class=\"auto-cursor-target\"><strong>Day 2</strong>: Standing up a new root CA certificate</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction7\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909344.jpg\" alt=\"Diagram of new root CA being created and approved but not yet used by the SCMS\" data-image-src=\"attachments/128909339/128909344.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909344\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 2 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 2: Standing Up a New Root CA Certificate</strong></div></div><p class=\"auto-cursor-target\">In Day 2, the new root CA certificate is established and endorsed but is not used by the SCMS.</p><p><strong>Day 3</strong>: Putting the SCMS backend trust relationships in place for the new root CA certificate</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction8\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909343.jpg\" alt=\"Diagram, of new certificates being created for SCMS components so the new Root CA can be introduced and replace the original root CA.\" data-image-src=\"attachments/128909339/128909343.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909343\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 3 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 3: Putting the SCMS Backend Trust Relationships in Place for the New Root CA Certificate</strong></div></div><p>On Day 3, all of the background tasks of generating new certificates for SCMS components is performed, but these are not made active. The new root management operation, \"Add Root CA,\" is distributed to all the authorized operators to prepare them for distribution.</p><p><strong>Day 4</strong>: Revoking the existing and adding the new root CA certificate</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction10\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909342.jpg\" alt=\"Diagram of the original root CA being revoked and replaced with the new root CA. The new root CA is sent to all of the SCMS components\" data-image-src=\"attachments/128909339/128909342.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909342\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 4 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 4: Revoking the Existing and Adding the New Root CA Certificate</strong></div></div><p>On Day 4, the old root CA is revoked and the new root CA is added simultaneously to all SCMS components (not EEs). The EEs only receive the revoke message.&nbsp;<span>The GCCF needs to be reset with the new trust structure, which was created on Day 3.&nbsp;<span>All the SCMS components start using the certificates, which chain to the new root CA certificate.&nbsp;</span></span></p><p><strong>Day 5</strong>:&nbsp;Revoked root CA certificate, system non-functional</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction11\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909341.jpg\" alt=\"Diagram showing that the SCMS is not finctional after the root CA is revoked since the pseudonym and enrollment certificates need to be replaced and the CRL needs to be reset\" data-image-src=\"attachments/128909339/128909341.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909341\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 5 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 5: Revoked Root CA, System Non-Functional</strong></div></div><p>On Day 5, all of the existing pseudonym and enrollment certificates are no longer valid. This means that from an EE point of view, the SCMS is not functioning. <span>The CRL also needs to be reset: any certificate without linkage values can be removed. </span><span>The handling of the linkage values on the CRL will depend on if the linkage values are continued. Those that are continued will need to remain on the CRL.</span></p><p><strong>Day 6</strong>: System functionality restored</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RootManagementandDisasterRecoveryinAction12\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/128909339/128909340.jpg\" alt=\"Diagram showing the EEs receiving new enrollment certificates to restore functionality to the SCMS\" data-image-src=\"attachments/128909339/128909340.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909340\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 6 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"128909339\" data-linked-resource-container-version=\"1\"></span></div><div class=\"scroll-title-macro-title\"><strong>Day 6: System Functionality Restored</strong></div></div><p>On Day 6, the authorized operators will issue new enrollment certificates to the EEs. All EE certificates, including pseudonym certificates, are generated. The EEs require new enrollment certificates to authenticate themselves to their RA. The SCMS does not yet specify the mechanism used to provide new enrollment certificates to EEs; a later release will support this. Once an EE receives its new enrollment certificate, it can download the policy file, the GCCF, and new pseudonym Certificates. The EEs now become operational again.</p>\n                    ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authorities"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/128909339/128909349.jpg",
+      "text": "Day 1 - Typical Condition.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909348.jpg",
+      "text": "Day 2 - Revoke Level 0.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909347.jpg",
+      "text": "Day 3 - 2 components only Level 0.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909346.jpg",
+      "text": "Day 4 - Replacement Level 0.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909345.jpg",
+      "text": "Day 5 - Steady State Level 0.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909344.jpg",
+      "text": "Day 2 - Level 1.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909343.jpg",
+      "text": "Day 3 - Level 1.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909342.jpg",
+      "text": "Day 4 - Level 1.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909341.jpg",
+      "text": "Day 5 - Level 1.jpg"
+    },
+    {
+      "href": "attachments/128909339/128909340.jpg",
+      "text": "Day 6 - Level 1.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.595Z"
+}

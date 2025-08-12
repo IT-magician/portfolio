@@ -1,0 +1,81 @@
+{
+  "pageId": "27427307",
+  "fileName": "27427307.html",
+  "title": "SCMS CV Pilots Documentation : Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 09, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><p><span class=\"inline-comment-marker\" data-ref=\"ae1ceec4-837c-4afa-94cf-86e2f8f0c39d\"><br></span></p><div class=\"confluence-information-macro confluence-information-macro-information\"><span class=\"aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon\"></span><div class=\"confluence-information-macro-body\"><p><span class=\"inline-comment-marker\" data-ref=\"23942a44-4f78-49cc-a47f-03583599347a\">RSE Application and OBE Identification certificate revocation will be integrated with the to-be-awarded \"Misbehavior Authority Integration\" Project as SCMS <abbr title=\"Proof-Of-Concept\">POC</abbr> release 2.0</span>.</p></div></div><h2 id=\"UseCase16:RSEApplicationandOBEIdentificationCertificateRevocation-BackgroundandStrategicFit\"><span class=\"inline-comment-marker\" data-ref=\"fc66c04d-2c0b-4293-b2b0-5ebf45a4b130\">Background and Strategic Fit</span></h2><h3 id=\"UseCase16:RSEApplicationandOBEIdentificationCertificateRevocation-MisbehaviorInvestigation\">Misbehavior Investigation</h3><p><span class=\"inline-comment-marker\" data-ref=\"b1a2cc32-e13b-428d-9773-52b6cb6d1d43\">Misbehavior investigation</span> works as follows for RSE application certificates and OBE identification certificates (non-pseudonymous certificates without linkage values). Misbehavior investigation is further described in&nbsp;<a class=\"unresolved\" href=\"#\">16.2. RSE Application and OBE Identification Certificate Misbehavior Investigation</a>.&nbsp;</p><p>Since <abbr title=\"Misbehavior Authority\">MA</abbr> can link certificates based on the revocation identifier field (RIF), MA now inputs the information to its&nbsp;<span class=\"inline-comment-marker\" data-ref=\"b45ef52e-493e-41b2-a789-46c6fd7d7a77\">global misbehavior detection algorithm</span>. Note that misbehavior reports involving these types of certificates can be identified and directed (within the MA) to particular misbehavior investigation algorithms, based upon the <abbr title=\"Provider Service Identifier\">PSIDs</abbr> associated with the certificate information included in the misbehavior reports.&nbsp;Note that the considered certificates are not covered by pseudonymous considerations, such that providing the digest of the enrollment certificate does not pose a privacy concern.&nbsp;</p><h3 id=\"UseCase16:RSEApplicationandOBEIdentificationCertificateRevocation-Revocation\">Revocation</h3><p>Revocation works as follows for the RSE application certificates and OBE identification certificates (non-pseudonymous certificates without linkage values). Revocation is further described in&nbsp;<a class=\"unresolved\" href=\"#\">16.3. RSE Application and OBE Identification Certificate Revocation (<abbr title=\"Certificate Revocation List\">CRL</abbr>, blacklist)</a>.</p><ol><li>MA-<abbr title=\"Registration Authority\">RA</abbr>:<br><ol><li>Using the RIF, the MA instructs the RA to add the enrollment certificate to the blacklist. Further, the MA requests a list of further valid certificates that were issued to the same enrollment certificate (e.g., all non-expired predecessors or successors).</li><li>RA adds enrollment certificate to internal blacklist</li><li><span class=\"inline-comment-marker\" data-ref=\"78ca3347-d2c5-43b1-827a-b80c677afe5f\">RA returns a list of all non-expired certificates that were issued to the identified enrollment certificate</span></li></ol></li><li>The MA adds CertIDs (e.g., CertID8) of all non-expired certificates to the CRL</li></ol><p>Note that&nbsp;revocation will be performed for all PSIDs in the reported certificate. Therefore, the CRL does not have to specify PSIDs. Further, certificates will carry all PSIDs associated with the enrollment certificate that was used to request those certificates. This implies that blacklists are not PSID-specific either.</p><h2 id=\"UseCase16:RSEApplicationandOBEIdentificationCertificateRevocation-Assumptions\">Assumptions&nbsp;</h2><p>Non-pseudonymous certificate types - OBE identification certificates and&nbsp;RSE application certificates&nbsp;- integrate an 8-byte revocation identifier field (RIF) that is calculated as follows:&nbsp;</p><ul><li>[LSB0-7] of RIF:&nbsp;the eight least significant bytes [LSB0-7]&nbsp;of the SHA-256 hash of the <abbr title=\"End Entity\">EE</abbr>'s enrollment certificate, i.e.,&nbsp;RIF_[LSB0]&nbsp;= hash_of_enrollment_cert[LSB0],&nbsp;RIF_[LSB7]&nbsp;= hash_of_enrollment_cert[LSB7], etc.</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "16.2. RSE Application and OBE Identification Certificate Misbehavior Investigation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "16.3. RSE Application and OBE Identification Certificate Revocation (CRL, blacklist)",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "RSE",
+      "definition": "Road-side Equipment"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof-Of-Concept"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "PSIDs",
+      "definition": "Provider Service Identifier"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.403Z"
+}

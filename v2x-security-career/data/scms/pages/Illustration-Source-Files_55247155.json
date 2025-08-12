@@ -1,0 +1,288 @@
+{
+  "pageId": "Illustration-Source-Files_55247155",
+  "fileName": "Illustration-Source-Files_55247155.html",
+  "title": "SCMS CV Pilots Documentation : Illustration Source Files",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    }
+  ],
+  "metadata": "Last modified on Mar 15, 2017",
+  "content": "\n                    <h2 id=\"IllustrationSourceFiles-SupportingDocuments\">Supporting Documents</h2>\n                    <div class=\"table-wrap\">\n                        <table class=\"wrapped confluenceTable\">\n                            <colgroup>\n                                <col>\n                                <col>\n                                <col>\n                                <col>\n                                <col>\n                            </colgroup>\n                            <tbody>\n                                <tr>\n                                    <th class=\"confluenceTh\">Description</th>\n                                    <th class=\"confluenceTh\">Author(s)</th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">Format</th>\n                                    <th class=\"confluenceTh\">Native File(s)</th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">Images(s), may not include every page of native\n                                        document\n                                    </th>\n                                </tr>\n                                <tr>\n                                    <td class=\"confluenceTd\">High level SCMS overview</td>\n                                    <td class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td class=\"confluenceTd\"><a class=\"unresolved\" href=\"#\">SCMS Overview v2.vsdx</a>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"High level SCMS overview\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" height=\"150\" src=\"attachments/55247155/55247156.jpg\" data-image-src=\"attachments/55247155/55247156.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247156\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"SCMS Overview v0.3.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td class=\"confluenceTd\">Global &amp; local policy files</td>\n                                    <td class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td class=\"confluenceTd\"><a class=\"unresolved\" href=\"#\">GCCF-<abbr title=\"Local Certificate Chain File\">LCCF</abbr>.vsdx</a></td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Global and local policy files\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247172.jpg\" data-image-src=\"attachments/55247155/55247172.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247172\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"GCCF-LCCF Conversion.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Global and local policy files relationship\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247171.jpg\" data-image-src=\"attachments/55247155/55247171.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247171\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"GCCF-LCCF.html\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Description of general <abbr title=\"End Entity\">EE</abbr>-SCMS communicions.\n                                        Includes\n                                        overview, <abbr title=\"Transport Layer Security\">TLS</abbr> &amp; high level\n                                        network communication flow</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><a class=\"unresolved\" href=\"#\">TLS\n                                            concepts.vsdx</a></td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">&nbsp;</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Chain of trust information as of 9/1/2016\n                                        project milestone\n                                        (NOT latest)</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p><a class=\"unresolved\" href=\"#\">Trust Chain Concepts - 9-1 milestone.vsd</a>\n                                        </p>\n                                        <p><a class=\"unresolved\" href=\"#\">Trust Chain Concepts - 9-2 revisions.vsd</a>\n                                        </p>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Endorsement Method - Concept\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247162.jpg\" data-image-src=\"attachments/55247155/55247162.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247162\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Endorsement Method - Concept.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Endorsement Structure + EE\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247161.jpg\" data-image-src=\"attachments/55247155/55247161.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247161\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Endorsement Structure + EE.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Endorsement Structure\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247160.jpg\" data-image-src=\"attachments/55247155/55247160.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247160\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Endorsement Structure.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Std PKI Structure\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247159.jpg\" data-image-src=\"attachments/55247155/55247159.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247159\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Std PKI Struructure.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Auth Levels version 2\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247158.jpg\" data-image-src=\"attachments/55247155/55247158.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247158\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Auth Levels v2.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><span>Chain of trust information, working\n                                            version. Includes\n                                            \"day\" scenarios for adding/revoking components</span></td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><a class=\"unresolved\" href=\"#\">Trust Chain\n                                            Concepts.vsd</a>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">&nbsp;</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">High level description of root &amp; elector\n                                        models</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                                Motz</a></div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><a class=\"unresolved\" href=\"#\">Root <abbr title=\"Certificate Authority\">CA</abbr>\n                                            Management.vsd</a>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">&nbsp;</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Diagrams for the updated SCMS paper</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                            Motz</a></td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"unresolved\" href=\"#\">vscs_scms_design_diagrams.vsdx</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate Request Shuffling diagram\" class=\"confluence-embedded-image confluence-thumbnail\" width=\"100\" src=\"attachments/55247155/55247157.png\" data-image-src=\"attachments/55247155/55247157.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247157\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate Request Shuffling.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Network diagrams of <abbr title=\"Crash Avoidance Metrics Partners LLC\">CAMP</abbr>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger Motz</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"unresolved\" href=\"#\">CAMP-SCMS Network v1.vsdx</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"CAMP Firewall diagram\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247175.jpg\" data-image-src=\"attachments/55247155/55247175.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247175\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"CAMP Firewall Enhanced.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"CAMP-SCMS Network Optional diagram\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247174.jpg\" data-image-src=\"attachments/55247155/55247174.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247174\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"CAMP-SCMS Network Optional.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Diagram of CAMP-SCMS Network As-Is\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247173.jpg\" data-image-src=\"attachments/55247155/55247173.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247173\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"CAMP-SCMS Network As-Is.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Certificate lifetime diagrams for EE enrollment\n                                        rollover\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger Motz</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"unresolved\" href=\"#\">Certificate Expiration and\n                                                    Overlap.EE.vsdx</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate stackup for EE Rollover\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247170.png\" data-image-src=\"attachments/55247155/55247170.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247170\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate stackup.EE Rollover.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate Expiration and Overlap for EE All\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"309\" width=\"100\" src=\"attachments/55247155/55247169.png\" data-image-src=\"attachments/55247155/55247169.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247169\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate Expiration and Overlap.EE All.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate Expiration and Overlap for EE Details\" class=\"confluence-embedded-image confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247168.png\" data-image-src=\"attachments/55247155/55247168.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247168\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate Expiration and Overlap.EE Details.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Mid-sequence ICA certificates\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247167.png\" data-image-src=\"attachments/55247155/55247167.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247167\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"mid-sequence ICA certificates.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate stackup for R-ECA\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247166.png\" data-image-src=\"attachments/55247155/55247166.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247166\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate stackup.R-ECA.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate Expiration and Overlap for R-ECA\" class=\"confluence-embedded-image confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247165.png\" data-image-src=\"attachments/55247155/55247165.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247165\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate Expiration and Overlap.R-ECA.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate Summary for EE\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247164.png\" data-image-src=\"attachments/55247155/55247164.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247164\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Certificate Summary.EE.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Elector Activities\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247163.png\" data-image-src=\"attachments/55247155/55247163.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247163\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Elector Activities.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">EE to SCMS communication flow diagrams\n                                        (detailed)</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger\n                                            Motz</a></td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"unresolved\" href=\"#\">EE-SCMS communication flows.vsdx</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA+CRL Comm Summary\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"83\" width=\"100\" src=\"attachments/55247155/55247181.jpg\" data-image-src=\"attachments/55247155/55247181.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247181\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA+CRL Comm Summary.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA Comm Flow Message\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"131\" width=\"100\" src=\"attachments/55247155/55247180.jpg\" data-image-src=\"attachments/55247155/55247180.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247180\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow Message.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA Comm Flow for File Download\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"160\" width=\"100\" src=\"attachments/55247155/55247179.jpg\" data-image-src=\"attachments/55247155/55247179.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247179\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow File Download.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA Comm Flow Detailed\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"322\" width=\"100\" src=\"attachments/55247155/55247178.jpg\" data-image-src=\"attachments/55247155/55247178.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247178\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow Detailed.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-SCMS Comm Summary\" class=\"confluence-embedded-image confluence-content-image-border\" height=\"45\" width=\"100\" src=\"attachments/55247155/55247177.jpg\" data-image-src=\"attachments/55247155/55247177.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247177\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-SCMS Comm Summary.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA Comm Summary\" class=\"confluence-embedded-image confluence-thumbnail confluence-content-image-border\" width=\"100\" src=\"attachments/55247155/55247176.jpg\" data-image-src=\"attachments/55247155/55247176.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247176\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Summary.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Diagrams used in the 10/2016 updates to the\n                                        SCMS technical\n                                        design paper</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"confluence-userlink user-mention\" data-username=\"rmotz\" href=\"https://wiki.campllc.org/display/~rmotz\" data-linked-resource-id=\"1081925\" data-linked-resource-version=\"3\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Roger Motz</a>, <a class=\"confluence-userlink user-mention\" data-username=\"virendrak\" href=\"https://wiki.campllc.org/display/~virendrak\" data-linked-resource-id=\"1081947\" data-linked-resource-version=\"5\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Virendra Kumar</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Visio</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <div class=\"content-wrapper\">\n                                            <p><a class=\"unresolved\" href=\"#\">vscs_scms_design_diagrams-rm-vk.v2.vsdx</a></p>\n                                        </div>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\"><br></td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <p>&nbsp;</p>\n                    <h2 id=\"IllustrationSourceFiles-Tips\">Tips</h2>\n                    <ul>\n                        <li>PNG files seem to scale better in the Wiki than JPG files</li>\n                        <li>For some diagrams, a resolution of 150 dpi vs. 96 dpi (Visio default) makes a big\n                            difference&nbsp;</li>\n                    </ul>\n                ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "SCMS Overview v2.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "GCCF-LCCF.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "TLS\n                                            concepts.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "Trust Chain Concepts - 9-1 milestone.vsd",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Trust Chain Concepts - 9-2 revisions.vsd",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "Trust Chain\n                                            Concepts.vsd",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                                Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "Root CA\n                                            Management.vsd",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                            Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "vscs_scms_design_diagrams.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "CAMP-SCMS Network v1.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "Certificate Expiration and\n                                                    Overlap.EE.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger\n                                            Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "EE-SCMS communication flows.vsdx",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rmotz",
+      "text": "Roger Motz",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~virendrak",
+      "text": "Virendra Kumar",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#",
+      "text": "vscs_scms_design_diagrams-rm-vk.v2.vsdx",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "LCCF",
+      "definition": "Local Certificate Chain File"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partners LLC"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "PKI",
+      "definition": "Public Key Infrastructure"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/55247155/55247181.jpg",
+      "text": "EE-RA+CRL Comm Summary.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247180.jpg",
+      "text": "EE-RA Comm Flow Message.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247179.jpg",
+      "text": "EE-RA Comm Flow File Download.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247178.jpg",
+      "text": "EE-RA Comm Flow Detailed.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247177.jpg",
+      "text": "EE-SCMS Comm Summary.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247176.jpg",
+      "text": "EE-RA Comm Summary.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247175.jpg",
+      "text": "CAMP Firewall Enhanced.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247174.jpg",
+      "text": "CAMP-SCMS Network Optional.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247173.jpg",
+      "text": "CAMP-SCMS Network As-Is.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247172.jpg",
+      "text": "GCCF-LCCF Conversion.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247171.jpg",
+      "text": "GCCF-LCCF.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247170.png",
+      "text": "Certificate stackup.EE Rollover.png"
+    },
+    {
+      "href": "attachments/55247155/55247169.png",
+      "text": "Certificate Expiration and Overlap.EE All.png"
+    },
+    {
+      "href": "attachments/55247155/55247168.png",
+      "text": "Certificate Expiration and Overlap.EE\n                            Details.png"
+    },
+    {
+      "href": "attachments/55247155/55247167.png",
+      "text": "mid-sequence ICA\n                            certificates.png"
+    },
+    {
+      "href": "attachments/55247155/55247166.png",
+      "text": "Certificate stackup.R-ECA.png"
+    },
+    {
+      "href": "attachments/55247155/55247165.png",
+      "text": "Certificate Expiration and Overlap.R-ECA.png"
+    },
+    {
+      "href": "attachments/55247155/55247164.png",
+      "text": "Certificate Summary.EE.png"
+    },
+    {
+      "href": "attachments/55247155/55247163.png",
+      "text": "Elector Activities.png"
+    },
+    {
+      "href": "attachments/55247155/55247162.jpg",
+      "text": "Endorsement Method - Concept.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247161.jpg",
+      "text": "Endorsement Structure + EE.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247160.jpg",
+      "text": "Endorsement Structure.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247159.jpg",
+      "text": "Std PKI Struructure.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247158.jpg",
+      "text": "Auth Levels v2.jpg"
+    },
+    {
+      "href": "attachments/55247155/55247157.png",
+      "text": "Certificate Request Shuffling.png"
+    },
+    {
+      "href": "attachments/55247155/55247156.jpg",
+      "text": "SCMS Overview v0.3.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.547Z"
+}

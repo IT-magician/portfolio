@@ -1,0 +1,199 @@
+{
+  "pageId": "Test-Vectors_27427361",
+  "fileName": "Test-Vectors_27427361.html",
+  "title": "SCMS CV Pilots Documentation : Test Vectors",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    }
+  ],
+  "metadata": "Last modified on May 25, 2017",
+  "content": "\n                    <h1 id=\"TestVectors-Purpose\">Purpose</h1><p>The purpose is to provide the implementation and testing team with:</p><ul style=\"list-style-type: square;\"><li>Input/output values for core cryptographic functions as well as intermediate values</li><li>Python scripts outlining the mathematical steps involved in each cryptographic function along with pertinent inline documentation</li></ul><p>The input/output values along with the Python scripts will serve in ensuring the correct implementation of the cryptographic algorithms, which are typically prone to erroneous implementation.</p><h1 id=\"TestVectors-TestVectorsLocation\">Test Vectors Location</h1><p>T<span class=\"inline-comment-marker\" data-ref=\"3a3bc7d4-8da2-4cc0-b5a9-60fbc27223b4\">est vectors are located at</span> <a href=\"http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/\" class=\"external-link\" rel=\"nofollow\">http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/</a> .</p><h1 id=\"TestVectors-Overview\">Overview</h1><p>The following is the README in that Stash repository:</p><p><!--\n  ~ Copyright (c) 2014 by Mibex Software GmbH, Zurich, Switzerland. \n  ~\n  ~ All rights reserved. \n  ~\n  ~ This product is the proprietary and sole property of Mibex Software GmbH. \n  ~ Use, duplication or dissemination is forbidden and is subject to prior \n  ~ written consent of Mibex Software GmbH (office@mibex.ch).\n  -->\n    \n<!--\n  ~ Copyright (c) 2014 by Mibex Software GmbH, Zurich, Switzerland. \n  ~\n  ~ All rights reserved. \n  ~\n  ~ This product is the proprietary and sole property of Mibex Software GmbH. \n  ~ Use, duplication or dissemination is forbidden and is subject to prior \n  ~ written consent of Mibex Software GmbH (office@mibex.ch).\n  -->\n\n\n        </p><p>\n        </p><div class=\"code panel pdl\" style=\"border-width: 1px;\">\n                    <div class=\"codeHeader panelHeader pdl \">\n                <div class=\"file-path\">\n                    <b class=\"code-title\"><span class=\"aui-icon aui-icon-small aui-iconfont-devtools-file\"></span> <a href=\"https://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/README.md?at=refs/heads/master\" class=\"link-gray-dark no-underline\">README.md</a>\n                                            </b>\n                </div>\n\n                                    <div style=\"clear:both\"></div>\n                                <div style=\"clear:both\" class=\"no-wrap meta-info\">\n                                                                <span class=\"aui-icon aui-icon-small aui-iconfont-devtools-branch\"></span>\n                                                    master\n                                                                <span class=\"aui-icon aui-icon-small aui-iconfont-devtools-repository\"></span>&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors\" class=\"link-gray-dark no-underline\">SCMS/crypto-test-vectors</a>\n                </div>\n                            </div>\n                            <div class=\"panel-content include4confluence\" style=\"\">\n                <h1>Crypto Test Vectors</h1>\n<p>This directory contains test vectors for the following functions as specified<br><a href=\"https://wiki.campllc.org/display/SCP/Special+Cryptographic+Primitives+in+SCMS\">here</a>.</p>\n<p>Additionally there are test vectors for crypto functions needed for encryption<br>and signing/verification.</p>\n<p>All python scripts implement the corresponding functionality in order to depict<br>the mathematical and cryptographic calculations involved.</p>\n<h2>Linkage Values lv(i,j)</h2>\n<ul>\n<li>lv.txt: test vectors for i = {0,1} and j randomly chosen in [1,20]</li>\n<li>lv.py : Python script that generates the test vectors</li>\n</ul>\n<h2>Group Linkage Values glv(i,j,k) and Encrypted Indices ei(j,k)</h2>\n<ul>\n<li>glv.txt: test vectors for i = {0,1} and j randomly chosen 32-bit value</li>\n<li>glv.py : Python script that generates the test vectors</li>\n</ul>\n<h2>Butterfly Expansion Function</h2>\n<ul>\n<li>bfkeyexp.txt: test vectors for Butterfly Expansion Function for Certificate and<br>Encryption key pairs</li>\n<li>bfkeyexp.py : Python script that generates the test vectors</li>\n</ul>\n<h2>Key Derivation Function, KDF2 [<abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr>-1363a, <abbr title=\"American National Standards Institute\">ANSI</abbr> X9.63] with <abbr title=\"Secure Hash Algorithms\">SHA</abbr>-256</h2>\n<ul>\n<li>kdf.txt: ANSI X9.63 test vectors of KDF2 with SHA-256</li>\n<li>kdf.py : Python script that implements KDF2 and tests it against the test<br>vectors included</li>\n</ul>\n<h2>Message Authentication Code, MAC1 (<abbr title=\"hash-based message authentication code\">HMAC</abbr>)[IEEE-1363a, ANSI X9.71, <abbr title=\"Request for Comments\">RFC</abbr> 2104, 4231] with SHA-256</h2>\n<ul>\n<li>mac1.txt: RFC 4231 test vectors of HMAC-SHA-256</li>\n<li>mac1.py : Python script that implements HMAC-SHA-256 and tests it against the test<br>vectors included</li>\n</ul>\n<h2><abbr title=\"Advanced Encryption Standard\">AES</abbr>-CCM-128 Symmetric Authenticated Encryption [IEEE-1609.2, <abbr title=\"National Institute of Standards and Technology\">NIST</abbr> <abbr title=\"Special Publication\">SP</abbr> 800-38C]</h2>\n<ul>\n<li>aesccm.txt: test vectors for AES-CCM-128 Symmetric Authenticate Encryption<br>based on NIST SP 800-38C (and RFC 3610) with parameters defined in IEEE-1609.2</li>\n<li>aesccm.py : Python script that generates the test vectors</li>\n</ul>\n<h2><abbr title=\"Elliptic Curve Diffie–Hellman\">ECDH</abbr> Key Agreement [SP800-56A Section 5.7.1.2]</h2>\n<ul>\n<li>ecdh.txt: test vectors for ECDH Key Agreement Scheme as per SP800-56A<br>Section 5.7.1.2 using NIST test vectors</li>\n<li>ecdh.py : Python script that implements ECDH for curve P-256 and tests it against the test<br>vectors included</li>\n</ul>\n<h2><abbr title=\"Elliptic Curve Integrated Encryption Scheme\">ECIES</abbr> Public-Key Encryption [IEEE-1609.2]</h2>\n<ul>\n<li>ecies.txt: test vectors for ECIES Encryption as per IEEE-1609.2,<br>Used to wrap AES-CCM 128-bit keys</li>\n<li>ecies.py : Python script that generates the test vectors</li>\n</ul>\n<h2>Implicit Certificate Generation and Public/Private Keys Reconstruction [SEC-4]</h2>\n<ul>\n<li>implicit.txt: test vectors for generating implicit certificates and for<br>reconstructing the corresponding private and public keys as per<br>[SEC-4].</li>\n<li>implicit.py : Python script that generates the test vectors</li>\n</ul>\n<h3>Other files:</h3>\n<ul>\n<li>radix.py:</li>\n<li>array.py: utility scripts for printing the output</li>\n<li>ecc.py: Elliptic Curve Cryptosystems core computations</li>\n</ul>\n\n            </div>\n                </div>\n   <h2 id=\"TestVectors-Hash-basedFunctions\">Hash-based Functions</h2><h3 id=\"TestVectors-KeyDerivationFunction,KDF2\">Key Derivation Function, KDF2</h3><ul style=\"list-style-type: square;\"><li>This function is used to expand/derive keys from shared secret and specified input parameters. The derived keys may be used in symmetric-key encryption and/or authentication.</li><li>Based on SHA-256</li><li>Implemented as per IEEE-1363a and ANSI X9.63</li><li>Required in the implementation of <a href=\"#TestVectors-ecies\">ECIES</a></li></ul><h3 id=\"TestVectors-MessageAuthenticationCode,MAC1(HMAC)\">Message Authentication Code, MAC1 (HMAC)</h3><ul style=\"list-style-type: square;\"><li>This is a symmetric-key authentication function, i.e., it takes as input an authentication key and the data to be authenticated and outputs an authentication tag that is appended to the data and ensures its integrity and authenticity</li><li>Based on SHA-256</li><li>Implemented as per IEEE-1363a, ANSI X9.71, RFC 2104 and 4231</li><li>Required in the implementation of <a href=\"#TestVectors-ecies\">ECIES</a></li></ul><h2 id=\"TestVectors-AES-basedFunctions\">AES-based Functions</h2><h3 id=\"TestVectors-AES-CCMAuthenticatedEncryption\">AES-CCM Authenticated Encryption</h3><ul style=\"list-style-type: square;\"><li>This is a symmetric-key authenticated encryption function, i.e., it takes as input a symmetric key and a plaintext and outputs a cipher text and an authentication tag. It provides confidentiality, integrity and authenticity of the data.</li><li>Based on AES-128</li><li>Implemented as per IEEE-1609.2 and NIST SP 800-38C</li><li>Used in all data encryption. The symmetric key used is then wrapped with <a href=\"#TestVectors-ecies\">ECIES</a> and sent along with the encrypted data.</li></ul><h2 id=\"TestVectors-ECCFunctions\">ECC Functions</h2><h3 id=\"TestVectors-ECDHKeyAgreement\">ECDH Key Agreement</h3><ul style=\"list-style-type: square;\"><li>Elliptic Curve Diffie-Hellman is a public-key primitive where two parties can compute a shared secret by exchanging public keys and employing them and the corresponding private keys in the computation</li><li>Based on ECC over the curve P-256</li><li>Implemented as per NIST SP800-56A Section 5.7.1.2</li><li>Required in the implementation of <a href=\"#TestVectors-ecies\">ECIES</a></li></ul><h3 id=\"TestVectors-ECIESPublic-keyEncryption\">ECIES Public-key Encryption</h3><ul style=\"list-style-type: square;\"><li>Elliptic Curve Integrated Encryption Scheme is a hybrid encryption primitive composed of public-key key agreement (ECDH), a key derivation function (KDF2) and symmetric-key encryption (XOR) and authentication (MAC1). A Sender employs this scheme to encrypt a message using the public-key of the Recipient.</li><li>The primitives in the brackets above are as per IEEE-1609.2</li><li>Used to wrap (encrypt) AES-CCM-128 encryption keys</li></ul><h3 id=\"TestVectors-ImplicitCertificateGenerationandPublic/PrivateKeysReconstruction\">Implicit Certificate Generation and Public/Private Keys Reconstruction</h3><ul style=\"list-style-type: square;\"><li>Implicit certificates are employed for pseudonym certificates, enrollment certificates, etc. (see <a href=\"Certificate-Types_27427012.html\">Certificate Types</a>)<br>They do not contain the subject's public key and are not signed by the issuer, as is the case with explicit certificates, rather they contain a public key reconstruction point that is used to reconstruct the public key of the subject knowing the public key of the issuer. When issued, a private key reconstruction value is sent along from the issuer to the subject and only the subject can reconstruct the actual private key using this value and the private key used in the certificate request. In the case of pseudonym certificates, for example, the subject is the <abbr title=\"End Entity\">EE</abbr> and the issuer is the <abbr title=\"Pseudonym Certificate Authorities\">PCA</abbr>.</li><li>Based on ECC over the curve P-256</li><li><code>H(CertU)</code> in the script is provided as an illustrative value. See <span class=\"confluence-link\">IEEE 1609.2-2016</span>, Sec. 6.4.8, under ENCODING CONSIDERATIONS:<span> \"for implicit certificates, the value H(CertU) in SEC 4, section 3, is for purposes of this standard taken to be H (H (canonicalized ToBeSignedCertificate from the subordinate certificate) || H(entirety of issuer Certificate) ). See 5.3.2 for further discussion\" </span>See the cited section for details.</li><li><strong>Notes</strong>:<br><ul><li><span class=\"tL8wMe EMoHub\">CertU is a term in SEC4 standard which only deals with implicit certs and public/private keys reconstruction.</span><span class=\"tL8wMe EMoHub\"> It is used in the Python scripts that generate the test vectors with comments that ensure that it's understood to be only for illustrative purpose:</span></li></ul><div class=\"Mu SP\"><ul><li style=\"list-style-type: none;background-image: none;\"><br><ul><li><span class=\"tL8wMe EMoHub\">tbsdata was arbitrary</span></li></ul></li></ul></div><ul><li style=\"list-style-type: none;background-image: none;\"><br><ul><li><span class=\"tL8wMe EMoHub\">CertU = Hash (tbsdata || pub key recon point),&nbsp;<span class=\"tL8wMe EMoHub\">just to emphasize that however the input to the hash is formulated, it should contain at least the tbs data and the public key reconstruction point for mathematical and cryptographic correctness and assurance of the algorithm<br></span></span></li><li><span class=\"tL8wMe EMoHub\"><span class=\"tL8wMe EMoHub\">In 1609.2-2016, Sec 6.4.5 and 6.4.8, the public key reconstruction point is the&nbsp;verifyKeyIndicator and is already part of ToBeSignedCertificate, which already satisfies the cryptographic requirement in the previous item. In addition to that, there is another input, the issuer cert; as explained in Sec 6.4.8, the hash is calculated as:&nbsp; H (H (canonicalized ToBeSignedCertificate from the subordinate certificate) || H(entirety of issuer Certificate) )</span></span></li><li><span class=\"tL8wMe EMoHub\"><span class=\"tL8wMe EMoHub\">The hash in 1609.2 is calculated the same way for implicit and explicit certs as in Sec 5.3.1 and Sec. 6.4.8</span></span><span class=\"tL8wMe EMoHub\">&nbsp;</span><br><span class=\"tL8wMe EMoHub\"><span class=\"tL8wMe EMoHub\"><br></span></span></li></ul></li><li><span class=\"tL8wMe EMoHub\"><span class=\"tL8wMe EMoHub\"><span class=\"tL8wMe EMoHub\">The operations in SEC4 that would require using the 1609.2-2016 hashing algorithm are conveniently listed in 1609.2-2016 Sec 5.3.2:<br></span></span></span><p><em>5.3.2 Implicit Certificates</em></p><p><em>Implicit certificates were proposed in Brown, Gallant, and Vanstone [B3] and Pintsov and Vanstone [B18] while modifications to protect against attacks were proposed in Brown, Campagna, and Vanstone [B4]. In this standard, implicit certificates are processed as specified in Standards for Efficient Cryptography (SEC) 4 except for the exceptions noted in this subclause.</em></p><p><em>a) In this standard, an implicit certificate is encoded as an ImplicitCertificate, as defined in 6.4.5, and is encoded with the Canonical Octet Encoding Rules (COER). All references to “the certificate CertU” in SEC 4 should be taken as referring to the encoded ImplicitCertificate except when the implicit certificate is hashed to an integer modulus n. This case is addressed in item b) below.</em></p><p><em>b) When an implicit certificate is hashed to an integer modulo n, the input is not simply the implicit certificate CertU but the information specified below. This affects the following steps in SEC 4:</em><br><em>1) Section 3.4, Action 7</em><br><em>2) Section 3.5, Action 4</em><br><em>3) Section 3.6, Action 2</em><br><em>4) Section 3.7, Action 4</em><br><em>5) Section 3.8, Action 4</em></p><p><em>The encoded data input to the hash function is Hash (ToBeSignedCertificate from the subordinate certificate as specified in 6.4.8) || Hash (Entirety of issuer certificate as specified in 6.4.3).</em></p></li></ul></li></ul><h2 id=\"TestVectors-LinkageValuesandButterflyKeyExpansionFunctions\">Linkage Values and Butterfly Key Expansion Functions</h2><ul style=\"list-style-type: square;\"><li>These are as specified in <a href=\"Special-Cryptographic-Primitives-in-SCMS_27427063.html\">Special Cryptographic Primitives in SCMS</a></li></ul><h1 id=\"TestVectors-asn11602.2andSCMSASN.1Objects\"><span class=\"confluence-anchor-link\" id=\"TestVectors-asn1\"></span>1602.2 and SCMS <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> Objects</h1><p><a href=\"http://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn\" class=\"external-link\" rel=\"nofollow\">scms-protocol.asn</a>:</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"TestVectors-Protocol\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"SCMS IEEE 1609 Protocol\" src=\"attachments/27427361/27427366.png\" data-image-src=\"attachments/27427361/27427366.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427366\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image001.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427361\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>SCMS-Protocol ASN.1</strong></div></div><p><a href=\"https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-schema.asn\" class=\"external-link\" rel=\"nofollow\">1609.2-schema.asn</a>:</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"TestVectors-Schema\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"IEEE 1609.2 Schema\" src=\"attachments/27427361/27427365.png\" data-image-src=\"attachments/27427361/27427365.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427365\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image002.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427361\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>IEEE 1609.2 Schema ASN.1</strong></div></div><p><span style=\"color: rgb(0,0,255);\"><span style=\"color: rgb(51,102,255);\">See <a href=\"#TestVectors-ecies\"><span style=\"color: rgb(51,102,255);\">ECIES </span></a>diagram and Notes on Encrypted Data below, as well as PKRecipientInfo and <span class=\"inline-comment-marker\" data-ref=\"20c20aa3-8629-42ee-8f6b-84c9f249add1\">EciesP256EncryptedKey</span> ASN.1 objects in <a href=\"https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-schema.asn\" class=\"external-link\" rel=\"nofollow\">1609dot2-schema.asn</a> and EciesP256EncryptedKey in <a href=\"https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn\" class=\"external-link\" rel=\"nofollow\"><span style=\"color: rgb(51,102,255);\">1609dot2-base-types.asn</span></a>, to see how the outputs of ECIES are encoded in the RecipientInfo.</span><br></span></p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"TestVectors-Signed\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Signed data function from the SCMS protocol\" src=\"attachments/27427361/27427364.png\" data-image-src=\"attachments/27427361/27427364.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427364\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image003.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427361\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>SignedData ASN.1</strong></div></div><p><span style=\"color: rgb(0,128,0);\">Example of SignedData from scms-protocol.asn:</span></p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"TestVectors-SignedExample\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"An example of a Signed Psuedonym Certificate Provisioning\" src=\"attachments/27427361/27427363.png\" data-image-src=\"attachments/27427361/27427363.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427363\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image004.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427361\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>SignedData Example ASN.1</strong></div></div><h1 id=\"TestVectors-eciesECIESEncryptionasin1609.2-2016,Sec5.3.5\"><span class=\"confluence-anchor-link\" id=\"TestVectors-ecies\"></span>ECIES Encryption as in 1609.2-2016, <span class=\"inline-comment-marker\" data-ref=\"e43652ab-417c-4a52-8a46-faeb366378e3\">Sec 5.3.5</span></h1><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"TestVectors-ECIESEncryption\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"1609.2 ECIES Encryption\" src=\"attachments/27427361/27427362.png\" data-image-src=\"attachments/27427361/27427362.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427362\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image005.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427361\" data-linked-resource-container-version=\"5\" title=\"1609.2 ECIES Encryption\"></span></div><div class=\"scroll-title-macro-title\"><strong>ECIES Encryption</strong></div></div><p><strong>Inputs:</strong><br>P1: see below<br>R: recipient's public key<br>k: AES-CCM symmetric key to be encrypted with ECIES</p><p><strong>Outputs:</strong><br>V: Sender's ephemeral public key<br>C: Cipher text (encrypted symmetric key k)<br>T: Tag</p><p><strong>Notes:</strong></p><ul style=\"list-style-type: square;\"><li>KDF is KDF2 [in IEEE 1363a, Section 13.2]:<br>KDF2(Z, P1) = Hash(Z || Counter || P1),<br>where Hash is SHA-256, and the 32-bit counter increases as more output blocks are generated, the output blocks are concatenated to form the KDF output</li><li>MAC2 is HMAC:<br>HMAC(K2, C) = Hash( (K2 ^ iPad) || Hash( (K2 ^ oPad) || C ) ),<br>where Hash is SHA-256, and iPad and oPad are 256-bit (32-byte) blocks formed by repeating the byte 0x36 and 0x5C, respectively</li><li>in 1609.2-2016<br>\"Encryption shall use non-<abbr title=\"Diffie-Hellman Encryption Scheme\">DHAES</abbr> mode. This means that the elliptic curve points shall be converted to octet strings using LSB compressed representation.\"<br>Regarding non-DHAES mode, in IEEE 1363a-2004:<br>\"The length in bits of the shared secret key K shall be l + k2 where k2 is the length in bits of the key for the message authentication code (l is the bitlength of the message M to be encrypted). In non-DHAES mode, let K1 be the leftmost l bits of K and let K2 be the remaining k2 bits.”<br>This means that the KDF output = ENC key |&nbsp;MAC Key, in a (big endian) byte array.</li><li class=\"find-current\">From 1609.2-2016, <span class=\"inline-comment-marker\" data-ref=\"e0141664-416a-4227-84a1-69b50d6b4a34\">Sec 6.3.30:</span><br>On EncryptedData:<div class=\"page\" title=\"Page 67\"><div class=\"layoutArea\"><div class=\"column\"><p><span>This data structure encodes data that has been encrypted to one or more recipients using the recipients’ public or symmetric keys as specified in 5.3.4. </span></p></div></div></div><div class=\"page\" title=\"Page 67\">Sec 5.3.4.1: This section explains how the data is encrypted with a fresh symmetric key generated by the sender, and the symmetric key is then encrypted for the recipient using that recipient’s encryption key and refers to Sec 5.3.5 that explains Public Key Encryption using ECIES.</div></li><li>Sec 6.3.31:<br>On RecipientInfo:<ul style=\"list-style-type: square;\"><li>certRecipInfo: The data encryption key was encrypted using the public encryption key in a certificate. This field contains the HashedId8 of the certificate. In this case, the parameter P1 to ECIES as defined in 5.4.5 is the hash of the certificate.</li><li>signedDataRecipInfo: The data encryption key was encrypted using the public response encryption key from a SignedData. In this case, this field contains the HashedId8 of the1609Dot2Data containing the SignedData containing the encryption key. In this case, the parameter P1 to ECIES as defined in 5.4.5 is the SHA-256 hash of the Ieee1609Dot2Data containing the response encryption key.</li><li>rekRecipInfo: The data encryption key was encrypted using a public response encryption key that was not obtained from a SignedData. In this case, this field contains the HashedId8 of the response encryption key. In this case, the parameter P1 to ECIES as defined in 5.4.5 is the hash of the empty string.</li></ul></li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/",
+      "text": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/README.md?at=refs/heads/master",
+      "text": "README.md",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors",
+      "text": "SCMS/crypto-test-vectors",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SCP/Special+Cryptographic+Primitives+in+SCMS",
+      "text": "here",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#TestVectors-ecies",
+      "text": "ECIES",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#TestVectors-ecies",
+      "text": "ECIES",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#TestVectors-ecies",
+      "text": "ECIES",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#TestVectors-ecies",
+      "text": "ECIES",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Certificate Types",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Special-Cryptographic-Primitives-in-SCMS_27427063.html",
+      "text": "Special Cryptographic Primitives in SCMS",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn",
+      "text": "scms-protocol.asn",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-schema.asn",
+      "text": "1609.2-schema.asn",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#TestVectors-ecies",
+      "text": "ECIES",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-schema.asn",
+      "text": "1609dot2-schema.asn",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn",
+      "text": "1609dot2-base-types.asn",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "ANSI",
+      "definition": "American National Standards Institute"
+    },
+    {
+      "term": "SHA",
+      "definition": "Secure Hash Algorithms"
+    },
+    {
+      "term": "HMAC",
+      "definition": "hash-based message authentication code"
+    },
+    {
+      "term": "RFC",
+      "definition": "Request for Comments"
+    },
+    {
+      "term": "AES",
+      "definition": "Advanced Encryption Standard"
+    },
+    {
+      "term": "NIST",
+      "definition": "National Institute of Standards and Technology"
+    },
+    {
+      "term": "SP",
+      "definition": "Special Publication"
+    },
+    {
+      "term": "ECDH",
+      "definition": "Elliptic Curve Diffie–Hellman"
+    },
+    {
+      "term": "ECIES",
+      "definition": "Elliptic Curve Integrated Encryption Scheme"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authorities"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "DHAES",
+      "definition": "Diffie-Hellman Encryption Scheme"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427361/27427370.xml",
+      "text": "Drawing1.xml"
+    },
+    {
+      "href": "attachments/27427361/27427369.png",
+      "text": "Drawing1.xml.png"
+    },
+    {
+      "href": "attachments/27427361/27427368.html",
+      "text": "securedScmsPDU"
+    },
+    {
+      "href": "attachments/27427361/27427367.png",
+      "text": "securedScmsPDU.png"
+    },
+    {
+      "href": "attachments/27427361/27427366.png",
+      "text": "image001.png"
+    },
+    {
+      "href": "attachments/27427361/27427365.png",
+      "text": "image002.png"
+    },
+    {
+      "href": "attachments/27427361/27427364.png",
+      "text": "image003.png"
+    },
+    {
+      "href": "attachments/27427361/27427363.png",
+      "text": "image004.png"
+    },
+    {
+      "href": "attachments/27427361/27427362.png",
+      "text": "image005.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.636Z"
+}

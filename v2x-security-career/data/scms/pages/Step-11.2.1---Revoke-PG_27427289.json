@@ -1,0 +1,107 @@
+{
+  "pageId": "Step-11.2.1---Revoke-PG_27427289",
+  "fileName": "Step-11.2.1---Revoke-PG_27427289.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PG",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1-RevokePG-Goals\">Goals</h2><p>Revoke a Policy Generator certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokePG-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The Technical Component of the SCMS Manager (TCotSCMSM) determines that a Policy Generator (PG) needs to be revoked. The TCotSCMSM access the <abbr title=\"Certificate Revocation List\">CRL</abbr> generator for CRL series 256 (either the root <abbr title=\"Certificate Authority\">CA</abbr> or a central CRLG) and causes the PG to be added to the composite CRL, which is made available to all SCMS components and <abbr title=\"End Entities\">EEs</abbr>. On receipt of the new CRL, all SCMS components and EEs shall mark the affected Policy Generator as untrusted. Components and EEs must request a new policy file signed by a new PG as soon as it is available.</p><h2 id=\"Step11.2.1-RevokePG-Procedure\">Procedure</h2><ol><li>The TCotSCMSM contacts the series 256 CRL generator (see the <a href=\"https://wiki.campllc.org/display/SP/Step+11.2%3A+Revoke+SCMS+component#Step11.2:RevokeSCMScomponent-CRL-Series\" rel=\"nofollow\">CRL Series Diagram</a>&nbsp;for details) and instructs it to add the current PG certificate to the CRL. The CRLG assembles and signs an updated CRL, which is made available to all components and EEs through the CRL store or via collaborative distribution.</li><li>The TCotSCMSM shall configure a new PG and issue a new <abbr title=\"Global Policy File\">GPF</abbr> as described in the <a href=\"Step-11.1.1---Add-PG_27427243.html\">Add PG</a> use case. The GPF will be made available to all <abbr title=\"Registration Authorities\">RAs</abbr> and back-end components. On receipt of the new GPF, each RA will assemble an updated <abbr title=\"Local Policy File\">LPF</abbr> and submit the custom portion of the local policy to be signed by the new PG.</li><li>Upon receipt of the updated CRL, all SCMS components and EEs shall cease to trust the current policy or any new policy files signed by the revoked PG. They shall all resort to a set of pre-configured \"default\" policy values and attempt to download an updated policy file signed by a new PG as soon as it is available.</li><li>EEs shall contact their RA to download a new policy file signed by a replacement PG. They shall switch to a pre-defined set of \"default\" policy values until the new file is available.</li><li>SCMS components shall attempt to download a new policy file signed by a replacement PG. They will use a pre-defined set of \"default\" policy values until the new file is available.&nbsp;</li></ol><h2 id=\"Step11.2.1-RevokePG-Assumptions\">Assumptions</h2><ul><li>Backend components and EEs will be pre-programmed with a set of \"default\" policy values that can maintain some level of system operation while the new PG is established and new policy files are distributed.</li><li>Each RA will need to receive the new GPF when it is available, assemble their own custom section of their LPF and submit it to the PG to be signed. Local <abbr title=\"Intermediate Certificate Authority\">ICA</abbr> Managers will implement a manual process to push the new GPF out to their RAs. The TCotSCMSM may implement network management practices to limit traffic to the replacement PG.</li><li>There may be a time delay before a new policy file is available from an RA for EEs to download. <abbr title=\"Original Equipment Manufacturers\">OEMs</abbr> shall define an implementation specific mechanism to manage EE messaging to the RA. OEMs that have alternate mechanisms to push content out to their EEs may use these mechanisms to distribute a new signed policy file as soon as it is available.</li></ul><span class=\"inline-comment-marker\" data-ref=\"0f634beb-c09c-4975-9e28-1d646358386d\"></span><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokePG-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427289/27427290.png\">Untitled14.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Step+11.2%3A+Revoke+SCMS+component#Step11.2:RevokeSCMScomponent-CRL-Series",
+      "text": "CRL Series Diagram",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Step-11.1.1---Add-PG_27427243.html",
+      "text": "Add PG",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427289/27427290.png",
+      "text": "Untitled14.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "PG",
+      "definition": "Policy Generator"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "GPF",
+      "definition": "Global Policy File"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authorities"
+    },
+    {
+      "term": "LPF",
+      "definition": "Local Policy File"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "OEMs",
+      "definition": "Original Equipment Manufacturers"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427289/27427290.png",
+      "text": "Untitled14.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.632Z"
+}

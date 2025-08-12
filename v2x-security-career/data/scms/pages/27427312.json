@@ -1,0 +1,60 @@
+{
+  "pageId": "27427312",
+  "fileName": "27427312.html",
+  "title": "SCMS CV Pilots Documentation : Step 18.3: Generate Global Policies for EEs",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 18: Provide and Enforce Technical Policies",
+      "href": "27427309.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 10, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step18.3:GenerateGlobalPoliciesforEEs-Goals\">Goals</h2><p>The goal is to provide global policies that are valid for all EEs.</p><h2 id=\"Step18.3:GenerateGlobalPoliciesforEEs-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The Policy Generator (PG) prepares a Global Policy File (GPF) that includes all global policies that are relevant to the EEs. The PG makes the GPF available to all SCMS components. The <abbr title=\"Registration Authority\">RA</abbr> decides which of the global policies in the GPF are relevant for the EEs under that RA’s jurisdiction, determines specific values within option ranges allowed in the GPF, and creates an RA-specific Local Policy File (LPF) containing this information. The RA sends its LPF to the PG for approval and signature. The RA updates its LPF whenever there is a change in the GPF that affects the information in its LPF, and subsequently makes its current LPF available to all EEs within its jurisdiction.</p><h2 id=\"Step18.3:GenerateGlobalPoliciesforEEs-Assumptions\">Assumptions</h2><ul><li>The PG will generate a Global Policy File (GPF), which includes&nbsp;global policies relevant for EEs, as listed in <a href=\"27427310.html\">Step 18.1: Policy Configuration Options</a></li><li>The PG will make the GPF available to all RAs </li><li>The RA will combine policy fields in the GPF that are relevant to the EEs under its jurisdiction with its particular local policy fields relevant to those EEs</li><li>The RA will send its combined local policy file to PG for assessment of compliance with all relevant global policies</li><li>If approved, the PG will sign the RA-specific integrated policy file (local policy file - LPF) and send it back to the appropriate RA</li><li>The RA will make the RA-specific integrated policy file&nbsp;(local policy file - LPF) available to all EEs within its jurisdiction</li><li>The RA will convey changes to the global policies that affect EEs to all EEs within its jurisdiction through an updated LPF</li></ul><h2 id=\"Step18.3:GenerateGlobalPoliciesforEEs-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step18.3:GenerateGlobalPoliciesforEEs-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-1496250199\" class=\"refresh-module-id jira-table\">\n<p>\n    \n   \n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step18.3:GenerateGlobalPoliciesforEEs-Design\">Design</h2><p>Whenever there is a change in global policies that affect EEs, the RA constructs an updated version of its own LPF, gets its LPF approved (and signed) by the PG, and then makes the LPF available to the EEs within that RA's jurisdiction, i.e., whenever the EE&nbsp;submits a new certificate request, or otherwise contacts the RA, as appropriate. In the cases where the EE software and hardware can still support the global changes in the system, the EE will implement the changes upon receipt of the LPF containing those changes. If the policy changes are too significant for the EE to continue being functional, the EE may need to be updated or else possibly operate in a legacy mode. This could likely be managed by the relevant RA within the restrictions of global policies, but is out-of-scope for <abbr title=\"Proof-Of-Concept\">POC</abbr>.</p>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "27427310.html",
+      "text": "Step 18.1: Policy Configuration Options",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof-Of-Concept"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.415Z"
+}

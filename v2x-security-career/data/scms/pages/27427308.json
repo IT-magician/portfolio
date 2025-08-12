@@ -1,0 +1,84 @@
+{
+  "pageId": "27427308",
+  "fileName": "27427308.html",
+  "title": "SCMS CV Pilots Documentation : Step 16.4: RSE CRL Check",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+      "href": "27427307.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 10, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step16.4:RSECRLCheck-Goals\">Goals</h2><ul><li>The RSE needs to perform several computational steps to check whether a received Basic Safety Message (BSM) has been sent by a revoked <abbr title=\"End Entity\">EE</abbr></li><li>This document lists the corresponding requirements</li></ul><h2 id=\"Step16.4:RSECRLCheck-Assumptions\">Assumptions</h2><p>The RSE received a CRL as defined in <a href=\"27427183.html\">Use Case 6: CRL Download</a>.</p><h2 id=\"Step16.4:RSECRLCheck-ProcessSteps\">Process Steps</h2><ol><li>Optional: RSE expands the CRL and calculates the linkage values for the current i-period based on the CRL entries (linkage seeds) of the CRL pseudonym certificate section. This only applies if the RSE wants to verify received BSMs.&nbsp;</li><li>Whenever RSE receives a new unknown <abbr title=\"Onboard Equipment\">OBE</abbr> identification certificate, RSE will calculate the certificate digest of that unknown certificate and check whether the CRL lists it<br><ol><li>If yes, then RSE discards the received certificate</li><li>Otherwise, RSE accepts the received certificate as verified </li></ol></li><li>Optional: Whenever RSE receives a new unknown certificate, it checks whether the linkage value of that unknown certificate is listed in RSE's expanded CRL (from Step 1)<br><ol><li>If yes, then RSE discards the received certificate</li><li>Otherwise, RSE accepts the received certificate as verified</li></ol></li><li>Optional: Before the end of each i-period, RSE will:&nbsp;<ol><li>Update its expanded CRL and calculate the linkage value for the next i-period</li><li>Remove entries from the expanded CRL that belong to revoked devices that ran out of certificates, if a CRL entry indicated that the revoked device does not have any more valid certificates. Note that the RSE may not immediately remove such entries, but add a safety buffer.&nbsp;</li></ol></li></ol><h2 id=\"Step16.4:RSECRLCheck-Requirements\"><span class=\"inline-comment-marker\" data-ref=\"1ab5322b-4348-427b-8ee3-d8677e347364\"></span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step16.4:RSECRLCheck-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module--1307350583\" class=\"refresh-module-id jira-table\">\n<p>\n    \n\n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step16.4:RSECRLCheck-NotDoing\">Not Doing</h2><ul><li>For <abbr title=\"Proof-Of-Concept\">POC</abbr> and CV Pilots, RSE application certificates are not listed on CRLs but revocation is enforced by not renewing certificates. At a later stage, this might be changed.&nbsp;</li><li>In that case, the following requirement needs to be added: If RSE recognizes itself on the CRL, the RSE will stop sending over-the-air <abbr title=\"Dedicated Short-Range Communications\">DSRC</abbr> messages related to the indicated <abbr title=\"Provider Service Identifier\">PSID</abbr>/<abbr title=\"Service Specific Permission\">SSP</abbr>. This also applies if RSE recognizes that the <abbr title=\"Enrollment Certificate Authority\">ECA</abbr>, that issued RSE's enrollment certificate, or the <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr> that issued RSE's certificates, has been revoked.</li></ul>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "27427183.html",
+      "text": "Use Case 6: CRL Download",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof-Of-Concept"
+    },
+    {
+      "term": "DSRC",
+      "definition": "Dedicated Short-Range Communications"
+    },
+    {
+      "term": "PSID",
+      "definition": "Provider Service Identifier"
+    },
+    {
+      "term": "SSP",
+      "definition": "Service Specific Permission"
+    },
+    {
+      "term": "ECA",
+      "definition": "Enrollment Certificate Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.405Z"
+}

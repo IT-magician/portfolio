@@ -1,0 +1,176 @@
+{
+  "pageId": "EE-SCMS-Core-Communication-Requirements_27427072",
+  "fileName": "EE-SCMS-Core-Communication-Requirements_27427072.html",
+  "title": "SCMS CV Pilots\n                        Documentation : EE-SCMS Core Communication\n                        Requirements",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <h1 id=\"EE-SCMSCoreCommunicationRequirements-Goals\">Goals</h1>\n                    <ul>\n                        <li>\n                            <p>The goal of the EE-SCMS Core Communication Requirements section is to define all\n                                requirements that an EE must follow whenever establishing a connection to the SCMS.</p>\n                        </li>\n                        <li>\n                            <p>Individual requirements shall be labeled with their respective use case(s).</p>\n                        </li>\n                        <li>\n                            <p>In cases where a specific use case has a conflicting requirement, that use case shall\n                                define the new requirement and reference which core requirement is being overridden.</p>\n                        </li>\n                    </ul>\n                    <h1 id=\"EE-SCMSCoreCommunicationRequirements-BackgroundandStrategicFit\">Background and Strategic Fit\n                    </h1>\n                    <h2 id=\"EE-SCMSCoreCommunicationRequirements-IPAddressTranslation\"><abbr title=\"Internet Protocol\">IP</abbr> Address\n                        Translation</h2>\n                    <ul>\n                        <li>Prevent SCMS component (RA, <abbr title=\"Certificate Revocation List\">CRL</abbr> Store,\n                            etc.) from learning\n                            location information based on the\n                            IP address of the EE.</li>\n                        <li><abbr title=\"Location Obscurer Proxy\">LOP</abbr> &amp; SCMS Component must have adequate\n                            separation.</li>\n                    </ul>\n                    <h2 id=\"EE-SCMSCoreCommunicationRequirements-TLSConnection\"><abbr title=\"Transport Layer Security\">TLS</abbr> Connection\n                    </h2>\n                    <ul>\n                        <li>Provide a means to verify the identity of the SCMS component by using x.509 1-way\n                            authentication.</li>\n                        <li>Encryption is an added privacy preserving enhancement but not a core requirement.</li>\n                    </ul>\n                    <h2 id=\"EE-SCMSCoreCommunicationRequirements-IEEE1609.2Encryptingand/orSigning\"><abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2\n                        Encrypting and/or Signing</h2>\n                    <ul>\n                        <li>Provides application layer security and privacy.</li>\n                    </ul>\n                    <h1 id=\"EE-SCMSCoreCommunicationRequirements-DiagramsofCommunicationsMethods\"><span class=\"inline-comment-marker\" data-ref=\"730772b3-88a4-495a-84d6-52cbfc25c23e\">Diagrams of\n                            Communications Methods</span></h1>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"EE-SCMSCoreCommunicationRequirements-\"></span>\n                        <div class=\"scroll-title-body\">\n                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Basic flow diagram of communication from OBEs to network servers\" class=\"confluence-embedded-image\" width=\"800\" src=\"attachments/55247155/55247176.jpg\" data-image-src=\"attachments/55247155/55247176.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247176\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Summary.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p>\n                        </div>\n                        <div class=\"scroll-title-macro-title\"><strong>Overview of Methods</strong></div>\n                    </div>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"EE-SCMSCoreCommunicationRequirements-1\"></span>\n                        <div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Same flow diagram as above with CRL\" class=\"confluence-embedded-image\" width=\"800\" src=\"attachments/55247155/55247181.jpg\" data-image-src=\"attachments/55247155/55247181.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247181\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA+CRL Comm Summary.jpg\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></div>\n                        <div class=\"scroll-title-macro-title\"><strong>Overview of Multiple SCMS Components Served by\n                                Single LOP</strong></div>\n                    </div>\n                    <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Detailed version of flow diagram showing communication over the internet with OBE\" class=\"confluence-embedded-image\" width=\"800\" src=\"attachments/55247155/55247178.jpg\" data-image-src=\"attachments/55247155/55247178.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247178\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow Detailed.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span></p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Flow diagram showing file download to OBE steps in detail\" class=\"confluence-embedded-image\" width=\"800\" src=\"attachments/55247155/55247179.jpg\" data-image-src=\"attachments/55247155/55247179.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247179\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow File Download.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Flow diagram showing message transmission from OBE to network\" class=\"confluence-embedded-image\" width=\"800\" src=\"attachments/55247155/55247180.jpg\" data-image-src=\"attachments/55247155/55247180.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"55247180\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"EE-RA Comm Flow Message.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"55247155\" data-linked-resource-container-version=\"1\"></span>\n                    <h1 id=\"EE-SCMSCoreCommunicationRequirements-ExistingJIRAIssueswith&quot;EE-Handshake&quot;Label\">\n                        <span class=\"inline-comment-marker\" data-ref=\"4a7809b8-a92d-4b92-bad8-77e9b9bd91ab\"><span class=\"inline-comment-marker\" data-ref=\"23006f03-db77-48e4-8a61-93bb022c074c\">Existing\n                                JIRA Issues with \"EE-Handshake\" Label</span></span></h1>\n                    <p>\n                    </p><div id=\"refresh-module--769286861\" class=\"refresh-module-id jira-table\">\n                        <p>\n                        </p>\n                    </div>\n                    <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n                        <div class=\"greybox\">\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353733.png\">EE-<abbr title=\"Registration Authority\">RA</abbr> Comm Flow Handshake 1\n                                of 5.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353732.png\">EE-RA Comm Flow Handshake 2 of 5.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353731.png\">EE-RA Comm Flow Handshake 3 of 5.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353730.png\">EE-RA Comm Flow Handshake 4 of 5.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353729.png\">EE-RA Comm Flow Handshake 5 of 5.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/42107291.png\">EE-RA Comm Flow File Download 1 of 3.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353727.png\">EE-RA Comm Flow File Download 2 of 3.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353726.png\">EE-RA Comm Flow File Download 3 of 3.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/42107290.png\">EE-RA Comm Flow Message 1 of 2.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353724.png\">EE-RA Comm Flow Message 2 of 2.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353725.png\">EE-RA Comm Flow Message 1 of 2.png</a>\n                            (image/png)\n                            <br>\n                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                            <a href=\"attachments/27427072/41353728.png\">EE-RA Comm Flow File Download 1 of 3.png</a>\n                            (image/png)\n                            <br>\n                        </div>\n                    </div>\n                ",
+  "links": [
+    {
+      "originalHref": "attachments/27427072/41353733.png",
+      "text": "EE-RA Comm Flow Handshake 1\n                                of 5.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353732.png",
+      "text": "EE-RA Comm Flow Handshake 2 of 5.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353731.png",
+      "text": "EE-RA Comm Flow Handshake 3 of 5.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353730.png",
+      "text": "EE-RA Comm Flow Handshake 4 of 5.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353729.png",
+      "text": "EE-RA Comm Flow Handshake 5 of 5.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/42107291.png",
+      "text": "EE-RA Comm Flow File Download 1 of 3.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353727.png",
+      "text": "EE-RA Comm Flow File Download 2 of 3.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353726.png",
+      "text": "EE-RA Comm Flow File Download 3 of 3.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/42107290.png",
+      "text": "EE-RA Comm Flow Message 1 of 2.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353724.png",
+      "text": "EE-RA Comm Flow Message 2 of 2.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353725.png",
+      "text": "EE-RA Comm Flow Message 1 of 2.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427072/41353728.png",
+      "text": "EE-RA Comm Flow File Download 1 of 3.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "IP",
+      "definition": "Internet Protocol"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "LOP",
+      "definition": "Location Obscurer Proxy"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427072/41353733.png",
+      "text": "EE-RA Comm Flow Handshake 1\n                                of 5.png"
+    },
+    {
+      "href": "attachments/27427072/41353732.png",
+      "text": "EE-RA Comm Flow Handshake 2 of 5.png"
+    },
+    {
+      "href": "attachments/27427072/41353731.png",
+      "text": "EE-RA Comm Flow Handshake 3 of 5.png"
+    },
+    {
+      "href": "attachments/27427072/41353730.png",
+      "text": "EE-RA Comm Flow Handshake 4 of 5.png"
+    },
+    {
+      "href": "attachments/27427072/41353729.png",
+      "text": "EE-RA Comm Flow Handshake 5 of 5.png"
+    },
+    {
+      "href": "attachments/27427072/42107291.png",
+      "text": "EE-RA Comm Flow File Download 1 of 3.png"
+    },
+    {
+      "href": "attachments/27427072/41353727.png",
+      "text": "EE-RA Comm Flow File Download 2 of 3.png"
+    },
+    {
+      "href": "attachments/27427072/41353726.png",
+      "text": "EE-RA Comm Flow File Download 3 of 3.png"
+    },
+    {
+      "href": "attachments/27427072/42107290.png",
+      "text": "EE-RA Comm Flow Message 1 of 2.png"
+    },
+    {
+      "href": "attachments/27427072/41353724.png",
+      "text": "EE-RA Comm Flow Message 2 of 2.png"
+    },
+    {
+      "href": "attachments/27427072/41353725.png",
+      "text": "EE-RA Comm Flow Message 1 of 2.png"
+    },
+    {
+      "href": "attachments/27427072/41353728.png",
+      "text": "EE-RA Comm Flow File Download 1 of 3.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.501Z"
+}

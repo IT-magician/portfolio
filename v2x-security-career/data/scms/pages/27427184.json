@@ -1,0 +1,46 @@
+{
+  "pageId": "27427184",
+  "fileName": "27427184.html",
+  "title": "SCMS CV Pilots Documentation : Use Case 8: OBE Pseudonym Certificate Revocation",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 22, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><p><span class=\"inline-comment-marker\" data-ref=\"7de81ae6-92e3-453a-9203-90258f609c48\"><br></span></p><div class=\"confluence-information-macro confluence-information-macro-information\"><span class=\"aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon\"></span><div class=\"confluence-information-macro-body\"><p>OBE Revocation will be integrated with the ongoing \"Misbehavior Authority Integration\" sub project as SCMS <abbr title=\"Proof-Of-Concept\">POC</abbr> release 2.0. Until then every reported pseudonym certificate leads automatically to a revocation of all pseudonym certificates belonging to this OBE for testing purposes.</p></div></div><h2 id=\"UseCase8:OBEPseudonymCertificateRevocation-Goals\"><span class=\"inline-comment-marker\" data-ref=\"7de81ae6-92e3-453a-9203-90258f609c48\">Goals</span></h2><p><span class=\"inline-comment-marker\" data-ref=\"9775adee-7724-4b4f-8e1b-647d143b895a\">Perform misbehavior investigation and eventually revocation of OBEs</span>.</p>\n                    ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof-Of-Concept"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.359Z"
+}

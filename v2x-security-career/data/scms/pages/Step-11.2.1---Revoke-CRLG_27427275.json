@@ -1,0 +1,95 @@
+{
+  "pageId": "Step-11.2.1---Revoke-CRLG_27427275",
+  "fileName": "Step-11.2.1---Revoke-CRLG_27427275.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke CRLG",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1-RevokeCRLG-Goals\">Goals</h2><p>The goal is to revoke a CRLG certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokeCRLG-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>A <abbr title=\"Certificate Revocation List\">CRL</abbr> Generator (CRLG) can only be revoked by a root <abbr title=\"Certificate Authority\">CA</abbr>. &nbsp;In a situation where a CRLG has been compromised or has failed, the <abbr title=\"Technical Component of the SCMS Manager\">TCotSCMSM</abbr> must activate a root CA and use it to sign a Series 256 CRL listing the compromised CRLG as revoked. &nbsp;This file must then be copied to the CRL Store for distribution to all components.</p><p>On receipt of a CRL signed by a root CA and listing a CRLG as revoked, the CRL Store must create a new composite CRL that contains:</p><ol><li>All non-expired, Elector-signed, root-management messages</li><li>The new root CA signed CRL listing a CRLG as revoked</li><li>Any other non-expired root CA signed CRLs</li><li>Any CRLs signed by other, no-revoked, non-expired CRLGs</li></ol><p>This new composite CRL shall be distributed to all components. &nbsp;</p><p>The <abbr title=\"Misbehavior Authority\">MA</abbr> shall no longer the use revoked CRLG to sign CRLs (<a href=\"Step-11.1.1---Add-CRLG_27427208.html\">the procedure for adding a new CRLG</a> will update the MA with the address and <abbr title=\"Transport Layer Security\">TLS</abbr> certificate of the new CRLG).</p><h2 id=\"Step11.2.1-RevokeCRLG-Assumptions\">Assumptions</h2><ul><li>In the SCMS design, there may be more than one CRLG. &nbsp;However, for the Proof of Concept (PoC) deployment, there will be a single, central CRLG. &nbsp;</li><li>The SCMS requires a valid CRLG in order to sustain operation. If the only active CRLG is revoked, the TCotSCMSM must initiate the process of adding a new CRLG (or re-certifying the existing CRLG) using the procedure described in the&nbsp;<a href=\"Step-11.1.1---Add-CRLG_27427208.html\">Add CRLG</a>&nbsp;use case.</li><li>After receipt of the new CRL signed by a root CA listing a CRLG as revoked, all components and EE shall cease to process any CRL signed by the revoked CRLG. &nbsp;</li><li>Components will have no reliable way to know the sequence in which valid or fraudulent revocation messages were created. Therefore, there is no effective way to \"un-revoke\" components previously placed on the CRL by a compromised CRLG. All previously revoked components will need to be re-certified with new certificates in order to restore trust.</li><li>The procedure for interacting with the CRL Store and assembling a new composite CRL is implementation specific. &nbsp;There are no standard SCMS messages or procedures for performing this function. &nbsp;</li></ul><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokeCRLG-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427275/27427276.png\">Untitled18.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "Step-11.1.1---Add-CRLG_27427208.html",
+      "text": "the procedure for adding a new CRLG",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.1.1---Add-CRLG_27427208.html",
+      "text": "Add CRLG",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427275/27427276.png",
+      "text": "Untitled18.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "TCotSCMSM",
+      "definition": "Technical Component of the SCMS Manager"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427275/27427276.png",
+      "text": "Untitled18.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.626Z"
+}

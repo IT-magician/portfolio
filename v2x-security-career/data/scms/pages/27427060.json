@@ -1,0 +1,62 @@
+{
+  "pageId": "27427060",
+  "fileName": "27427060.html",
+  "title": "SCMS CV Pilots Documentation : CB1: Cryptographic Services",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    },
+    {
+      "text": "Cryptography Background",
+      "href": "Cryptography-Background_27427059.html"
+    }
+  ],
+  "metadata": "",
+  "content": "\n                    <h2 id=\"CB1:CryptographicServices-StandardServices:Confidentiality,Integrity,Authenticity\">Standard Services: Confidentiality, Integrity, Authenticity</h2><p>The standard cryptographic services are confidentiality, integrity, and authenticity. They are provided by the cryptographic mechanisms of encryption and authentication. Two fictional people, Alice and Bob, are used in the following descriptions to help simplify the explanations.</p><p><em>Confidentiality</em> means that when Alice sends a message to Bob, she knows that no one can learn anything (except its length) about the message in transit. Confidentiality is provided by <em>encryption</em>.</p><p><em>Integrity</em> means that when Alice sends a message to Bob, she knows that if the message is altered in transit, Bob will be able to detect that the message has been modified; this provides a deterrent to an attacker who may want to modify the message.</p><p><em>Authenticity</em> means that when Alice sends a message to Bob, she knows that Bob can be certain that the message actually came from her.</p><p><em>Authenticity</em> and <em>integrity</em> are typically provided together (authenticity is of little use without integrity) by <em>authentication</em>.</p><p>Cryptographic mechanisms allow Alice and Bob to leverage a small amount of secure information into a large amount of secure data. This small amount of information is a key. For confidentiality, Alice uses a key to encrypt the data and Bob uses a related key to decrypt the data. For authentication, Alice uses a key to apply an authentication code to the data, and Bob uses a related key to check that the code is valid. Although a great deal of attention is paid to particular encryption algorithms (such as the algorithm by Rivest, Shamir, and Adleman (RSA), the advanced encryption standard (AES), and so on), real-life key management is a much more difficult problem than choosing a cryptographic algorithm, and many more weaknesses are caused in systems by poor key management than by a poor choice of cryptographic algorithm.</p><h2 id=\"CB1:CryptographicServices-Privacy\">Privacy</h2><p>A main goal of the SCMS is to protect the privacy of drivers. This means that it should provide the following services:</p><ul><li>Anonymity: A message should contain no information that explicitly identifies the driver, the passengers, or the vehicle.&nbsp;</li><li>Unlinkability: It should be difficult for an eavesdropper to track a driver or vehicle by recording its <abbr title=\"Basic Safety Message\">BSM</abbr> transmissions.&nbsp;</li></ul><p>Unlinkability is not a binary property of the system. For example, an eavesdropper who is able to record all messages sent by a vehicle will be able to track that vehicle by constructing the path indicated by that vehicle’s BSMs. However, it is a design goal that the <abbr title=\"Vehicle-to-Vehicle\">V2V</abbr> communications system does not increase the risk that an individual may be tracked.</p><p>For purposes of this report, the requirement is that if a vehicle’s messages contain data that is unique to the vehicle, the data should change frequently such that it is extremely difficult for an eavesdropper to track that vehicle. This in turn means that:</p><ul><li>Any application identifiers should change frequently. This is supported in the TemporaryID field in the BSM.&nbsp;</li><li>Any network identifiers, such as source Media Access Control (MAC) addresses, should change frequently. This is permitted by <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> Standard 802.11 and actively supported by service primitives in IEEE Standard 1609.4.&nbsp;</li><li>Any cryptographic information unique to the vehicle should change frequently. As discussed below, messages in the system are authenticated by signing them with digital certificates, which are issued by a certificate authority (CA). To meet the requirement, a device must either have multiple digital certificates, or share its certificate with other vehicles. Previous research has concluded that shared certificates are not viable (cf. e.g., Jason J. Haas, Yih-Chun Hu, and Kenneth P. Laberteaux. The Impact of Key Assignment on <abbr title=\"Vehicular Ad-Hoc Networks\">VANET</abbr> Privacy. Security and Communication Networks. 3(2):233-249, John Wiley &amp; Sons, Ltd., March 2010). Only the case where each device has multiple certificates is considered in this system.&nbsp;</li><li>All identifier changes should be synchronized: if one identifier does not change between observations, the attacker can link even if all other identifiers change.&nbsp;</li><li>The vehicle’s privacy should be preserved even if the attacker has inside information from one of the SCMS components.&nbsp;</li></ul><p>However, in addition to supporting privacy, the system design has to support identification of misbehaving devices in order to remove them from the system. These two goals are fundamentally in contradiction. This SCMS design allows identification of devices for misbehavior detection purposes only through a series of defined interactions between SCMS components. No individual SCMS component can identify a device, and the information revealed to any SCMS component can be controlled.</p><p>The Vehicle Infrastructure Integration Consortium (VIIC) provides a full discussion of the policy requirements arising from this high-level requirement for privacy-by-design.</p>\n                    ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "BSM",
+      "definition": "Basic Safety Message"
+    },
+    {
+      "term": "V2V",
+      "definition": "Vehicle-to-Vehicle"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "VANET",
+      "definition": "Vehicular Ad-Hoc Networks"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.302Z"
+}

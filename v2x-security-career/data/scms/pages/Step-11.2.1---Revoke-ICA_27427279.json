@@ -1,0 +1,142 @@
+{
+  "pageId": "Step-11.2.1---Revoke-ICA_27427279",
+  "fileName": "Step-11.2.1---Revoke-ICA_27427279.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ICA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1-RevokeICA-Goals\">Goals</h2><p>The goal is to revoke an ICA certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokeICA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The Technical Component of the SCMS Manager (TCotSCMSM), a local ICA Manager, or the Misbehavior Authority, determines that an Intermediate Certificate Authority (ICA) needs to be revoked. The TCotSCMSM contacts the appropriate <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr> (as indicated in the ICA certificate, see the&nbsp;<a href=\"attachments/41353604/41353606.html\" data-linked-resource-id=\"41353606\" data-linked-resource-version=\"2\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"<abbr title=“Certificate Revocation List”>CRL</abbr> Series\" data-linked-resource-content-type=\"application/drawio\" data-linked-resource-container-id=\"41353604\" data-linked-resource-container-version=\"4\">CRL Series Diagram</a>&nbsp;for details) and adds the impacted ICA to the CRL. On receiving and validating the new CRL, all components will cease to trust the ICA and any certificates that chain back to the ICA.</p><p>Impacted components may include <abbr title=\"Enrollment Certificate Authorities\">ECA</abbr>, <abbr title=\"Registration Authority\">RA</abbr>, <abbr title=\"Pseudonym Certificate Authorities\">PCA</abbr>, <abbr title=\"Linkage Authorities\">LA</abbr> and any <abbr title=\"End Entities\">EEs</abbr> enrolled through an impacted ECA. All end-entity devices (EE) whose enrollment or application certificates chain back to the revoked ICA should obtain new enrollment or application certificates as soon as possible (the SCMS Manager may set performance requirements for how quickly this must happen). The SCMS will provide re-enrollment processes at a later stage.</p><p>All EEs whose pseudonym, application, or identification certificates chain back to the impacted ICA will cease to use those certificates. They shall request new certificates.</p><p>The TCotSCMSM will inform the Policy Generator (PG) to update the <abbr title=\"Global Certificate Chain File\">GCCF</abbr> and remove all component certificates that chain back to the revoked ICA. The new GCCF will be distributed to all un-revoked RAs, which will incorporate the new lists in the next <abbr title=\"Local Certificate Chain File\">LCCF</abbr> that they issue.</p><h2 id=\"Step11.2.1-RevokeICA-Assumptions\">Assumptions</h2><ul><li>The local ICA Manager will coordinate with the TCotSCMSM when revoking an ICA</li><li>If the MA determines that an ICA shall be revoked, it will notify the TCotSCMSM. This will not be an automated process.</li><li>The TCotSCMSM will inform the local ICA Manager when revoking an ICA</li></ul><h2 id=\"Step11.2.1-RevokeICA-Requirements\">Requirements</h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokeICA-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427279/27427284.png\">Untitled4.png</a> (image/png)\n                                <br>\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427279/27427283.pdf\">Untitled3.pdf</a> (application/pdf)\n                                <br>\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427279/27427282.jpg\">Untitled2.jpg</a> (image/jpeg)\n                                <br>\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427279/27427281.png\">Untitled1.png</a> (image/png)\n                                <br>\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427279/27427280.png\">Untitled13.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "attachments/41353604/41353606.html",
+      "text": "CRL Series Diagram",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427279/27427284.png",
+      "text": "Untitled4.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427279/27427283.pdf",
+      "text": "Untitled3.pdf",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427279/27427282.jpg",
+      "text": "Untitled2.jpg",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427279/27427281.png",
+      "text": "Untitled1.png",
+      "isInternal": false
+    },
+    {
+      "originalHref": "attachments/27427279/27427280.png",
+      "text": "Untitled13.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    },
+    {
+      "term": "ECA",
+      "definition": "Enrollment Certificate Authorities"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authorities"
+    },
+    {
+      "term": "LA",
+      "definition": "Linkage Authorities"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "GCCF",
+      "definition": "Global Certificate Chain File"
+    },
+    {
+      "term": "LCCF",
+      "definition": "Local Certificate Chain File"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/41353604/41353606.html",
+      "text": "CRL Series Diagram"
+    },
+    {
+      "href": "attachments/27427279/27427284.png",
+      "text": "Untitled4.png"
+    },
+    {
+      "href": "attachments/27427279/27427283.pdf",
+      "text": "Untitled3.pdf"
+    },
+    {
+      "href": "attachments/27427279/27427282.jpg",
+      "text": "Untitled2.jpg"
+    },
+    {
+      "href": "attachments/27427279/27427281.png",
+      "text": "Untitled1.png"
+    },
+    {
+      "href": "attachments/27427279/27427280.png",
+      "text": "Untitled13.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.628Z"
+}

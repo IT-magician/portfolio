@@ -1,0 +1,40 @@
+{
+  "pageId": "Common-Requirements_27427011",
+  "fileName": "Common-Requirements_27427011.html",
+  "title": "SCMS CV Pilots Documentation : Common Requirements",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    }
+  ],
+  "metadata": "Last modified on Nov 29, 2016",
+  "content": "\n                    <p>The requirements in this section apply to all use cases, whereas the requirements in the section\n                        <a href=\"Requirements-by-Use-Case_27426994.html\">Requirements by Use Case</a> are specific to\n                        the respective use case.</p>\n                ",
+  "links": [
+    {
+      "originalHref": "Requirements-by-Use-Case_27426994.html",
+      "text": "Requirements by Use Case",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.485Z"
+}

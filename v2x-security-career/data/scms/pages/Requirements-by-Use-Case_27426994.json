@@ -1,0 +1,195 @@
+{
+  "pageId": "Requirements-by-Use-Case_27426994",
+  "fileName": "Requirements-by-Use-Case_27426994.html",
+  "title": "SCMS CV Pilots Documentation : Requirements by Use Case",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p class=\"confluence-link\">The following pages are a hierarchy of requirements sorted by SCMS use cases. A use case contains all requirements that must be implemented from an end entities (<a href=\"http://wiki.campllc.org/display/SP/Glossary#EE\" class=\"external-link\" rel=\"nofollow\">EE</a>) perspective to fulfill a major feature of the SCMS. A use case might comprehend multiple steps from a system's architecture perspective that can be run without interference with each other to return a partial result of the overall use case. In general, steps need to be executed in the given order to fulfill the use case. For example, <a href=\"27426990.html\">Use Case 3: <abbr title=\"On Board Equipment\">OBE</abbr> Pseudonym Certificates Provisioning</a> describes all necessary processes to equip an OBE with pseudonym certificates. It comprehends five steps that are coherent but self-contained:&nbsp;</p><ul><li class=\"confluence-link\"><a href=\"27427080.html\">Step 3.1: Request for Pseudonym Certificates</a></li><li class=\"confluence-link\"><a class=\"unresolved\" href=\"#\">Step 3.2: Pseudonym Certificate Generation</a></li><li class=\"confluence-link\"><a href=\"27427088.html\">Step 3.3: Initial Download of Pseudonym Certificates</a></li><li class=\"confluence-link\"><a class=\"unresolved\" href=\"#\">Step 3.4: Schedule Generation of Subsequent Batch of Pseudonym Certificates</a></li><li class=\"confluence-link\"><a href=\"27427090.html\">Step 3.5: Top-off Pseudonym Certificates</a></li></ul><p>This format supports end-to-end implementation as well as testing better than a pure listing of requirements.</p><h3 id=\"RequirementsbyUseCase-On-boardEquipment(OBE)UseCases\">On-board Equipment (<a href=\"Glossary_27427375.html#Glossary-OBE\">OBE</a>) Use Cases</h3><p>The following chapters are about OBE requirements. These are the main use cases for OBEs, but there are requirements throughout all chapters for OBEs. For example, in <a href=\"27427186.html\">11. Backend Management</a> are requirements about what an OBE needs to do if a root <abbr title=\"Certificate Authority\">CA</abbr> is revoked or a new root CA is introduced to the system.</p><ul><li><p><a href=\"58589462.html\">Use Case 2: OBE Bootstrapping (Manual)</a></p></li><li><p><a href=\"27426990.html\">Use Case 3: OBE Pseudonym Certificates Provisioning</a></p></li><li><p><a class=\"unresolved\" href=\"#\">Use Case 8: Global Misbehavior Detection and Revocation</a></p></li><li><a href=\"27427325.html\">Use Case 19: OBE Identification Certificate Provisioning</a></li></ul><h3 id=\"RequirementsbyUseCase-Road-sideEquipment(RSE)UseCases\">Road-side Equipment (<a href=\"http://wiki.campllc.org/display/SP/Glossary#RSE\" class=\"external-link\" rel=\"nofollow\">RSE</a>) Use Cases</h3><p>The following chapters are about RSE requirements. These are the main use cases for RSEs, but there are requirements throughout all chapters for RSEs. For example, in <a href=\"27427186.html\">11. Backend Management</a> are requirements about what an RSE needs to do if a root CA is revoked or a new root CA is introduced to the system.</p><ul><li><a href=\"58589469.html\">Use Case 12: RSE Bootstrapping (Manual)</a></li><li><a href=\"27427298.html\">Use Case 13: RSE Application Certificate Provisioning</a></li><li><a href=\"27427307.html\">Use Case 16: RSE Application and OBE Identification Certificate Revocation</a></li></ul><h3 id=\"RequirementsbyUseCase-CommonEEUseCases\">Common <abbr title=\"End Entity\">EE</abbr> Use Cases</h3><p>Both EE types should implement the following chapters:</p><ul><li><a href=\"27427180.html\">Use Case 5: Misbehavior Reporting</a></li><li><a href=\"27427183.html\">Use Case 6: <abbr title=\"Certificate Revocation List\">CRL</abbr> Download</a></li><li><span class=\"plugin_pagetree_children_span\"><a href=\"https://wiki.campllc.org/display/SP/Use+Case+11%3A+Backend+Management?src=contextnavpagetreemode\" rel=\"nofollow\">Use Case 11: Backend Management</a> (CA compromise recover strategy)<br></span></li><li><span class=\"plugin_pagetree_children_span\"><a href=\"27427309.html\">Use Case 18: Provide and Enforce Technical Policies</a></span></li><li><span class=\"plugin_pagetree_children_span\"><a href=\"41353473.html\">Use Case 20: EE Re-Enrollment</a></span></li></ul><h3 id=\"RequirementsbyUseCase-BackendUseCases\"><span class=\"plugin_pagetree_children_span\">Backend Use Cases</span></h3><p><span class=\"plugin_pagetree_children_span\">Features specific only to the SCMS (no relevance to end entities) as well as deployment and management requirements are listed in the following use cases:</span></p><ul><li><span class=\"plugin_pagetree_children_span\"><a class=\"unresolved\" href=\"#\">Use Case 1: SCMS Component Setup</a></span></li><li><span class=\"plugin_pagetree_children_span\"><a class=\"unresolved\" href=\"#\">Use Case 7: CRL Broadcast</a></span></li><li><span class=\"plugin_pagetree_children_span\"><a href=\"27427186.html\">Use Case 11: Backend Management</a><br></span></li></ul><h3 id=\"RequirementsbyUseCase-RequirementStatus\"><span class=\"inline-comment-marker\" data-ref=\"c13e601f-e6d8-4b0c-8ac9-7ba10dd633e7\">Requirement Status</span></h3><p>All requirements are listed with all details including their status of implementation (e.g., \n<span class=\"jira-issue resolved\" data-jira-key=\"SCMS-500\">\n                    <a href=\"https://jira.campllc.org/browse/SCMS-500?src=confmacro\" class=\"jira-issue-key\"><img class=\"icon\" alt=\"\" src=\"https://jira.campllc.org/secure/viewavatar?size=xsmall&amp;avatarId=10306&amp;avatarType=issuetype\">SCMS-500</a>\n                            -\n            <span class=\"summary\">Firewall whitelist</span>\n                                                <span class=\"aui-lozenge aui-lozenge-subtle             aui-lozenge-success\n     jira-macro-single-issue-export-pdf\">SCMS <abbr title=\"Proof of Concept\">PoC</abbr> out of Scope</span>\n                </span>\n) and a <a href=\"http://jira.campllc.org/\" class=\"external-link\" rel=\"nofollow\">JIRA</a> link is given for traceability reasons. Statuses given are:</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RequirementsbyUseCase-\"></span><div class=\"scroll-title-body\"><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><tbody><tr><th class=\"confluenceTh\">Status</th><th class=\"confluenceTh\">Description</th></tr><tr><td class=\"confluenceTd\">Review</td><td class=\"confluenceTd\">Requirement is currently under review by the Software Team</td></tr><tr><td class=\"confluenceTd\">In Implementation</td><td class=\"confluenceTd\">Requirement is currently in implementation by the Software Team</td></tr><tr><td class=\"confluenceTd\">Implemented</td><td class=\"confluenceTd\">Software Team finished the implementation as well as the unit tests</td></tr><tr><td class=\"confluenceTd\">Ready for Testing</td><td class=\"confluenceTd\">Test Team created test cases as well as test scripts for this requirement and the requirement is ready to be tested with the next test run</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\">Tests Passed</td><td colspan=\"1\" class=\"confluenceTd\">All tests of the given requirement were successful within the latest test run</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\">Tests Failed</td><td colspan=\"1\" class=\"confluenceTd\">One or more tests of the given requirement failed during the latest test run</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\">Closed</td><td colspan=\"1\" class=\"confluenceTd\">Requirement is implemented and successfully tested</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\">Manual Process</td><td colspan=\"1\" class=\"confluenceTd\">Requirement is meant to be manually executed within the PoC software and will not be implemented in software</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\">SCMS PoC Out Of Scope</td><td colspan=\"1\" class=\"confluenceTd\">Requirement will neither be implemented in the PoC software nor executed manually. This applies especially to EE requirements or SCMS production requirements that are listed but out of scope for implementation during the PoC project.</td></tr></tbody></table></div></div><div class=\"scroll-title-macro-title\"><strong>Document Header and Status</strong></div></div>\n                    ",
+  "links": [
+    {
+      "originalHref": "http://wiki.campllc.org/display/SP/Glossary#EE",
+      "text": "EE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27426990.html",
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427080.html",
+      "text": "Step 3.1: Request for Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Step 3.2: Pseudonym Certificate Generation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427088.html",
+      "text": "Step 3.3: Initial Download of Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Step 3.4: Schedule Generation of Subsequent Batch of Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427090.html",
+      "text": "Step 3.5: Top-off Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Glossary_27427375.html#Glossary-OBE",
+      "text": "OBE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27427186.html",
+      "text": "11. Backend Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27426990.html",
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Use Case 8: Global Misbehavior Detection and Revocation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427325.html",
+      "text": "Use Case 19: OBE Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://wiki.campllc.org/display/SP/Glossary#RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27427186.html",
+      "text": "11. Backend Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589469.html",
+      "text": "Use Case 12: RSE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427298.html",
+      "text": "Use Case 13: RSE Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427307.html",
+      "text": "Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427180.html",
+      "text": "Use Case 5: Misbehavior Reporting",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427183.html",
+      "text": "Use Case 6: CRL Download",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Use+Case+11%3A+Backend+Management?src=contextnavpagetreemode",
+      "text": "Use Case 11: Backend Management",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27427309.html",
+      "text": "Use Case 18: Provide and Enforce Technical Policies",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353473.html",
+      "text": "Use Case 20: EE Re-Enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Use Case 1: SCMS Component Setup",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Use Case 7: CRL Broadcast",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427186.html",
+      "text": "Use Case 11: Backend Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://jira.campllc.org/browse/SCMS-500?src=confmacro",
+      "text": "SCMS-500",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://jira.campllc.org/",
+      "text": "JIRA",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.594Z"
+}

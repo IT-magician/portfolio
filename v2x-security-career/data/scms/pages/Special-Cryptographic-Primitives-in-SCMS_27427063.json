@@ -1,0 +1,145 @@
+{
+  "pageId": "Special-Cryptographic-Primitives-in-SCMS_27427063",
+  "fileName": "Special-Cryptographic-Primitives-in-SCMS_27427063.html",
+  "title": "SCMS CV Pilots Documentation : Special Cryptographic Primitives in SCMS",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    }
+  ],
+  "metadata": "Last modified on Jul 03, 2018",
+  "content": "\n                    <p class=\"inline-comment-marker\"><span class=\"inline-comment-marker\" data-ref=\"2b38d6dd-74ff-407e-84b1-895e44967454\">The <abbr title=\"Crash Avoidance Metrics Partnership\">CAMP</abbr> SCMS uses some cryptographic techniques that are not in widespread use in other <abbr title=\"Public Key Infrastructures\">PKIs</abbr>. This section provides relevant cryptographic background.</span>&nbsp;In the subsection <a href=\"#SpecialCryptographicPrimitivesinSCMS-crypto-ee\">Crypto Primitives affecting End-Entity</a>, we point out the primitives that also affect <abbr title=\"End Entities\">EEs</abbr>.&nbsp;</p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-Notation\">Notation</h1><p>To understand the special cryptographic constructions in this section, it is necessary to understand some of the underlying mathematics first. In the Elliptic Curve Cryptography system, the objects of interest are “elliptic curve points” which have the form (x, y) where (x, y) are all the points that are solutions of a particular cubic equation. A point P can be scalar-multiplied by an integer, a (a-times repeated addition of P by itself), to get a new point Q = aP. (Upper-case letters are used to indicate points, lower-case to indicate integers). In this coherence, multiplication of a point by an integer is defined so that it follows typical mathematical rules and always generates another point on the curve. The Elliptic Curve Discrete Logarithm Problem is basically the statement:</p><p style=\"text-align: center;\">Given P and Q = aP, but not a, it is very difficult to work out the value of a.</p><p>In the following, for a, an element of {0, 1} and an integer b, a<sup>b</sup>&nbsp;denotes a b-bit string of a's (e.g., 0<sup>64</sup>&nbsp;is a 64-bit string of 0's);&nbsp;for bit strings c and d, c XOR d denotes their exclusive-OR; for bit strings x and y,&nbsp;x || y denotes their concatenation; and for a bit string Z and an integer n, [Z]<sub>n</sub>&nbsp;denotes n most significant bits of Z.&nbsp;For a key k and message m, <abbr title=\"Advanced Encryption Standard\">AES</abbr>(k, m) means AES encryption of m with k in <abbr title=\"Electronic Codebook\">ECB</abbr> mode. In addition, unless otherwise noted, l is the order of the elliptic curve, la_id1 and la_id2 are 16-bit identifiers of linkage authorities LA1 and LA2, respectively, i, j, and k are 32-bit strings, and for brevity (i, j) are sometimes denoted by ι (Greek letter iota).</p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-time-periodsTimePeriods\"><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-time-periods\"></span>Time Periods</h1><ol><li>Cryptographic primitives explained in the sub-pages including <a href=\"27427064.html\"><abbr title=\"Special Cryptographic Primitives One\">SCP1</abbr>: Butterfly Keys</a> and&nbsp;<a href=\"27427066.html\"><abbr title=\"Special Cryptographic Primitives Two\">SCP2</abbr>: Linkage Values</a>&nbsp;generate a sequence of cryptographic values. In other words, both techniques use functions that map from a known sequence (such as 1, 2, 3, …) to a sequence whose entries are&nbsp;<em>a priori</em>&nbsp;unknown and unpredictable. The cryptographic details of the functions do not depend on the exact form of the input sequence, so one natural way they could be defined would be for the input sequence to be a single counter&nbsp;<em>i</em>&nbsp;= {0, 1, 2, 3, …}. In practice, in this document, two different approaches to define the techniques are employed. When defining the techniques for purposes of explaining the core concept, the techniques are written as if they take an input defined by a single counter ι. This is the Greek letter&nbsp;<em>iota</em>.</li><li>For purposes of implementation, the input will be defined by two values,&nbsp;<em>i</em>&nbsp;and&nbsp;<em>j</em>. These are related to the pseudonym certificate provisioning model described in <a href=\"27426990.html\">Use Case 3: <abbr title=\"On Board Equipment\">OBE</abbr> Pseudonym Certificates Provisioning</a>. This use case utilizes a coarse time period with a counter&nbsp;<em>i</em>&nbsp;and a more granular counter&nbsp;<em>j</em>, which is reset to 0 at the start of each&nbsp;<em>i-</em>period.</li></ol><p>Note that&nbsp;<em>i</em>&nbsp;and&nbsp;<em>j</em>&nbsp;uniquely define ι, an exemplary bijective. The term bijective is a mathematical term describing the characteristics of a function. A bijective function is both injective and surjective and implies a unique one-to-one relationship between the inputs and outputs of the function. When&nbsp;<em>i</em>&nbsp;and&nbsp;<em>j</em>&nbsp;are used for the input sequence, it is assumed that all devices and all SCMS components use the same value of&nbsp;<em>i</em>&nbsp;to denote the same time slot. In other words,&nbsp;<em>i</em>&nbsp;is a globally assigned variable, not a variable that individual OBEs or <abbr title=\"Registration Authorities\">RAs</abbr> have the ability to choose at will.</p><p><span style=\"font-size: 24.0px;\"><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-pseudonym-cert-validity\"></span>Pseudonym Certificate Validity&nbsp;</span></p><p>The length of the i-period should be the number of minutes in a week, 10080. We need to express it in minutes (as opposed to seconds) because the encoding in 1609.2 lets us use quantities of up to 2<sup>16</sup>&nbsp;units and there are more than 2<sup>16</sup>&nbsp;seconds in a week. The lifetime of the certificate is the i-period plus an overlap period. In the old design, the overlap period is one minute, but there are safety concerns with such a small overlap period, so we are extending the overlap period to one hour. This will enable vehicles to postpone certificate change if they are in an alert state that lasts more than a minute. With this extended overlap period, the lifetime of a pseudonym certificate is&nbsp;<strong>10140 minutes</strong>.<br><br>The start validity time of a pseudonym certificate is given in seconds since the 1609.2 epoch of 00:00:00 UTC, January 1, 2004.</p><p>If leap seconds happen, we may choose to adjust the start validity time of the certificates so it is not always 60*10080 seconds after the start of the previous batch but instead always lines up with the top of the hour. This concern is out of scope for <abbr title=\"Proof of Concept\">POC</abbr> and will be addressed later.</p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-clock-time-i=0ClockTimeCorrespondingtoglobali=0\"><span style=\"font-size: 24.0px;line-height: 1.25;\"><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-clock-time-i=0\"></span>Clock Time Corresponding to global i=0</span></h1><p>For the Safety Pilot, the clock time corresponding to i=0 was defined to be 00:00 UTC January 1, 2010. However, a lot has changed since, and in particular, the meanings of i and j have changed significantly in the old&nbsp;design. An important consideration for selecting the new clock time corresponding to i=0 is that changing i should cause minimum disruption to safety.&nbsp;According to <a href=\"http://www.forbes.com/2009/01/21/car-accident-times-forbeslife-cx_he_0121driving.html\" class=\"external-link\" rel=\"nofollow\">http://www.forbes.com/2009/01/21/car-accident-times-forbeslife-cx_he_0121driving.html</a>, the fewest deaths by crash happened between 4 and 5 am on Tuesday. With the highest population density on the East Coast, 4:00 am Eastern Standard Time makes most sense as during Daylight Saving Time, it will move to 5:00 am, which is still consistent with the above article.&nbsp;Considering all these, i=0 corresponds to:&nbsp;<strong>4:00 am Eastern Standard Time on Tuesday, January 6, 2015 </strong>(i.e., in TAI <span class=\"inline-comment-marker\" data-ref=\"8f54bb12-21ad-4a5a-b3c7-597e39dffda8\">4023 days, 9 hours plus 3 leap seconds or </span><strong><span class=\"inline-comment-marker\" data-ref=\"8f54bb12-21ad-4a5a-b3c7-597e39dffda8\">347,619,603 TAI seconds</span></strong> since 1609.2 epoch).</p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-plv-encryptionEncryptionofPre-linkageValuesbyLAforPCA\"><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-plv-encryption\"></span><span style=\"line-height: 1.25;\">Encryption of Pre-linkage Values by LA for <abbr title=\"Principal Component Analysis\">PCA</abbr></span></h1><p><span style=\"line-height: 1.25;\"><span></span></span>In the old design, when LA sends pre-linkage values to RA for pseudonym certificate provisioning, it encrypts them for PCA using symmetric encryption. The secret key used for encryption is shared between LA and PCA through an out-of-band means. This has an impact on privacy (though only minor) from a malicious PCA, if RA uses more than one pair of LAs for a given PCA, as PCA can easily tell which pair of LAs were used in any given request sent by RA to PCA. This privacy impact can easily be mitigated if LA were to use public-key encryption for encrypting pre-linkage values for PCA, as a ciphertext generated using public-key encryption, does not need to contain any sender-related (in this case, LA) information. However, the team realized that using public-key encryption will add a significant amount of computational overhead on both LA and PCA, and decided to stick with symmetric encryption, <strong>with a recommendation for RA to keep the number of pairs of LAs per PCA as low as possible, ideally one</strong>.</p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-mi-encrypted-plvMisbehaviorInvestigation:PCAReturnsEncryptedPre-linkageValuestoMA\"><span><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-mi-encrypted-plv\"></span></span><span>Misbehavior Investigation: PCA Returns Encrypted Pre-linkage Values to <abbr title=\"Misbehavior Authority\">MA</abbr></span></h1><p><span>In the old design, during misbehavior investigation, PCA returns pre-linkage values to MA, which MA would then forward to LA. However, there is no need for MA to learn the pre-linkage values; PCA only needs to be able to point to a pre-linkage value that LA can then find information about. The design change is as follows: PCA returns an encrypted pre-linkage value to MA. The encrypted pre-linkage value matches the encrypted pre-linkage value that LA originally provided to PCA as part of the pseudonym certificate provisioning process.&nbsp;</span></p><p><span>The new design is described in&nbsp;<a class=\"unresolved\" href=\"#\">Step 8.2: Misbehavior Investigation</a>.&nbsp;</span></p><h1 id=\"SpecialCryptographicPrimitivesinSCMS-crypto-eeCryptoPrimitivesAffectingEnd-Entity\"><span class=\"confluence-anchor-link\" id=\"SpecialCryptographicPrimitivesinSCMS-crypto-ee\"></span><span style=\"line-height: 1.25;\">Crypto Primitives Affecting End-Entity&nbsp;</span></h1><p><span class=\"inline-comment-marker\" data-ref=\"dd623322-e36d-416c-bb7e-0ea45e3228c8\">All of the changes mentioned below affect end-entities, and therefore they need to be informed to the <abbr title=\"Vehicle to Vehicle Systems Engineering\">V2V-SE</abbr> team.</span></p><ul><li><a href=\"27427064.html\">SCP1: Butterfly Keys</a></li><li><a href=\"27427066.html\">SCP2: Linkage Values</a></li><li><a href=\"#SpecialCryptographicPrimitivesinSCMS-clock-time-i=0\">Clock Time corresponding to i=0</a></li><li><a href=\"#SpecialCryptographicPrimitivesinSCMS-pseudonym-cert-validity\">Pseudonym Certificate Validity</a></li></ul>\n\n                    ",
+  "links": [
+    {
+      "originalHref": "#SpecialCryptographicPrimitivesinSCMS-crypto-ee",
+      "text": "Crypto Primitives affecting End-Entity",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427064.html",
+      "text": "SCP1: Butterfly Keys",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427066.html",
+      "text": "SCP2: Linkage Values",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27426990.html",
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://www.forbes.com/2009/01/21/car-accident-times-forbeslife-cx_he_0121driving.html",
+      "text": "http://www.forbes.com/2009/01/21/car-accident-times-forbeslife-cx_he_0121driving.html",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Step 8.2: Misbehavior Investigation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427064.html",
+      "text": "SCP1: Butterfly Keys",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427066.html",
+      "text": "SCP2: Linkage Values",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#SpecialCryptographicPrimitivesinSCMS-clock-time-i=0",
+      "text": "Clock Time corresponding to i=0",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#SpecialCryptographicPrimitivesinSCMS-pseudonym-cert-validity",
+      "text": "Pseudonym Certificate Validity",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partnership"
+    },
+    {
+      "term": "PKIs",
+      "definition": "Public Key Infrastructures"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "AES",
+      "definition": "Advanced Encryption Standard"
+    },
+    {
+      "term": "ECB",
+      "definition": "Electronic Codebook"
+    },
+    {
+      "term": "SCP1",
+      "definition": "Special Cryptographic Primitives One"
+    },
+    {
+      "term": "SCP2",
+      "definition": "Special Cryptographic Primitives Two"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authorities"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "PCA",
+      "definition": "Principal Component Analysis"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "V2V-SE",
+      "definition": "Vehicle to Vehicle Systems Engineering"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.611Z"
+}

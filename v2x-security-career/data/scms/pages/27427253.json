@@ -1,0 +1,106 @@
+{
+  "pageId": "27427253",
+  "fileName": "27427253.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.1.2: Add Root CA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.1: Add SCMS Component",
+      "href": "27427206.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.1.2:AddRootCA-Goals\"><span class=\"inline-comment-marker\" data-ref=\"1043a1fd-75b9-4fa5-b262-7e13bd024040\">Goals</span></h2><p><span>The goal is to define the procedures and requirements to add and manage root CA certificates in the SCMS.&nbsp;</span></p><h2 id=\"Step11.1.2:AddRootCA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p class=\"p1\"><span class=\"s1\">The SCMS root CA is the root of trust for all SCMS certificates and digital signatures. The root CA private key is stored in a high-integrity component that is accessed through offline messages and that are managed by the Technical Component of the SCMS Manager (TCotSCMSM). Adding a new root CA to the SCMS and distributing the CA's certificate is necessary to maintain the integrity of the SCMS certificate hierarchy when a previous root CA certificate expires or when a previous root CA is revoked or securely decommissioned. </span></p><p class=\"p1\"><span class=\"s1\">There shall be only one active root CA in the SCMS at any time. Specifically, it&nbsp;<span>is the responsibility of the TCotSCMSM to ensure that only one root CA can be used to sign new messages. H</span></span>owever, the design allows SCMS components to continue to trust certificates signed by previous root CAs until their certificates expire. This mechanism allows older root CAs to be retired (i.e., cease to be used for signing new certificates) without invalidating or revoking all of the component certificates that they signed in the past. This use case describes the mechanism for introducing a new root CA to all SCMS components.</p><h2 class=\"p1\" id=\"Step11.1.2:AddRootCA-Procedure\">Procedure</h2><p class=\"p1\"><span class=\"s1\">Before a new root CA can be added to the SCMS, it must first be setup using the process defined in the&nbsp;<a class=\"unresolved\" href=\"#\">Setup Root CA</a>&nbsp;use case. The new root CA must then be endorsed by a quorum of existing electors and the signed root endorsement must be distributed to all SMCS components. The message will be distributed through inclusion in the Global Certificate Chain File (GCCF) and any local copies (LCCFs) that are created and distributed by an <abbr title=\"Registration Authority\">RA</abbr>. </span></p><p class=\"p1\"><span class=\"s1\">To implement this process, an authorized agent of the SCMS manager will perform the following actions:</span></p><ol class=\"ol1\"><li class=\"li1\"><span class=\"s1\">In a secure environment, command the root CA to create a self-signed certificate. See the <a class=\"unresolved\" href=\"#\">Setup Root CA</a><span>&nbsp;</span><span>use case for details on the certificate parameters. </span></span></li><li class=\"li1\"><span class=\"s1\">Present the root CA certificate to all existing, valid SCMS electors and request that they produce a digitally signed copy of the certificate. The collection of all independent signatures from existing electors is then assembled into one root endorsement message with the sequence of elector signatures attached (note that each elector's signature contains a copy of the original message that was signed). The number of elector signatures must be greater than or equal to the value of 'quorum' defined in the current GPF. This is a manual process to be implemented by the TCotSCMSM.</span></li><li class=\"li1\"><span class=\"s1\">The complete root endorsement message with signatures is then delivered to the <abbr title=\"Policy Generator\">PG</abbr> for inclusion in future updates to the GCCF. Note that the PG signature is not necessary for the root endorsement to be validated by SCMS components. The role of the PG in this case is to assemble updates to the GCCF with all active root endorsement messages included. The RAs will be required to include all root endorsement messages in any LCCF files that they derive from the GCCF. </span></li><li class=\"li1\"><span class=\"s1\">SCMS components (including <abbr title=\"End Entities\">EEs</abbr>) that receive a GCCF or LCCF with one or more root endorsement messages attached must check to see if they have already added the new root to their trust store. If they have not, they must validate the message by checking the attached signatures and confirming it has non-expired certificates for at least a 'quorum' of the existing electors that signed the message. Once the message is validated, the SCMS component must add the new root CA certificate to their trust store. </span><span class=\"s1\">When validating a message to add a root, an entity must check that the signed data is identical in each elector signature and that the 'type' element of the signed data has the value \"addRoot.\"&nbsp; </span><span class=\"s1\"><br></span></li></ol><h2 id=\"Step11.1.2:AddRootCA-SpecialCases\">Special Cases</h2><p>The procedure described above is sufficient to establish a new root CA distribute its certificate to SCMS components. The following special considerations must be applied based on the reason for adding a new root.</p><ul><li>If the current root CA certificate is due to be retired, then the defined procedure is sufficient to distribute a new replacement root. The activation time for the new root should be set such that it does not overlap with the active life of the current root's useful life. The private key associated with the current root certificate shall be securely deleted or destroyed when the new root certificate becomes active. There is no need to remove the previous root certificate or to re-certify components.&nbsp;</li><li>If the current root CA is to be securely decommissioned and replaced, the same procedure can be used as described for root certificate retirement. There is no need to remove the previous root certificate or to re-certify components.</li><li>If the current root CA has been compromised or otherwise needs to be revoked, then the TCotSCMSM may follow the procedure described above with the activation time for the new root, set the current time, or the activation time, defined in the current root removal message. In addition, the TCotSCMSM must initiate the process of re-certifying all components in the SCMS with the new root CA. Specifically, the <abbr title=\"Misbehavior Authority\">MA</abbr>, CRGL, PG, and all <abbr title=\"Intermediate Certificate Authority\">ICAs</abbr> that were certified with the previous root, must be re-certified. See the component \"add\" use cases for details on how to cascade the impact of re-certification throughout all other SCMS components.</li></ul><h2 class=\"p1\" id=\"Step11.1.2:AddRootCA-Assumptions\">Assumptions</h2><ul><li>The SCMS Manager has the power to set policies for what conditions a new root CA must fulfill in order to be an accredited part of the system</li><li>The root CA went through the setup process defined in <a class=\"unresolved\" href=\"#\">Step 1.8: Setup Root CA</a></li><li>Root Management is performed according to the elector scheme&nbsp;outlined in:&nbsp;<a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a></li><li>The Global Policy File (GPF) will define the current value for root management quorum, which is the minimum number of valid electors that need to endorse a root management message for it to be accepted by SCMS components. The value of quorum may be set independent of the current number of electors defined. (For the PoC, the value of quorum will be set to 2, meaning that a minimum of two elector signatures are needed for a root management command to take effect.)</li><li><span>When the PG receives a valid \"add root\" message, it will continue to include that message on all future GCCF files that it produces until one of the following conditions occur:</span><ul><li>The certificate of the root CA that is added in the message expires</li><li>The certificates of the endorsing electors expire resulting in fewer than 'quorum' valid signatures on the message</li><li>The value of 'quorum' is increased and distributed through an update to the GPF causing the \"add elector\" message to be invalid</li><li>The PG receives a valid \"remove root\" message that removes the endorsed root (effectively revoking the root that was added in the original message)</li><li>The PG receives a valid \"remove elector\" message that removes one of the endorsing electors reducing the number of valid electors to be less than the current value of quorum defined in the GPF, thereby rendering the message invalid</li></ul></li></ul><h2 id=\"Step11.1.2:AddRootCA-Requirements\"><span class=\"inline-comment-marker\" data-ref=\"854f1dcf-b6eb-4bc1-a34b-b9bc1da77faa\"></span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.2:AddRootCA-A\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-1538231174\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n\n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step11.1.2:AddRootCA-Design\"><span class=\"inline-comment-marker\" data-ref=\"2b5e0e43-efd7-4836-8f6d-5cb4b42a8c6b\">Design</span></h2><p><span class=\"inline-comment-marker\" data-ref=\"2b5e0e43-efd7-4836-8f6d-5cb4b42a8c6b\">The detailed design for the elector-based root management process is described in the&nbsp;<a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a>&nbsp;section.</span></p><h2 id=\"Step11.1.2:AddRootCA-Diagrams\"><span class=\"inline-comment-marker\" data-ref=\"2b5e0e43-efd7-4836-8f6d-5cb4b42a8c6b\">Diagrams</span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.2:AddRootCA-B\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing root CA replacement and distribution to SCMS\" src=\"attachments/27427186/27427194.jpg\" data-image-src=\"attachments/27427186/27427194.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427194\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 2 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"27427186\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>Create Replacement Root CA &amp; Distribute to SCMS Servers</strong></div></div><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.2:AddRootCA-C\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing root CA replacement process\" src=\"attachments/27427186/27427190.jpg\" data-image-src=\"attachments/27427186/27427190.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427190\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 3 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"27427186\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>Introduce Replacement Root CA Before Revoking Current Root CA</strong></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427253/27427254.pdf\">Add Root CA - original wiki text.pdf</a> (application/pdf)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "Setup Root CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Setup Root CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Step 1.8: Setup Root CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427253/27427254.pdf",
+      "text": "Add Root CA - original wiki text.pdf",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PG",
+      "definition": "Policy Generator"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "ICAs",
+      "definition": "Intermediate Certificate Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427253/27427254.pdf",
+      "text": "Add Root CA - original wiki text.pdf"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.368Z"
+}

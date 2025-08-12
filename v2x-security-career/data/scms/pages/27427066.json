@@ -1,0 +1,99 @@
+{
+  "pageId": "27427066",
+  "fileName": "27427066.html",
+  "title": "SCMS CV Pilots Documentation : SCP2: Linkage Values",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    },
+    {
+      "text": "Special Cryptographic Primitives in SCMS",
+      "href": "Special-Cryptographic-Primitives-in-SCMS_27427063.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <h1 id=\"SCP2:LinkageValues-Summary\">Summary</h1><div class=\"WordSection1\"><p>To support efficient revocation, end-entity certificates contain a linkage value (LV), which is derived from (cryptographic) linkage seed material. Publication of the seed is sufficient to revoke all certificates belonging to the revoked device, but without the seed an eavesdropper cannot tell which certificates belong to a particular device. Note: The revocation process is designed such that it does not give up backward privacy. For protection against insider attacks by the SCMS, the LV is the combination of two pre-linkage values (PLVs) produced by two independent <abbr title=\"Linkage Authority\">LAs</abbr>; this ensures that no single SCMS entity knows all the information belonging to a single device. An extension to the linkage values approach allows for group revocation, so that if all devices of a particular type have a flaw they can be revoked with a single entry on the revocation list, while keeping group membership secret until the relevant group seed is revealed. Group revocation is currently not implemented as no practical real-world use case been identified so far.</p><p>LVs and LAs are used to enable the SCMS to help achieve the following preliminary design requirements, which were developed by the research team to ensure appropriate privacy protections and efficiency:</p><ol><li>There is an efficient way of revoking all the certificates within a device</li><li>Certificates are not linkable by an eavesdropper unless the owner has been revoked</li><li>A vehicle is trackable only after its credentials are revoked but not before it was revoked.</li><li>No single entity within the system is able to determine that two certificates belong to the same device. An exception to this rule is the Misbehavior Authority (MA).</li><li>No single entity within the SCMS is able to track a vehicle. Once a single LA is introduced, this requirement is not fulfilled any longer. For that reason, two LAs are used and the information which allows for tracking is split between them.</li></ol><h1 id=\"SCP2:LinkageValues-Description\">Description</h1><p>The basic concept of LVs uses the well-known cryptographic construction known as a hash chain. As described above, a hash algorithm is like a cryptographic checksum; if the hash of ‘a’ is computed as H(a) = b, it is very hard for someone who sees only b to derive the input a, but given a and b it is trivial to determine that a hashes to b. Hence, it is desirable to have a series of identifiers in each certificate such that if a secret is revealed, the identifiers can be linked.</p><p>First a description of the revocation of individual nodes is provided. For simplicity, a system with a single LA that generates LVs is initially described. This system meets requirements 1), 2), and 3) discussed, above. It does not meet requirement 4), because the LA can link certificates. The following describes the basic process for a single series of certificates. A more detailed description will be provided below. For a complete description of the process see Section&nbsp;4.2.2.</p><ul><li>LA starts with an initial linkage seed (ILS), ls(0). (This will be different for each vehicle.)</li><li>For each time period i &gt; 0, LA sets the LS ls(i) = H(ls(i-1)), for some hash function H (SHA-256, a National Institute for Standards and Technology (NIST)-approved standardized hash algorithm that is used throughout <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 is employed)</li><li>The certificate for each time period i contains the linkage value lv(i) = <abbr title=\"Advanced Encryption Standard\">AES</abbr>(ls(i), 0)</li><li>To revoke a vehicle from time period i onwards, the revocation authority publishes ls(i)</li><li>To check revocation at time period i’ &gt; i, the recipient of a signed message:<ul><li>Hashes ls(i), and then hashes the output of the hash, repeated (i’-i) times to obtain ls(i’)</li><li>Calculates lv(i’) = AES(ls(i'), 0)</li><li>Checks whether the certificate that signed the message contains the LV lv(i’). If it does, the certificate is considered revoked and the message is rejected</li></ul></li></ul><p>This achieves requirements 1), 2), and 3) as follows:</p><ul><li>Efficient revocation: Only one value needs be published to revoke all the certificates on a vehicle. The cost of maintaining the revocation data on the receiver side is one hash per revoked vehicle per time period. Hashing is very efficient, so this maintenance is inexpensive in terms of processing.</li><li>Unlinkability against eavesdroppers: To tell if two certificates belong to the same vehicle, an eavesdropper would have to determine the two LSs ls1, ls2 that encrypt 0 to the PLVs plv1, plv2 in the certificates. Since AES is assumed to be a secure block cipher, this is not possible.</li><li>Retrospective unlinkability: The hash chain can be run forward from the revocation value ls(i), but not backwards to recover previous values of ls(i). (This is a result of the non-invertibility of hash functions.)</li></ul><p>However, the system has the problem that the LVs are generated centrally and the entity that generates the LVs knows the complete set of values that belong to a vehicle. To overcome this problem, the CAMP SCMS uses two LAs: LA1 and LA2.</p><p>In the description above, there is a single chain of LSs and LVs. In the <abbr title=\"Crash Avoidance Metrics Partnership\">CAMP</abbr> SCMS, each of the LAs generates a chain of PLVs. These PLVs are individually encrypted and passed to the <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr>; the PCA then XORs them together to obtain the LV that is put in the certificate. Now neither of the LAs knows the XORed linkage values that appear in the final certificate, because neither knows the values produced by the other LA. To revoke, the MA publishes the LSs from both LAs, and the recipient reconstructs both chains of PLVs and carries out the XORing to obtain the LVs for revoked certificates. The following describes the generation process in more detail:</p><ul><li>LA1 starts with a random ILS, ls1(0)</li><li>LA2 starts with a random ILS, ls2(0)</li><li>For each time period i &gt; 0:<ul><li>LA1 sets its LS ls1(i) = H(ls1(i-1)), and LA2 sets its LS ls2(i) = H(ls2(i-1))</li><li>LA1 sets its PLV, defined as plv1(i) = AES(ls1(i), 0) &nbsp;and LA2 sets its plv2(i) = AES(ls2(i), 0)</li><li>The <abbr title=\"Certificate Authority\">CA</abbr> sets the LV lv(i) = plv1(i) XOR plv2(i) and puts it in the certificate for time period i</li></ul></li><li>To revoke a vehicle from time period i onward, the revocation authority publishes the linkage seeds ls1(i) and ls2(i)</li><li>To check revocation at time period i’ &gt; i, the recipient of a signed message:<ul><li>Iteratively hashes ls1(i) (i’-i) times to obtain ls1(i’); does the same for ls2(i)</li><li>Calculates PLVs plv1(i’) = AES(ls1(i'), 0) and plv2(i’) = AES(ls2(i'), 0)</li><li>Checks whether the certificate that signed the message contains the LV lv(i’) = plv1(i’) XOR plv2(i’). If it does, the certificate is considered revoked and the message is rejected.</li></ul></li></ul><p>Four additional refinements in the CAMP SCMS are:</p><ol><li>Instead of using a single time period counter i, time periods are denoted (i, j), where i counts up larger time periods (e.g., a day, a week, etc.) and j can be used in one of (at least) two ways: (a) for non-overlapping certificates, it can count up smaller time intervals within the larger time periods (e.g., 5-minute intervals); (b) for overlapping certificates, it can specify the number of certificates that are valid in a given time period i (e.g., fixing the range of j as 1-20 would imply that 20 certificates are valid simultaneously). The LSs ls1(i) and ls2(i) are calculated as described above, but the PLVs plv1(i, j) and plv2(i, j) are calculated as AES(ls1(i), j) and AES(ls2(i), j) , respectively. The reason for this is to save time for vehicles that have been offline for some time. If a vehicle has been turned off for 1 year, without this refinement, at key-on the vehicle will have to carry out 52 * 20 hashes for each revocation entry to bring its revocation information up to date (assuming that a vehicle is issued 20 simultaneously-valid certificates per week). With this refinement, the vehicle only has to perform one hash per week for each revocation entry. If revocation lists get large, this efficiency gain may be very useful.</li><li>To reduce the chance of collisions in the PLVs between two LAs, their identities are also employed during the computation of LSs and PLVs: la_id1 and la_id2 are unique 16-bit identity strings associated with LA1 and LA2, respectively. The LSs are calculated as: ls1(i) = H(la_id1 || ls1(i-1)), ls2(i) = H(la_id2 || ls2(i-1)). The PLVs are calculated as: plv1(i,j) = AES(ls1(i), la_id1 || j), plv2(i,j) = AES(ls2(i), &nbsp;la_id2 || j). This means that even if two LAs produce the same LS for a given time period, they will produce different sets of PLVs (because of the use of the identifier to produce the PLV from the LS), and their LSs will be different in the next time period (because of the use of the identifier to create the next seed from the current seed).</li><li>To reduce the size of certificate revocation list (CRL), which contains the LSs of the revoked vehicles, the LSs are truncated to 16 bytes.</li><li>Instead of plain AES, AES is used in the Davies-Meyer mode as a derivation function, which is basically XORing the output of AES with the input. In particular, for a key k and message m, instead of AES<sub>k</sub>(m), (AES<sub>k</sub>(m) XOR m) is returned for every invocation of AES.</li></ol><p>The <a href=\"#SCP2:LinkageValues-LinkageValues\">table below</a> summarizes the linkage value generation and the <a href=\"#SCP2:LinkageValues-CreationofIndividualLinkage\">figure below</a> visualizes the described scheme. Test vectors for Linkage Values are available&nbsp;at&nbsp;<a href=\"http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/lv.txt\" class=\"external-link\" rel=\"nofollow\">http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/lv.txt</a></p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"SCP2:LinkageValues-LinkageValues\"></span><div class=\"scroll-title-body\"><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col><col><col></colgroup><tbody><tr><th class=\"confluenceTh\">LA1</th><th class=\"confluenceTh\">LA2</th><th class=\"confluenceTh\"><abbr title=\"Registration Authority\">RA</abbr></th><th class=\"confluenceTh\">PCA</th></tr><tr><td class=\"confluenceTd\"><p>1. Generate initial linkage seed, ls1(0) (128-bit string chosen at random for every device).</p><p>2. Compute linkage seed for i<sup>th</sup> period through an iterative process defined as: ls1(i) = [SHA-256(la_id1 || ls1(i-1) || 0<sup>112</sup>)]<sub>128</sub>.</p><p>3. Compute pre-linkage value, plv1(i, j) = [(AES(ls1(i), la_id1 || j || 0<sup>80</sup>))&nbsp;XOR (la_id1 || j&nbsp;|| 0<sup>80</sup>)]<sub>72</sub>.</p><p>4. Encrypt plv1(i, j) for PCA, and send it to RA.</p></td><td class=\"confluenceTd\"><p>1. Generate initial linkage seed, ls2(0) (128-bit string chosen at random for every device).</p><p>2. Compute linkage seed for i<sup>th</sup> period through an iterative process defined as: ls2(i) = [SHA-256(la_id2 || ls2(i-1) || 0<sup>112</sup>)]<sub>128</sub>.</p><p><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">3. Compute pre-linkage value, plv2(i, j) = [(AES(ls2(i), la_id2 || j || 0</span><sup><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">80</span></sup><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">))&nbsp;XOR (la_id2 || j&nbsp;|| 0</span><sup><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">80</span></sup><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">)]</span><sub><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">72</span></sub><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">.</span></p><p><span class=\"inline-comment-marker\" data-ref=\"50c4e0f4-0c0f-457a-998b-b0d3b54b5979\">4. Encrypt plv2(i, j) for PCA, and send it to RA.</span></p></td><td class=\"confluenceTd\">5. Include encrypted plv1(i, j) and plv2(i, j) in the certificate request.</td><td class=\"confluenceTd\"><p>6. Decrypt the packet from RA to obtain plv1(i, j) and plv2(i, j).</p><p>7. Compute linkage value, lv(i, j) = plv1(i, j) XOR plv2(i, j)</p></td></tr></tbody></table></div></div><div class=\"scroll-title-macro-title\"><strong>Linkage Values</strong></div></div></div><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"SCP2:LinkageValues-CreationofIndividualLinkage\"></span><div class=\"scroll-title-body\"><p>&nbsp;<span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" src=\"attachments/27427066/41353746.jpg\" alt=\"Diagram showing process of creation of individual linkage values and device revocation\" data-image-src=\"attachments/27427066/41353746.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"41353746\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"linkage_value.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"27427066\" data-linked-resource-container-version=\"5\"></span></p></div><div class=\"scroll-title-macro-title\"><strong>Creation of Individual Linkage Values and Revocation of Individual Device</strong></div></div>\n                    ",
+  "links": [
+    {
+      "originalHref": "#SCP2:LinkageValues-LinkageValues",
+      "text": "table below",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#SCP2:LinkageValues-CreationofIndividualLinkage",
+      "text": "figure below",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/lv.txt",
+      "text": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/lv.txt",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "LAs",
+      "definition": "Linkage Authority"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "AES",
+      "definition": "Advanced Encryption Standard"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partnership"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427066/27427067.png",
+      "text": "worddavccad217f9b37d8363b45c9db98516cbc.png"
+    },
+    {
+      "href": "attachments/27427066/41353746.jpg",
+      "text": "linkage_value.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.323Z"
+}

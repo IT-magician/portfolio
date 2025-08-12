@@ -1,0 +1,78 @@
+{
+  "pageId": "27427255",
+  "fileName": "27427255.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.1.3: Add Elector",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.1: Add SCMS Component",
+      "href": "27427206.html"
+    }
+  ],
+  "metadata": "Last modified  on Feb 23, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.1.3:AddElector-Goals\">Goals</h2><p>The goal is to define the procedures and requirements to add and manage root management electors in the SCMS.</p><h2 id=\"Step11.1.3:AddElector-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>Electors are a collection of highly trusted backend components in the SCMS, which are used to certify root management messages. Specifically, a message that commands all SCMS components to add or remove a root <abbr title=\"Certificate Authority\">CA</abbr> certificate from their trust store will be trusted only if it is signed by a quorum of electors. The value of quorum is defined in the Global Policy File (GPF). Root management messages are distributed as part of the Global Certificate Chain File (GCCF) or a local copy of the chain file (an LCCF).</p><h2 id=\"Step11.1.3:AddElector-Procedure\">Procedure</h2><p>Before a new elector can be added to the SCMS, it must first be setup using the process defined in the <a class=\"unresolved\" href=\"#\">Setup Elector</a>&nbsp;use case. The new elector must then be endorsed by a quorum of existing electors and the signed \"add elector\" message must be distributed to all SCMS components. The message will be distributed through inclusion in the Global Certificate Chain File (GCCF) and any local copies (LCCFs) that are created and distributed by an <abbr title=\"Registration Authority\">RA</abbr>.</p><p class=\"p1\"><span class=\"s1\">To implement this process, an authorized agent of the SCMS manager will perform the following actions:</span></p><ol><li class=\"li1\"><span class=\"s1\">Command the new elector to create a&nbsp;self-signed certificate of the new elector (the elector certificate is created in the&nbsp;<a class=\"unresolved\" href=\"#\">Setup Elector</a>&nbsp;use case) in a secure environment.</span></li><li class=\"li1\"><span class=\"s1\">Present the new elector certificate to all existing, valid SCMS electors and request that they produce a digitally signed copy of the certificate. The collection of all independent signatures from existing electors is then assembled into one elector endorsement message with the sequence of existing elector signatures attached. The number of elector signatures must be greater than or equal to the value of 'quorum' defined in the current GPF. This is a manual process to be implemented by the TCotSCMSM.</span></li><li class=\"li1\"><span class=\"s1\"><span class=\"inline-comment-marker\" data-ref=\"6e9e24ad-e450-464a-8e2c-e65811603c90\">Deliver the complete elector&nbsp;endorsement message with signatures to the <abbr title=\"Policy Generator\">PG</abbr> for inclusion in future updates to the GCCF. Note that the PG signature is not necessary for the elector endorsement to be validated by SCMS components. The role of the PG in this case is to assemble updates to the GCCF with all active elector endorsement messages included. RAs will be required to include all elector endorsement messages in any LCCF files that they derive from the GCCF.&nbsp;</span></span></li></ol><p class=\"li1\"><span class=\"inline-comment-marker\" data-ref=\"6e9e24ad-e450-464a-8e2c-e65811603c90\">SCMS components (including <abbr title=\"End Entities\">EEs</abbr>) that receive a GCCF or LCCF with one or more elector endorsement message attached must validate the message by checking the attached signatures and confirming it has non-expired certificates for at least a 'quorum' of the existing electors that signed the message. Once the message is validated, the SCMS component must add the new elector certificate to their trust store. When validating an elector endorsement message, an entity must check that the signed data is identical in each elector signature and that the ballotType element of the signed data has the value \"addElector.\"</span></p><h2 id=\"Step11.1.3:AddElector-Assumptions\">Assumptions</h2><ul><li>An initial set of electors and self-signed elector certificates will be created as part of ceremony (or sequence of ceremonies) at the launch of an SCMS infrastructure. The SCMS Manager will define policies and procedures to ensure the integrity of this initial set of electors.</li><li>Once an SCMS is in operation and the initial set of electors has been installed in all existing SCMS components, new electors may be added using the process defined here.</li><li>The existing electors that sign an \"add elector\" message must have valid, non-expired SCMS certificates at the time when they sign the message. SCMS components that process an \"add elector\" message must confirm that the endorsing elector certificates are not expired at the time when the message is being processed. Once the message is validated, the SCMS components will add the new elector to their trust store and it will remain there even if one or more of the endorsing elector certificates expire. As long as that expiration happens after the message was validated and processed, the new elector remains trusted.</li><li>When the PG receives a valid, \"add elector\" message, it will continue to include that message on all future GCCF files that it produces until one of the following conditions occur:<ul><li>The certificate of the elector that is added in the message expires</li><li>The certificates of the endorsing electors expire resulting in fewer than 'quorum' valid signatures on the message</li><li>The value of 'quorum' is increased and distributed through an update to the GPF causing the \"add elector\" message to be invalid</li><li>The PG receives a \"remove elector\" message that <span class=\"inline-comment-marker\" data-ref=\"ffc4c37e-8ee4-4a57-b858-a0cfba31845f\">removes the endorsed elector or removes the endorsing electors</span> rendering the message invalid</li></ul></li></ul><h2 id=\"Step11.1.3:AddElector-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.3:AddElector-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module--558693032\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n    \n       \n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step11.1.3:AddElector-Design\"><span class=\"inline-comment-marker\" data-ref=\"a8b689c2-7269-4bf9-b24c-7ecefc93c909\">Design</span></h2><p>The detailed design for the elector-based, root management process is described in the <a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a> section.</p>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "Setup Elector",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Setup Elector",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PG",
+      "definition": "Policy Generator"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.372Z"
+}

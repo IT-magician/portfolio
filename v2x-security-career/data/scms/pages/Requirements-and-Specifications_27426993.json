@@ -1,0 +1,45 @@
+{
+  "pageId": "Requirements-and-Specifications_27426993",
+  "fileName": "Requirements-and-Specifications_27426993.html",
+  "title": "SCMS CV Pilots Documentation : Requirements and Specifications",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    }
+  ],
+  "metadata": "Last modified on Oct 03, 2016",
+  "content": "\n                    <p>The following pages contai<span class=\"inline-comment-marker\" data-ref=\"2dd166e1-a222-4fae-8b60-e5c4b64ca8e5\">n requirements a</span>nd specifications of the SCMS <abbr title=\"Proof of Concept\">PoC</abbr> protocols and components.</p><p></p><ul class=\"childpages-macro\"><li><a href=\"Common-Requirements_27427011.html\">Common Requirements</a></li><li><a href=\"Requirements-by-Use-Case_27426994.html\">Requirements by Use Case</a></li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "Common-Requirements_27427011.html",
+      "text": "Common Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Requirements-by-Use-Case_27426994.html",
+      "text": "Requirements by Use Case",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.593Z"
+}

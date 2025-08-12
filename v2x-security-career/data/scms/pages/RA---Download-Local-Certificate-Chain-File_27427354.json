@@ -1,0 +1,86 @@
+{
+  "pageId": "RA---Download-Local-Certificate-Chain-File_27427354",
+  "fileName": "RA---Download-Local-Certificate-Chain-File_27427354.html",
+  "title": "SCMS CV Pilots\n                        Documentation : RA - Download Local Certificate\n                        Chain File",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"End Entity\">EE</abbr>s use this service to download a local certificate chain file.\n                    </p>\n                    <div class=\"table-wrap\">\n                        <table class=\"wrapped confluenceTable\">\n                            <colgroup>\n                                <col>\n                                <col>\n                            </colgroup>\n                            <thead>\n                                <tr>\n                                    <th colspan=\"1\" class=\"confluenceTh\">PORT</th>\n                                    <td colspan=\"1\" class=\"confluenceTd\">8892</td>\n                                </tr>\n                                <tr>\n                                    <th class=\"confluenceTh\">PATH</th>\n                                    <td class=\"confluenceTd\">/download/<span style=\"line-height: 1.42857;\">local-certificate-chain</span></td>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr>\n                                        Method</th>\n                                    <td class=\"confluenceTd\">GET</td>\n                                </tr>\n                                <tr>\n                                    <th colspan=\"1\" class=\"confluenceTh\">HTTP Request Body</th>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Empty</td>\n                                </tr>\n                                <tr>\n                                    <th class=\"confluenceTh\">HTTP Request Headers</th>\n                                    <td class=\"confluenceTd\">\n                                        <p>Optionally, the request may include the standard HTTP Header 'If-None-Match'\n                                            containing the file name <span>of the local certificate chains file\n                                                <span>that the EE currently possesses, </span></span><strong>excluding\n                                                any path</strong>.&nbsp;For example:</p>\n                                        <p style=\"margin-left: 30.0px;\">If-None-Match:\n                                            \"local_certificate_chains_01_03.oer\"</p>\n                                        <p>This is used to prevent the same file from being downloaded by the device\n                                            multiple times.</p>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <th class=\"confluenceTh\">HTTP Response Body</th>\n                                    <td class=\"confluenceTd\">File containing the<span> local certificate chains\n                                            represented by an OER encoded <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized</span> <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#259\" class=\"external-link\" rel=\"nofollow\">ScopedLocalCertificateChainFile</a>.\n                                        The<em> </em>file name returned is of the form:\n                                        local_certificate_chains_&lt;X&gt;_&lt;Y&gt;.&lt;Z&gt;<p>Where:</p>\n                                        <ul>\n                                            <li><span>X is the global certificate chain version, i.e., the\n                                                    <em>cert_chain_file_id</em> <span>parameter</span> found in the\n                                                    Global Policy File<br></span></li>\n                                            <li><span>Y is the local certificate chain version </span></li>\n                                            <li>Z is one of the permitted encoding formats (oer) from the file name in\n                                                the request message</li>\n                                        </ul>\n                                        <p>OR</p>\n                                        <p>An HTTP code of 304 (Not Modified), if the provided file name in the\n                                            'If-None-Match' header matches the current version available on the RA\n                                            server.</p>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <h3 id=\"RA-DownloadLocalCertificateChainFile-Preconditions\">Preconditions</h3>\n                    <p>None</p>\n                    <h3 id=\"RA-DownloadLocalCertificateChainFile-Postconditions\">Postconditions</h3>\n                    <ol>\n                        <li>Returned file contains SCMS certificates chains that the device will use</li>\n                    </ol>\n                    <h3 id=\"RA-DownloadLocalCertificateChainFile-ErrorHandling\">Error Handling</h3>\n                    <p>See \"RA-EE Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p>\n                    <h3 id=\"RA-DownloadLocalCertificateChainFile-QualityofService\">Quality of Service</h3>\n                    <p>Estimated values are per logical unit, meaning multiple individual nodes can contribute to\n                        achieve the desired level of service. The number of vehicles that potentially invoke this\n                        service in a week is a function of the number of years in service:</p>\n                    <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Formula for estimated quality of service as a function of year\" class=\"confluence-embedded-image\" width=\"350\" src=\"attachments/27427354/27427355.png\" data-image-src=\"attachments/27427354/27427355.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427355\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image2016-1-26 13:3:0.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427354\" data-linked-resource-container-version=\"8\"></span></p>\n                    <p>&nbsp;</p>\n                    <div class=\"table-wrap\">\n                        <table class=\"wrapped confluenceTable\">\n                            <colgroup>\n                                <col>\n                                <col>\n                                <col>\n                                <col>\n                                <col>\n                                <col>\n                            </colgroup>\n                            <thead>\n                                <tr>\n                                    <th class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">Quality Metric</div>\n                                    </th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">Rationale</div>\n                                    </th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">1 Year</div>\n                                    </th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">3 Years</div>\n                                    </th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">5 Years</div>\n                                    </th>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <div class=\"tablesorter-header-inner\">10 Years</div>\n                                    </th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Throughput</td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>Assuming half of all new cars plus all existing vehicles need to download\n                                            local certificate chain file in the same week.</p>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>8,500,000 new vehicles / 604,800 seconds/week</p>\n                                        <p>=&nbsp;<strong>14</strong>&nbsp;requests / second</p>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>(8,500,000 new vehicles + 34,000,000 existing vehicles) / 604,800\n                                            seconds/week</p>\n                                        <p>=&nbsp;<strong>70</strong>&nbsp;requests / second</p>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>(8,500,000 new vehicles + 68,000,000 existing vehicles) / 604,800\n                                            seconds/week</p>\n                                        <p>=&nbsp;<strong>126</strong>&nbsp;requests / second</p>\n                                    </td>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>(8,500,000 new vehicles + 153,000,000 existing vehicles) / 604,800\n                                            seconds/week</p>\n                                        <p>=&nbsp;<strong>267</strong>&nbsp;requests / second</p>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <h3 id=\"RA-DownloadLocalCertificateChainFile-QualityofProtection\">Quality of Protection</h3>\n                    <ul>\n                        <li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li>\n                        <li>Supports at a minimum OpenSSL cipher suite <abbr title=\"Elliptic Curve Diffie-Hellman\">ECDHE</abbr>-<abbr title=\"Elliptic Curve Digital Signature Algorithm\">ECDSA</abbr>-AES128-SHA256</li>\n                    </ul>\n                ",
+  "links": [
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#259",
+      "text": "ScopedLocalCertificateChainFile",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "ECDHE",
+      "definition": "Elliptic Curve Diffie-Hellman"
+    },
+    {
+      "term": "ECDSA",
+      "definition": "Elliptic Curve Digital Signature Algorithm"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427354/27427355.png",
+      "text": "image2016-1-26 13:3:0.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.582Z"
+}

@@ -1,0 +1,96 @@
+{
+  "pageId": "RA---Request-Application-Certificate-Provisioning_27427352",
+  "fileName": "RA---Request-Application-Certificate-Provisioning_27427352.html",
+  "title": "SCMS CV Pilots Documentation : RA - Request Application Certificate Provisioning",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"Roadside Equipment\">RSEs</abbr> use this service to request new application certificates. After the initial certificate is requested, subsequent certificates are <strong>NOT</strong> automatically provisioned.</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><thead><tr><th colspan=\"1\" class=\"confluenceTh\">PORT</th><td colspan=\"1\" class=\"confluenceTd\">8892</td></tr><tr><th class=\"confluenceTh\">PATH</th><td class=\"confluenceTd\">/provision-application-certificate</td></tr></thead><tbody><tr><th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> Method</th><td class=\"confluenceTd\">POST</td></tr><tr><th class=\"confluenceTh\"><p>HTTP Request Body</p></th><td class=\"confluenceTd\"><p><abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#863\" class=\"external-link\" rel=\"nofollow\"><em>SecuredAppCertProvisioningRequest</em></a></p></td></tr><tr><th class=\"confluenceTh\">HTTP Response Body</th><td class=\"confluenceTd\">ASN.1 serialized <em><a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#894\" class=\"external-link\" rel=\"nofollow\">SignedAppCertProvisioningAck </a></em>with a&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#151\" class=\"external-link\" rel=\"nofollow\"><em>requestHash</em>&nbsp;</a>property containing the lower 8 bytes of the request hash. This value will identify this device for the download of the requested certificate. The&nbsp;<em>reply</em>&nbsp;property contains a&nbsp;<em><a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#159\" class=\"external-link\" rel=\"nofollow\"><span class=\"inline-comment-marker\" data-ref=\"f04d729e-5630-4b36-9611-a17915aaa372\">PseudonymCertProvisioningAck</span> </a></em>with a&nbsp;<em>certDLTime</em>&nbsp;property containing the expected time for download of the requested certificate and a&nbsp;<em>certDLURL&nbsp;</em>property containing the URL where the certificate can be downloaded.</td></tr></tbody></table></div><h3 id=\"RA-RequestApplicationCertificateProvisioning-Preconditions\">Preconditions</h3><ol><li>Policy referenced in the request message is previously known</li><li><abbr title=\"End Entity\">EE</abbr> is not revoked</li></ol><h3 id=\"RA-RequestApplicationCertificateProvisioning-Postconditions\">Postconditions</h3><p>None.</p><h3 id=\"RA-RequestApplicationCertificateProvisioning-ErrorHandling\">Error Handling</h3><p>See \"RA-EE Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p><h3 id=\"RA-RequestApplicationCertificateProvisioning-QualityofService\">Quality of Service</h3><p>For <abbr title=\"Proof of Concept\">PoC</abbr> the volume for this interface is&nbsp;<span class=\"inline-comment-marker\" data-ref=\"dc71b67d-e727-4b2d-9a5d-3a7e2ad6a80d\">50,000</span>&nbsp;RSEs. This is not expected to have significant impact on system throughput requirements.</p><h3 id=\"RA-RequestApplicationCertificateProvisioning-QualityofProtection\">Quality of Protection</h3><ul><li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li><li>Supports at a minimum OpenSSL cipher suite ECDHE-ECDSA-AES128-SHA256</li><li>Uses certificate-based client authentication of data signed by the device enrollment certificate, validated at the application layer. This is a supplement to the one-way TLS authentication, to provide two-way authentication with a TLS/1609.2 hybrid scheme.</li><li>Incoming message is encrypted (within the ASN.1 message structure) with the RA Component certificate public key.&nbsp;</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#863",
+      "text": "SecuredAppCertProvisioningRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#894",
+      "text": "SignedAppCertProvisioningAck",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#151",
+      "text": "requestHash",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#159",
+      "text": "PseudonymCertProvisioningAck",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "RSEs",
+      "definition": "Roadside Equipment"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.586Z"
+}

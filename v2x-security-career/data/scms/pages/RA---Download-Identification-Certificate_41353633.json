@@ -1,0 +1,119 @@
+{
+  "pageId": "RA---Download-Identification-Certificate_41353633",
+  "fileName": "RA---Download-Identification-Certificate_41353633.html",
+  "title": "SCMS CV Pilots\n                        Documentation : RA - Download Identification\n                        Certificate",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"Onboard Equipment\">OBE</abbr>s use this service to download a previously requested\n                        Identification Certificate.&nbsp;</p>\n                    <div class=\"table-wrap\">\n                        <table class=\"wrapped confluenceTable\">\n                            <colgroup>\n                                <col>\n                                <col>\n                            </colgroup>\n                            <thead>\n                                <tr>\n                                    <th colspan=\"1\" class=\"confluenceTh\">PORT</th>\n                                    <td colspan=\"1\" class=\"confluenceTd\">8892</td>\n                                </tr>\n                                <tr>\n                                    <th class=\"confluenceTh\">PATH</th>\n                                    <td class=\"confluenceTd\">/download/identity-certificate</td>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr>\n                                        Method</th>\n                                    <td class=\"confluenceTd\">GET</td>\n                                </tr>\n                                <tr>\n                                    <th colspan=\"1\" class=\"confluenceTh\">HTTP Request Body</th>\n                                    <td colspan=\"1\" class=\"confluenceTd\">Empty</td>\n                                </tr>\n                                <tr>\n                                    <th colspan=\"1\" class=\"confluenceTh\">\n                                        <p>HTTP Request Headers</p>\n                                    </th>\n                                    <td colspan=\"1\" class=\"confluenceTd\">\n                                        <p>HTTP Header 'Download-Req' containing a Base64 encoded <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#913\" class=\"external-link\" rel=\"nofollow\"><em>SecuredAuthenticatedDownloadRequest\n                                                </em></a>containing a <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#900\" class=\"external-link\" rel=\"nofollow\"><em>SignedAuthenticatedDownloadRequest\n                                                </em></a>containing a&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#304\" class=\"external-link\" rel=\"nofollow\"><em>ScopedAuthenticatedDownloadRequest</em>\n                                            </a>containing an&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#171\" class=\"external-link\" rel=\"nofollow\"><em>AuthenticatedDownloadRequest</em>\n                                            </a>with&nbsp;a&nbsp;<em>filename&nbsp;</em>property of the form\n                                            [0-9A-F]{16}_i.zip<em>,&nbsp;</em>where the group of 16 hexadecimal digits is the\n                                            device's request hash obtained from the provision <a href=\"RA---Request-Identification-Certificate-Provisioning_41353635.html\">identification\n                                                certificate request</a>, and i is a file iterator in hexadecimal\n                                            starting at 0 (both are case insensitive). Example: AB09281C9867DE53_F.zip\n                                            corresponds to i = 15, for a device with request hash AB09281C9867DE53.\n                                            There shall be exactly one identification certificate per file.</p>\n                                        <p><strong>Range (optional) as defined in&nbsp;<a rel=\"nofollow\" href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.2\" class=\"external-link\">RFC 2616</a>:</strong></p>\n                                        <p>To support partial downloads for resuming interrupted transfers.&nbsp; Examples:&nbsp;\n                                        </p>\n                                        <ol>\n                                            <li>From byte offset 500 to 700:&nbsp; Range : bytes=500-700</li>\n                                            <li>Starting from byte offset 1000 to the end: &nbsp; Range : bytes=1000-</li>\n                                        </ol>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <th class=\"confluenceTh\">HTTP Response Body</th>\n                                    <td class=\"confluenceTd\">If no Range header is present, the entire tar file\n                                        corresponding to the requested batch.&nbsp; If a Range header is present, the\n                                        specified bytes of the referenced file.</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <h3 id=\"RA-DownloadIdentificationCertificate-Preconditions\">Preconditions</h3>\n                    <ol>\n                        <li>The requested certificate has already been generated</li>\n                        <li>The requesting device has not been previously revoked</li>\n                    </ol>\n                    <h3 id=\"RA-DownloadIdentificationCertificate-Postconditions\">Postconditions</h3>\n                    <ol>\n                        <li>The zip file corresponding to the certificate specified in the request URL is returned.</li>\n                        <li>The content of the tar file is organized as a flat directory containing 1<em>&nbsp;</em>file\n                            named as in:<ul>\n                                <li>X_i</li>\n                                <li>X shall be the lower 8-bytes of the SHA-256 hash (16 hexadecimal digits) of the\n                                    device request in hexadecimal (case insensitive)</li>\n                                <li>Where there is no extension</li>\n                            </ul>\n                        </li>\n                    </ol>\n                    <h3 id=\"RA-DownloadIdentificationCertificate-ErrorHandling\">Error Handling</h3>\n                    <p>See \"RA-<abbr title=\"End Entity\">EE</abbr> Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p>\n                    <h3 id=\"RA-DownloadIdentificationCertificate-QualityofService\">Quality of Service</h3>\n                    <p>For <abbr title=\"Proof of Concept\">PoC</abbr> the volume for this interface is still TBD but is\n                        not expected to have\n                        significant impact\n                        on system throughput requirements.</p>\n                    <h3 id=\"RA-DownloadIdentificationCertificate-QualityofProtection\">Quality of Protection</h3>\n                    <ul>\n                        <li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li>\n                        <li>Supports at a minimum OpenSSL cipher suite <abbr title=\"Elliptic Curve Diffie-Hellman\">ECDHE</abbr>-<abbr title=\"Elliptic Curve Digital Signature Algorithm\">ECDSA</abbr>-AES128-SHA256</li>\n                        <li>Uses certificate-based client authentication of data signed by the device enrollment\n                            certificate, validated at the application layer. This is a supplement to the one-way TLS\n                            authentication, to provide two-way authentication with a TLS/1609.2 hybrid scheme.</li>\n                    </ul>\n                ",
+  "links": [
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#913",
+      "text": "SecuredAuthenticatedDownloadRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#900",
+      "text": "SignedAuthenticatedDownloadRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn#304",
+      "text": "ScopedAuthenticatedDownloadRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#171",
+      "text": "AuthenticatedDownloadRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "RA---Request-Identification-Certificate-Provisioning_41353635.html",
+      "text": "identification\n                                                certificate request",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.2",
+      "text": "RFC 2616",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "ECDHE",
+      "definition": "Elliptic Curve Diffie-Hellman"
+    },
+    {
+      "term": "ECDSA",
+      "definition": "Elliptic Curve Digital Signature Algorithm"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/41353633/41353634.png",
+      "text": "image2016-1-26 13:5:41.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.581Z"
+}

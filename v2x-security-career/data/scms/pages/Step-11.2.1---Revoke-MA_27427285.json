@@ -1,0 +1,110 @@
+{
+  "pageId": "Step-11.2.1---Revoke-MA_27427285",
+  "fileName": "Step-11.2.1---Revoke-MA_27427285.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke MA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><tbody><tr><th class=\"confluenceTh\">Target release</th><td class=\"confluenceTd\">Release 1.0</td></tr><tr><th class=\"confluenceTh\">Document owner</th><td class=\"confluenceTd\"><div class=\"content-wrapper\"><p><a class=\"confluence-userlink user-mention\" data-username=\"bromansky\" href=\"https://wiki.campllc.org/display/~bromansky\" data-linked-resource-id=\"19203707\" data-linked-resource-version=\"2\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Brian Romansky</a></p></div></td></tr><tr><th class=\"confluenceTh\">Reviewer</th><td class=\"confluenceTd\"><div class=\"content-wrapper\"><p><a class=\"confluence-userlink user-mention\" data-username=\"rsingoria\" href=\"https://wiki.campllc.org/display/~rsingoria\" data-linked-resource-id=\"11502117\" data-linked-resource-version=\"2\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Rekha Singoria</a>, <a class=\"confluence-userlink user-mention\" data-username=\"wwhyte\" href=\"https://wiki.campllc.org/display/~wwhyte\" data-linked-resource-id=\"1081934\" data-linked-resource-version=\"2\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">William Whyte</a>, <a class=\"confluence-userlink user-mention\" data-username=\"nebeid\" href=\"https://wiki.campllc.org/display/~nebeid\" data-linked-resource-id=\"3506582\" data-linked-resource-version=\"2\" data-linked-resource-type=\"userinfo\" data-base-url=\"https://wiki.campllc.org/\">Nevine Ebeid</a></p></div></td></tr></tbody></table></div></div><h2 id=\"Step11.2.1-RevokeMA-Goals\">Goals</h2><p>The goal is to revoke an MA certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokeMA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The Technical Component of the SCMS Manager (TCotSCMSM) determines that the Misbehavior Authority (MA) needs to be revoked. It will request that the <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr> add the MA certificate to <abbr title=\"Certificate Revocation List\">CRL</abbr> and immediately issue a new CRL. The CRLG will cease to accept new requests signed by the MA. On receipt of the new CRL, all <abbr title=\"Pseudonym Certificate Authorities\">PCAs</abbr>, <abbr title=\"Registration Authorities\">RAs</abbr>, and <abbr title=\"Linkage Authorities\">LAs</abbr> will cease to accept new requests signed by the revoked MA.</p><p>The TCotSCMSM activates the replacement MA as described in <a href=\"Step-11.1.1---Add-MA_27427229.html\">Step 11.1.1 - Add MA</a>.</p><h2 id=\"Step11.2.1-RevokeMA-Assumptions\">Assumptions</h2><p>The TCotSCMSM will recover information on any active investigations underway when the MA was revoked. &nbsp;Trusted data will be copied to a replacement MA and those investigations will continue. &nbsp;</p><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokeMA-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427285/27427286.png\">Untitled17.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/~bromansky",
+      "text": "Brian Romansky",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~rsingoria",
+      "text": "Rekha Singoria",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~wwhyte",
+      "text": "William Whyte",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/~nebeid",
+      "text": "Nevine Ebeid",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Step-11.1.1---Add-MA_27427229.html",
+      "text": "Step 11.1.1 - Add MA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427285/27427286.png",
+      "text": "Untitled17.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "PCAs",
+      "definition": "Pseudonym Certificate Authorities"
+    },
+    {
+      "term": "RAs",
+      "definition": "Registration Authorities"
+    },
+    {
+      "term": "LAs",
+      "definition": "Linkage Authorities"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427285/27427286.png",
+      "text": "Untitled17.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.629Z"
+}

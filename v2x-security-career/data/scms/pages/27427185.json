@@ -1,0 +1,104 @@
+{
+  "pageId": "27427185",
+  "fileName": "27427185.html",
+  "title": "SCMS CV Pilots Documentation : Step 8.4: OBE CRL Check",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 8: OBE Pseudonym Certificate Revocation",
+      "href": "27427184.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 10, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step8.4:OBECRLCheck-Goals\">Goals</h2><p>The OBE needs to perform several computational steps to check whether a received Basic Safety Message (BSM) has been sent by a revoked <abbr title=\"End Entity\">EE</abbr>. This document lists the corresponding requirements.&nbsp;</p><h2 id=\"Step8.4:OBECRLCheck-Assumptions\">Assumptions</h2><p><span style=\"font-size: 14.0px;line-height: 1.42857;\">The OBE received a CRL as defined in </span><a href=\"27427183.html\">Use Case 6: CRL Download</a>.</p><h2 id=\"Step8.4:OBECRLCheck-ProcessSteps\"><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Process Steps</span></span></h2><ol><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">The OBE expands the CRL and calculates the linkage values for the current i-period based on the CRL entries (linkage seeds) of the CRL pseudonym certificate section</span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Whenever the OBE receives a new, unknown pseudonym certificate, it checks whether the linkage value of that unknown certificate is listed in the OBE's expanded CRL (from Step 1)</span></span><ol><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">If yes, then the OBE discards the received certificate<br></span></span></li><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Otherwise, the OBE accepts the received certificate as verified<br></span></span></li></ol></li><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Whenever the OBE receives a new, unknown OBE identification certificate, the OBE will calculate the certificate digest of that unknown certificate and will check whether the CRL lists it</span></span><ol><li>If yes, then the OBE discards the received certificate</li><li>Otherwise, the OBE accepts the received certificate as verified</li></ol></li><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Before the end of each i-period, the OBE will:&nbsp;</span></span><ol><li><span class=\"inline-comment-marker\" data-ref=\"8ae94ec2-cf3e-418a-b4a5-7f4ebc3ce716\"><span class=\"inline-comment-marker\" data-ref=\"bb17dc10-78f5-495e-8469-e81180879dd7\">Update its expanded CRL and calculate the linkage value for the next i-period</span></span></li><li>Remove entries from the expanded CRL that belong to revoked devices that ran out of certificates, if a CRL entry indicated that the revoked device does not have any more valid certificates. Note that the OBE may not immediately remove such entries, but add a safety buffer.</li></ol></li><li>If the OBE recognizes itself on the CRL, the OBE will stop sending over-the-air <abbr title=\"Dedicated Short-Range Communications\">DSRC</abbr> messages related to the indicated <abbr title=\"Provider Service Identifier\">PSID</abbr>/<abbr title=\"Service Specific Permission\">SSP</abbr>. This also applies if the OBE recognizes that the <a href=\"Step-11.2.1---Revoke-ECA_27427277.html\">Enrollment <abbr title=\"Certificate Authority\">CA</abbr></a> that issued the OBE's enrollment certificate, the <a href=\"Step-11.2.1---Revoke-PCA_27427287.html\">Pseudonym CA </a>that issued the OBE's certificates, any <a href=\"Step-11.2.1---Revoke-ICA_27427279.html\">Intermediate CA</a> that is in the chain between its <abbr title=\"Enrollment Certificate Authority\">ECA</abbr> or <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr> up to the Root CA, or the <a href=\"27427293.html\">Root CA</a> itself has been revoked.</li></ol><h2 id=\"Step8.4:OBECRLCheck-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step8.4:OBECRLCheck-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-845840402\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n    \n        \n</p></div>\n                    </div>\n\n                    \n                                                      \n                </div>             ",
+  "links": [
+    {
+      "originalHref": "27427183.html",
+      "text": "Use Case 6: CRL Download",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.2.1---Revoke-ECA_27427277.html",
+      "text": "Enrollment CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.2.1---Revoke-PCA_27427287.html",
+      "text": "Pseudonym CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Step-11.2.1---Revoke-ICA_27427279.html",
+      "text": "Intermediate CA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427293.html",
+      "text": "Root CA",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "DSRC",
+      "definition": "Dedicated Short-Range Communications"
+    },
+    {
+      "term": "PSID",
+      "definition": "Provider Service Identifier"
+    },
+    {
+      "term": "SSP",
+      "definition": "Service Specific Permission"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "ECA",
+      "definition": "Enrollment Certificate Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.361Z"
+}

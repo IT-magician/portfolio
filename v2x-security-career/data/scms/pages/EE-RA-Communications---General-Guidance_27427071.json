@@ -1,0 +1,147 @@
+{
+  "pageId": "EE-RA-Communications---General-Guidance_27427071",
+  "fileName": "EE-RA-Communications---General-Guidance_27427071.html",
+  "title": "SCMS CV Pilots\n                        Documentation : EE-RA Communications -\n                        General\n                        Guidance",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <p>The following is provided as general guidance for EE-RA messaging. For specific messaging, refer\n                        to the <a href=\"RA---Services-View_27427336.html\">RA - Services View</a>.</p>\n                    <p>EE initiates all communication between EE and RA. All communications between EE and RA fall into\n                        one of two categories: 1) (Non-)Authenticated Download Requests 2) SCMS Protocol Messages.</p>\n                    <h2 id=\"EE-RACommunications-GeneralGuidance-EE-RAAuthenticationandRA-EEAuthenticationEE-RA-Auth\">\n                        EE-RA Authentication and RA-EE Authentication<span class=\"confluence-anchor-link\" id=\"EE-RACommunications-GeneralGuidance-EE-RA-Auth\"></span></h2>\n                    <ol>\n                        <li>EE establishes a secure server-authenticated <abbr title=\"Transport Layer Security\">TLS</abbr> connection with RA\n                            (RA authenticates to\n                            EE).&nbsp;</li>\n                        <li>EE then digitally signs the current time of type <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 Time32 with\n                            EE's enrollment\n                            certificate.</li>\n                        <li>EE uses POST to include the IEEE 1609.2 enrollment certificate, the current time of type\n                            IEEE 1609.2 Time32, the digital signature over the current time, and the <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> request. Note\n                            that this payload is TLS protected.&nbsp;</li>\n                        <li>RA validates the enrollment certificate against the internal blacklist, and then verifies\n                            the enrollment certificate.&nbsp;</li>\n                        <li>RA validates the time-stamp against a configurable time tolerance (default value is defined\n                            in <a class=\"external-link\" href=\"https://jira.campllc.org/browse/SCMS-1203\" rel=\"nofollow\">SCMS-1203</a>), and then digitally verifies the signature of the current\n                            time.&nbsp;</li>\n                        <li>RA grants access to the file to download, if all verifications were successful. Otherwise,\n                            RA closes the connection.</li>\n                    </ol>\n                    <p>A simplified version is displayed in the <span class=\"inline-comment-marker\" data-ref=\"3cc71536-ec38-4ef5-bf50-7700da9454ef\">diagram</span> below. Note that the diagram\n                        does not include the digitally signed time-stamp of Step 2 and the verification of Step 5.&nbsp;</p>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"EE-RACommunications-GeneralGuidance-\"></span>\n                        <div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"EE-RA/RA-EE Authentication steps organized into a flowchart\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/27427071/41353722.png\" data-image-src=\"attachments/27427071/41353722.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"41353722\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image2015-5-8 14-47-30.png\" data-base-url=\"https://wiki.campllc.org/\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427071\" data-linked-resource-container-version=\"5\"></span></div>\n                        <div class=\"scroll-title-macro-title\"><strong>EE-RA Download Interaction</strong></div>\n                    </div>\n                    <h2 id=\"EE-RACommunications-GeneralGuidance-RARevocationRA-Revocation\">RA Revocation<span class=\"confluence-anchor-link\" id=\"EE-RACommunications-GeneralGuidance-RA-Revocation\"></span></h2>\n                    <p>An X.509 root <abbr title=\"Certificate Authority\">CA</abbr> certificate that EEs install during\n                        bootstrapping issues\n                        RA’s X.509 certificate.\n                        EE will perform the following check before Step 2 in above EE-RA mutual authentication:</p>\n                    <ul>\n                        <li>EE validates whether the X.509 root CA issued RA’s X.509 certificate, and whether RA's X.509\n                            certificate is valid.&nbsp;</li>\n                    </ul>\n                    <p>In order to revoke an RA, the operator will modify the <abbr title=\"Domain Name Servers\">DNS</abbr> entry for the RA\n                        (e.g. <a href=\"http://ra.ra-hoster.com/\" class=\"external-link\" rel=\"nofollow\">ra.ra-hoster.com</a>) to\n                        point to the new RA (or RA's load-balancer/firewall, depending on RA's architecture).&nbsp;Attacks\n                        might be still possible; an attacker can compromise the RA X.509 certificate, implement DNS\n                        spoofing, and compromise the <abbr title=\"Location Obscurer Proxy\">LOP</abbr>. However, the\n                        adversary's gain is\n                        limited to learning\n                        enrollment certificates.&nbsp;<span>Therefore, the RA may or may not support a revocation mechanism\n                            for RA's&nbsp;</span><span style=\"color: rgb(37,37,37);\">TLS certificate (e.g.\n                            the&nbsp;</span><span>certificate status request</span><span style=\"color: rgb(37,37,37);\">&nbsp;extension, colloquially\n                            known as&nbsp;</span><span>OCSP stapling\n                            and</span><span style=\"color: rgb(37,37,37);\"><span>&nbsp;specified in&nbsp;</span><a href=\"https://tools.ietf.org/html/rfc6066\" class=\"external-link\" rel=\"nofollow\">RFC\n                                6066</a><span>, Section 8). The EE (both <abbr title=\"Onboard Equipment\">OBE</abbr> and\n                                <abbr title=\"Road-side Equipment\">RSE</abbr>) may or may not support the TLS\n                                revocation mechanism. </span></span></p>\n                    <h2 id=\"EE-RACommunications-GeneralGuidance-DownloadRequest\"><span class=\"inline-comment-marker\" data-ref=\"d5613c8a-b0fe-4de5-b7e9-98eb13bf712d\">Download Request</span></h2>\n                    <p>Download requests are used by the EE to download a file from the RA.</p>\n                    <p>The EE uses <abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> GET to make download requests.\n                        There are two\n                        different kind of download\n                        requests: <span class=\"inline-comment-marker\" data-ref=\"7b067e22-a629-4214-8169-c2093209fca2\">authenticated and\n                            non-authenticated</span>:\n                    </p>\n                    <ul>\n                        <li><span class=\"inline-comment-marker\" data-ref=\"668972f3-6637-40a1-9b87-68a9c25ef7d5\">In order\n                                to provide IEEE 1609.2 based authentication from EE to RA for authenticated download\n                                requests an <span class=\"inline-comment-marker\" data-ref=\"f343a9df-f1af-4c91-8982-b48b7cc8484c\"><abbr title=\"Application Protocol Data Unit\">APDU</abbr></span> named <span class=\"inline-comment-marker\" data-ref=\"8b97691e-3cfe-4a54-9205-5be112cf825d\">SignedAuthenticatedDownloadRequest</span>\n                                is included in the request. The filename of the file EE is attempting to download and\n                                the current time timestamp is included in the SignedAuthenticatedDownloadRequest. The EE\n                                uses its enrollment certificate's signing key to create the signature in the\n                                SignedAuthenticatedDownloadRequest.</span>&nbsp;A HTTP header with Base64 encoded ASN.1\n                            serialized SignedAuthenticatedDownloadRequest APDU is included in the HTTP GET message.</li>\n                        <li>Non-authenticated download are plain HTTP GET messages with an optional HTTP Header\n                            'If-None-Match' to identify the version of an already downloaded file.</li>\n                    </ul>\n                    <p>The HTTP GET Range option may be used to request a partial download for the purposes of resuming\n                        a previously interrupted download.</p>\n                    <h2 id=\"EE-RACommunications-GeneralGuidance-SCMSProtocolMessages\">SCMS Protocol Messages</h2>\n                    <p>SCMS protocol messages are used by the EE to send SCMS protocol APDU messages to RA. The EE uses\n                        HTTP POST to send the SCMS protocol APDU to RA. The EE ASN.1 serializes the APDU and sends it as\n                        the HTTP POST Message Body in binary form.</p>\n                    <h2 id=\"EE-RACommunications-GeneralGuidance-Requirements\">Requirements</h2>\n                    <ul>\n                        <li>Download requests include requests from EE to RA for <span class=\"inline-comment-marker\" data-ref=\"ddefcf0e-64a2-475e-9c41-db6bd5bf6929\">the following files</span>:<ul>\n                                <li>.info</li>\n                                <li><a href=\"27427312.html\">Global Policy File</a> (GPF)/<a href=\"27427311.html\">Local\n                                        Policy File</a> (LPF)</li>\n                                <li><a href=\"41353502.html\">Global Certificate Chain File</a> (GCCF)/<a href=\"41353502.html\">Local Certificate Chain File</a> (LCCF)</li>\n                                <li><a href=\"27427088.html\">OBE pseudonym certificate batch file</a></li>\n                                <li><a href=\"27427306.html\">RSE application certificate files</a></li>\n                                <li><a href=\"27427328.html\">OBE identification certificate files</a></li>\n                            </ul>\n                        </li>\n                    </ul>\n                    <ul>\n                        <li>Download requests shall be sent from EE to RA via HTTP GET.</li>\n                        <li><span class=\"inline-comment-marker\" data-ref=\"957b2895-be1c-4358-88a5-8cea20d502ce\">Authenticated download requests shall\n                                include a HTTP Header with value equal to an ASN1 serialized Base64 encoded\n                                SignedAuthenticatedDownloadRequest message.</span></li>\n                        <li>APDUs sent from EE to RA via HTTP POST shall include:<ul>\n                                <li>SecuredRACertRequest</li>\n                                <li>SecuredPseudonymCertProvisioningRequest</li>\n                                <li>SecuredIdCertProvisioningRequest</li>\n                            </ul>\n                        </li>\n                        <li>APDUs other than SignedAuthenticatedDownloadRequest shall be sent from EE to RA via HTTP\n                            POST.</li>\n                        <li>APDUs sent from EE to RA via HTTP POST shall sent Content-Type header equal to\n                            application/octet-stream.</li>\n                        <li>APDUs sent from EE to RA via HTTP POST shall be sent in the HTTP Message Body in binary\n                            ASN.1 serialized form.</li>\n                    </ul>\n                ",
+  "links": [
+    {
+      "originalHref": "RA---Services-View_27427336.html",
+      "text": "RA - Services View",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://jira.campllc.org/browse/SCMS-1203",
+      "text": "SCMS-1203",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://ra.ra-hoster.com/",
+      "text": "ra.ra-hoster.com",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://tools.ietf.org/html/rfc6066",
+      "text": "RFC\n                                6066",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27427312.html",
+      "text": "Global Policy File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427311.html",
+      "text": "Local\n                                        Policy File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353502.html",
+      "text": "Global Certificate Chain File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353502.html",
+      "text": "Local Certificate Chain File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427088.html",
+      "text": "OBE pseudonym certificate batch file",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427306.html",
+      "text": "RSE application certificate files",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427328.html",
+      "text": "OBE identification certificate files",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "DNS",
+      "definition": "Domain Name Servers"
+    },
+    {
+      "term": "LOP",
+      "definition": "Location Obscurer Proxy"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "RSE",
+      "definition": "Road-side Equipment"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "APDU",
+      "definition": "Application Protocol Data Unit"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427071/41353722.png",
+      "text": "image2015-5-8 14-47-30.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.499Z"
+}

@@ -1,0 +1,4077 @@
+{
+  "navigation": [
+    {
+      "pageId": "SCMS-CV-Pilots-Documentation_26838136",
+      "title": "SCMS CV Pilots Documentation : SCMS CV Pilots Documentation",
+      "children": [
+        {
+          "pageId": "27426990",
+          "title": "SCMS CV Pilots Documentation : Use Case 3: OBE Pseudonym Certificates Provisioning"
+        },
+        {
+          "pageId": "27427060",
+          "title": "SCMS CV Pilots Documentation : CB1: Cryptographic Services"
+        },
+        {
+          "pageId": "27427061",
+          "title": "SCMS CV Pilots Documentation : CB2: Types of Cryptographic Algorithms"
+        },
+        {
+          "pageId": "27427062",
+          "title": "SCMS CV Pilots Documentation : CB3: Public Key Infrastructure"
+        },
+        {
+          "pageId": "27427064",
+          "title": "SCMS CV Pilots Documentation : SCP1: Butterfly Keys"
+        },
+        {
+          "pageId": "27427066",
+          "title": "SCMS CV Pilots Documentation : SCP2: Linkage Values"
+        },
+        {
+          "pageId": "27427080",
+          "title": "SCMS CV Pilots Documentation : Step 3.1: Request for Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427088",
+          "title": "SCMS CV Pilots Documentation : Step 3.3: Initial Download of Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427090",
+          "title": "SCMS CV Pilots Documentation : Step 3.5: Top-off Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427180",
+          "title": "SCMS CV Pilots Documentation : Use Case 5: Misbehavior Reporting"
+        },
+        {
+          "pageId": "27427183",
+          "title": "SCMS CV Pilots Documentation : Use Case 6: CRL Download"
+        },
+        {
+          "pageId": "27427184",
+          "title": "SCMS CV Pilots Documentation : Use Case 8: OBE Pseudonym Certificate Revocation"
+        },
+        {
+          "pageId": "27427185",
+          "title": "SCMS CV Pilots Documentation : Step 8.4: OBE CRL Check"
+        },
+        {
+          "pageId": "27427186",
+          "title": "SCMS CV Pilots Documentation : Use Case 11: Backend Management"
+        },
+        {
+          "pageId": "27427206",
+          "title": "SCMS CV Pilots Documentation : Step 11.1: Add SCMS Component"
+        },
+        {
+          "pageId": "27427207",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1: Add Non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427253",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.2: Add Root CA"
+        },
+        {
+          "pageId": "27427255",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.3: Add Elector"
+        },
+        {
+          "pageId": "27427256",
+          "title": "SCMS CV Pilots Documentation : Step 11.2: Revoke SCMS Component"
+        },
+        {
+          "pageId": "27427257",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1: Revoke non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427262",
+          "title": "SCMS CV Pilots Documentation : Hardware, Software and OS Security Requirements"
+        },
+        {
+          "pageId": "27427293",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.2: Revoke Root CA"
+        },
+        {
+          "pageId": "27427295",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.3: Revoke Elector"
+        },
+        {
+          "pageId": "27427298",
+          "title": "SCMS CV Pilots Documentation : Use Case 13: RSE Application Certificate Provisioning"
+        },
+        {
+          "pageId": "27427303",
+          "title": "SCMS CV Pilots Documentation : Step 13.1: Request RSE Application Certificate"
+        },
+        {
+          "pageId": "27427306",
+          "title": "SCMS CV Pilots Documentation : Step 13.3: Download RSE Application Certificate"
+        },
+        {
+          "pageId": "27427307",
+          "title": "SCMS CV Pilots Documentation : Use Case 16: RSE Application and OBE Identification Certificate Revocation"
+        },
+        {
+          "pageId": "27427308",
+          "title": "SCMS CV Pilots Documentation : Step 16.4: RSE CRL Check"
+        },
+        {
+          "pageId": "27427309",
+          "title": "SCMS CV Pilots Documentation : Use Case 18: Provide and Enforce Technical Policies"
+        },
+        {
+          "pageId": "27427310",
+          "title": "SCMS CV Pilots Documentation : Step 18.1: Policy Configuration Options"
+        },
+        {
+          "pageId": "27427311",
+          "title": "SCMS CV Pilots Documentation : Step 18.2: Generate Local Policies for EEs"
+        },
+        {
+          "pageId": "27427312",
+          "title": "SCMS CV Pilots Documentation : Step 18.3: Generate Global Policies for EEs"
+        },
+        {
+          "pageId": "27427319",
+          "title": "SCMS CV Pilots Documentation : Step 19.1: Request for OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427325",
+          "title": "SCMS CV Pilots Documentation : Use Case 19: OBE Identification Certificate Provisioning"
+        },
+        {
+          "pageId": "27427328",
+          "title": "SCMS CV Pilots Documentation : Step 19.3: Initial Download of\n                        OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427329",
+          "title": "SCMS CV Pilots Documentation : Step 19.5: Top-off OBE Identification Certificates"
+        },
+        {
+          "pageId": "41353473",
+          "title": "SCMS CV Pilots Documentation : Use Case 20: EE Re-Enrollment"
+        },
+        {
+          "pageId": "41353474",
+          "title": "SCMS CV Pilots\n                        Documentation : Step 20.1: EE Enrollment\n                        Certificate Rollover"
+        },
+        {
+          "pageId": "41353502",
+          "title": "SCMS CV Pilots Documentation : Step 18.4: Generate Global and\n                        Local Certificate Chain File"
+        },
+        {
+          "pageId": "47186125",
+          "title": "SCMS CV Pilots Documentation : CV Pilot QA+Test Certificate\n                        Expiration Timelines"
+        },
+        {
+          "pageId": "58589462",
+          "title": "SCMS CV\n            Pilots Documentation : Use Case 2: OBE Bootstrapping (Manual)"
+        },
+        {
+          "pageId": "58589469",
+          "title": "SCMS CV Pilots\n                        Documentation : Use Case 12: RSE Bootstrapping\n                        (Manual)"
+        },
+        {
+          "pageId": "Approved-Cryptographic-Algorithms_27427058",
+          "title": "SCMS CV Pilots Documentation : Approved Cryptographic Algorithms"
+        },
+        {
+          "pageId": "Approved-Random-Number-Generators_41353610",
+          "title": "SCMS CV Pilots Documentation : Approved Random Number Generators"
+        },
+        {
+          "pageId": "CAMP-PSID-Transfer-Process_91357193",
+          "title": "SCMS CV Pilots\n                        Documentation : CAMP PSID Transfer Process"
+        },
+        {
+          "pageId": "Certificate-Types_27427012",
+          "title": "SCMS CV Pilots Documentation : Certificate Types"
+        },
+        {
+          "pageId": "Common---Services-View_27427332",
+          "title": "SCMS CV Pilots Documentation : Common - Services View"
+        },
+        {
+          "pageId": "Common-Requirements_27427011",
+          "title": "SCMS CV Pilots Documentation : Common Requirements"
+        },
+        {
+          "pageId": "CRL-Series-Diagram_41353604",
+          "title": "SCMS CV Pilots\n                        Documentation : CRL Series Diagram"
+        },
+        {
+          "pageId": "Cryptography-Background_27427059",
+          "title": "SCMS CV Pilots Documentation : Cryptography Background"
+        },
+        {
+          "pageId": "Cryptography_27427057",
+          "title": "SCMS CV Pilots Documentation : Cryptography"
+        },
+        {
+          "pageId": "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019",
+          "title": "SCMS CV Pilots Documentation : CV Pilot PROD Certificate\n                        Expiration Timelines"
+        },
+        {
+          "pageId": "EE-RA-Communications---General-Guidance_27427071",
+          "title": "SCMS CV Pilots\n                        Documentation : EE-RA Communications -\n                        General\n                        Guidance"
+        },
+        {
+          "pageId": "EE-SCMS-Core-Communication-Requirements_27427072",
+          "title": "SCMS CV Pilots\n                        Documentation : EE-SCMS Core Communication\n                        Requirements"
+        },
+        {
+          "pageId": "Elector-based-Root-Management_27427051",
+          "title": "SCMS CV Pilots Documentation : Elector-based Root Management"
+        },
+        {
+          "pageId": "Environments-documentation_60719122",
+          "title": "SCMS CV Pilots Documentation : Environments documentation"
+        },
+        {
+          "pageId": "Glossary_27427375",
+          "title": "SCMS CV Pilots Documentation : Glossary"
+        },
+        {
+          "pageId": "Impact-on-EE-Storage_128909336",
+          "title": "SCMS CV\n                        Pilots Documentation : Impact on EE Storage"
+        },
+        {
+          "pageId": "MA---Download-CRL_27427359",
+          "title": "SCMS CV Pilots\n                        Documentation : MA - Download CRL"
+        },
+        {
+          "pageId": "MA---Services-View_27427358",
+          "title": "SCMS CV Pilots\n                        Documentation : MA - Services View"
+        },
+        {
+          "pageId": "Overview-of-Used-Error-Codes_41353603",
+          "title": "SCMS CV Pilots Documentation : Overview of Used Error Codes"
+        },
+        {
+          "pageId": "PoC-Certificate-Expiration-Timelines_41353554",
+          "title": "SCMS CV\n                        Pilots Documentation : PoC Certificate Expiration\n                        Timelines"
+        },
+        {
+          "pageId": "RA---Download-.info-File_27427339",
+          "title": "SCMS CV Pilots Documentation : RA - Download .info File"
+        },
+        {
+          "pageId": "RA---Download-Application-Certificate_27427353",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Application\n                        Certificate"
+        },
+        {
+          "pageId": "RA---Download-Identification-Certificate_41353633",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Identification\n                        Certificate"
+        },
+        {
+          "pageId": "RA---Download-Local-Certificate-Chain-File_27427354",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Local Certificate\n                        Chain File"
+        },
+        {
+          "pageId": "RA---Download-Local-Policy-File_27427342",
+          "title": "SCMS CV Pilots Documentation : RA - Download Local Policy File"
+        },
+        {
+          "pageId": "RA---Download-Pseudonym-Certificate-Batch_27427344",
+          "title": "SCMS CV Pilots Documentation : RA - Download Pseudonym Certificate Batch"
+        },
+        {
+          "pageId": "RA---Request-Application-Certificate-Provisioning_27427352",
+          "title": "SCMS CV Pilots Documentation : RA - Request Application Certificate Provisioning"
+        },
+        {
+          "pageId": "RA---Request-Identification-Certificate-Provisioning_41353635",
+          "title": "SCMS CV Pilots Documentation : RA - Request Identification Certificate Provisioning"
+        },
+        {
+          "pageId": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337",
+          "title": "SCMS CV Pilots Documentation : RA - Request Pseudonym Certificate Batch Provisioning"
+        },
+        {
+          "pageId": "RA---Retrieve-Registration-Authority-Certificate_27427347",
+          "title": "SCMS CV Pilots Documentation : RA - Retrieve Registration Authority Certificate"
+        },
+        {
+          "pageId": "RA---Services-View_27427336",
+          "title": "SCMS CV Pilots Documentation : RA - Services View"
+        },
+        {
+          "pageId": "RA---Submit-Misbehavior-Report_27427356",
+          "title": "SCMS CV Pilots Documentation : RA - Submit Misbehavior Report"
+        },
+        {
+          "pageId": "Re-enrollment_27427261",
+          "title": "SCMS CV Pilots Documentation : Re-enrollment"
+        },
+        {
+          "pageId": "Requirements-and-Specifications_27426993",
+          "title": "SCMS CV Pilots Documentation : Requirements and Specifications"
+        },
+        {
+          "pageId": "Requirements-by-Use-Case_27426994",
+          "title": "SCMS CV Pilots Documentation : Requirements by Use Case"
+        },
+        {
+          "pageId": "Root-Management-and-Disaster-Recovery-in-Action_128909339",
+          "title": "SCMS CV Pilots Documentation : Root Management and Disaster Recovery in Action"
+        },
+        {
+          "pageId": "SCMS-PoC-Supported-V2X-Applications_27427021",
+          "title": "SCMS CV Pilots Documentation : SCMS PoC Supported V2X Applications"
+        },
+        {
+          "pageId": "Secure-Environment-for-Device-Enrollment_27427267",
+          "title": "SCMS CV Pilots Documentation : Secure Environment for Device Enrollment"
+        },
+        {
+          "pageId": "Software-Design-Documents_27427330",
+          "title": "SCMS CV Pilots Documentation : Software Design Documents"
+        },
+        {
+          "pageId": "Special-Cryptographic-Primitives-in-SCMS_27427063",
+          "title": "SCMS CV Pilots Documentation : Special Cryptographic Primitives in SCMS"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-CRLG_27427208",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add CRLG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ECA_27427217",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ECA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ICA_27427224",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ICA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-MA_27427229",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add MA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PCA_27427235",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PCA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PG_27427243",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-RA_27427246",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add RA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-CRLG_27427275",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke CRLG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ECA_27427277",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ECA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ICA_27427279",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ICA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-MA_27427285",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke MA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PCA_27427287",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PCA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PG_27427289",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-RA_27427291",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke RA"
+        },
+        {
+          "pageId": "Storage-Considerations_27427271",
+          "title": "SCMS  CV Pilots Documentation : Storage Considerations"
+        },
+        {
+          "pageId": "Test-Vectors_27427361",
+          "title": "SCMS CV Pilots Documentation : Test Vectors"
+        }
+      ]
+    },
+    {
+      "pageId": "Requirements-and-Specifications_27426993",
+      "title": "SCMS CV Pilots Documentation : Requirements and Specifications",
+      "children": [
+        {
+          "pageId": "27426990",
+          "title": "SCMS CV Pilots Documentation : Use Case 3: OBE Pseudonym Certificates Provisioning"
+        },
+        {
+          "pageId": "27427060",
+          "title": "SCMS CV Pilots Documentation : CB1: Cryptographic Services"
+        },
+        {
+          "pageId": "27427061",
+          "title": "SCMS CV Pilots Documentation : CB2: Types of Cryptographic Algorithms"
+        },
+        {
+          "pageId": "27427062",
+          "title": "SCMS CV Pilots Documentation : CB3: Public Key Infrastructure"
+        },
+        {
+          "pageId": "27427064",
+          "title": "SCMS CV Pilots Documentation : SCP1: Butterfly Keys"
+        },
+        {
+          "pageId": "27427066",
+          "title": "SCMS CV Pilots Documentation : SCP2: Linkage Values"
+        },
+        {
+          "pageId": "27427080",
+          "title": "SCMS CV Pilots Documentation : Step 3.1: Request for Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427088",
+          "title": "SCMS CV Pilots Documentation : Step 3.3: Initial Download of Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427090",
+          "title": "SCMS CV Pilots Documentation : Step 3.5: Top-off Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427180",
+          "title": "SCMS CV Pilots Documentation : Use Case 5: Misbehavior Reporting"
+        },
+        {
+          "pageId": "27427183",
+          "title": "SCMS CV Pilots Documentation : Use Case 6: CRL Download"
+        },
+        {
+          "pageId": "27427184",
+          "title": "SCMS CV Pilots Documentation : Use Case 8: OBE Pseudonym Certificate Revocation"
+        },
+        {
+          "pageId": "27427185",
+          "title": "SCMS CV Pilots Documentation : Step 8.4: OBE CRL Check"
+        },
+        {
+          "pageId": "27427186",
+          "title": "SCMS CV Pilots Documentation : Use Case 11: Backend Management"
+        },
+        {
+          "pageId": "27427206",
+          "title": "SCMS CV Pilots Documentation : Step 11.1: Add SCMS Component"
+        },
+        {
+          "pageId": "27427207",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1: Add Non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427253",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.2: Add Root CA"
+        },
+        {
+          "pageId": "27427255",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.3: Add Elector"
+        },
+        {
+          "pageId": "27427256",
+          "title": "SCMS CV Pilots Documentation : Step 11.2: Revoke SCMS Component"
+        },
+        {
+          "pageId": "27427257",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1: Revoke non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427262",
+          "title": "SCMS CV Pilots Documentation : Hardware, Software and OS Security Requirements"
+        },
+        {
+          "pageId": "27427293",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.2: Revoke Root CA"
+        },
+        {
+          "pageId": "27427295",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.3: Revoke Elector"
+        },
+        {
+          "pageId": "27427298",
+          "title": "SCMS CV Pilots Documentation : Use Case 13: RSE Application Certificate Provisioning"
+        },
+        {
+          "pageId": "27427303",
+          "title": "SCMS CV Pilots Documentation : Step 13.1: Request RSE Application Certificate"
+        },
+        {
+          "pageId": "27427306",
+          "title": "SCMS CV Pilots Documentation : Step 13.3: Download RSE Application Certificate"
+        },
+        {
+          "pageId": "27427307",
+          "title": "SCMS CV Pilots Documentation : Use Case 16: RSE Application and OBE Identification Certificate Revocation"
+        },
+        {
+          "pageId": "27427308",
+          "title": "SCMS CV Pilots Documentation : Step 16.4: RSE CRL Check"
+        },
+        {
+          "pageId": "27427309",
+          "title": "SCMS CV Pilots Documentation : Use Case 18: Provide and Enforce Technical Policies"
+        },
+        {
+          "pageId": "27427310",
+          "title": "SCMS CV Pilots Documentation : Step 18.1: Policy Configuration Options"
+        },
+        {
+          "pageId": "27427311",
+          "title": "SCMS CV Pilots Documentation : Step 18.2: Generate Local Policies for EEs"
+        },
+        {
+          "pageId": "27427312",
+          "title": "SCMS CV Pilots Documentation : Step 18.3: Generate Global Policies for EEs"
+        },
+        {
+          "pageId": "27427319",
+          "title": "SCMS CV Pilots Documentation : Step 19.1: Request for OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427325",
+          "title": "SCMS CV Pilots Documentation : Use Case 19: OBE Identification Certificate Provisioning"
+        },
+        {
+          "pageId": "27427328",
+          "title": "SCMS CV Pilots Documentation : Step 19.3: Initial Download of\n                        OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427329",
+          "title": "SCMS CV Pilots Documentation : Step 19.5: Top-off OBE Identification Certificates"
+        },
+        {
+          "pageId": "41353473",
+          "title": "SCMS CV Pilots Documentation : Use Case 20: EE Re-Enrollment"
+        },
+        {
+          "pageId": "41353474",
+          "title": "SCMS CV Pilots\n                        Documentation : Step 20.1: EE Enrollment\n                        Certificate Rollover"
+        },
+        {
+          "pageId": "41353502",
+          "title": "SCMS CV Pilots Documentation : Step 18.4: Generate Global and\n                        Local Certificate Chain File"
+        },
+        {
+          "pageId": "47186125",
+          "title": "SCMS CV Pilots Documentation : CV Pilot QA+Test Certificate\n                        Expiration Timelines"
+        },
+        {
+          "pageId": "58589462",
+          "title": "SCMS CV\n            Pilots Documentation : Use Case 2: OBE Bootstrapping (Manual)"
+        },
+        {
+          "pageId": "58589469",
+          "title": "SCMS CV Pilots\n                        Documentation : Use Case 12: RSE Bootstrapping\n                        (Manual)"
+        },
+        {
+          "pageId": "Approved-Cryptographic-Algorithms_27427058",
+          "title": "SCMS CV Pilots Documentation : Approved Cryptographic Algorithms"
+        },
+        {
+          "pageId": "Approved-Random-Number-Generators_41353610",
+          "title": "SCMS CV Pilots Documentation : Approved Random Number Generators"
+        },
+        {
+          "pageId": "CAMP-PSID-Transfer-Process_91357193",
+          "title": "SCMS CV Pilots\n                        Documentation : CAMP PSID Transfer Process"
+        },
+        {
+          "pageId": "Certificate-Types_27427012",
+          "title": "SCMS CV Pilots Documentation : Certificate Types"
+        },
+        {
+          "pageId": "Common-Requirements_27427011",
+          "title": "SCMS CV Pilots Documentation : Common Requirements"
+        },
+        {
+          "pageId": "CRL-Series-Diagram_41353604",
+          "title": "SCMS CV Pilots\n                        Documentation : CRL Series Diagram"
+        },
+        {
+          "pageId": "Cryptography-Background_27427059",
+          "title": "SCMS CV Pilots Documentation : Cryptography Background"
+        },
+        {
+          "pageId": "Cryptography_27427057",
+          "title": "SCMS CV Pilots Documentation : Cryptography"
+        },
+        {
+          "pageId": "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019",
+          "title": "SCMS CV Pilots Documentation : CV Pilot PROD Certificate\n                        Expiration Timelines"
+        },
+        {
+          "pageId": "EE-RA-Communications---General-Guidance_27427071",
+          "title": "SCMS CV Pilots\n                        Documentation : EE-RA Communications -\n                        General\n                        Guidance"
+        },
+        {
+          "pageId": "EE-SCMS-Core-Communication-Requirements_27427072",
+          "title": "SCMS CV Pilots\n                        Documentation : EE-SCMS Core Communication\n                        Requirements"
+        },
+        {
+          "pageId": "Elector-based-Root-Management_27427051",
+          "title": "SCMS CV Pilots Documentation : Elector-based Root Management"
+        },
+        {
+          "pageId": "Impact-on-EE-Storage_128909336",
+          "title": "SCMS CV\n                        Pilots Documentation : Impact on EE Storage"
+        },
+        {
+          "pageId": "Overview-of-Used-Error-Codes_41353603",
+          "title": "SCMS CV Pilots Documentation : Overview of Used Error Codes"
+        },
+        {
+          "pageId": "PoC-Certificate-Expiration-Timelines_41353554",
+          "title": "SCMS CV\n                        Pilots Documentation : PoC Certificate Expiration\n                        Timelines"
+        },
+        {
+          "pageId": "Re-enrollment_27427261",
+          "title": "SCMS CV Pilots Documentation : Re-enrollment"
+        },
+        {
+          "pageId": "Requirements-by-Use-Case_27426994",
+          "title": "SCMS CV Pilots Documentation : Requirements by Use Case"
+        },
+        {
+          "pageId": "Root-Management-and-Disaster-Recovery-in-Action_128909339",
+          "title": "SCMS CV Pilots Documentation : Root Management and Disaster Recovery in Action"
+        },
+        {
+          "pageId": "SCMS-PoC-Supported-V2X-Applications_27427021",
+          "title": "SCMS CV Pilots Documentation : SCMS PoC Supported V2X Applications"
+        },
+        {
+          "pageId": "Secure-Environment-for-Device-Enrollment_27427267",
+          "title": "SCMS CV Pilots Documentation : Secure Environment for Device Enrollment"
+        },
+        {
+          "pageId": "Special-Cryptographic-Primitives-in-SCMS_27427063",
+          "title": "SCMS CV Pilots Documentation : Special Cryptographic Primitives in SCMS"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-CRLG_27427208",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add CRLG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ECA_27427217",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ECA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ICA_27427224",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ICA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-MA_27427229",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add MA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PCA_27427235",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PCA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PG_27427243",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-RA_27427246",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add RA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-CRLG_27427275",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke CRLG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ECA_27427277",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ECA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ICA_27427279",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ICA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-MA_27427285",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke MA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PCA_27427287",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PCA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PG_27427289",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-RA_27427291",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke RA"
+        },
+        {
+          "pageId": "Storage-Considerations_27427271",
+          "title": "SCMS  CV Pilots Documentation : Storage Considerations"
+        }
+      ]
+    },
+    {
+      "pageId": "Requirements-by-Use-Case_27426994",
+      "title": "SCMS CV Pilots Documentation : Requirements by Use Case",
+      "children": [
+        {
+          "pageId": "27426990",
+          "title": "SCMS CV Pilots Documentation : Use Case 3: OBE Pseudonym Certificates Provisioning"
+        },
+        {
+          "pageId": "27427080",
+          "title": "SCMS CV Pilots Documentation : Step 3.1: Request for Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427088",
+          "title": "SCMS CV Pilots Documentation : Step 3.3: Initial Download of Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427090",
+          "title": "SCMS CV Pilots Documentation : Step 3.5: Top-off Pseudonym Certificates"
+        },
+        {
+          "pageId": "27427180",
+          "title": "SCMS CV Pilots Documentation : Use Case 5: Misbehavior Reporting"
+        },
+        {
+          "pageId": "27427183",
+          "title": "SCMS CV Pilots Documentation : Use Case 6: CRL Download"
+        },
+        {
+          "pageId": "27427184",
+          "title": "SCMS CV Pilots Documentation : Use Case 8: OBE Pseudonym Certificate Revocation"
+        },
+        {
+          "pageId": "27427185",
+          "title": "SCMS CV Pilots Documentation : Step 8.4: OBE CRL Check"
+        },
+        {
+          "pageId": "27427186",
+          "title": "SCMS CV Pilots Documentation : Use Case 11: Backend Management"
+        },
+        {
+          "pageId": "27427206",
+          "title": "SCMS CV Pilots Documentation : Step 11.1: Add SCMS Component"
+        },
+        {
+          "pageId": "27427207",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1: Add Non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427253",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.2: Add Root CA"
+        },
+        {
+          "pageId": "27427255",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.3: Add Elector"
+        },
+        {
+          "pageId": "27427256",
+          "title": "SCMS CV Pilots Documentation : Step 11.2: Revoke SCMS Component"
+        },
+        {
+          "pageId": "27427257",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1: Revoke non-Root SCMS Component"
+        },
+        {
+          "pageId": "27427293",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.2: Revoke Root CA"
+        },
+        {
+          "pageId": "27427295",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.3: Revoke Elector"
+        },
+        {
+          "pageId": "27427298",
+          "title": "SCMS CV Pilots Documentation : Use Case 13: RSE Application Certificate Provisioning"
+        },
+        {
+          "pageId": "27427303",
+          "title": "SCMS CV Pilots Documentation : Step 13.1: Request RSE Application Certificate"
+        },
+        {
+          "pageId": "27427306",
+          "title": "SCMS CV Pilots Documentation : Step 13.3: Download RSE Application Certificate"
+        },
+        {
+          "pageId": "27427307",
+          "title": "SCMS CV Pilots Documentation : Use Case 16: RSE Application and OBE Identification Certificate Revocation"
+        },
+        {
+          "pageId": "27427308",
+          "title": "SCMS CV Pilots Documentation : Step 16.4: RSE CRL Check"
+        },
+        {
+          "pageId": "27427309",
+          "title": "SCMS CV Pilots Documentation : Use Case 18: Provide and Enforce Technical Policies"
+        },
+        {
+          "pageId": "27427310",
+          "title": "SCMS CV Pilots Documentation : Step 18.1: Policy Configuration Options"
+        },
+        {
+          "pageId": "27427311",
+          "title": "SCMS CV Pilots Documentation : Step 18.2: Generate Local Policies for EEs"
+        },
+        {
+          "pageId": "27427312",
+          "title": "SCMS CV Pilots Documentation : Step 18.3: Generate Global Policies for EEs"
+        },
+        {
+          "pageId": "27427319",
+          "title": "SCMS CV Pilots Documentation : Step 19.1: Request for OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427325",
+          "title": "SCMS CV Pilots Documentation : Use Case 19: OBE Identification Certificate Provisioning"
+        },
+        {
+          "pageId": "27427328",
+          "title": "SCMS CV Pilots Documentation : Step 19.3: Initial Download of\n                        OBE Identification Certificates"
+        },
+        {
+          "pageId": "27427329",
+          "title": "SCMS CV Pilots Documentation : Step 19.5: Top-off OBE Identification Certificates"
+        },
+        {
+          "pageId": "41353473",
+          "title": "SCMS CV Pilots Documentation : Use Case 20: EE Re-Enrollment"
+        },
+        {
+          "pageId": "41353474",
+          "title": "SCMS CV Pilots\n                        Documentation : Step 20.1: EE Enrollment\n                        Certificate Rollover"
+        },
+        {
+          "pageId": "41353502",
+          "title": "SCMS CV Pilots Documentation : Step 18.4: Generate Global and\n                        Local Certificate Chain File"
+        },
+        {
+          "pageId": "58589462",
+          "title": "SCMS CV\n            Pilots Documentation : Use Case 2: OBE Bootstrapping (Manual)"
+        },
+        {
+          "pageId": "58589469",
+          "title": "SCMS CV Pilots\n                        Documentation : Use Case 12: RSE Bootstrapping\n                        (Manual)"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-CRLG_27427208",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add CRLG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ECA_27427217",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ECA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-ICA_27427224",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ICA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-MA_27427229",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add MA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PCA_27427235",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PCA"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-PG_27427243",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PG"
+        },
+        {
+          "pageId": "Step-11.1.1---Add-RA_27427246",
+          "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add RA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-CRLG_27427275",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke CRLG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ECA_27427277",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ECA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-ICA_27427279",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ICA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-MA_27427285",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke MA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PCA_27427287",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PCA"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-PG_27427289",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PG"
+        },
+        {
+          "pageId": "Step-11.2.1---Revoke-RA_27427291",
+          "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke RA"
+        }
+      ]
+    },
+    {
+      "pageId": "Software-Design-Documents_27427330",
+      "title": "SCMS CV Pilots Documentation : Software Design Documents",
+      "children": [
+        {
+          "pageId": "Common---Services-View_27427332",
+          "title": "SCMS CV Pilots Documentation : Common - Services View"
+        },
+        {
+          "pageId": "MA---Download-CRL_27427359",
+          "title": "SCMS CV Pilots\n                        Documentation : MA - Download CRL"
+        },
+        {
+          "pageId": "MA---Services-View_27427358",
+          "title": "SCMS CV Pilots\n                        Documentation : MA - Services View"
+        },
+        {
+          "pageId": "RA---Download-.info-File_27427339",
+          "title": "SCMS CV Pilots Documentation : RA - Download .info File"
+        },
+        {
+          "pageId": "RA---Download-Application-Certificate_27427353",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Application\n                        Certificate"
+        },
+        {
+          "pageId": "RA---Download-Identification-Certificate_41353633",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Identification\n                        Certificate"
+        },
+        {
+          "pageId": "RA---Download-Local-Certificate-Chain-File_27427354",
+          "title": "SCMS CV Pilots\n                        Documentation : RA - Download Local Certificate\n                        Chain File"
+        },
+        {
+          "pageId": "RA---Download-Local-Policy-File_27427342",
+          "title": "SCMS CV Pilots Documentation : RA - Download Local Policy File"
+        },
+        {
+          "pageId": "RA---Download-Pseudonym-Certificate-Batch_27427344",
+          "title": "SCMS CV Pilots Documentation : RA - Download Pseudonym Certificate Batch"
+        },
+        {
+          "pageId": "RA---Request-Application-Certificate-Provisioning_27427352",
+          "title": "SCMS CV Pilots Documentation : RA - Request Application Certificate Provisioning"
+        },
+        {
+          "pageId": "RA---Request-Identification-Certificate-Provisioning_41353635",
+          "title": "SCMS CV Pilots Documentation : RA - Request Identification Certificate Provisioning"
+        },
+        {
+          "pageId": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337",
+          "title": "SCMS CV Pilots Documentation : RA - Request Pseudonym Certificate Batch Provisioning"
+        },
+        {
+          "pageId": "RA---Retrieve-Registration-Authority-Certificate_27427347",
+          "title": "SCMS CV Pilots Documentation : RA - Retrieve Registration Authority Certificate"
+        },
+        {
+          "pageId": "RA---Services-View_27427336",
+          "title": "SCMS CV Pilots Documentation : RA - Services View"
+        },
+        {
+          "pageId": "RA---Submit-Misbehavior-Report_27427356",
+          "title": "SCMS CV Pilots Documentation : RA - Submit Misbehavior Report"
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "SCMS": "Security Credential Management System",
+    "CV": "Connected Vehicle",
+    "OBE": "Onboard Equipment",
+    "RA": "Registration Authority",
+    "LA": "Linkage Authority",
+    "PCA": "Pseudonym Certificate Authority",
+    "OEMs": "Original Equipment Manufacturer",
+    "CA": "Certificate Authority",
+    "FQDN": "Fully Qualified Domain Name",
+    "BSM": "Basic Safety Message",
+    "V2V": "Vehicle-to-Vehicle",
+    "IEEE": "Institute of Electrical and Electronics Engineers",
+    "VANET": "Vehicular Ad-Hoc Networks",
+    "AES": "Advanced Encryption Standard",
+    "ECDSA-256": "Elliptic Curve Digital Signature Algorithm",
+    "CAMP": "Crash Avoidance Metrics Partnership",
+    "VSC3": "Vehicle Safety Communications 3",
+    "EEs": "End Entities",
+    "PKI": "Public Key Infrastructure",
+    "OEM": "Original Equipment Manufacturer",
+    "POC": "Proof-Of-Concept",
+    "PROD": "Production Stage",
+    "ECDLP": "Elliptic Curve Discrete Logarithm Problem",
+    "ECC": "Elliptical Curve Cryptography",
+    "MA": "Misbehavior Authority",
+    "LAs": "Linkage Authority",
+    "LOP": "Location Obscurer Proxy",
+    "CRL": "Certificate Revocation List",
+    "VSC5": "Vehicle Safety Communications 5",
+    "EE": "End Entity",
+    "RSE": "Road-side Equipment",
+    "ICA": "Intermediate Certificate Authority",
+    "PSID": "Provider Service Identifier",
+    "GCCF": "Global Certificate Chain File",
+    "BSMs": "Basic Safety Message",
+    "ASN.1": "Abstract Syntax Notation One",
+    "DSRC": "Dedicated Short-Range Communications",
+    "SSP": "Service Specific Permission",
+    "ECA": "Enrollment Certificate Authority",
+    "CAs": "Certificate Authority",
+    "TLS": "Transport Layer Security",
+    "PG": "Policy Generator",
+    "ICAs": "Intermediate Certificate Authority",
+    "OS": "Operating System",
+    "FIPS": "Federal Information Processing Standards",
+    "CC": "Common Criteria",
+    "EAL2": "Evaluation Assurance Level",
+    "CRLG": "Certificate Revocation List Generator",
+    "TCP": "Transmission Control Protocol",
+    "PSIDs": "Provider Service Identifier",
+    "RAs": "Registration Authority",
+    "rse": "Road-side Equipment",
+    "SSID": "Service Set Identifier",
+    "PoC": "Proof of Concept",
+    "DCM": "Device Configuration Manager",
+    "LPF": "Local Policy File",
+    "LCCF": "Local Certificate Chain File",
+    "CSR": "Certificate Signing Request",
+    "HTTP": "Hypertext Transfer Protocol",
+    "GPF": "Global Policy File",
+    "USDOT": "United States Department of Transportation",
+    "CVCS": "Connected Vehicle Core System",
+    "HSM": "Hardware Security Module",
+    "V2X": "Vehicle-to-everything",
+    "ECDSA": "Elliptic Curve Digital Signature Algorithm",
+    "ECIES": "Elliptic Curve Integrated Encryption Scheme",
+    "NIST": "National Institute of Standards and Technology",
+    "V2I": "Vehicle-to-Infrastructure",
+    "CRACA": "Certificate Revocation Authorizing Certificate Authority",
+    "UTC": "Coordinated Universal Time",
+    "TAI": "International Atomic Time",
+    "DNS": "Domain Name Servers",
+    "APDU": "Application Protocol Data Unit",
+    "IP": "Internet Protocol",
+    "IPv6": "Internet Protocol version 6",
+    "IPv4": "Internet Protocol version 4",
+    "HTTPS": "Hypertext Transfer Protocol Secure",
+    "ECDHE": "Elliptic Curve Diffie-Hellman",
+    "LCI": "Linkage Chain Identifier",
+    "RIF": "Revocation Identifier Field",
+    "IETF": "Internet Engineering Task Force",
+    "OER": "Octet Encoding Rule",
+    "OBEs": "On Board Equipment",
+    "RFC": "Request for Comments",
+    "URL": "Uniform Resource Locator",
+    "RSEs": "Roadside Equipment",
+    "PLV": "Pre-Linkage Value",
+    "PDU": "Protocol Data Unit",
+    "https": "Hypertext Transfer Protocol Secure",
+    "URLs": "Uniform Resource Locators",
+    "QA": "Quality Assurance",
+    "V2V-CR": "Vehicle to Vehicle Communications Research",
+    "GMBD": "Global Misbehavior Detection",
+    "US": "United States",
+    "DOT": "Department of Transportation",
+    "API": "Application Programming Interface",
+    "TBD": "To Be Determined",
+    "CVPD": "Connected Vehicles Pilot Deployment",
+    "SAE": "Society of Automative Engineers",
+    "THEA": "Tampa Hillsborough Expressway Authority",
+    "WSA": "WAVE Service Advertisement",
+    "NYC": "New York City",
+    "GPS": "Global Positioning System",
+    "TMC": "Traffic Management Center",
+    "SPAT": "Signal Phase and Timing",
+    "MAP": "Mobile Accessible Pedestrian",
+    "RSU": "Roadside Unit",
+    "SRM": "Signal Request Message",
+    "TIM": "Traveler Information",
+    "PDM": "Peformance and Diagnostics Metrics",
+    "PVD": "Provisioning Domain",
+    "UPER": "Unaligned Packed Encoding Rules",
+    "PCI": "Payment Card Industry",
+    "PIN": "Personal Identification Number",
+    "PKIs": "Public Key Infrastructures",
+    "ECB": "Electronic Codebook",
+    "SCP1": "Special Cryptographic Primitives One",
+    "SCP2": "Special Cryptographic Primitives Two",
+    "V2V-SE": "Vehicle to Vehicle Systems Engineering",
+    "TCotSCMSM": "The Technical Component of the SCMS Manager",
+    "ECAs": "Enrollment Certificate Authorities",
+    "PCAs": "Pseudonym Certificate Authorities",
+    "IDs": "Identifications",
+    "DCMs": "Device Configuration Managers",
+    "DCM(s)": "Device Configuration Managers",
+    "ROM": "Read Only Memory",
+    "ECUs": "Engine Control Units",
+    "EEPROM": "Electrically Erasable Programmable Read Only Memory",
+    "MB": "Mega Byte",
+    "TPM": "Trusted Platform Module",
+    "ANSI": "American National Standards Institute",
+    "SHA": "Secure Hash Algorithms",
+    "HMAC": "hash-based message authentication code",
+    "SP": "Special Publication",
+    "ECDH": "Elliptic Curve Diffie–Hellman",
+    "DHAES": "Diffie-Hellman Encryption Scheme"
+  },
+  "metadata": {
+    "totalPages": 106,
+    "parsedAt": "2025-08-10T22:40:16.224Z",
+    "version": "1.0.0",
+    "totalGlossaryTerms": 136
+  },
+  "homePage": "index",
+  "pages": {
+    "27426990": {
+      "pageId": "27426990",
+      "fileName": "27426990.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.298Z"
+    },
+    "27427060": {
+      "pageId": "27427060",
+      "fileName": "27427060.html",
+      "title": "SCMS CV Pilots Documentation : CB1: Cryptographic Services",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        },
+        {
+          "text": "Cryptography Background",
+          "href": "Cryptography-Background_27427059.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.302Z"
+    },
+    "27427061": {
+      "pageId": "27427061",
+      "fileName": "27427061.html",
+      "title": "SCMS CV Pilots Documentation : CB2: Types of Cryptographic Algorithms",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        },
+        {
+          "text": "Cryptography Background",
+          "href": "Cryptography-Background_27427059.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.308Z"
+    },
+    "27427062": {
+      "pageId": "27427062",
+      "fileName": "27427062.html",
+      "title": "SCMS CV Pilots Documentation : CB3: Public Key Infrastructure",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        },
+        {
+          "text": "Cryptography Background",
+          "href": "Cryptography-Background_27427059.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.311Z"
+    },
+    "27427064": {
+      "pageId": "27427064",
+      "fileName": "27427064.html",
+      "title": "SCMS CV Pilots Documentation : SCP1: Butterfly Keys",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        },
+        {
+          "text": "Special Cryptographic Primitives in SCMS",
+          "href": "Special-Cryptographic-Primitives-in-SCMS_27427063.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.320Z"
+    },
+    "27427066": {
+      "pageId": "27427066",
+      "fileName": "27427066.html",
+      "title": "SCMS CV Pilots Documentation : SCP2: Linkage Values",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        },
+        {
+          "text": "Special Cryptographic Primitives in SCMS",
+          "href": "Special-Cryptographic-Primitives-in-SCMS_27427063.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.323Z"
+    },
+    "27427080": {
+      "pageId": "27427080",
+      "fileName": "27427080.html",
+      "title": "SCMS CV Pilots Documentation : Step 3.1: Request for Pseudonym Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+          "href": "27426990.html"
+        }
+      ],
+      "glossaryTerms": 20,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.342Z"
+    },
+    "27427088": {
+      "pageId": "27427088",
+      "fileName": "27427088.html",
+      "title": "SCMS CV Pilots Documentation : Step 3.3: Initial Download of Pseudonym Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+          "href": "27426990.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.345Z"
+    },
+    "27427090": {
+      "pageId": "27427090",
+      "fileName": "27427090.html",
+      "title": "SCMS CV Pilots Documentation : Step 3.5: Top-off Pseudonym Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+          "href": "27426990.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.350Z"
+    },
+    "27427180": {
+      "pageId": "27427180",
+      "fileName": "27427180.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 5: Misbehavior Reporting",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.357Z"
+    },
+    "27427183": {
+      "pageId": "27427183",
+      "fileName": "27427183.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 6: CRL Download",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.358Z"
+    },
+    "27427184": {
+      "pageId": "27427184",
+      "fileName": "27427184.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 8: OBE Pseudonym Certificate Revocation",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 4,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.359Z"
+    },
+    "27427185": {
+      "pageId": "27427185",
+      "fileName": "27427185.html",
+      "title": "SCMS CV Pilots Documentation : Step 8.4: OBE CRL Check",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 8: OBE Pseudonym Certificate Revocation",
+          "href": "27427184.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.361Z"
+    },
+    "27427186": {
+      "pageId": "27427186",
+      "fileName": "27427186.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 11: Backend Management",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 17,
+      "lastParsed": "2025-08-10T22:40:16.364Z"
+    },
+    "27427206": {
+      "pageId": "27427206",
+      "fileName": "27427206.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1: Add SCMS Component",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        }
+      ],
+      "glossaryTerms": 5,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.365Z"
+    },
+    "27427207": {
+      "pageId": "27427207",
+      "fileName": "27427207.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1: Add Non-Root SCMS Component",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        }
+      ],
+      "glossaryTerms": 5,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.366Z"
+    },
+    "27427253": {
+      "pageId": "27427253",
+      "fileName": "27427253.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.2: Add Root CA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.368Z"
+    },
+    "27427255": {
+      "pageId": "27427255",
+      "fileName": "27427255.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.3: Add Elector",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.372Z"
+    },
+    "27427256": {
+      "pageId": "27427256",
+      "fileName": "27427256.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2: Revoke SCMS Component",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        }
+      ],
+      "glossaryTerms": 4,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.375Z"
+    },
+    "27427257": {
+      "pageId": "27427257",
+      "fileName": "27427257.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1: Revoke non-Root SCMS Component",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        }
+      ],
+      "glossaryTerms": 3,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.376Z"
+    },
+    "27427262": {
+      "pageId": "27427262",
+      "fileName": "27427262.html",
+      "title": "SCMS CV Pilots Documentation : Hardware, Software and OS Security Requirements",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.378Z"
+    },
+    "27427293": {
+      "pageId": "27427293",
+      "fileName": "27427293.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.2: Revoke Root CA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.380Z"
+    },
+    "27427295": {
+      "pageId": "27427295",
+      "fileName": "27427295.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.3: Revoke Elector",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.382Z"
+    },
+    "27427298": {
+      "pageId": "27427298",
+      "fileName": "27427298.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 13: RSE Application Certificate Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.397Z"
+    },
+    "27427303": {
+      "pageId": "27427303",
+      "fileName": "27427303.html",
+      "title": "SCMS CV Pilots Documentation : Step 13.1: Request RSE Application Certificate",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 13: RSE Application Certificate Provisioning",
+          "href": "27427298.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.400Z"
+    },
+    "27427306": {
+      "pageId": "27427306",
+      "fileName": "27427306.html",
+      "title": "SCMS CV Pilots Documentation : Step 13.3: Download RSE Application Certificate",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 13: RSE Application Certificate Provisioning",
+          "href": "27427298.html"
+        }
+      ],
+      "glossaryTerms": 5,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.402Z"
+    },
+    "27427307": {
+      "pageId": "27427307",
+      "fileName": "27427307.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.403Z"
+    },
+    "27427308": {
+      "pageId": "27427308",
+      "fileName": "27427308.html",
+      "title": "SCMS CV Pilots Documentation : Step 16.4: RSE CRL Check",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+          "href": "27427307.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.405Z"
+    },
+    "27427309": {
+      "pageId": "27427309",
+      "fileName": "27427309.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 18: Provide and Enforce Technical Policies",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.407Z"
+    },
+    "27427310": {
+      "pageId": "27427310",
+      "fileName": "27427310.html",
+      "title": "SCMS CV Pilots Documentation : Step 18.1: Policy Configuration Options",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 18: Provide and Enforce Technical Policies",
+          "href": "27427309.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.412Z"
+    },
+    "27427311": {
+      "pageId": "27427311",
+      "fileName": "27427311.html",
+      "title": "SCMS CV Pilots Documentation : Step 18.2: Generate Local Policies for EEs",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 18: Provide and Enforce Technical Policies",
+          "href": "27427309.html"
+        }
+      ],
+      "glossaryTerms": 5,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.413Z"
+    },
+    "27427312": {
+      "pageId": "27427312",
+      "fileName": "27427312.html",
+      "title": "SCMS CV Pilots Documentation : Step 18.3: Generate Global Policies for EEs",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 18: Provide and Enforce Technical Policies",
+          "href": "27427309.html"
+        }
+      ],
+      "glossaryTerms": 5,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.415Z"
+    },
+    "27427319": {
+      "pageId": "27427319",
+      "fileName": "27427319.html",
+      "title": "SCMS CV Pilots Documentation : Step 19.1: Request for OBE Identification Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 19: OBE Identification Certificate Provisioning",
+          "href": "27427325.html"
+        }
+      ],
+      "glossaryTerms": 18,
+      "attachments": 5,
+      "lastParsed": "2025-08-10T22:40:16.426Z"
+    },
+    "27427325": {
+      "pageId": "27427325",
+      "fileName": "27427325.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 19: OBE Identification Certificate Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.440Z"
+    },
+    "27427328": {
+      "pageId": "27427328",
+      "fileName": "27427328.html",
+      "title": "SCMS CV Pilots Documentation : Step 19.3: Initial Download of\n                        OBE Identification Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 19: OBE Identification Certificate\n                                    Provisioning",
+          "href": "27427325.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.442Z"
+    },
+    "27427329": {
+      "pageId": "27427329",
+      "fileName": "27427329.html",
+      "title": "SCMS CV Pilots Documentation : Step 19.5: Top-off OBE Identification Certificates",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 19: OBE Identification Certificate\n                                    Provisioning",
+          "href": "27427325.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.445Z"
+    },
+    "41353473": {
+      "pageId": "41353473",
+      "fileName": "41353473.html",
+      "title": "SCMS CV Pilots Documentation : Use Case 20: EE Re-Enrollment",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.446Z"
+    },
+    "41353474": {
+      "pageId": "41353474",
+      "fileName": "41353474.html",
+      "title": "SCMS CV Pilots\n                        Documentation : Step 20.1: EE Enrollment\n                        Certificate Rollover",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 20: EE Re-Enrollment",
+          "href": "41353473.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.453Z"
+    },
+    "41353502": {
+      "pageId": "41353502",
+      "fileName": "41353502.html",
+      "title": "SCMS CV Pilots Documentation : Step 18.4: Generate Global and\n                        Local Certificate Chain File",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 18: Provide and Enforce Technical Policies",
+          "href": "27427309.html"
+        }
+      ],
+      "glossaryTerms": 21,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.457Z"
+    },
+    "47186125": {
+      "pageId": "47186125",
+      "fileName": "47186125.html",
+      "title": "SCMS CV Pilots Documentation : CV Pilot QA+Test Certificate\n                        Expiration Timelines",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Certificate Types",
+          "href": "Certificate-Types_27427012.html"
+        }
+      ],
+      "glossaryTerms": 18,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.460Z"
+    },
+    "58589462": {
+      "pageId": "58589462",
+      "fileName": "58589462.html",
+      "title": "SCMS CV\n            Pilots Documentation : Use Case 2: OBE Bootstrapping (Manual)",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 28,
+      "attachments": 7,
+      "lastParsed": "2025-08-10T22:40:16.476Z"
+    },
+    "58589469": {
+      "pageId": "58589469",
+      "fileName": "58589469.html",
+      "title": "SCMS CV Pilots\n                        Documentation : Use Case 12: RSE Bootstrapping\n                        (Manual)",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        }
+      ],
+      "glossaryTerms": 4,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.477Z"
+    },
+    "index": {
+      "pageId": "index",
+      "fileName": "index.html",
+      "title": "Security Credential Management System (SCMS)  Proof–of–Concept Implementation End-Entity (EE) Requirements and Specifications Supporting SCMS Software Release 1.2.1",
+      "breadcrumb": [],
+      "glossaryTerms": 18,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.558Z"
+    },
+    "Approved-Cryptographic-Algorithms_27427058": {
+      "pageId": "Approved-Cryptographic-Algorithms_27427058",
+      "fileName": "Approved-Cryptographic-Algorithms_27427058.html",
+      "title": "SCMS CV Pilots Documentation : Approved Cryptographic Algorithms",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.478Z"
+    },
+    "Approved-Random-Number-Generators_41353610": {
+      "pageId": "Approved-Random-Number-Generators_41353610",
+      "fileName": "Approved-Random-Number-Generators_41353610.html",
+      "title": "SCMS CV Pilots Documentation : Approved Random Number Generators",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        }
+      ],
+      "glossaryTerms": 4,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.479Z"
+    },
+    "CAMP-PSID-Transfer-Process_91357193": {
+      "pageId": "CAMP-PSID-Transfer-Process_91357193",
+      "fileName": "CAMP-PSID-Transfer-Process_91357193.html",
+      "title": "SCMS CV Pilots\n                        Documentation : CAMP PSID Transfer Process",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "SCMS PoC\n                                    Supported V2X\n                                    Applications",
+          "href": "SCMS-PoC-Supported-V2X-Applications_27427021.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.480Z"
+    },
+    "Certificate-Types_27427012": {
+      "pageId": "Certificate-Types_27427012",
+      "fileName": "Certificate-Types_27427012.html",
+      "title": "SCMS CV Pilots Documentation : Certificate Types",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 21,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.484Z"
+    },
+    "Common---Services-View_27427332": {
+      "pageId": "Common---Services-View_27427332",
+      "fileName": "Common---Services-View_27427332.html",
+      "title": "SCMS CV Pilots Documentation : Common - Services View",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        }
+      ],
+      "glossaryTerms": 3,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.484Z"
+    },
+    "Common-Requirements_27427011": {
+      "pageId": "Common-Requirements_27427011",
+      "fileName": "Common-Requirements_27427011.html",
+      "title": "SCMS CV Pilots Documentation : Common Requirements",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        }
+      ],
+      "glossaryTerms": 2,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.485Z"
+    },
+    "CRL-Series-Diagram_41353604": {
+      "pageId": "CRL-Series-Diagram_41353604",
+      "fileName": "CRL-Series-Diagram_41353604.html",
+      "title": "SCMS CV Pilots\n                        Documentation : CRL Series Diagram",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 3,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.490Z"
+    },
+    "Cryptography-Background_27427059": {
+      "pageId": "Cryptography-Background_27427059",
+      "fileName": "Cryptography-Background_27427059.html",
+      "title": "SCMS CV Pilots Documentation : Cryptography Background",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        }
+      ],
+      "glossaryTerms": 2,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.491Z"
+    },
+    "Cryptography_27427057": {
+      "pageId": "Cryptography_27427057",
+      "fileName": "Cryptography_27427057.html",
+      "title": "SCMS CV Pilots Documentation : Cryptography",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 2,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.492Z"
+    },
+    "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019": {
+      "pageId": "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019",
+      "fileName": "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019.html",
+      "title": "SCMS CV Pilots Documentation : CV Pilot PROD Certificate\n                        Expiration Timelines",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Certificate Types",
+          "href": "Certificate-Types_27427012.html"
+        }
+      ],
+      "glossaryTerms": 17,
+      "attachments": 3,
+      "lastParsed": "2025-08-10T22:40:16.495Z"
+    },
+    "EE-RA-Communications---General-Guidance_27427071": {
+      "pageId": "EE-RA-Communications---General-Guidance_27427071",
+      "fileName": "EE-RA-Communications---General-Guidance_27427071.html",
+      "title": "SCMS CV Pilots\n                        Documentation : EE-RA Communications -\n                        General\n                        Guidance",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.499Z"
+    },
+    "EE-SCMS-Core-Communication-Requirements_27427072": {
+      "pageId": "EE-SCMS-Core-Communication-Requirements_27427072",
+      "fileName": "EE-SCMS-Core-Communication-Requirements_27427072.html",
+      "title": "SCMS CV Pilots\n                        Documentation : EE-SCMS Core Communication\n                        Requirements",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 12,
+      "lastParsed": "2025-08-10T22:40:16.501Z"
+    },
+    "Elector-based-Root-Management_27427051": {
+      "pageId": "Elector-based-Root-Management_27427051",
+      "fileName": "Elector-based-Root-Management_27427051.html",
+      "title": "SCMS CV Pilots Documentation : Elector-based Root Management",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 3,
+      "lastParsed": "2025-08-10T22:40:16.503Z"
+    },
+    "Environments-documentation_60719122": {
+      "pageId": "Environments-documentation_60719122",
+      "fileName": "Environments-documentation_60719122.html",
+      "title": "SCMS CV Pilots Documentation : Environments documentation",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        }
+      ],
+      "glossaryTerms": 15,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.504Z"
+    },
+    "Environments": {
+      "pageId": "Environments",
+      "fileName": "Environments.html",
+      "title": "Intelligent Transportation Systems",
+      "breadcrumb": [],
+      "glossaryTerms": 0,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.513Z"
+    },
+    "favicon": {
+      "pageId": "favicon",
+      "fileName": "favicon.html",
+      "title": "Intelligent Transportation Systems",
+      "breadcrumb": [],
+      "glossaryTerms": 0,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.521Z"
+    },
+    "GCCF-LCCF": {
+      "pageId": "GCCF-LCCF",
+      "fileName": "GCCF-LCCF.html",
+      "title": "Intelligent Transportation Systems",
+      "breadcrumb": [],
+      "glossaryTerms": 0,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.525Z"
+    },
+    "Glossary_27427375": {
+      "pageId": "Glossary_27427375",
+      "fileName": "Glossary_27427375.html",
+      "title": "SCMS CV Pilots Documentation : Glossary",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        }
+      ],
+      "glossaryTerms": 2,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.544Z"
+    },
+    "Illustration-Source-Files_55247155": {
+      "pageId": "Illustration-Source-Files_55247155",
+      "fileName": "Illustration-Source-Files_55247155.html",
+      "title": "SCMS CV Pilots Documentation : Illustration Source Files",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 26,
+      "lastParsed": "2025-08-10T22:40:16.547Z"
+    },
+    "image2017-3-24_14-50-53": {
+      "pageId": "image2017-3-24_14-50-53",
+      "fileName": "image2017-3-24_14-50-53.html",
+      "title": "Intelligent Transportation Systems",
+      "breadcrumb": [],
+      "glossaryTerms": 0,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.550Z"
+    },
+    "Impact-on-EE-Storage_128909336": {
+      "pageId": "Impact-on-EE-Storage_128909336",
+      "fileName": "Impact-on-EE-Storage_128909336.html",
+      "title": "SCMS CV\n                        Pilots Documentation : Impact on EE Storage",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Elector-based Root\n                                    Management",
+          "href": "Elector-based-Root-Management_27427051.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.554Z"
+    },
+    "MA---Download-CRL_27427359": {
+      "pageId": "MA---Download-CRL_27427359",
+      "fileName": "MA---Download-CRL_27427359.html",
+      "title": "SCMS CV Pilots\n                        Documentation : MA - Download CRL",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "MA - Services View",
+          "href": "MA---Services-View_27427358.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.559Z"
+    },
+    "MA---Services-View_27427358": {
+      "pageId": "MA---Services-View_27427358",
+      "fileName": "MA---Services-View_27427358.html",
+      "title": "SCMS CV Pilots\n                        Documentation : MA - Services View",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.559Z"
+    },
+    "Overview-of-Used-Error-Codes_41353603": {
+      "pageId": "Overview-of-Used-Error-Codes_41353603",
+      "fileName": "Overview-of-Used-Error-Codes_41353603.html",
+      "title": "SCMS CV Pilots Documentation : Overview of Used Error Codes",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.567Z"
+    },
+    "PoC-Certificate-Expiration-Timelines_41353554": {
+      "pageId": "PoC-Certificate-Expiration-Timelines_41353554",
+      "fileName": "PoC-Certificate-Expiration-Timelines_41353554.html",
+      "title": "SCMS CV\n                        Pilots Documentation : PoC Certificate Expiration\n                        Timelines",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and\n                                    Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Certificate Types",
+          "href": "Certificate-Types_27427012.html"
+        }
+      ],
+      "glossaryTerms": 14,
+      "attachments": 16,
+      "lastParsed": "2025-08-10T22:40:16.572Z"
+    },
+    "QA-Enrollment-Process": {
+      "pageId": "QA-Enrollment-Process",
+      "fileName": "QA-Enrollment-Process.html",
+      "title": "Intelligent Transportation Systems",
+      "breadcrumb": [],
+      "glossaryTerms": 0,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.575Z"
+    },
+    "RA---Download-.info-File_27427339": {
+      "pageId": "RA---Download-.info-File_27427339",
+      "fileName": "RA---Download-.info-File_27427339.html",
+      "title": "SCMS CV Pilots Documentation : RA - Download .info File",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.579Z"
+    },
+    "RA---Download-Application-Certificate_27427353": {
+      "pageId": "RA---Download-Application-Certificate_27427353",
+      "fileName": "RA---Download-Application-Certificate_27427353.html",
+      "title": "SCMS CV Pilots\n                        Documentation : RA - Download Application\n                        Certificate",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.580Z"
+    },
+    "RA---Download-Identification-Certificate_41353633": {
+      "pageId": "RA---Download-Identification-Certificate_41353633",
+      "fileName": "RA---Download-Identification-Certificate_41353633.html",
+      "title": "SCMS CV Pilots\n                        Documentation : RA - Download Identification\n                        Certificate",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.581Z"
+    },
+    "RA---Download-Local-Certificate-Chain-File_27427354": {
+      "pageId": "RA---Download-Local-Certificate-Chain-File_27427354",
+      "fileName": "RA---Download-Local-Certificate-Chain-File_27427354.html",
+      "title": "SCMS CV Pilots\n                        Documentation : RA - Download Local Certificate\n                        Chain File",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots\n                                    Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.582Z"
+    },
+    "RA---Download-Local-Policy-File_27427342": {
+      "pageId": "RA---Download-Local-Policy-File_27427342",
+      "fileName": "RA---Download-Local-Policy-File_27427342.html",
+      "title": "SCMS CV Pilots Documentation : RA - Download Local Policy File",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.584Z"
+    },
+    "RA---Download-Pseudonym-Certificate-Batch_27427344": {
+      "pageId": "RA---Download-Pseudonym-Certificate-Batch_27427344",
+      "fileName": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "title": "SCMS CV Pilots Documentation : RA - Download Pseudonym Certificate Batch",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 2,
+      "lastParsed": "2025-08-10T22:40:16.585Z"
+    },
+    "RA---Request-Application-Certificate-Provisioning_27427352": {
+      "pageId": "RA---Request-Application-Certificate-Provisioning_27427352",
+      "fileName": "RA---Request-Application-Certificate-Provisioning_27427352.html",
+      "title": "SCMS CV Pilots Documentation : RA - Request Application Certificate Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.586Z"
+    },
+    "RA---Request-Identification-Certificate-Provisioning_41353635": {
+      "pageId": "RA---Request-Identification-Certificate-Provisioning_41353635",
+      "fileName": "RA---Request-Identification-Certificate-Provisioning_41353635.html",
+      "title": "SCMS CV Pilots Documentation : RA - Request Identification Certificate Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.587Z"
+    },
+    "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337": {
+      "pageId": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337",
+      "fileName": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+      "title": "SCMS CV Pilots Documentation : RA - Request Pseudonym Certificate Batch Provisioning",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.588Z"
+    },
+    "RA---Retrieve-Registration-Authority-Certificate_27427347": {
+      "pageId": "RA---Retrieve-Registration-Authority-Certificate_27427347",
+      "fileName": "RA---Retrieve-Registration-Authority-Certificate_27427347.html",
+      "title": "SCMS CV Pilots Documentation : RA - Retrieve Registration Authority Certificate",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.589Z"
+    },
+    "RA---Services-View_27427336": {
+      "pageId": "RA---Services-View_27427336",
+      "fileName": "RA---Services-View_27427336.html",
+      "title": "SCMS CV Pilots Documentation : RA - Services View",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.590Z"
+    },
+    "RA---Submit-Misbehavior-Report_27427356": {
+      "pageId": "RA---Submit-Misbehavior-Report_27427356",
+      "fileName": "RA---Submit-Misbehavior-Report_27427356.html",
+      "title": "SCMS CV Pilots Documentation : RA - Submit Misbehavior Report",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Software Design Documents",
+          "href": "Software-Design-Documents_27427330.html"
+        },
+        {
+          "text": "RA - Services View",
+          "href": "RA---Services-View_27427336.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.591Z"
+    },
+    "Re-enrollment_27427261": {
+      "pageId": "Re-enrollment_27427261",
+      "fileName": "Re-enrollment_27427261.html",
+      "title": "SCMS CV Pilots Documentation : Re-enrollment",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.592Z"
+    },
+    "Requirements-and-Specifications_27426993": {
+      "pageId": "Requirements-and-Specifications_27426993",
+      "fileName": "Requirements-and-Specifications_27426993.html",
+      "title": "SCMS CV Pilots Documentation : Requirements and Specifications",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        }
+      ],
+      "glossaryTerms": 3,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.593Z"
+    },
+    "Requirements-by-Use-Case_27426994": {
+      "pageId": "Requirements-by-Use-Case_27426994",
+      "fileName": "Requirements-by-Use-Case_27426994.html",
+      "title": "SCMS CV Pilots Documentation : Requirements by Use Case",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.594Z"
+    },
+    "Root-Management-and-Disaster-Recovery-in-Action_128909339": {
+      "pageId": "Root-Management-and-Disaster-Recovery-in-Action_128909339",
+      "fileName": "Root-Management-and-Disaster-Recovery-in-Action_128909339.html",
+      "title": "SCMS CV Pilots Documentation : Root Management and Disaster Recovery in Action",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Elector-based Root Management",
+          "href": "Elector-based-Root-Management_27427051.html"
+        }
+      ],
+      "glossaryTerms": 6,
+      "attachments": 10,
+      "lastParsed": "2025-08-10T22:40:16.595Z"
+    },
+    "SCMS-CV-Pilots-Documentation_26838136": {
+      "pageId": "SCMS-CV-Pilots-Documentation_26838136",
+      "fileName": "SCMS-CV-Pilots-Documentation_26838136.html",
+      "title": "SCMS CV Pilots Documentation : SCMS CV Pilots Documentation",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        }
+      ],
+      "glossaryTerms": 18,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.597Z"
+    },
+    "SCMS-PoC-Supported-V2X-Applications_27427021": {
+      "pageId": "SCMS-PoC-Supported-V2X-Applications_27427021",
+      "fileName": "SCMS-PoC-Supported-V2X-Applications_27427021.html",
+      "title": "SCMS CV Pilots Documentation : SCMS PoC Supported V2X Applications",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        }
+      ],
+      "glossaryTerms": 31,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.607Z"
+    },
+    "Secure-Environment-for-Device-Enrollment_27427267": {
+      "pageId": "Secure-Environment-for-Device-Enrollment_27427267",
+      "fileName": "Secure-Environment-for-Device-Enrollment_27427267.html",
+      "title": "SCMS CV Pilots Documentation : Secure Environment for Device Enrollment",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Hardware, Software and OS Security Requirements",
+          "href": "27427262.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.609Z"
+    },
+    "Software-Design-Documents_27427330": {
+      "pageId": "Software-Design-Documents_27427330",
+      "fileName": "Software-Design-Documents_27427330.html",
+      "title": "SCMS CV Pilots Documentation : Software Design Documents",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        }
+      ],
+      "glossaryTerms": 2,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.610Z"
+    },
+    "Special-Cryptographic-Primitives-in-SCMS_27427063": {
+      "pageId": "Special-Cryptographic-Primitives-in-SCMS_27427063",
+      "fileName": "Special-Cryptographic-Primitives-in-SCMS_27427063.html",
+      "title": "SCMS CV Pilots Documentation : Special Cryptographic Primitives in SCMS",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Cryptography",
+          "href": "Cryptography_27427057.html"
+        }
+      ],
+      "glossaryTerms": 15,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.611Z"
+    },
+    "Step-11.1.1---Add-CRLG_27427208": {
+      "pageId": "Step-11.1.1---Add-CRLG_27427208",
+      "fileName": "Step-11.1.1---Add-CRLG_27427208.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add CRLG",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 5,
+      "lastParsed": "2025-08-10T22:40:16.613Z"
+    },
+    "Step-11.1.1---Add-ECA_27427217": {
+      "pageId": "Step-11.1.1---Add-ECA_27427217",
+      "fileName": "Step-11.1.1---Add-ECA_27427217.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ECA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.615Z"
+    },
+    "Step-11.1.1---Add-ICA_27427224": {
+      "pageId": "Step-11.1.1---Add-ICA_27427224",
+      "fileName": "Step-11.1.1---Add-ICA_27427224.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add ICA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.615Z"
+    },
+    "Step-11.1.1---Add-MA_27427229": {
+      "pageId": "Step-11.1.1---Add-MA_27427229",
+      "fileName": "Step-11.1.1---Add-MA_27427229.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add MA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 5,
+      "lastParsed": "2025-08-10T22:40:16.617Z"
+    },
+    "Step-11.1.1---Add-PCA_27427235": {
+      "pageId": "Step-11.1.1---Add-PCA_27427235",
+      "fileName": "Step-11.1.1---Add-PCA_27427235.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PCA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 12,
+      "attachments": 5,
+      "lastParsed": "2025-08-10T22:40:16.619Z"
+    },
+    "Step-11.1.1---Add-PG_27427243": {
+      "pageId": "Step-11.1.1---Add-PG_27427243",
+      "fileName": "Step-11.1.1---Add-PG_27427243.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add PG",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 4,
+      "lastParsed": "2025-08-10T22:40:16.623Z"
+    },
+    "Step-11.1.1---Add-RA_27427246": {
+      "pageId": "Step-11.1.1---Add-RA_27427246",
+      "fileName": "Step-11.1.1---Add-RA_27427246.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.1.1 - Add RA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.1: Add SCMS Component",
+          "href": "27427206.html"
+        },
+        {
+          "text": "Step 11.1.1: Add Non-Root SCMS Component",
+          "href": "27427207.html"
+        }
+      ],
+      "glossaryTerms": 15,
+      "attachments": 5,
+      "lastParsed": "2025-08-10T22:40:16.625Z"
+    },
+    "Step-11.2.1---Revoke-CRLG_27427275": {
+      "pageId": "Step-11.2.1---Revoke-CRLG_27427275",
+      "fileName": "Step-11.2.1---Revoke-CRLG_27427275.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke CRLG",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.626Z"
+    },
+    "Step-11.2.1---Revoke-ECA_27427277": {
+      "pageId": "Step-11.2.1---Revoke-ECA_27427277",
+      "fileName": "Step-11.2.1---Revoke-ECA_27427277.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ECA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 10,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.627Z"
+    },
+    "Step-11.2.1---Revoke-ICA_27427279": {
+      "pageId": "Step-11.2.1---Revoke-ICA_27427279",
+      "fileName": "Step-11.2.1---Revoke-ICA_27427279.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ICA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 6,
+      "lastParsed": "2025-08-10T22:40:16.628Z"
+    },
+    "Step-11.2.1---Revoke-MA_27427285": {
+      "pageId": "Step-11.2.1---Revoke-MA_27427285",
+      "fileName": "Step-11.2.1---Revoke-MA_27427285.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke MA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.629Z"
+    },
+    "Step-11.2.1---Revoke-PCA_27427287": {
+      "pageId": "Step-11.2.1---Revoke-PCA_27427287",
+      "fileName": "Step-11.2.1---Revoke-PCA_27427287.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PCA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 7,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.630Z"
+    },
+    "Step-11.2.1---Revoke-PG_27427289": {
+      "pageId": "Step-11.2.1---Revoke-PG_27427289",
+      "fileName": "Step-11.2.1---Revoke-PG_27427289.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke PG",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 11,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.632Z"
+    },
+    "Step-11.2.1---Revoke-RA_27427291": {
+      "pageId": "Step-11.2.1---Revoke-RA_27427291",
+      "fileName": "Step-11.2.1---Revoke-RA_27427291.html",
+      "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke RA",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Requirements by Use Case",
+          "href": "Requirements-by-Use-Case_27426994.html"
+        },
+        {
+          "text": "Use Case 11: Backend Management",
+          "href": "27427186.html"
+        },
+        {
+          "text": "Step 11.2: Revoke SCMS Component",
+          "href": "27427256.html"
+        },
+        {
+          "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+          "href": "27427257.html"
+        }
+      ],
+      "glossaryTerms": 8,
+      "attachments": 1,
+      "lastParsed": "2025-08-10T22:40:16.633Z"
+    },
+    "Storage-Considerations_27427271": {
+      "pageId": "Storage-Considerations_27427271",
+      "fileName": "Storage-Considerations_27427271.html",
+      "title": "SCMS  CV Pilots Documentation : Storage Considerations",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        },
+        {
+          "text": "Requirements and Specifications",
+          "href": "Requirements-and-Specifications_27426993.html"
+        },
+        {
+          "text": "Common Requirements",
+          "href": "Common-Requirements_27427011.html"
+        },
+        {
+          "text": "Hardware, Software and OS Security Requirements",
+          "href": "27427262.html"
+        }
+      ],
+      "glossaryTerms": 9,
+      "attachments": 0,
+      "lastParsed": "2025-08-10T22:40:16.633Z"
+    },
+    "Test-Vectors_27427361": {
+      "pageId": "Test-Vectors_27427361",
+      "fileName": "Test-Vectors_27427361.html",
+      "title": "SCMS CV Pilots Documentation : Test Vectors",
+      "breadcrumb": [
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "index.html"
+        },
+        {
+          "text": "SCMS CV Pilots Documentation",
+          "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+        }
+      ],
+      "glossaryTerms": 16,
+      "attachments": 9,
+      "lastParsed": "2025-08-10T22:40:16.636Z"
+    }
+  }
+}

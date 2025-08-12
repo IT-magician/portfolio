@@ -1,0 +1,153 @@
+{
+  "pageId": "Environments-documentation_60719122",
+  "fileName": "Environments-documentation_60719122.html",
+  "title": "SCMS CV Pilots Documentation : Environments documentation",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    }
+  ],
+  "metadata": "Last modified on May 01, 2017",
+  "content": "\n                    <p>The SCMS POC software is operated in three different environments (locations) for three different\n                        purposes. All environments have their own, independent Root <abbr title=\"Certificate Authority\">CA</abbr>.</p>\n                    <h2 id=\"Environmentsdocumentation-SCMSProof-of-ConceptConnectedVehiclePilotEnvironmentsOverview\">\n                        SCMS Proof-of-Concept Connected Vehicle Pilot Environments Overview</h2>\n                    <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Diagram showing relationships from Test to QA to PROD environments\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/60719122/60719123.png\" data-image-src=\"attachments/60719122/60719123.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"60719123\" data-linked-resource-version=\"2\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Environments.html\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"60719122\" data-linked-resource-container-version=\"2\"></span></p>\n                    <p>The picture above shows these three environments and how they relate to each other:</p>\n                    <ol>\n                        <li>(<abbr title=\"Crash Avoidance Metrics Partners LLC\">CAMP</abbr>) Test Stage (TEST): This\n                            environment is internal\n                            to CAMP and is not available to any\n                            outside stakeholders and is used for SCMS development and testing purposes.</li>\n                        <li>QA Stage (QA): This environment is publicly available via Internet <abbr title=\"Internet Protocol version 6\">IPv6</abbr> and <abbr title=\"Internet Protocol version 4\">IPv4</abbr>\n                            connections. It is used to evaluate new SCMS software versions, as well as bug fixes and\n                            enhancements. The environment is provides device developers with a working system that they\n                            can use to develop and test their devices. The level of security, as well as the security\n                            requirements for devices using certificates, is lower than the Production stage.</li>\n                        <li>Production Stage (PROD): This environment has the highest level of security, uses a\n                            production grade offline Root CA (including storing the CA's certificate in an <abbr title=\"Hardware Security Module\">HSM</abbr>) and is\n                            strictly used for production devices only. These production devices are more specifically US\n                            DOT approved CV Pilot participants. Approved Devices that handle certificates issued by this\n                            system must implement all security requirements as outlined in <a href=\"58589462.html\">Use\n                                Case 2: <abbr title=\"Onboard Equipment\">OBE</abbr> Bootstrapping (Manual)</a>, <a href=\"Secure-Environment-for-Device-Enrollment_27427267.html\">Secure Environment for\n                                Device Enrollment</a> and <a href=\"27427262.html\">Hardware, Software and OS Security\n                                Requirements</a>.</li>\n                    </ol>\n                    <p>If any bugs are detected (in any of the stages) the SCMS software team will analyze the error,\n                        respectively create a new version of the SCMS POC software and then apply the following\n                        deployment cycle:</p>\n                    <ol>\n                        <li>The new version is deployed to TEST and tested internally at CAMP.</li>\n                        <li>After successful testing and assured stability, the software will be deployed to QA. This\n                            wiki's <a href=\"https://wiki.campllc.org/pages/viewrecentblogposts.action?key=SCP&amp;src=sidebar-blogs\" rel=\"nofollow\">blog</a>&nbsp;will be used to provide advanced notice.</li>\n                        <li>Following a few of weeks of monitoring the new software in the QA stage, and considering any\n                            feedback from the development community, the new version will eventually be deployed to\n                            PROD. US DOT will approve this deployment and advanced notice will be given using this\n                            wiki's <a href=\"https://wiki.campllc.org/pages/viewrecentblogposts.action?key=SCP&amp;src=sidebar-blogs\" rel=\"nofollow\">blog</a>.</li>\n                    </ol>\n                    <h2 id=\"Environmentsdocumentation-SCMSProof-of-ConceptConnectedVehiclePilotQAEnvironment\">SCMS\n                        Proof-of-Concept Connected Vehicle Pilot QA Environment</h2>\n                    <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate authorities involved in QA environment\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/60719122/60719125.png\" data-image-src=\"attachments/60719122/60719125.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"60719125\" data-linked-resource-version=\"2\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"SCMS QA Stage.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"60719122\" data-linked-resource-container-version=\"2\"></span></p>\n                    <p>The QA environment has the capability to revoke certificates, however only manual revocation is\n                        supported. Bootstrapping is implemented with a manual enrollment as documented in <a href=\"58589462.html\">Use Case 2: OBE Bootstrapping (Manual)</a>.</p>\n                    <p><span class=\"inline-comment-marker\" data-ref=\"b04b96c3-2f03-4f83-9793-310c9aa43ceb\">Features</span> to be added at a later:</p>\n                    <ul>\n                        <li>Global Misbehavior Detection will be implemented to provide an (semi-)automatic way of\n                            revoking certificates based on misbehavior reports</li>\n                        <li>Automatic enrollment for selected device suppliers / operators</li>\n                        <li>Re-enrollment as documented in <a href=\"41353473.html\">Use Case 20: <abbr title=\"End Entity\">EE</abbr>\n                                Re-Enrollment</a>\n                        </li>\n                        <li>Electors as documented in <a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root\n                                Management</a>\n                        </li>\n                    </ul>\n                    <h2 id=\"Environmentsdocumentation-SCMSProof-of-ConceptConnectedVehiclePilotPRODEnvironment\">SCMS\n                        Proof-of-Concept Connected Vehicle Pilot PROD Environment</h2>\n                    <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Certificate authorities involved in PROD environment\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/60719122/60719124.png\" data-image-src=\"attachments/60719122/60719124.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"60719124\" data-linked-resource-version=\"2\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"SCMS PROD Stage.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"60719122\" data-linked-resource-container-version=\"2\"></span></p>\n                    <p>Initially the PROD environment will not have a <abbr title=\"Misbehavior Authority\">MA</abbr>, and\n                        therefore will not\n                        have the capability to\n                        receive or handle misbehavior reports. To achieve the expected security levels, the PROD stage\n                        uses a commercially available Root CA. The overall SCMS system has multiple levels of management\n                        as seen in the SCMS <abbr title=\"Public Key Infrastructure\">PKI</abbr> hierarchy:</p>\n                    <ul>\n                        <li>As a governance body there is a Root CA Manager that sits above the system and is seen as\n                            the policy and technical arm. It is responsible to run and protect the Root CA and <span class=\"inline-comment-marker\" data-ref=\"63b50988-2980-4507-a88e-0b5ce024fd23\">issue a\n                                <abbr title=\"Policy Generator\">PG</abbr>, a <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr> and <abbr title=\"Intermediate Certificate Authority\">ICA</abbr> certificates</span>.\n                            Stakeholders\n                            that get an ICA must follow the\n                            Root CA policies, e.g. the <a href=\"http://www.ghsiss.com/files/V2X_Root_CA_Certificate_Policy.pdf\" class=\"external-link\" rel=\"nofollow\">Certificate Policy</a>.</li>\n                        <li>In the SCMS PKI hierarchy below the Root CA Manager there can be multiple ICA Managers. The\n                            <abbr title=\"United States Department of Transportation\">USDOT</abbr> is considered an ICA\n                            Manager and will manage\n                            an ICA with the help of its policy and\n                            technical arm. The SCMS design can support many ICA Managers.</li>\n                    </ul>\n                    <p>Given a single shared Root CA it's important to note that for certain SCMS features to work all\n                        of the ICA Managers have to cooperate with the Root CA Manager.</p>\n                ",
+  "links": [
+    {
+      "originalHref": "58589462.html",
+      "text": "Use\n                                Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Secure-Environment-for-Device-Enrollment_27427267.html",
+      "text": "Secure Environment for\n                                Device Enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427262.html",
+      "text": "Hardware, Software and OS Security\n                                Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/pages/viewrecentblogposts.action?key=SCP&src=sidebar-blogs",
+      "text": "blog",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/pages/viewrecentblogposts.action?key=SCP&src=sidebar-blogs",
+      "text": "blog",
+      "isInternal": false
+    },
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353473.html",
+      "text": "Use Case 20: EE\n                                Re-Enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root\n                                Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://www.ghsiss.com/files/V2X_Root_CA_Certificate_Policy.pdf",
+      "text": "Certificate Policy",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partners LLC"
+    },
+    {
+      "term": "IPv6",
+      "definition": "Internet Protocol version 6"
+    },
+    {
+      "term": "IPv4",
+      "definition": "Internet Protocol version 4"
+    },
+    {
+      "term": "HSM",
+      "definition": "Hardware Security Module"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "PKI",
+      "definition": "Public Key Infrastructure"
+    },
+    {
+      "term": "PG",
+      "definition": "Policy Generator"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "USDOT",
+      "definition": "United States Department of Transportation"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/60719122/61079578.png",
+      "text": "Environments.png"
+    },
+    {
+      "href": "attachments/60719122/61079579.png",
+      "text": "SCMS PROD Stage.png"
+    },
+    {
+      "href": "attachments/60719122/61079580.png",
+      "text": "SCMS QA Stage.png"
+    },
+    {
+      "href": "attachments/60719122/60719123.png",
+      "text": "Environments.png"
+    },
+    {
+      "href": "attachments/60719122/60719124.png",
+      "text": "SCMS PROD Stage.png"
+    },
+    {
+      "href": "attachments/60719122/60719125.png",
+      "text": "SCMS QA Stage.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.504Z"
+}

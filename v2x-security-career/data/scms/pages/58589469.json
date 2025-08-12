@@ -1,0 +1,61 @@
+{
+  "pageId": "58589469",
+  "fileName": "58589469.html",
+  "title": "SCMS CV Pilots\n                        Documentation : Use Case 12: RSE Bootstrapping\n                        (Manual)",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Apr 20, 2017",
+  "content": "\n                    <p>The manual process for RSE bootstrapping is exactly the same as <a href=\"58589462.html\">Use Case\n                            2: <abbr title=\"Onboard Equipment\">OBE</abbr> Bootstrapping (Manual)</a> for at least the\n                        first year of CV pilot SCMS POC\n                        operations.</p>\n                    <p><br></p>\n                ",
+  "links": [
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case\n                            2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "RSE",
+      "definition": "Road-side Equipment"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/58589469/58589471.png",
+      "text": "image2017-3-23_14-57-20.png"
+    },
+    {
+      "href": "attachments/58589469/58589470.png",
+      "text": "image2017-3-24_14-50-53.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.477Z"
+}

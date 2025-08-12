@@ -1,0 +1,81 @@
+{
+  "pageId": "RA---Retrieve-Registration-Authority-Certificate_27427347",
+  "fileName": "RA---Retrieve-Registration-Authority-Certificate_27427347.html",
+  "title": "SCMS CV Pilots Documentation : RA - Retrieve Registration Authority Certificate",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"End Entities\">EEs</abbr> use this service to refresh its locally cached RA certificate.</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><thead><tr><th colspan=\"1\" class=\"confluenceTh\">PORT</th><td colspan=\"1\" class=\"confluenceTd\">8892</td></tr><tr><th class=\"confluenceTh\">PATH</th><td class=\"confluenceTd\">/retrieve-ra-certificate</td></tr></thead><tbody><tr><th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> Method</th><td class=\"confluenceTd\">POST</td></tr><tr><th colspan=\"1\" class=\"confluenceTh\">HTTP Request Body</th><td colspan=\"1\" class=\"confluenceTd\"><abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized&nbsp;<em>SecuredRACertRequest </em><abbr title=\"Protocol Data Unit\">PDU</abbr> Message.</td></tr><tr><th class=\"confluenceTh\">HTTP Response Body</th><td class=\"confluenceTd\">Serialized <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 certificate</td></tr></tbody></table></div><h3 id=\"RA-RetrieveRegistrationAuthorityCertificate-Preconditions\">Preconditions</h3><p>None</p><h3 id=\"RA-RetrieveRegistrationAuthorityCertificate-Postconditions\">Postconditions</h3><ol><li>The 1609 certificate is returned to the device.</li></ol><h3 id=\"RA-RetrieveRegistrationAuthorityCertificate-ErrorHandling\">Error Handling</h3><p>See \"RA-EE Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p><h3 id=\"RA-RetrieveRegistrationAuthorityCertificate-QualityofService\">Quality of Service</h3><p>Estimated values are per logical unit, meaning multiple individual nodes can contribute to achieve the desired level of service.&nbsp; The number of vehicles likely to download the RA certificate is a function of the number of years in service:</p><p><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" src=\"attachments/27427347/27427348.png\" alt=\"Function to estimate the number of vehicles that will download RA certificates\" data-image-src=\"attachments/27427347/27427348.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427348\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"image2016-1-26 13:6:19.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427347\" data-linked-resource-container-version=\"6\"></span></p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col><col><col><col><col></colgroup><thead><tr><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">Quality Metric</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">Rationale</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">1 Year</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">3 Years</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">5 Years</div></th><th colspan=\"1\" class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">10 Years</div></th></tr></thead><tbody><tr><td class=\"confluenceTd\">Throughput</td><td colspan=\"1\" class=\"confluenceTd\"><p>Assuming half of all new cars plus all existing vehicles need to refresh their copy of the RA certificate in one week.</p></td><td colspan=\"1\" class=\"confluenceTd\"><p>8,500,000 new vehicles / 604,800 seconds/week</p><p>=&nbsp;<strong>14</strong>&nbsp;requests / second</p></td><td colspan=\"1\" class=\"confluenceTd\"><p>(8,500,000 new vehicles + 34,000,000 existing vehicles) / 604,800 seconds/week</p><p>=&nbsp;<strong>70</strong>&nbsp;requests / second</p></td><td colspan=\"1\" class=\"confluenceTd\"><p>(8,500,000 new vehicles + 68,000,000 existing vehicles) / 604,800 seconds/week</p><p>=&nbsp;<strong>126</strong>&nbsp;requests / second</p></td><td colspan=\"1\" class=\"confluenceTd\"><p>(8,500,000 new vehicles + 153,000,000 existing vehicles) / 604,800 seconds/week</p><p>=&nbsp;<strong>267</strong>&nbsp;requests / second</p></td></tr></tbody></table></div><h3 id=\"RA-RetrieveRegistrationAuthorityCertificate-QualityofProtection\">Quality of Protection</h3><ul><li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li><li>Supports at a minimum OpenSSL cipher suite ECDHE-ECDSA-AES128-SHA256</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "PDU",
+      "definition": "Protocol Data Unit"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427347/27427348.png",
+      "text": "image2016-1-26 13:6:19.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.589Z"
+}
