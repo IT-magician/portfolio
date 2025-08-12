@@ -1,0 +1,128 @@
+{
+  "pageId": "RA---Services-View_27427336",
+  "fileName": "RA---Services-View_27427336.html",
+  "title": "SCMS CV Pilots Documentation : RA - Services View",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    }
+  ],
+  "metadata": "Last modified on Nov 14, 2016",
+  "content": "\n                    <p>Please refer to the&nbsp;<a href=\"http://wiki.campllc.org/display/SP/Common+-+Services+View\" class=\"external-link\" rel=\"nofollow\">Common - Services View</a>&nbsp;section for an introduction of the Services View.&nbsp;</p><h2 id=\"RA-ServicesView-GeneralNotes\">General Notes</h2><p>All Registration Authority Services use the same scheme (<strong><abbr title=\"Hypertext Transfer Protocol Secure\">https</abbr></strong>) and port&nbsp;<strong>8892</strong>.&nbsp; That is, all the requests to RA will have <abbr title=\"Uniform Resource Locators\">URLs</abbr> that look like:</p><pre>https://&lt;SERVER&gt;:8892/&lt;PATH&gt;</pre><p>Where &lt;SERVER&gt; is the <abbr title=\"Internet Protocol\">IP</abbr> or host name and PATH is the name of the service.</p><p>For all the services, the <abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr>&nbsp;Content-Type is set to application/octet-stream.</p><p>No information is returned in case of error, just an <span class=\"confluence-anchor-link\" id=\"RA-ServicesView-HTTP500\"></span>HTTP code of 500, in a production environment. <abbr title=\"Quality Assurance\">QA</abbr> environment will give back errors as outlined in <a href=\"Overview-of-Used-Error-Codes_41353603.html\">Overview of Used Error Codes</a>.</p><h2 id=\"RA-ServicesView-ServicesSummaryforEE-RACommunications\">Services <span class=\"inline-comment-marker\" data-ref=\"3b07675d-4d19-45b8-9321-4272fbff5ea2\">Summary</span> for <abbr title=\"End Entity\">EE</abbr>-RA Communications</h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"RA-ServicesView-\"></span><div class=\"scroll-title-body\"><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><tbody><tr><th class=\"confluenceTh\">Service Name</th><th class=\"confluenceTh\">&lt;PATH&gt;</th></tr><tr><td class=\"confluenceTd\"><a href=\"RA---Request-Application-Certificate-Provisioning_27427352.html\">Request Application Certificate Provisioning</a></td><td class=\"confluenceTd\">/provision-application-certificate</td></tr><tr><td class=\"confluenceTd\"><a href=\"RA---Download-.info-File_27427339.html\">Download .info file</a></td><td class=\"confluenceTd\">/download/info</td></tr><tr><td class=\"confluenceTd\"><a href=\"RA---Download-Local-Policy-File_27427342.html\">Download local policy&nbsp;file</a></td><td class=\"confluenceTd\"><span class=\"inline-comment-marker\" data-ref=\"5384a6f0-13d5-4221-bf55-09505f11547b\">/download/policy/local</span></td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Download-Pseudonym-Certificate-Batch_27427344.html\">Download Pseudonym Certificate Batch</a></td><td colspan=\"1\" class=\"confluenceTd\">/download/batch</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Retrieve-Registration-Authority-Certificate_27427347.html\">Retrieve Registration Authority Certificate</a></td><td colspan=\"1\" class=\"confluenceTd\">/retrieve-ra-certificate</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Request-Identification-Certificate-Provisioning_41353635.html\">Request Identification Certificate Provisioning</a></td><td colspan=\"1\" class=\"confluenceTd\">/provision-identity-certificate</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Download-Identification-Certificate_41353633.html\">Download Identification Certificate</a></td><td colspan=\"1\" class=\"confluenceTd\">/download/identity-certificate</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html\">Request Pseudonym Certificate Batch Provisioning</a></td><td colspan=\"1\" class=\"confluenceTd\">/provision-pseudonym-certificate-batch</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Download-Application-Certificate_27427353.html\">Download Application Certificate</a></td><td colspan=\"1\" class=\"confluenceTd\">/download/application-certificate</td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Download-Local-Certificate-Chain-File_27427354.html\">Download Local Certificate Chain File</a></td><td colspan=\"1\" class=\"confluenceTd\">/download/<span>local-certificate-chain</span></td></tr><tr><td colspan=\"1\" class=\"confluenceTd\"><a href=\"RA---Submit-Misbehavior-Report_27427356.html\">Submit Misbehavior Report</a></td><td colspan=\"1\" class=\"confluenceTd\">/<span>process-misbehavior-report</span></td></tr></tbody></table></div></div><div class=\"scroll-title-macro-title\"><strong>Services Summary For EE-RA Communications</strong></div></div>\n                    ",
+  "links": [
+    {
+      "originalHref": "http://wiki.campllc.org/display/SP/Common+-+Services+View",
+      "text": "Common - Services View",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Overview-of-Used-Error-Codes_41353603.html",
+      "text": "Overview of Used Error Codes",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Application-Certificate-Provisioning_27427352.html",
+      "text": "Request Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "Download .info file",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Local-Policy-File_27427342.html",
+      "text": "Download local policy file",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "text": "Download Pseudonym Certificate Batch",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Retrieve-Registration-Authority-Certificate_27427347.html",
+      "text": "Retrieve Registration Authority Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Identification-Certificate-Provisioning_41353635.html",
+      "text": "Request Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Identification-Certificate_41353633.html",
+      "text": "Download Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+      "text": "Request Pseudonym Certificate Batch Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Application-Certificate_27427353.html",
+      "text": "Download Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Local-Certificate-Chain-File_27427354.html",
+      "text": "Download Local Certificate Chain File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Submit-Misbehavior-Report_27427356.html",
+      "text": "Submit Misbehavior Report",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "https",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "URLs",
+      "definition": "Uniform Resource Locators"
+    },
+    {
+      "term": "IP",
+      "definition": "Internet Protocol"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "QA",
+      "definition": "Quality Assurance"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.590Z"
+}

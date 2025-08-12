@@ -1,0 +1,78 @@
+{
+  "pageId": "27427183",
+  "fileName": "27427183.html",
+  "title": "SCMS CV Pilots Documentation : Use Case 6: CRL Download",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Apr 20, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"UseCase6:CRLDownload-Goals\">Goals</h2><p>The goal is to provide the CRL file from the CRL Store (a component of the <abbr title=\"Misbehavior Authority\">MA</abbr>) to the <abbr title=\"End Entity\">EE</abbr> when requested.</p><h2 id=\"UseCase6:CRLDownload-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The EE must be aware of revoked entities.</p><h2 id=\"UseCase6:CRLDownload-Assumptions\">Assumptions</h2><ul><li><span class=\"inline-comment-marker\" data-ref=\"454797b5-74f3-4183-9f80-2d68ff1dbcf3\">One or more CRLs have been generated, signed by the CRL Generator, put into a CRL file, and has been made available to the CRL Store<br></span></li><li>The CRL Store is able to validate cryptographically the signature on the CRL file prior to making it available for download<br><span class=\"inline-comment-marker\" data-ref=\"0f0e5a5d-8758-4135-a728-a1c232d31384\">The EE is able to download the CRL by issuing a CRL HTTP get request to the CRL Store.</span></li><li><span class=\"inline-comment-marker\" data-ref=\"0f0e5a5d-8758-4135-a728-a1c232d31384\">The CRL Store will not authenticate the EE, i.e., CRL Store will not require that EE sends its enrollment certificate for authentication purposes<br></span></li><li><span class=\"inline-comment-marker\" data-ref=\"0f0e5a5d-8758-4135-a728-a1c232d31384\"><abbr title=\"Onboard Equipment\">OBE</abbr> has successfully executed <a href=\"58589462.html\">Use Case 2: OBE Bootstrapping (Manual)</a><br></span></li></ul><h2 id=\"UseCase6:CRLDownload-ProcessSteps\">Process Steps</h2><ol><li><span class=\"inline-comment-marker\" data-ref=\"0f0e5a5d-8758-4135-a728-a1c232d31384\">OBE downloads the CRL using the API documented in&nbsp;<a href=\"MA---Download-CRL_27427359.html\">MA - Download CRL</a></span></li></ol><h2 id=\"UseCase6:CRLDownload-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"UseCase6:CRLDownload-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module--642674095\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n    \n        \n\n</p></div></div><h2 id=\"UseCase6:CRLDownload-ASN.1Specification\"><abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> Specification</h2><p><abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 specifies CRLs in: <a href=\"https://github.com/wwhyte-si/1609dot2-asn/blob/master/crl-protocol.asn\" class=\"external-link\" rel=\"nofollow\">https://github.com/wwhyte-si/1609dot2-asn/blob/master/crl-protocol.asn</a></p>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "MA---Download-CRL_27427359.html",
+      "text": "MA - Download CRL",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/crl-protocol.asn",
+      "text": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/crl-protocol.asn",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.358Z"
+}

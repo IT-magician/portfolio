@@ -1,0 +1,135 @@
+{
+  "pageId": "Secure-Environment-for-Device-Enrollment_27427267",
+  "fileName": "Secure-Environment-for-Device-Enrollment_27427267.html",
+  "title": "SCMS CV Pilots Documentation : Secure Environment for Device Enrollment",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Hardware, Software and OS Security Requirements",
+      "href": "27427262.html"
+    }
+  ],
+  "metadata": "Last modified on Apr 18, 2017",
+  "content": "\n                    <h1 id=\"SecureEnvironmentforDeviceEnrollment-OverviewandGoals\"><span class=\"inline-comment-marker\" data-ref=\"39b9a9e3-7dfc-432c-993e-86eb0f0deba8\">Overview and Goals</span></h1><p>All End Entities (EEs) that participate in the SCMS must be enrolled. The enrollment process is the point where an initial trust relationship is established between a new EE (either an <abbr title=\"On Board Equipment\">OBE</abbr> or <abbr title=\"Roadside Equipment\">RSE</abbr>) and the rest of the SCMS infrastructure. The integrity of the system requires that only authorized devices are allowed to enroll and that each EE receives the correct credentials to operate with the infrastructure. Therefore, the enrollment process must be performed in a secure environment using an approved process and equipment.</p><p class=\"confluence-link\">This guidance applies to the equipment and procedures used in the bootstrapping procedures defined in Use Case 2, respectively Use Case 12.</p><h1 id=\"SecureEnvironmentforDeviceEnrollment-Architecture\">Architecture</h1><p>T<span class=\"inline-comment-marker\" data-ref=\"7a5a8bd8-a549-4cec-9192-768511ea4ca7\">he secure environment used for device enrollment requires the following elements:</span></p><ol><li>A documented procedure for performing the enrollment process</li><li>A physically secure location where the enrollment will take place</li><li>One or more authorized devices (computers) for managing the enrollment process</li><li>An activity log or recording of the enrollment operations that were performed</li></ol><h2 id=\"SecureEnvironmentforDeviceEnrollment-DocumentedProcedureDocumented_Procedure\">Documented Procedure<span class=\"confluence-anchor-link\" id=\"SecureEnvironmentforDeviceEnrollment-Documented_Procedure\"></span></h2><p>The procedure used to enroll devices shall be documented and followed consistently. It is recommended that a checklist or automated procedure be used to ensure consistency and compliance. The procedure shall include the following cases:</p><ol><li>List of Authorized Operators and Equipment<ol><li>Each facility must maintain a list of authorized personnel and equipment that may participate in the enrollment and provisioning process</li><li>The means of identifying individuals and systems shall be specified</li><li>The procedures for adding and removing personnel and equipment from the authorized list shall be part of the documented procedure</li><li>The list of authorized personnel shall include a list of auditors (and procedures for adding and removing auditors) who can observe the process</li></ol></li><li>Acceptance of a New EE<ol><li><span class=\"inline-comment-marker\" data-ref=\"317ef58a-95ef-41c8-9af0-3463917c0bf9\">Authorized operators</span> (or an automated process) must be able to validate that the new EE, that is to be enrolled, is an authentic device. For example, this may be done by checking the device serial number against a manifest or by inspecting key features of the devices.</li><li>If the EE employs tamper evident packaging, operators must inspect the tamper seals to ensure that they have not been compromised</li><li><span class=\"inline-comment-marker\" data-ref=\"61ce3fa5-f68c-4c4e-96bb-19f96212fbc8\">The software or firmware installed in the EE must be&nbsp;checked to confirm that it is running an allowed version. It is recommended that a secure hash of the installed software be checked against a trusted reference to validate that it has not been modified.</span></li><li>If the EE has the capacity to run a self-test to confirm correct operation, the successful result of this test shall be confirmed</li><li>Refer to <a href=\"https://www.pcisecuritystandards.org/documents/PCI_HSM_Security_Requirements_v3_2016_final.pdf?agreement=true&amp;time=1492542784631\" class=\"external-link\" rel=\"nofollow\"><abbr title=\"Payment Card Industry\">PCI</abbr> <abbr title=\"Hardware Security Module\">HSM</abbr> Security Requirements version 3.0 (June 2016)</a>, Section I (Device Security Requirements During Manufacturing) for additional guidance on validating the EE to be provisioned</li></ol></li><li><span class=\"confluence-anchor-link\" id=\"SecureEnvironmentforDeviceEnrollment-Connection_to_the_EE\"></span>Connection to the EE<ol><li>During the bootstrapping process, certain information must be transferred with high integrity. The procedure must describe how an operator (or automated process) can validate that a trusted connection has been established to the new EE. For example, a physical cable connection that can be visually inspected is acceptable.</li><li>If a wireless connection is to be used, the procedures must describe how the connection to the EE w<span class=\"inline-comment-marker\" data-ref=\"0a4029a8-8cf9-461a-b360-9511d51a5bb8\">ill be secured. This connection must provide authenticity and secrecy and it must prevent against replay of old, valid messages. Standard protocols may be used, if their authentication and encryption mechanisms meet these requirements. </span></li></ol></li><li>Key Generation or Injection<ol><li>The enrollment process requires that each EE generate or receive a private key and the corresponding public key. This procedure must be initiated and completed in a secure environment and follow the 'level 2' requirements defined in&nbsp;<a href=\"http://csrc.nist.gov/publications/fips/fips140-2/fips1402.pdf\" class=\"external-link\" rel=\"nofollow\"><abbr title=\"Federal Information Processing Standards\">FIPS</abbr> PUB 140-2</a>&nbsp;Sectio<span class=\"inline-comment-marker\" data-ref=\"b572bc82-532c-4ec5-8bc3-4d85836cd610\">n 4.7 for key generation and secure key management.</span></li><li>The association of the device public key to the EE must be securely established. It is recommended that the Certificate <abbr title=\"Certificate Signing Request\">CSR</abbr> be generated on the target EE and exported using the secure connection established in <a href=\"#SecureEnvironmentforDeviceEnrollment-Connection_to_the_EE\">#3</a>. Alternative approaches must define a procedure to ensure that the private key used to generate the CSR is correctly associated with the EE.</li></ol></li><li>Enrollment Certificate and Parameter Installation<ol><li><span class=\"inline-comment-marker\" data-ref=\"466945c5-bef4-4fcc-b244-903db7a57e0a\">The enrollment process requires the installation of one or more root <abbr title=\"Certificate Authority\">CA</abbr> certificate and elector certificates into the EE's secure storage. This must be performed in a secure environment using the high-integrity communications channel&nbsp;established</span> in&nbsp;<a href=\"#SecureEnvironmentforDeviceEnrollment-Connection_to_the_EE\">#3</a>.</li></ol></li><li>Creation of an Activity Log<ol><li>The documented procedure shall describe the steps that shall be taken to log or record the enrollment process. Note that the log may not include any private keys or seeding material used to initialize any device.</li></ol></li><li>Exceptions and Changes<ol><li>The procedures shall define what steps are to be taken in case of an error or failure. This should include guidelines for repair or secure decommissioning of failed equipment.</li><li>Changes or exceptions to the enrollment procedure shall be recorded.</li></ol></li></ol><h2 id=\"SecureEnvironmentforDeviceEnrollment-SecureEnvironment\">Secure Environment</h2><p>The enrollment process shall take place within a physically secure location with restricted access control. Alternatively, the procedures may be carried out in an open area with active monitoring or surveillance to ensure that only authorized individuals and equipment are involved. Refer to the <a href=\"https://www.pcisecuritystandards.org/documents/PCI_Card_Production_Physical_Security_Requirements_v2_Nov2016.pdf?agreement=true&amp;time=1484176101226\" class=\"external-link\" rel=\"nofollow\">PCI Physical Security Requirements version 2 (Nov 2016)</a> Section 3 for guidelines for establishing a physically secure area for secure provisioning.</p><ul><li><span class=\"inline-comment-marker\" data-ref=\"fd6e47ad-8ea2-427d-9440-b63fba3a2ff1\">Only authorized personnel s</span>hall be able to initiate the enrollment process or have access to the equipment used for enrollment</li><li>Only authorized equipment shall be connected (wired or wireless) to any network, system, or OBE involved in the enrollment process</li><li>The access control mechanism (or area monitoring) must keep a log of who is present in the area at any time when the enrollment process is active</li></ul><h2 id=\"SecureEnvironmentforDeviceEnrollment-AuthorizedEquipment\">Authorized Equipment</h2><p>Only specific, authorized equipment shall be used in the enrollment process. This equipment may include one or more general-purpose computers.</p><ul><li>The equipment shall not be used for any purpose other than EE enrollment or related logging, testing, or quality control procedures</li><li>This equipment shall operate on a network segment that is protected from other general-purpose systems used for any other purpose</li><li>Only authorized personnel may access the equipment or install software, updates, or patches to the equipment. All approved and validated security patches shall be applied to all authorized systems.</li><li>The operating system and application software shall be specified in the section <a href=\"#SecureEnvironmentforDeviceEnrollment-Documented_Procedure\">Documented Procedures</a></li></ul><h2 id=\"SecureEnvironmentforDeviceEnrollment-AuditandActivityLog\">Audit and Activity Log</h2><p>The ability for independent auditors to observe a secure process in real-time as well as logs that can be used to reconcile events or audit procedures later are both required to ensure accountability and to recover from newly emerging threats. The secure environment shall support process oversight in the following ways:</p><ol><li>Each enrollment location shall maintain a log that records the results of the steps defined&nbsp;in the section <a href=\"#SecureEnvironmentforDeviceEnrollment-Documented_Procedure\">Documented Procedures</a>. It must be possible to reconcile enrollment activity against a list of authorized, operational EEs along with any securely scraped or in-repair units to account for the final destination of all successfully enrolled device identities.</li><li>Authorized and identified independent auditors shall have access to the secure environment in order to periodically supervise and inspect the ongoing procedures. Auditors shall not directly view or record any secret information such as private keys or random number seed values.</li></ol>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://www.pcisecuritystandards.org/documents/PCI_HSM_Security_Requirements_v3_2016_final.pdf?agreement=true&time=1492542784631",
+      "text": "PCI HSM Security Requirements version 3.0 (June 2016)",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://csrc.nist.gov/publications/fips/fips140-2/fips1402.pdf",
+      "text": "FIPS PUB 140-2",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#SecureEnvironmentforDeviceEnrollment-Connection_to_the_EE",
+      "text": "#3",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#SecureEnvironmentforDeviceEnrollment-Connection_to_the_EE",
+      "text": "#3",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://www.pcisecuritystandards.org/documents/PCI_Card_Production_Physical_Security_Requirements_v2_Nov2016.pdf?agreement=true&time=1484176101226",
+      "text": "PCI Physical Security Requirements version 2 (Nov 2016)",
+      "isInternal": false
+    },
+    {
+      "originalHref": "#SecureEnvironmentforDeviceEnrollment-Documented_Procedure",
+      "text": "Documented Procedures",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#SecureEnvironmentforDeviceEnrollment-Documented_Procedure",
+      "text": "Documented Procedures",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "RSE",
+      "definition": "Roadside Equipment"
+    },
+    {
+      "term": "PCI",
+      "definition": "Payment Card Industry"
+    },
+    {
+      "term": "HSM",
+      "definition": "Hardware Security Module"
+    },
+    {
+      "term": "FIPS",
+      "definition": "Federal Information Processing Standards"
+    },
+    {
+      "term": "CSR",
+      "definition": "Certificate Signing Request"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "PIN",
+      "definition": "Personal Identification Number"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427267/58589329.pdf",
+      "text": "PCI_Card_Production_Physical_Security_Requirements_2013.pdf"
+    },
+    {
+      "href": "attachments/27427267/27427270.pdf",
+      "text": "PCI_Card_Production_Physical_Security_Requirements_2013.pdf"
+    },
+    {
+      "href": "attachments/27427267/58589328.pdf",
+      "text": "PCI_HSM_Security_Requirements_v2.pdf"
+    },
+    {
+      "href": "attachments/27427267/27427269.pdf",
+      "text": "PCI_HSM_Security_Requirements_v2.pdf"
+    },
+    {
+      "href": "attachments/27427267/58589327.pdf",
+      "text": "PCI_PIN_Security_Requirements_v2.pdf"
+    },
+    {
+      "href": "attachments/27427267/27427268.pdf",
+      "text": "PCI_PIN_Security_Requirements_v2.pdf"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.609Z"
+}

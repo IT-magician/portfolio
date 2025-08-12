@@ -1,0 +1,108 @@
+{
+  "pageId": "27427061",
+  "fileName": "27427061.html",
+  "title": "SCMS CV Pilots Documentation : CB2: Types of Cryptographic Algorithms",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    },
+    {
+      "text": "Cryptography Background",
+      "href": "Cryptography-Background_27427059.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 06, 2017",
+  "content": "\n                    <p>There are two different types of keyed cryptographic algorithms, which use very different types of key management. This section discusses those keyed algorithms and also two other important cryptographic primitives, hash functions and random number.</p><h2 id=\"CB2:TypesofCryptographicAlgorithms-SymmetricAlgorithms\">Symmetric Algorithms</h2><p>In a symmetric algorithm, the sender and receiver use the same key (or keys that are related to each other in some trivial-to-derive way). Alice uses k1 to encrypt; Bob uses k1 to decrypt. Alice uses k2 to authenticate; Bob uses k2 to validate. Symmetric algorithms have two significant properties:</p><ul><li>They are fast (which translates into implementations being low cost). For example, <abbr title=\"Advanced Encryption Standard\">AES</abbr>, a symmetric encryption algorithm, can encrypt 81 MB per second on a 2 GHz processor, or generate authentication codes on 1,000,000 messages per second with a size of 100 bytes per message.</li><li>They require <em>secure, private key exchange</em>. Before Alice and Bob can use a key k to communicate, they must securely agree on k in such a way that no other party (except perhaps a trusted center) knows k. This means that Alice and Bob must have some kind of pre-existing relationship to use symmetric cryptography.<br><ul><li>NOTE: In a vehicular setting, vehicles are often encountering each other for the first time and do not have a pre-existing relationship. This is one of the main reasons why symmetric key cryptography is not being considered for use in authenticating <abbr title=\"Vehicle-to-Vehicle\">V2V</abbr> safety messages.</li></ul></li></ul><h2 id=\"CB2:TypesofCryptographicAlgorithms-PublicKeyAlgorithms\">Public Key Algorithms</h2><p>In an <em>asymmetric or public key algorithm</em>, the encryption and decryption, or authentication and validation, keys come as a pair, <em>Pub and Priv</em>, with the property that they are related but that it is very expensive (in terms of computer time) for someone who only knows <em>Pub</em> to work out <em>Priv</em>. <em>Pub</em> is called the public key. <em>Priv</em> is called the private key. The private key is not widely shared and usually known only to the key owner; the public key can be distributed widely. They are used this way:</p><ul><li>For confidentiality: Alice uses Bob’s (note, not Alice’s) public key to encrypt the message. Only Bob knows his own private key, so only Bob can decrypt the message.</li><li>For authentication: Alice uses her own private key to generate the authentication code – for a public key algorithm, this is called <em>signing</em>. Bob uses Alice’s (note, not Bob’s) public key to validate the authentication code – for a public key algorithm, the authentication code is called a <em>signature</em> and the validation is called <em>verification</em>. If the signature verifies with Alice’s public key, then the signature was generated with Alice’s private key and the message was not modified. Because only Alice knows her own private key, that means that Alice generated the signature and so that the message came from Alice. For performance reasons, an actual implementation would perform the signature operation on a checksum of the message only.</li></ul><p>Public-key algorithms have two significant properties:</p><ul><li>They are <em>relatively slow</em> compared to symmetric algorithms (which translates into implementations being more expensive in terms of processing compared to symmetric algorithms). For example, <abbr title=\"Elliptic Curve Digital Signature Algorithm\">ECDSA-256</abbr>, the public key algorithm that is used in the <abbr title=\"Crash Avoidance Metrics Partnership\">CAMP</abbr> <abbr title=\"Vehicle Safety Communications 3\">VSC3</abbr> design, can generate about 1500 signatures per second on a 2 GHz processor and can verify only about 300 signatures per second.</li><li>They require <em>authenticated key exchange</em>, but the key exchange can be <em>public</em>. If Alice has some assurance that a public key belongs to Bob, she can use that key to verify Bob’s signed messages or encrypt messages to him even if many other people know the public key as well. Alice knows that a public key belongs to Bob usually because the <abbr title=\"Certificate Authority\">CA</abbr> attests to it by signing Bob’s public key. Bob’s public key is signed by the CA and is referred to as Bob’s certificate. So long as Alice and Bob trust the CA and have access to the CA’s public key, they can trust that keys signed by the CA are genuine. This makes public key cryptography ideal for settings where two parties encounter each other briefly and need to trust each other’s communications, even if they do not have access to an <em>online</em> key service. This is the relevant setting for V2V communications, which is why CAMP VSC3 and <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 use public key cryptography.</li></ul><h2 id=\"CB2:TypesofCryptographicAlgorithms-HashFunctions\">Hash Functions</h2><p>There is a third useful type of cryptographic algorithm, known as the hash function. A hash function produces a cryptographically strong, fixed-length checksum of a message. The output from the hash function, often called a hash or a digest, is cryptographically strong in the following senses:</p><ul><li>The output looks random: small changes to the input message result in significant changes to the hash</li><li>It is computationally infeasible to find a message that hashes to a particular hash value. (Hash functions are non-invertible, or have pre-image resistance.)</li><li>It is computationally infeasible to find two messages that hash to the same value. (Hash functions have collision resistance.)</li><li>Hashes are fast, comparable to or faster than symmetric algorithms. In the CAMP VSC3 SCMS, hashes are used for a number of purposes:<br><ul><li>A truncated hash of a certificate can be used as an identifier in messages signed by that certificate, so that the sender does not have to send the full certificate with every message</li><li>Messages are hashed before signing them: the (private-key) signature operation is actually applied to the hash of the message but not to the message itself. This has both security and efficiency benefits and is standard practice in cryptographic systems outside the CAMP VSC3 system.</li><li>Hashes are used to generate linkage values as <span class=\"inline-comment-marker\" data-ref=\"cf9ca27c-f915-446a-8727-8e52ae0118ea\">described in <a href=\"27427066.html\">SCP2: Linkage Values</a></span></li></ul></li></ul><h2 id=\"CB2:TypesofCryptographicAlgorithms-RNGRandomNumberGenerators\"><span class=\"inline-comment-marker\" data-ref=\"87d4d9c7-6eab-462c-9a06-30c50ea5c571\"><span class=\"confluence-anchor-link\" id=\"CB2:TypesofCryptographicAlgorithms-RNG\"></span>Random Number Generators</span></h2><p>Random number generators are used to generate keys and other random data within a system that uses cryptography. Since the security of a system depends on private and secret keys being unobtainable through unauthorized exposure, it is important that the random number generators used to generate them are good. In this context, “good” means a number of things:</p><ul><li>An attacker must not be able to determine the next output from the random number generator, no matter how much previous output the attacker has seen. This means that the output must be statistically random and contain no bias. If the random number generator is used to generate an integer modulo some modulus <em>n</em>, all numbers between 0 and <em>n-1</em> must be equally probable with no bias towards particular values.</li><li>If the random number generator uses an internal state, an attacker must not be able to guess the internal state of the random number generator and use this to predict output. This means that:<br><ul><li>The internal state must be large enough to be infeasible to guess by brute force</li><li>The initialization process that initialized the internal state must be infeasible to reproduce</li></ul></li><li>If the random number generator uses some hardware-produced randomness source, the output from this source must be infeasible to reproduce</li></ul><p>As well as secret and private keys, random number generators are used for other purposes within the SCMS:</p><ul><li>When signing with Elliptic Curve Digital Signature Algorithm (ECDSA), a fresh entirely random number must be generated for each signature with the same key. Repeated random numbers, random numbers with a bias, or random numbers with a known relationship to each other will reveal the private key.</li><li>Random numbers are used by the <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr> when creating implicit certificates or when expanding a butterfly signing key (see <a href=\"27427064.html\">SCP1: Butterfly Keys</a>). If these random numbers are not good, it can result in the Registration Authority (RA) being able to track a device, or even the PCA’s private key being revealed.</li><li>Random numbers are used to generate Linkage Seeds (LSs) for linkage chains (see <a href=\"27427062.html\">CB3: Public Key Infrastructure</a>, <a href=\"27427066.html\">SCP2: Linkage Values</a>). If these random numbers are not good, it can result in a device being trackable by a Linkage Authority (LA) or the PCA.</li></ul><p>All SCMS components, as well as <abbr title=\"End Entities\">EEs</abbr>, must be equipped with industrial quality random number generators, e.g., one of the <a href=\"Approved-Random-Number-Generators_41353610.html\">Approved Random Number Generators</a>.</p>\n                    ",
+  "links": [
+    {
+      "originalHref": "27427066.html",
+      "text": "SCP2: Linkage Values",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427064.html",
+      "text": "SCP1: Butterfly Keys",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427062.html",
+      "text": "CB3: Public Key Infrastructure",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427066.html",
+      "text": "SCP2: Linkage Values",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Approved-Random-Number-Generators_41353610.html",
+      "text": "Approved Random Number Generators",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "AES",
+      "definition": "Advanced Encryption Standard"
+    },
+    {
+      "term": "V2V",
+      "definition": "Vehicle-to-Vehicle"
+    },
+    {
+      "term": "ECDSA-256",
+      "definition": "Elliptic Curve Digital Signature Algorithm"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partnership"
+    },
+    {
+      "term": "VSC3",
+      "definition": "Vehicle Safety Communications 3"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.308Z"
+}

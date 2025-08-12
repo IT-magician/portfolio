@@ -1,0 +1,91 @@
+{
+  "pageId": "27427293",
+  "fileName": "27427293.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.2: Revoke Root CA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.2:RevokeRootCA-Goals\">Goals</h2><p>To produce the \"Revoke Root CA\" message, signed by at least the required number (m below) of non-revoked Electors, which SCMS components and <abbr title=\"End Entities\">EEs</abbr> must receive and act on.</p><h2 id=\"Step11.2.2:RevokeRootCA-Assumptions\">Assumptions</h2><p><span style=\"font-size: 14.0px;line-height: 1.42857;\">Root Management is performed according to the </span><span class=\"inline-comment-marker\" data-ref=\"9e976c59-a575-45cd-aeb6-8fd469a7b7d8\">Elector</span><span style=\"font-size: 14.0px;line-height: 1.42857;\">&nbsp;scheme outlined in&nbsp;</span><a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a>.</p><h2 id=\"Step11.2.2:RevokeRootCA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The SCMS Manager determines that a root CA is to be revoked. The SCMS Manager employs the non-revoked Electors to authenticate the revocation of a root CA.&nbsp;The SCMS Manager forms the bare message indicating the revocation of the root CA, including the root CA's certificate and has this message signed by at least <em>m</em> non-revoked Electors. The SCMS Manager instructs each Elector that it desires to sign this message, authenticating the removal of the root CA. These signatures on the message are accumulated into a final message. In this way, the SCMS Manager controls the production of the<span>&nbsp;\"Revoke root CA\"&nbsp;message, </span>signed by at least <em>m</em> non-revoked Electors of <em>n</em><span>. This message is&nbsp;</span>delivered to all affected SCMS Components via the <abbr title=\"Certificate Revocation List\">CRL</abbr> and by proprietary messaging. To validate the&nbsp;<span>\"Revoke root CA\"&nbsp;message, components or EEs must verify at least&nbsp;<em>m</em><span>&nbsp;non-revoked Electors<span>&nbsp;signatures</span>.</span></span></p><p>The <abbr title=\"Misbehavior Authority\">MA</abbr>, relevant CAs, <abbr title=\"Registration Authority\">RA</abbr>s, and <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr>(s) are instructed to remove the affected root CA from their list of trusted roots. The OEMs will ensure that new end-entity devices will not be provisioned with the revoked root CA certificate.</p><p>All components and entities that receive the revocation notification also cease to trust any other affected certificate.</p><p>All end-entity devices whose certificates chain back to the revoked root CA should obtain new certificates as soon as possible (the SCMS Manager may set performance requirements for how quickly this must happen, and will coordinate).</p><p>All CAs, the MA, RAs, and CRLG(s), whose certificates chain back to the revoked root CA should cease issuing certificates with their old certificates immediately and obtain new certificates as quickly as possible (the SCMS Manager may set performance requirements for how quickly this must happen, and will coordinate). The SCMS Manager will manage the recovery from the root CA revocation and establishing a new trust hierarchy.</p><h2 class=\"p1\" id=\"Step11.2.2:RevokeRootCA-Procedure\">Procedure</h2><p class=\"p1\"><span class=\"s1\">To implement this process, an authorized agent of the SCMS manager will perform the following actions:</span></p><ol class=\"ol1\"><li class=\"li1\">Obtain a copy of the root CA certificate that is to be revoked. The SCMS Manager shall define procedures for validating that the correct certificate is being revoked.</li><li class=\"li1\"><span class=\"s1\">An agent of the SCMS Manager will present the root CA certificate to all existing, valid SCMS electors and request that they produce a digitally signed \"removeRoot\" ballot. The collection of all independent signed ballots from existing electors is then assembled into one root endorsement message with the sequence of elector signatures attached. The number of elector signatures must be greater than or equal to the value of 'quorum' defined in the current GPF. This is a manual process to be implemented by the TCotSCMSM.</span></li><li class=\"li1\"><span class=\"s1\">The complete root removal message with signatures is then delivered to the CRLG for inclusion in an updated composite CRL file. <span class=\"inline-comment-marker\" data-ref=\"16c1a131-2201-4931-94a0-144db3b5eb19\">Note that the CRLG signature is not necessary</span> for the root removal to be validated by SCMS components. The role of the CRLG in this case is to assemble updates to the composite CRL with all active root removal messages included. </span></li><li class=\"li1\"><p><span class=\"s1\">SCMS components (including <abbr title=\"End Entities\">EEs</abbr>) that receive a composite CRL with one or more root removal message attached must check to see if they have already removed the <span class=\"inline-comment-marker\" data-ref=\"bbc5074f-353b-4fbc-8b6d-204d7ee362da\">root</span>&nbsp;certificate from their trust store. If they have not, they must validate the root removal message by checking the attached signatures and confirming it has non-expired certificates for at least 'quorum' of the existing electors that signed the message. Once the message is validated, the SCMS component must remove the root c<span class=\"inline-comment-marker\" data-ref=\"1ecd858a-9945-4674-97e9-845ea2580c2f\">ertificate</span>&nbsp;from their trust store. </span>When validating a root removal message, an entity must check that the data, which is signed in each elector endorsement (specifically the <em>TbsElectorEndorsement</em> element), is identical&nbsp;and that the&nbsp;<em>EndorsementType</em>&nbsp;element of the data has the value <em>removeRoot</em>. &nbsp;</p></li><li class=\"li1\"><span class=\"s1\"><span class=\"inline-comment-marker\" data-ref=\"445fa913-1bfa-4f2a-bd16-b2fceaf0f463\">When a root is removed from a device's trust store, the device must then cease to trust any new certificates that chain back to that root.</span></span></li><li class=\"li1\">When a root is removed from a device's trust store, the device must then cease to trust any certificates that chain back to that root. If a device finds that this action invalidates its own enrollment certificate or private key, it must cease operation.</li></ol><h2 id=\"Step11.2.2:RevokeRootCA-Requirements\"><span class=\"inline-comment-marker\" data-ref=\"4141f979-35fe-4811-b987-7e4229ac2040\"></span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.2:RevokeRootCA-A\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-351835428\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step11.2.2:RevokeRootCA-Design\">Design</h2><p>The design for the elector-based management system is described in the&nbsp;<a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a>&nbsp;section.</p><h2 id=\"Step11.2.2:RevokeRootCA-Diagrams\"><span class=\"inline-comment-marker\" data-ref=\"a74bcdba-8226-4c31-8f1f-303746012923\">Diagrams</span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.2:RevokeRootCA-\"></span><div class=\"scroll-title-body\"><span class=\"confluence-embedded-file-wrapper\"><img class=\"confluence-embedded-image\" alt=\"Diagram showing root CA revocation process\" src=\"attachments/27427186/27427192.jpg\" data-image-src=\"attachments/27427186/27427192.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427192\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Day 4 - Level 1.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"27427186\" data-linked-resource-container-version=\"5\"></span></div><div class=\"scroll-title-macro-title\"><strong>Revoke Root CA</strong></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427293/27427294.jpg\">Day 2 - Revoke Root.jpg</a> (image/jpeg)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427293/27427294.jpg",
+      "text": "Day 2 - Revoke Root.jpg",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427293/27427294.jpg",
+      "text": "Day 2 - Revoke Root.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.380Z"
+}

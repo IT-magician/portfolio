@@ -1,0 +1,140 @@
+{
+  "pageId": "27427064",
+  "fileName": "27427064.html",
+  "title": "SCMS CV Pilots Documentation : SCP1: Butterfly Keys",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    },
+    {
+      "text": "Special Cryptographic Primitives in SCMS",
+      "href": "Special-Cryptographic-Primitives-in-SCMS_27427063.html"
+    }
+  ],
+  "metadata": "Last modified on Mar 15, 2018",
+  "content": "\n                    <h1 id=\"SCP1:ButterflyKeys-Summary\">Summary</h1><p>Butterfly Keys are a novel cryptographic construction that allow a device to request an arbitrary number of certificates, each with different signing keys and each encrypted with a different encryption key, using a request that contains only one verification public key \"<span class=\"inline-comment-marker\" data-ref=\"a9b157fc-1200-43fa-888b-4c142d699772\">seed</span>\" and one encryption public key \"seed\" and two “expansion functions.” The expansion functions allow a second party to calculate an arbitrarily long sequence of statistically uncorrelated (as far as an outside observer is concerned) public keys such that only the original device knows the corresponding private keys. Without butterfly keys, the device would have to send a unique verification key and a unique encryption key for each certificate. Butterfly keys reduce upload size, allowing requests to be made when there is only spotty connectivity, reduce the work to be done by the requester to calculate the keys, and smoothen peak requests.</p><p>A core principle of <abbr title=\"Public Key Infrastructure\">PKI</abbr> implementations is that all private keys should be generated on the device that is going to use them. If private keys are generated off the device (and then installed on it), and if the device appears to misbehave, the device owner can claim that the misbehavior was actually carried out by whoever generated the keys. However, in the original <abbr title=\"Crash Avoidance Metrics Partnership\">CAMP</abbr> design, a single device had over 100,000 certificates per year. Generating 100,000 distinct certificate requests would be a significant computational burden, and arguably an unnecessary one given that most vehicles are only in operation for about 5% of the time. Additionally, 100,000 distinct certificate requests would take a long time to upload and, if connections from the onboard equipment (device) to the <abbr title=\"Certificate Authority\">CA</abbr> are unreliable, there is a risk that certificate requests would not complete successfully within a single communication session.</p><p>The CAMP design thus updated its approach to use butterfly keys to address both these concerns. In the butterfly key approach, the certificate requester only needs to generate a single key pair and include the public key in a single certificate request. The difference from the standard approach is that the requester also creates an expansion function that allows a single public key to be expanded into multiple public keys and a single private key to be expanded into multiple private keys, while ensuring that only someone who knows the original private key will know the expanded private keys (i.e., the device). This reduces the computational burden on the device (it only has to generate one key) and also the size of the upload (reduced to less than 1K bytes). The cost is that the download of certificate responses increases in size.</p><h1 id=\"SCP1:ButterflyKeys-Preliminaries\">Preliminaries</h1><h2 id=\"SCP1:ButterflyKeys-iandjValues\">i and j Values</h2><ol><li><span style=\"font-size: 14.0px;\">For <strong>pseudonym</strong> certificates, the i value used in any certificate is the <em>global</em> i value</span><span style=\"font-size: 14.0px;\">.</span><ol><li>The&nbsp;clock time corresponding to the global i=0 shall be as per&nbsp;<a href=\"Special-Cryptographic-Primitives-in-SCMS_27427063.html\">Special Cryptographic Primitives in SCMS</a>.&nbsp;</li><li>The increment period for the global i value shall be fixed at 1 week, i.e., 7*24 hours, where <em>hours</em> is the field defined under the type Duration in <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2, see&nbsp;<a href=\"https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn\" class=\"external-link\" rel=\"nofollow\">https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn</a>.&nbsp;</li><li>The j value shall range from 0 to j<sub>max</sub>-1.&nbsp;For <abbr title=\"Proof-Of-Concept\">POC</abbr> and CV Pilots, j<sub>max</sub>&nbsp;for all devices is fixed at 20.<span style=\"font-size: 14.0px;\"><br></span></li></ol></li><li>For <strong>identification</strong> certificates, the i value used in any certificate is the <em>local</em> i value corresponding to the <em>enrollment</em> certificate used for requesting that identification certificate.&nbsp;<ol><li>The&nbsp;clock time corresponding to that local i=0 shall be the value of <em>toBeSigned.validityPeriod.start</em>&nbsp;field of the <em><span class=\"inline-comment-marker\" data-ref=\"e2037864-507e-426e-8236-27db47a72746\">enrollment</span></em><span class=\"inline-comment-marker\" data-ref=\"e2037864-507e-426e-8236-27db47a72746\"> certificate.</span>&nbsp;</li><li>The increment period for that local i value shall be&nbsp;the value of&nbsp;<em>toBeSigned.validityPeriod.duration</em>&nbsp;field (minus the overlap period, see <a href=\"PoC-Certificate-Expiration-Timelines_41353554.html\">PoC Certificate Expiration Timelines</a>,&nbsp;<a href=\"CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019.html\">CV Pilot <abbr title=\"Production Stage\">PROD</abbr> Certificate Expiration Timelines</a>) of the <em>identification</em> certificate.&nbsp;</li><li>For POC and CV Pilots, the j value for all devices is fixed at 0.</li></ol></li></ol><h1 id=\"SCP1:ButterflyKeys-Description\">Description</h1><p>Butterfly keys make use of <abbr title=\"Elliptic Curve Discrete Logarithm Problem\">ECDLP</abbr> as follows.&nbsp;There is an agreed “base point” called G (this is standard practice for elliptic curve cryptography). The device generates two <abbr title=\"Elliptical Curve Cryptography\">ECC</abbr> key-pairs (a, A = aG) (seed for the signing keys) and (p, P = pG) (seed for keys used for encrypting the certificates, i.e., encryption keys), and descriptions of two expansion functions f1 (for signing keys) and f2 (for encryption keys). The expansion functions map an integer ι to another integer in a range from 0 to l, the order of the elliptic curve. Functions f1 and f2 are designed to be cryptographically secure, which roughly means that the output looks random so that given two values of {f1(ι), ι} (or, {f2(ι), ι}), a third party cannot tell whether the two values were generated by the same version of f1 (or, f2), or by different versions. The vehicle stores a, p, and descriptions of f1 and f2, and sends A, P, and description of f1 and f2 encrypted to the SCMS. In the CAMP design, the expansion functions are defined as:</p><ol><li>f1(k, ι) = f1<sup>int</sup>(k, ι) mod l, where&nbsp;<ol><li>f1<sup>int</sup>(k, ι) is the big-endian integer representation of (<abbr title=\"Advanced Encryption Standard\">AES</abbr>(k, x+1) XOR (x+1)) || (AES(k, x+2) XOR (x+2)) || (AES(k, x+3) XOR (x+3)),&nbsp;</li><li>x+1, x+2, and x+3 are obtained by simply incrementing x by 1 each time, e.g., if x = 01 … 00, then x+1 = 01 … 01, x+2 = 01 … 10, x+3 = 01 … 11,&nbsp;</li><li>128-bit input x for AES is derived from time period ι = (i, j) as: (0<sup>32</sup>&nbsp;|| i&nbsp;|| j&nbsp;|| 0<sup>32</sup>).&nbsp;</li></ol></li><li>f2(k, ι) is defined in an identical way as f1(k, ι), <strong>except</strong> x is derived as: <strong>(1<sup>32</sup>&nbsp;|| i&nbsp;|| j&nbsp;|| 0<sup>32</sup>)</strong>.</li></ol><p>The “description” of f1 and f2 are simply the AES keys ck (for signing keys) and ek (for encryption keys): to generate f1 and f2 the device simply generates 2 AES keys ck and ek, and to send the description of f1 and f2 the device sends ck and ek.</p><p>Now the SCMS has the ability to generate an extremely large number of derived points: it can generate</p><ul><li>B<sub>ι</sub> = A + f1(ck, ι) * G, with A = aG (signing keys)</li><li>Q<sub>ι</sub> = P + f2(ek, ι) * G, with P = pG (encryption keys)</li></ul><p>The corresponding private keys will be</p><ul><li>b<sub>ι</sub> = a + f1(ck, ι) (signing keys)</li><li>q<sub>ι</sub> = p + f2(ek, ι) (encryption keys)</li></ul><p>Since the SCMS doesn’t know the original value of a (or, p), it cannot know any of the b<sub>ι</sub> (or, q<sub>ι</sub>) values, so it can generate an arbitrary number of public keys for which only the vehicle knows the corresponding private keys. Additionally, because the expansion functions are cryptographically secure, anyone who doesn’t know the description of f1 cannot tell whether two different signing public keys belong to the same series {B<sub>ι</sub>} or to different series. This means that the <abbr title=\"Registration Authority\">RA</abbr>, described in detail later, can safely use f1 to create an expanded list of signing public keys to send to the CA, and the CA will not be able to tell that the keys belong to the same vehicle.</p><p>In the CAMP SCMS, this underlying approach is used as follows. Note: There are a couple of minor technical differences between this description and the CAMP approach – explained after this description, which focuses on the core butterfly key operations and omits optimizations that might obscure the explanation:</p><ul><li>Device generates two 128-bit AES keys ck and ek, for expansion functions of signing keys and encryption keys, respectively, and two “caterpillar” key pairs:<ul><li>(a, A = aG) used for signing, i.e., A to be placed in the certificate</li><li>(p, P = pG) used for encryption of the certificate</li></ul></li></ul><p>Device sends {ck, ek, A, P} to the RA. Note: ck will define the expansion function for the signing keys and ek will define the expansion function for the encryption keys.</p><ul><li>RA uses ck to generate {B<sub>ι</sub>}, the series of “cocoon” signing public keys for the certificate requests, and ek to generate {Q<sub>ι</sub>}, the series of cocoon encryption public keys for encrypting the certificate response, pairs each B<sub>ι</sub> with the corresponding Q<sub>ι</sub>, and sends the pairs {B<sub>ι</sub>, Q<sub>ι</sub>} to the CA.</li><li>CA does not know which public keys have come from the same device, but RA knows which public keys are in the requests, so CA must further randomize the public keys to hide them from RA. For each request, CA generates a unique random integer c and sets the public key in each certificate to the “butterfly” value (B<sub>ι</sub> + cG).&nbsp;CA then uses Q<sub>ι</sub> to encrypt the response, which contains:<ul><li>Certificate containing the public key (B<sub>ι</sub> + cG)</li><li>CA’s contribution to the private key, c</li></ul></li><li>RA sends the encrypted message to the device along with the corresponding ι.</li><li>Device uses ek, p, ι to calculate q<sub>ι</sub>. It uses q<sub>ι</sub> to decrypt the response and recover the certificate containing the public key (B<sub>ι</sub> + cG) and CA’s contribution to the private key, c. It then uses ck, a, ι to calculate b<sub>ι</sub>. The private key for the certificate is then:<ul><li>Butterfly private key = b<sub>ι</sub> (calculated above) + c (provided by CA)</li></ul></li></ul><p>Device should at this point check that the recovered private key corresponds to the public key certified by the certificate to ensure that it has been sent the correct certificate.</p><p>This means that the device has obtained a set of certificates such that:</p><ul><li>Only the device knows the private keys</li><li>RA does not know the public keys in the certificates</li><li>CA cannot tell from the requests alone which requests have come from the same device</li></ul><p>Notes:</p><ol><li>In the CAMP design, there are a couple of differences. First, implicit certificates are used by a device, so the CA’s contribution to the private key is calculated slightly differently; however, the principle is the same, namely that the CA modifies the public key and sends information to the vehicle that allows it to make the corresponding modification to the private key. Moreover, in the <a class=\"unresolved\" href=\"#\">table below</a>, butterfly keys process has been summarized for both explicit and implicit certificates. Second, the CA additionally signs (using its private key) the encrypted implicit certificate to prevent a man-in-the-middle (MITM) attack by the RA. To launch the MITM attack, the RA can simply use a different public key of its choice (for which it knows the corresponding private key) in the request to the CA, so that it can decrypt the encrypted response by the CA, view the underlying certificate, and then while responding to the vehicle encrypt the certificate with the right public key.</li><li>Since the RA knows the public encryption key J<sub>ι</sub>, it could in principle create a fake response to the vehicle. This would allow the RA to give a set of known certificates to a target vehicle, allowing the RA to track. However, any fake response will not have been created with the CA private key and so the vehicle can detect this attack and discard the resulting keys.</li><li>The per-certificate value <em>c</em> generated by the CA is vital in hiding the final certified public key from the RA. If <em>c</em> were a constant, all the certificates would be related to their requests in some known way, and the RA could work out the set of certificates corresponding to a set of certificate requests and track the vehicle. Likewise, if the CA generates <em>c</em> with bad randomness, or with randomness that is known to the RA, then the RA may be able to work out which certificate belongs to which vehicle. (see Random Number Generators under&nbsp;<a href=\"27427061.html\">CB2: Types of Cryptographic Algorithms</a>&nbsp;and&nbsp;<a href=\"Approved-Random-Number-Generators_41353610.html\">Approved Random Number Generators</a>&nbsp;for further details on&nbsp;“good randomness.”).</li><li>Test vectors for butterfly expansion function are available&nbsp;at&nbsp;<a href=\"http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/bfkeyexp.txt\" class=\"external-link\" rel=\"nofollow\">http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/bfkeyexp.txt</a></li></ol><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"SCP1:ButterflyKeys-ButterflyKey\"></span><div class=\"scroll-title-body\"><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col><col><col></colgroup><tbody><tr><th colspan=\"1\" class=\"confluenceTh\"><br></th><th style=\"text-align: center;\" colspan=\"1\" class=\"confluenceTh\">Device</th><th style=\"text-align: center;\" colspan=\"1\" class=\"confluenceTh\">RA</th><th style=\"text-align: center;\" colspan=\"1\" class=\"confluenceTh\"><abbr title=\"Pseudonym Certificate Authority\">PCA</abbr></th></tr><tr><th rowspan=\"3\" class=\"confluenceTh\"><p><strong>Explicit Certs</strong></p></th><td class=\"confluenceTd\"><p>1)&nbsp;&nbsp;&nbsp; Generate:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; AES key ck for expansion function of <strong>signing</strong> keys</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; AES key ek for expansion function of <strong>encryption</strong> keys</p><p style=\"margin-left: 30.0px;\">c)&nbsp;&nbsp;&nbsp;&nbsp; ECC key pair (a, A = aG) for <strong>signing</strong>, i.e., “caterpillar” signing key pair</p><p style=\"margin-left: 30.0px;\">d)&nbsp;&nbsp;&nbsp; ECC key pair (p, P = pG) for <strong>encryption of the certificate</strong>, i.e., \"caterpillar\" encryption key pair</p><p>2)&nbsp;&nbsp;&nbsp; Send (ck, ek, A, P) to RA</p></td><td class=\"confluenceTd\"><p>3)&nbsp;&nbsp;&nbsp; For each ι, compute:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; \"Cocoon” signing public keys for certificate requests, B<sub>ι</sub> = A + f1(ck, ι) * G</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; \"Cocoon\" encryption public keys for encrypting the certificate response, Q<sub>ι</sub> = P + f2(ek, ι) * G</p><p>4)&nbsp;&nbsp;&nbsp; For each ι, send (B<sub>ι</sub>, Q<sub>ι</sub>) individually to PCA</p></td><td class=\"confluenceTd\"><p>5)&nbsp;&nbsp;&nbsp; Generate an ECC key pair (c, C = cG) for hiding the signing public key from RA, and compute the “butterfly” public key (B<sub>ι</sub>+ C)</p><p>6)&nbsp;&nbsp;&nbsp; Generate an explicit certificate on butterfly public key (B<sub>ι</sub>+ C), encrypt (certificate, c) with Q<sub>ι</sub>, sign the ciphertext again, and send the signed ciphertext to RA</p></td></tr><tr><td class=\"confluenceTd\"><p><br></p></td><td class=\"confluenceTd\"><p>7)&nbsp;&nbsp;&nbsp; Collate all the signed ciphertexts along with the corresponding ι value for a device and send them to device</p></td><td class=\"confluenceTd\"><p><br></p></td></tr><tr><td class=\"confluenceTd\"><p>8)&nbsp;&nbsp;&nbsp; For each ι, compute:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; Cocoon signing private keys, b<sub>ι</sub> = a + f1(ck, ι) (mod l)</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; Cocoon decryption keys for decrypting the certificate response, q<sub>ι</sub> = p + f2(ek, ι) (mod l)</p><p>9)&nbsp;&nbsp;&nbsp; For each ι, verify PCA’s signature on the ciphertext:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; If verification succeeds, decrypt the ciphertext using q<sub>ι</sub> to obtain (certificate, c). Compute the “butterfly” private key corresponding to the public key in the certificate: (b<sub>ι</sub> + c) (mod l)</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp;&nbsp; If verification fails, abort and report to <abbr title=\"Misbehavior Authority\">MA</abbr>.</p></td><td class=\"confluenceTd\"><p><br></p></td><td class=\"confluenceTd\"><p><br></p></td></tr><tr><th rowspan=\"3\" class=\"confluenceTh\"><p><strong>Implicit Certs</strong></p></th><td class=\"confluenceTd\"><p>1)&nbsp;&nbsp;&nbsp; Generate:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; AES key ck for expansion function of <strong>signing</strong> keys</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; AES key ek for expansion function of <strong>encryption</strong> keys</p><p style=\"margin-left: 30.0px;\">c)&nbsp;&nbsp;&nbsp;&nbsp; ECC key pair (a, A = aG) for <strong>signing</strong>, i.e., “caterpillar” signing key pair</p><p style=\"margin-left: 30.0px;\">d)&nbsp;&nbsp;&nbsp; ECC key pair (p, P = pG) for <strong>encryption of the certificate</strong>, i.e., \"caterpillar\" encryption key pair</p><p>2)&nbsp;&nbsp;&nbsp; Send (ck, ek, A, P) to RA</p></td><td class=\"confluenceTd\"><p>3)&nbsp;&nbsp;&nbsp; For each ι, compute:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; “Cocoon” signing public keys for certificate requests, B<sub>ι</sub> = A + f1(ck, ι) * G</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; \"Cocoon\" encryption public keys for encrypting the certificate response, Q<sub>ι</sub> = P + f2(ek, ι) * G</p><p>4)&nbsp;&nbsp;&nbsp; For each ι, send (B<sub>ι</sub>, Q<sub>ι</sub>) individually to PCA</p></td><td class=\"confluenceTd\"><p>5)&nbsp;&nbsp;&nbsp; Generate an implicit certificate on B<sub>ι</sub>, let the private and public reconstruction values be r and R, respectively</p><p>6)&nbsp;&nbsp;&nbsp; Encrypt (r, R) with Q<sub>ι</sub>, sign the ciphertext again, and send the signed ciphertext to RA</p></td></tr><tr><td class=\"confluenceTd\"><p><br></p></td><td class=\"confluenceTd\"><p>7)&nbsp;&nbsp;&nbsp; Collate all the signed ciphertexts along with the corresponding ι value for a device and send them to device</p></td><td class=\"confluenceTd\"><p><br></p></td></tr><tr><td class=\"confluenceTd\"><p>8)&nbsp;&nbsp;&nbsp; For each ι, compute:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; Cocoon signing private keys, b<sub>ι</sub> = a + f1(ck, ι) (mod l)</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; Cocoon decryption keys for decrypting the certificate response, q<sub>ι</sub> = p + f2(ek, ι) (mod l)</p><p>9)&nbsp;&nbsp;&nbsp; For each ι, verify PCA’s signature on the ciphertext:</p><p style=\"margin-left: 30.0px;\">a)&nbsp;&nbsp;&nbsp;&nbsp; If verification succeeds, decrypt the ciphertext using q<sub>ι</sub> to obtain (r, R). Reconstruct the “butterfly” private key corresponding to the certificate using b<sub>ι</sub> and r.</p><p style=\"margin-left: 30.0px;\">b)&nbsp;&nbsp;&nbsp; If verification fails, abort and report to MA.</p></td><td class=\"confluenceTd\"><p><br></p></td><td class=\"confluenceTd\"><p><br></p></td></tr></tbody></table></div></div><div class=\"scroll-title-macro-title\"><strong>Butterfly Key</strong></div></div><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"SCP1:ButterflyKeys-\"></span><div class=\"scroll-title-body\"><p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img class=\"confluence-embedded-image\" height=\"464\" width=\"899\" src=\"attachments/27427064/27427065.png\" alt=\"Diagram explaining butterfly key mechanism\" data-image-src=\"attachments/27427064/27427065.png\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"27427065\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"worddav830c14b38157c46cbc7c3da9beb4fc1d.png\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/png\" data-linked-resource-container-id=\"27427064\" data-linked-resource-container-version=\"6\"></span></p></div><div class=\"scroll-title-macro-title\"><strong>Butterfly Key Mechanism</strong></div></div>\n                    ",
+  "links": [
+    {
+      "originalHref": "Special-Cryptographic-Primitives-in-SCMS_27427063.html",
+      "text": "Special Cryptographic Primitives in SCMS",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn",
+      "text": "https://github.com/wwhyte-si/1609dot2-asn/blob/master/1609dot2-base-types.asn",
+      "isInternal": false
+    },
+    {
+      "originalHref": "PoC-Certificate-Expiration-Timelines_41353554.html",
+      "text": "PoC Certificate Expiration Timelines",
+      "isInternal": true
+    },
+    {
+      "originalHref": "CV-Pilot-PROD-Certificate-Expiration-Timelines_27427019.html",
+      "text": "CV Pilot PROD Certificate Expiration Timelines",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "table below",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427061.html",
+      "text": "CB2: Types of Cryptographic Algorithms",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Approved-Random-Number-Generators_41353610.html",
+      "text": "Approved Random Number Generators",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/bfkeyexp.txt",
+      "text": "http://stash.campllc.org/projects/SCMS/repos/crypto-test-vectors/browse/bfkeyexp.txt",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "PKI",
+      "definition": "Public Key Infrastructure"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partnership"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "POC",
+      "definition": "Proof-Of-Concept"
+    },
+    {
+      "term": "PROD",
+      "definition": "Production Stage"
+    },
+    {
+      "term": "ECDLP",
+      "definition": "Elliptic Curve Discrete Logarithm Problem"
+    },
+    {
+      "term": "ECC",
+      "definition": "Elliptical Curve Cryptography"
+    },
+    {
+      "term": "AES",
+      "definition": "Advanced Encryption Standard"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427064/27427065.png",
+      "text": "worddav830c14b38157c46cbc7c3da9beb4fc1d.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.320Z"
+}

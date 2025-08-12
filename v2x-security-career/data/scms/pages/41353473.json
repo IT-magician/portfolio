@@ -1,0 +1,87 @@
+{
+  "pageId": "41353473",
+  "fileName": "41353473.html",
+  "title": "SCMS CV Pilots Documentation : Use Case 20: EE Re-Enrollment",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 22, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\">\n                        <div class=\"table-wrap\"></div>\n                    </div>\n                    <div class=\"confluence-information-macro confluence-information-macro-information\"><span class=\"aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon\"></span>\n                        <div class=\"confluence-information-macro-body\">\n                            <p>EE re-enrollment will be integrated with the to-be-awarded \"SCMS PoC extension\"\n                                project as SCMS <abbr title=\"Proof of Concept\">PoC</abbr> release 3.0. Until then these\n                                are\n                                preliminary concepts.</p>\n                        </div>\n                    </div>\n                    <h2 id=\"UseCase20:EERe-Enrollment-Goals\"><span class=\"inline-comment-marker\" data-ref=\"df63979b-0fea-4841-befd-5e23e175dcf5\">Goals</span></h2>\n                    <p>All End Entities (EEs, including <abbr title=\"Onboard Equipment\">OBE</abbr>s and <abbr title=\"Road-side Equipment\">RSE</abbr>s) receive an\n                        <a href=\"Certificate-Types_27427012.html\">Enrollment Certificate</a> as part of a secure\n                        initial provisioning process (see&nbsp;<a href=\"58589462.html\">Use Case 2: OBE Bootstrapping\n                            (Manual)</a> and&nbsp;<a href=\"58589469.html\">Use Case 12: RSE Bootstrapping (Manual)</a> for\n                        details). This certificate is used to authenticate the EE to an <abbr title=\"Registration Authority\">RA</abbr> for\n                        all secured transactions\n                        with the SCMS. When this certificate approaches its expiration, the EE <span class=\"inline-comment-marker\" data-ref=\"69e5dd33-eccf-4df1-9ea4-d0797d395019\">must be</span>\n                        <a href=\"Re-enrollment_27427261.html#Re-enrollment-Re-establishment\">re-established</a> to\n                        receive a new certificate. There are also cases where infrastructure components (such as an\n                        <abbr title=\"Intermediate Certificate Authority\">ICA</abbr>\n                        or Root <abbr title=\"Certificate Authority\">CA</abbr>) may be revoked without directly impacting\n                        the EEs\n                        that have\n                        certificates that are\n                        chained back to the revoked component. The re-enrollment use cases describe secure procedures\n                        for maintaining the integrity and security of EE enrollment certificates in these situations.\n                    </p>\n                    <h2 id=\"UseCase20:EERe-Enrollment-Assumptions\">Assumptions</h2>\n                    <p>The EE has a non-revoked, non-expired enrollment certificate and the EE has not been placed on\n                        the RA's blacklist.</p>\n                ",
+  "links": [
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Enrollment Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping\n                            (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589469.html",
+      "text": "Use Case 12: RSE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Re-enrollment_27427261.html#Re-enrollment-Re-establishment",
+      "text": "re-established",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "RSE",
+      "definition": "Road-side Equipment"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.446Z"
+}

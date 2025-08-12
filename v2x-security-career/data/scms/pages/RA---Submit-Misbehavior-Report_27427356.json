@@ -1,0 +1,84 @@
+{
+  "pageId": "RA---Submit-Misbehavior-Report_27427356",
+  "fileName": "RA---Submit-Misbehavior-Report_27427356.html",
+  "title": "SCMS CV Pilots Documentation : RA - Submit Misbehavior Report",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"End Entities\">EEs</abbr> use this service to submit a Misbehavior Report (MBR) that RA will forward to the Misbehavior Authority.&nbsp;</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col></colgroup><thead><tr><th colspan=\"1\" class=\"confluenceTh\">PORT</th><td colspan=\"1\" class=\"confluenceTd\">8892</td></tr><tr><th class=\"confluenceTh\">PATH</th><td class=\"confluenceTd\">/<span style=\"line-height: 1.42857;\">process-misbehavior-report</span></td></tr></thead><tbody><tr><th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> Method</th><td class=\"confluenceTd\">POST</td></tr><tr><th class=\"confluenceTh\"><p>HTTP Request Body</p></th><td class=\"confluenceTd\"><p><abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized <em>SecuredMisbehaviorReport</em></p></td></tr><tr><th class=\"confluenceTh\">HTTP Response Body</th><td class=\"confluenceTd\">Empty</td></tr></tbody></table></div><h3 id=\"RA-SubmitMisbehaviorReport-Preconditions\">Preconditions</h3><ol><li>EE is not revoked</li></ol><h3 id=\"RA-SubmitMisbehaviorReport-Postconditions\">Postconditions</h3><p>None.</p><h3 id=\"RA-SubmitMisbehaviorReport-ErrorHandling\">Error Handling</h3><p>See \"RA-EE Errors\" in <a href=\"https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes\" rel=\"nofollow\">Overview of Used Error Codes</a></p><h3 id=\"RA-SubmitMisbehaviorReport-QualityofService\">Quality of Service</h3><p>For <abbr title=\"Proof of Concept\">PoC</abbr>, the volume for this interface will be estimated by the currently underway <abbr title=\"Vehicle to Vehicle Communications Research\">V2V-CR</abbr> Project (<abbr title=\"Global Misbehavior Detection\">GMBD</abbr>),&nbsp;but is not expected to have significant impact on system throughput requirements.</p><h3 id=\"RA-SubmitMisbehaviorReport-QualityofProtection\">Quality of Protection</h3><ul><li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li><li>Supports at a minimum OpenSSL cipher suite ECDHE-ECDSA-AES128-SHA256</li><li>Uses certificate-based client authentication of data signed by the device enrollment certificate, validated at the application layer. This is a supplement to the one-way TLS authentication, to provide two-way authentication with a TLS/1609.2 hybrid scheme.</li><li>Incoming message is encrypted (within the ASN.1 message structure) with the <abbr title=\"Misbehavior Authority\">MA</abbr> Component certificate public key</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Overview+of+Used+Error+Codes",
+      "text": "Overview of Used Error Codes",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "V2V-CR",
+      "definition": "Vehicle to Vehicle Communications Research"
+    },
+    {
+      "term": "GMBD",
+      "definition": "Global Misbehavior Detection"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.591Z"
+}

@@ -1,0 +1,89 @@
+{
+  "pageId": "27427088",
+  "fileName": "27427088.html",
+  "title": "SCMS CV Pilots Documentation : Step 3.3: Initial Download of Pseudonym Certificates",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "href": "27426990.html"
+    }
+  ],
+  "metadata": "Last modified on Jul 20, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-Goals\">Goals</h2><p>The goal is to provide a reliable, secure and timely method for certified devices to download credentials, <span class=\"inline-comment-marker\" data-ref=\"c6937d06-30a6-42d4-b7c8-13ce56aa09fd\">while maintaining a minimum level of privacy that is expected by the end user.</span> <span class=\"inline-comment-marker\" data-ref=\"465dd569-f97b-42db-bde3-c542ea51e74c\">The solution should prevent a certified device (that has not been revoked) from running out of credentials required for critical safety systems to operate to the greatest extent possible.</span></p><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p><span>The purpose of this use case is to provide a defined method that a certified <abbr title=\"Onboard Equipment\">OBE</abbr> can use to download batches of credentials. These credentials will be used to certify the device during transmission of critical safety messages, submission of misbehavior reports, and other critical system functions. The download will include:&nbsp;</span></p><ol><li><span>Files that include batches of certificates (each file holds certificates worth a week)</span><span>&nbsp;</span></li><li><span>The .info file that includes the <span class=\"inline-comment-marker\" data-ref=\"3f3056a1-81c6-4203-9810-ba63ccdddec7\">time when the next batch of certificates will be available</span>&nbsp;for download</span><span>&nbsp;</span></li><li><span>A <span class=\"inline-comment-marker\" data-ref=\"c43456b5-6260-425c-8a94-abe33e365dd6\">local certificate&nbsp;chain&nbsp;file</span> containing all <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr> certificate chains required to validate the pseudonym certificates<br></span></li><li><span>The local policy file</span></li></ol><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-Assumptions\">Assumptions</h2><ol><li><p>The OBE has successfully completed <a href=\"27427080.html\">Step 3.1: Request for Pseudonym Certificates</a><span class=\"inline-comment-marker\" data-ref=\"f7b35801-9c31-4bf7-8cf8-3432965e83aa\">&nbsp;</span></p></li><li><p><span class=\"inline-comment-marker\" data-ref=\"f7b35801-9c31-4bf7-8cf8-3432965e83aa\">The <abbr title=\"Registration Authority\">RA</abbr> retrieved from PCA the issued certificates, zipped, and stored them in a folder for OBE to download</span></p></li></ol><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-ProcessSteps\"><span class=\"inline-comment-marker\" data-ref=\"f0c93be3-23f7-427d-9672-439f2d78a245\"><span class=\"inline-comment-marker\" data-ref=\"c1f3dd70-56ad-4f59-8c6e-0b732261eef9\"><span class=\"inline-comment-marker\" data-ref=\"5a1aab79-f635-4df6-b25b-9511a132961b\"><span class=\"inline-comment-marker\" data-ref=\"0cd0184a-1e84-4861-bbbf-d3a2cfb47fdc\">Process Steps</span></span></span></span></h2><p><span class=\"inline-comment-marker\" data-ref=\"f0c93be3-23f7-427d-9672-439f2d78a245\"><span class=\"inline-comment-marker\" data-ref=\"c1f3dd70-56ad-4f59-8c6e-0b732261eef9\"><span class=\"inline-comment-marker\" data-ref=\"5a1aab79-f635-4df6-b25b-9511a132961b\"><span class=\"inline-comment-marker\" data-ref=\"0cd0184a-1e84-4861-bbbf-d3a2cfb47fdc\">The OBE should follow the following steps to download the initial batch of pseudonym certificates. Neither order nor fulfillment of all steps is enforced, but highly recommended.<br></span></span></span></span></p><ol><li><p><span class=\"inline-comment-marker\" data-ref=\"01e8dfd1-57e4-4590-bcc5-725beaf28e65\">The OBE downloads the&nbsp;</span><a href=\"27427311.html\"><span class=\"inline-comment-marker\">Local Policy File (LPF)</span></a><span class=\"inline-comment-marker\" data-ref=\"01e8dfd1-57e4-4590-bcc5-725beaf28e65\"> and the </span><a href=\"41353502.html\"><span class=\"inline-comment-marker\">Local Certificate Chain File (LCCF)</span></a><span class=\"inline-comment-marker\" data-ref=\"01e8dfd1-57e4-4590-bcc5-725beaf28e65\">,</span> as before in <a href=\"27427080.html\">Step 3.1: Request for Pseudonym Certificates</a></p><ol><li><p>The OBE applies all changes to its trust-store (necessary for PCA Certificate Validations) if there is an updated LCCF</p></li><li><p>The OBE applies those changes if there is an updated LPF</p></li></ol></li><li><p>The OBE downloads the pseudonym certificate batches using the API documented in <a href=\"RA---Download-Pseudonym-Certificate-Batch_27427344.html\">RA - Download Pseudonym Certificate Batch</a></p></li><li><p>The OBE downloads the .info file using the API documented in <a href=\"RA---Download-.info-File_27427339.html\">RA - Download .info File</a></p></li></ol><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-ErrorHandling\"><span class=\"inline-comment-marker\" data-ref=\"f0c93be3-23f7-427d-9672-439f2d78a245\"><span class=\"inline-comment-marker\" data-ref=\"c1f3dd70-56ad-4f59-8c6e-0b732261eef9\"><span class=\"inline-comment-marker\" data-ref=\"5a1aab79-f635-4df6-b25b-9511a132961b\">Error Handling</span></span></span><span style=\"font-size: 14.0px;\">&nbsp;</span></h2><ol><li><p>The OBE will abandon further interactions with the RA after a certain number of failed communication attempts resulted in errors</p></li><li><p>The OBE will not attempt to execute the certificate provisioning process if it finds itself on the latest <abbr title=\"Certificate Revocation List\">CRL</abbr> (assumes that a willful violator has not compromised the device). The OBE will execute the certification/bootstrap process again to exit a revoked state.</p></li></ol><h2 id=\"Step3.3:InitialDownloadofPseudonymCertificates-Requirements\"><span style=\"font-size: 20.0px;\"></span></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step3.3:InitialDownloadofPseudonymCertificates-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n\n</p></div>\n\n                    \n                                                      \n                </div>             ",
+  "links": [
+    {
+      "originalHref": "27427080.html",
+      "text": "Step 3.1: Request for Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427311.html",
+      "text": "Local Policy File (LPF)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353502.html",
+      "text": "Local Certificate Chain File (LCCF)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427080.html",
+      "text": "Step 3.1: Request for Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "text": "RA - Download Pseudonym Certificate Batch",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "RA - Download .info File",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.345Z"
+}

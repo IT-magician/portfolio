@@ -1,0 +1,511 @@
+{
+  "pageId": "SCMS-CV-Pilots-Documentation_26838136",
+  "fileName": "SCMS-CV-Pilots-Documentation_26838136.html",
+  "title": "SCMS CV Pilots Documentation : SCMS CV Pilots Documentation",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 20, 2018",
+  "content": "\n                    <p style=\"text-align: center;\"><strong>Security Credential Management System <span class=\"inline-comment-marker\" data-ref=\"cea5b0ee-cf71-4d49-817e-98b5bc0cdb96\">Proof–of–Concept Implementation</span></strong></p><p style=\"text-align: center;\"><strong><abbr title=\"End Entity\">EE</abbr> Requirements and Specifications Supporting SCMS Software Release 1.2.2</strong></p><p style=\"text-align: center;\"><strong><br></strong></p><p style=\"text-align: center;\"></p><p style=\"text-align: center;\"><strong><br></strong></p><p style=\"text-align: center;\"><strong><br></strong></p>\n                    \n                    <h2 style=\"text-align: left;\" id=\"SCMSCVPilotsDocumentation-NoticeandDisclaimer\">Notice and Disclaimer</h2>\n                    <p>The initial SCMS Proof-of-Concept (POC) system was developed jointly through <abbr title=\"United States\">US</abbr> <abbr title=\"Department of Transportation\">DOT</abbr> and the Crash Avoidance Metrics Partnership (CAMP). The SCMS POC was formally closed in October 2018, however the key concepts, systems architectures and interfaces developed during the POC development are still utilized by SCMS providers today. The following sections provide the systems architectures, SCMS processes and interface descriptions that are still relevant and useful to any organization that is implementing connected vehicle devices that interface with an SCMS.</p>\n                    \n                    <h2 id=\"SCMSCVPilotsDocumentation-Introduction\">Introduction</h2><p>The Security Credential Management System (SCMS) Proof-of-Concept (POC) Implementation Project (SCMS POC Project) was initial conducted by the Crash Avoidance Metrics Partners LLC (CAMP LLC) Vehicle Safety Communications 5 (VSC5) Consortium. The goal of the SCMS POC design was to provide security services to support Vehicle-to-Vehicle (V2V) and Vehicle-to-Infrastructure (V2I) communications at current production levels of passenger vehicles (up to 17 million annually) for the first year of deployment. An important goal of the SCMS POC system was to provide a flexible architecture that was capable of scaling to support larger numbers of V2V and V2I devices in the years following initial deployment. It was anticipated that the SCMS POC design would provide both a stable platform and a research platform to support the USDOT and industry research needs prior to deployment. The work was originally sponsored by the National Highway Traffic Safety Administration (NHTSA) through Cooperative Agreement DTNH22-14-H-00449/0003 and was later transitioned to the Intelligent Transportation Systems (ITS) Joint Program Office (JPO) to support the Connected Vehicle (CV) Pilot Projects.</p><p>This document presents the requirements and specifications that were developed for the<strong> SCMS POC System Release 1.2</strong> from the perspective of an <strong>End Entity (EE)</strong>. An EE is any device that would enroll and receive certificates from an SCMS such as an Onboard Unit (OBU) or Roadside Unit (RSU). This document reflects the SCMS interfaces that were defined as part of the SCMS POC, which formally ended in October 2018. Although the SCMS POC has ended the interfaces described in this document are still relevant across the SCMS provider community and a useful reference for EE vendors and agencies deploying CV devices.</p>\n\n                    <h2 id=\"SCMSCVPilotsDocumentation-IntroductionforEEDevelopersEEDevs\">Introduction for EE Developers<span class=\"confluence-anchor-link\" id=\"SCMSCVPilotsDocumentation-EEDevs\"></span></h2><p>The following paragraph will guide you as an EE developer through this documentation highlighting requirements and <abbr title=\"Application Programming Interface\">API</abbr> documentation in the order of an EE's lifecycle. If you implement your EE software following this guide, you should have a device at the end that is able to communicate with the SCMS throughout the whole lifecycle.</p><ol><li>First of all you need a <a href=\"Secure-Environment-for-Device-Enrollment_27427267.html\">Secure Environment for Device Enrollment</a> where initialization and bootstrapping of your device will be executed</li><li>You need to have a device that applies to the requirements and descriptions laid out in <a href=\"27427262.html\">Hardware, Software and OS Security Requirements</a></li><li>You need to have a <a href=\"Approved-Random-Number-Generators_41353610.html\">True Random Number Generator</a></li><li>Your device needs to support in either hardware or software <a href=\"Approved-Cryptographic-Algorithms_27427058.html\">Approved Cryptographic Algorithms</a></li><li>You need to have an <span class=\"inline-comment-marker\" data-ref=\"11277162-7edd-41f7-b2f2-24d4ef08f8ec\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr></span> client that is able to communicate securely (<abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr>) to the SCMS as described in <a href=\"EE-RA-Communications---General-Guidance_27427071.html\">EE-RA Communications - General Guidance</a> and <a href=\"EE-SCMS-Core-Communication-Requirements_27427072.html\">EE-SCMS Core Communication Requirements</a></li><li>You need to know which <a href=\"Certificate-Types_27427012.html\">Certificate Types</a> you need to have on your device, which depends on the <a href=\"SCMS-PoC-Supported-V2X-Applications_27427021.html\">SCMS PoC Supported V2X Applications</a> that you want to run on your device</li><li>The EE lifecycle starts with&nbsp;<a href=\"58589462.html\">Use Case 2: OBE Bootstrapping (Manual)</a>, respectively <a href=\"58589469.html\">Use Case 12: RSE Bootstrapping (Manual)</a> depending on your EE type (<a href=\"Glossary_27427375.html#Glossary-OBE\">OBE</a> vs. <a href=\"Glossary_27427375.html#Glossary-RSE\">RSE</a>). Currently both processes are exactly the same.</li><li class=\"inline-comment-marker\">Based on the EE type you are developing, you then <span class=\"inline-comment-marker\" data-ref=\"5059fb7e-9ad8-419a-8a67-ef77226cf2d2\">create</span> and send one of the following requests. All devices should always check for a new local certificate chain file (API: <a href=\"RA---Download-Local-Certificate-Chain-File_27427354.html\">RA - Download Local Certificate Chain File</a>) and a new local policy file (API: <a href=\"RA---Download-Local-Policy-File_27427342.html\">RA - Download Local Policy File</a>) before sending subsequent request. All requests in this step #8 should be sent within the same HTTPS session.<br><ol><li>Pseudonym Certificates:<ol><li>Following the process in <a href=\"27426990.html\">Use Case 3: OBE Pseudonym Certificates Provisioning</a>, your OBE should create a pseudonym certificate batch request as described in <a href=\"27427080.html\">Step 3.1: Request for Pseudonym Certificates</a> and send it to the RA API as documented in <a href=\"RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html\">RA - Request Pseudonym Certificate Batch Provisioning</a>. Your OBE needs to create the butterfly seed pairs as described in <a href=\"27427064.html\">SCP1: Butterfly Keys</a>. Your OBE will get a response from RA with an <em><abbr title=\"Uniform Resource Locator\">URL</abbr></em> and a <em>download time</em>.</li><li>Once your OBE's clock reaches <em>download time</em>, your OBE can download the initial pseudonym certificate batch at <em>URL</em> following the process in <a href=\"27427088.html\">Step 3.3: Initial Download of Pseudonym Certificates</a> using the RA API as documented in <a href=\"RA---Download-Pseudonym-Certificate-Batch_27427344.html\">RA - Download Pseudonym Certificate Batch</a> and the .info file using RA's API documented in <a href=\"RA---Download-.info-File_27427339.html\">RA - Download .info File</a>.</li></ol></li><li>Application Certificate:<ol><li>Following the process in <a href=\"27427298.html\">Use Case 13: RSE Application Certificate Provisioning</a>, your RSE should create an application certificate request as described in <a href=\"27427303.html\">Step 13.1: Request RSE Application Certificate</a> and send it to the RA API as documented in <a href=\"RA---Request-Application-Certificate-Provisioning_27427352.html\">RA - Request Application Certificate Provisioning</a>. Your RSE will get a response from the RA with an <em>URL</em> and a <em>download time</em>.</li><li>Once your RSE's clock reaches <em>download time</em>, your RSE can download the application certificate&nbsp;at <em>URL</em> following the process in <a href=\"27427306.html\">Step 13.3: Download RSE Application Certificate</a> using the RA API as documented in <a href=\"RA---Download-Application-Certificate_27427353.html\">RA - Download Application Certificate</a>.</li></ol></li><li>OBE Identification Certificate:<ol><li>Following the process in <a href=\"27427325.html\">Use Case 19: OBE Identification Certificate Provisioning</a>, your OBE should create an identification certificate request as described in <a href=\"27427325.html\">Use Case 19: OBE Identification Certificate Provisioning</a> and send it to the RA API as documented in <a href=\"RA---Request-Identification-Certificate-Provisioning_41353635.html\">RA - Request Identification Certificate Provisioning</a>. Your OBE will get a response from RA with an <em>URL</em> and a <em>download time</em>.</li><li>Once your OBE's clock reaches <em>download time</em>, your OBE can download the identification certificate at <em>URL</em> following the process in <a href=\"27427328.html\">Step 19.3: Initial Download of OBE Identification Certificates</a> using the RA API as documented in <a href=\"RA---Download-Identification-Certificate_41353633.html\">RA - Download Identification Certificate</a>&nbsp;and the .info file using RA's API documented in <a href=\"RA---Download-.info-File_27427339.html\">RA - Download .info File</a>.</li></ol></li></ol></li><li>Depending on the certificate type, the SCMS constantly pre-generates them and your EE can download top-offs like this:<ol><li>Pseudonym Certificates: Whenever it suits your pseudonym certificate download strategy at a point of time that is after the time given in the .info file, follow the process described in <a href=\"27427090.html\">Step 3.5: Top-off Pseudonym Certificates</a> using RA's API documented in <a href=\"RA---Download-Pseudonym-Certificate-Batch_27427344.html\">RA - Download Pseudonym Certificate Batch</a> to download additional pseudonym certificates.</li><li>Identification Certificate: Whenever it suits your identification certificate download strategy at a point of time that is after the time given in the .info file, follow the process described in <a href=\"27427329.html\">Step 19.5: Top-off OBE Identification Certificates</a> using RA's API documented in <a href=\"RA---Download-Identification-Certificate_41353633.html\">RA - Download Identification Certificate</a> to download the next identification certificate.</li></ol></li><li>Your EE should download the latest CRL as often as possible but no later than once a week using the process described in <a href=\"27427183.html\">Use Case 6: CRL Download</a> using the API documented in&nbsp;<a href=\"https://wiki.campllc.org/display/SCP/MA+-+Download+CRL\" rel=\"nofollow\">MA - Download CRL</a>.</li><li>Your EE must verify incoming messages. Part of the verification is to check if the senders certificate was revoked following the process described in <a href=\"27427185.html\">Step 8.4: OBE CRL Check,</a> respectively <a href=\"27427308.html\">Step 16.4: RSE CRL Check</a>, as well as if a <abbr title=\"Certificate Authority\">CA</abbr> certificate in their certificate chain was revoked.</li><li>Report misbehavior: This is still <abbr title=\"To Be Determined\">TBD</abbr> and will be supported with SCMS Release 2</li><li>Re-enroll: This is still TBD and will be supported with SCMS Release 2</li></ol>\n\n                    <h2 id=\"SCMSCVPilotsDocumentation-TableofContents\">Available Pages</h2><p></p><ul class=\"childpages-macro\"><li><a href=\"Environments-documentation_60719122.html\">Environments documentation</a></li><li><a href=\"Requirements-and-Specifications_27426993.html\">Requirements and Specifications</a><ul class=\"childpages-macro\"><li><a href=\"Common-Requirements_27427011.html\">Common Requirements</a><ul class=\"childpages-macro\"><li><a href=\"SCMS-PoC-Supported-V2X-Applications_27427021.html\">SCMS PoC Supported <abbr title=\"Vehicle to Everything\">V2X</abbr> Applications</a></li><li><a href=\"Certificate-Types_27427012.html\">Certificate Types</a></li><li><a href=\"27427262.html\">Hardware, Software and <abbr title=\"Operating System\">OS</abbr> Security Requirements</a></li><li><a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a></li><li><a href=\"Cryptography_27427057.html\">Cryptography</a></li><li><a href=\"CRL-Series-Diagram_41353604.html\"><abbr title=\"Certificate Revocation List\">CRL</abbr> Series Diagram</a></li><li><a href=\"EE-RA-Communications---General-Guidance_27427071.html\">EE-<abbr title=\"Registration Authority\">RA</abbr> Communications - General Guidance</a></li><li><a href=\"EE-SCMS-Core-Communication-Requirements_27427072.html\">EE-SCMS Core Communication Requirements</a></li><li><a href=\"Overview-of-Used-Error-Codes_41353603.html\">Overview of Used Error Codes</a></li><li><a href=\"Re-enrollment_27427261.html\">Re-enrollment</a></li></ul></li><li><a href=\"Requirements-by-Use-Case_27426994.html\">Requirements by Use Case</a><ul class=\"childpages-macro\"><li><a href=\"58589462.html\">Use Case 2: <abbr title=\"On Board Equipment\">OBE</abbr> Bootstrapping (Manual)</a></li><li><a href=\"27426990.html\">Use Case 3: OBE Pseudonym Certificates Provisioning</a></li><li><a href=\"27427180.html\">Use Case 5: Misbehavior Reporting</a></li><li><a href=\"27427183.html\">Use Case 6: CRL Download</a></li><li><a href=\"27427184.html\">Use Case 8: OBE Pseudonym Certificate Revocation</a></li><li><a href=\"27427186.html\">Use Case 11: Backend Management</a></li><li><a href=\"58589469.html\">Use Case 12: <abbr title=\"Roadside Equipment\">RSE</abbr> Bootstrapping (Manual)</a></li><li><a href=\"27427298.html\">Use Case 13: RSE Application Certificate Provisioning</a></li><li><a href=\"27427307.html\">Use Case 16: RSE Application and OBE Identification Certificate Revocation</a></li><li><a href=\"27427309.html\">Use Case 18: Provide and Enforce Technical Policies</a></li><li><a href=\"27427325.html\">Use Case 19: OBE Identification Certificate Provisioning</a></li><li><a href=\"41353473.html\">Use Case 20: EE Re-Enrollment</a></li></ul></li></ul></li><li><a href=\"Software-Design-Documents_27427330.html\">Software Design Documents</a><ul class=\"childpages-macro\"><li><a href=\"Common---Services-View_27427332.html\">Common - Services View</a></li><li><a href=\"MA---Services-View_27427358.html\"><abbr title=\"Misbehavior Authority\">MA</abbr> - Services View</a><ul class=\"childpages-macro\"><li><a href=\"MA---Download-CRL_27427359.html\">MA - Download CRL</a></li></ul></li><li><a href=\"RA---Services-View_27427336.html\">RA - Services View</a><ul class=\"childpages-macro\"><li><a href=\"RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html\">RA - Request Pseudonym Certificate Batch Provisioning</a></li><li><a href=\"RA---Download-.info-File_27427339.html\">RA - Download .info File</a></li><li><a href=\"RA---Download-Local-Policy-File_27427342.html\">RA - Download Local Policy File</a></li><li><a href=\"RA---Download-Pseudonym-Certificate-Batch_27427344.html\">RA - Download Pseudonym Certificate Batch</a></li><li><a href=\"RA---Retrieve-Registration-Authority-Certificate_27427347.html\">RA - Retrieve Registration Authority Certificate</a></li><li><a href=\"RA---Request-Identification-Certificate-Provisioning_41353635.html\">RA - Request Identification Certificate Provisioning</a></li><li><a href=\"RA---Download-Identification-Certificate_41353633.html\">RA - Download Identification Certificate</a></li><li><a href=\"RA---Request-Application-Certificate-Provisioning_27427352.html\">RA - Request Application Certificate Provisioning</a></li><li><a href=\"RA---Download-Application-Certificate_27427353.html\">RA - Download Application Certificate</a></li><li><a href=\"RA---Download-Local-Certificate-Chain-File_27427354.html\">RA - Download Local Certificate Chain File</a></li><li><a href=\"RA---Submit-Misbehavior-Report_27427356.html\">RA - Submit Misbehavior Report</a></li></ul></li></ul></li><li><a href=\"Test-Vectors_27427361.html\">Test Vectors</a></li><li><a href=\"Glossary_27427375.html\">Glossary</a></li></ul>\n                    \n                    \n                ",
+  "links": [
+    {
+      "originalHref": "Secure-Environment-for-Device-Enrollment_27427267.html",
+      "text": "Secure Environment for Device Enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427262.html",
+      "text": "Hardware, Software and OS Security Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Approved-Random-Number-Generators_41353610.html",
+      "text": "True Random Number Generator",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Approved-Cryptographic-Algorithms_27427058.html",
+      "text": "Approved Cryptographic Algorithms",
+      "isInternal": true
+    },
+    {
+      "originalHref": "EE-RA-Communications---General-Guidance_27427071.html",
+      "text": "EE-RA Communications - General Guidance",
+      "isInternal": true
+    },
+    {
+      "originalHref": "EE-SCMS-Core-Communication-Requirements_27427072.html",
+      "text": "EE-SCMS Core Communication Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Certificate Types",
+      "isInternal": true
+    },
+    {
+      "originalHref": "SCMS-PoC-Supported-V2X-Applications_27427021.html",
+      "text": "SCMS PoC Supported V2X Applications",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589469.html",
+      "text": "Use Case 12: RSE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Glossary_27427375.html#Glossary-OBE",
+      "text": "OBE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Glossary_27427375.html#Glossary-RSE",
+      "text": "RSE",
+      "isInternal": false
+    },
+    {
+      "originalHref": "RA---Download-Local-Certificate-Chain-File_27427354.html",
+      "text": "RA - Download Local Certificate Chain File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Local-Policy-File_27427342.html",
+      "text": "RA - Download Local Policy File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27426990.html",
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427080.html",
+      "text": "Step 3.1: Request for Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+      "text": "RA - Request Pseudonym Certificate Batch Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427064.html",
+      "text": "SCP1: Butterfly Keys",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427088.html",
+      "text": "Step 3.3: Initial Download of Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "text": "RA - Download Pseudonym Certificate Batch",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "RA - Download .info File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427298.html",
+      "text": "Use Case 13: RSE Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427303.html",
+      "text": "Step 13.1: Request RSE Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Application-Certificate-Provisioning_27427352.html",
+      "text": "RA - Request Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427306.html",
+      "text": "Step 13.3: Download RSE Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Application-Certificate_27427353.html",
+      "text": "RA - Download Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427325.html",
+      "text": "Use Case 19: OBE Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427325.html",
+      "text": "Use Case 19: OBE Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Identification-Certificate-Provisioning_41353635.html",
+      "text": "RA - Request Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427328.html",
+      "text": "Step 19.3: Initial Download of OBE Identification Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Identification-Certificate_41353633.html",
+      "text": "RA - Download Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "RA - Download .info File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427090.html",
+      "text": "Step 3.5: Top-off Pseudonym Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "text": "RA - Download Pseudonym Certificate Batch",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427329.html",
+      "text": "Step 19.5: Top-off OBE Identification Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Identification-Certificate_41353633.html",
+      "text": "RA - Download Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427183.html",
+      "text": "Use Case 6: CRL Download",
+      "isInternal": true
+    },
+    {
+      "originalHref": "https://wiki.campllc.org/display/SCP/MA+-+Download+CRL",
+      "text": "MA - Download CRL",
+      "isInternal": false
+    },
+    {
+      "originalHref": "27427185.html",
+      "text": "Step 8.4: OBE CRL Check,",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427308.html",
+      "text": "Step 16.4: RSE CRL Check",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Environments-documentation_60719122.html",
+      "text": "Environments documentation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Requirements-and-Specifications_27426993.html",
+      "text": "Requirements and Specifications",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Common-Requirements_27427011.html",
+      "text": "Common Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "SCMS-PoC-Supported-V2X-Applications_27427021.html",
+      "text": "SCMS PoC Supported V2X Applications",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Certificate-Types_27427012.html",
+      "text": "Certificate Types",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427262.html",
+      "text": "Hardware, Software and OS Security Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Cryptography_27427057.html",
+      "text": "Cryptography",
+      "isInternal": true
+    },
+    {
+      "originalHref": "CRL-Series-Diagram_41353604.html",
+      "text": "CRL Series Diagram",
+      "isInternal": true
+    },
+    {
+      "originalHref": "EE-RA-Communications---General-Guidance_27427071.html",
+      "text": "EE-RA Communications - General Guidance",
+      "isInternal": true
+    },
+    {
+      "originalHref": "EE-SCMS-Core-Communication-Requirements_27427072.html",
+      "text": "EE-SCMS Core Communication Requirements",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Overview-of-Used-Error-Codes_41353603.html",
+      "text": "Overview of Used Error Codes",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Re-enrollment_27427261.html",
+      "text": "Re-enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Requirements-by-Use-Case_27426994.html",
+      "text": "Requirements by Use Case",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589462.html",
+      "text": "Use Case 2: OBE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27426990.html",
+      "text": "Use Case 3: OBE Pseudonym Certificates Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427180.html",
+      "text": "Use Case 5: Misbehavior Reporting",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427183.html",
+      "text": "Use Case 6: CRL Download",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427184.html",
+      "text": "Use Case 8: OBE Pseudonym Certificate Revocation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427186.html",
+      "text": "Use Case 11: Backend Management",
+      "isInternal": true
+    },
+    {
+      "originalHref": "58589469.html",
+      "text": "Use Case 12: RSE Bootstrapping (Manual)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427298.html",
+      "text": "Use Case 13: RSE Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427307.html",
+      "text": "Use Case 16: RSE Application and OBE Identification Certificate Revocation",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427309.html",
+      "text": "Use Case 18: Provide and Enforce Technical Policies",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427325.html",
+      "text": "Use Case 19: OBE Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353473.html",
+      "text": "Use Case 20: EE Re-Enrollment",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Software-Design-Documents_27427330.html",
+      "text": "Software Design Documents",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Common---Services-View_27427332.html",
+      "text": "Common - Services View",
+      "isInternal": true
+    },
+    {
+      "originalHref": "MA---Services-View_27427358.html",
+      "text": "MA - Services View",
+      "isInternal": true
+    },
+    {
+      "originalHref": "MA---Download-CRL_27427359.html",
+      "text": "MA - Download CRL",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Services-View_27427336.html",
+      "text": "RA - Services View",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+      "text": "RA - Request Pseudonym Certificate Batch Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "RA - Download .info File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Local-Policy-File_27427342.html",
+      "text": "RA - Download Local Policy File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Pseudonym-Certificate-Batch_27427344.html",
+      "text": "RA - Download Pseudonym Certificate Batch",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Retrieve-Registration-Authority-Certificate_27427347.html",
+      "text": "RA - Retrieve Registration Authority Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Identification-Certificate-Provisioning_41353635.html",
+      "text": "RA - Request Identification Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Identification-Certificate_41353633.html",
+      "text": "RA - Download Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Request-Application-Certificate-Provisioning_27427352.html",
+      "text": "RA - Request Application Certificate Provisioning",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Application-Certificate_27427353.html",
+      "text": "RA - Download Application Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Local-Certificate-Chain-File_27427354.html",
+      "text": "RA - Download Local Certificate Chain File",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Submit-Misbehavior-Report_27427356.html",
+      "text": "RA - Submit Misbehavior Report",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Test-Vectors_27427361.html",
+      "text": "Test Vectors",
+      "isInternal": true
+    },
+    {
+      "originalHref": "Glossary_27427375.html",
+      "text": "Glossary",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "US",
+      "definition": "United States"
+    },
+    {
+      "term": "DOT",
+      "definition": "Department of Transportation"
+    },
+    {
+      "term": "API",
+      "definition": "Application Programming Interface"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "URL",
+      "definition": "Uniform Resource Locator"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "TBD",
+      "definition": "To Be Determined"
+    },
+    {
+      "term": "V2X",
+      "definition": "Vehicle to Everything"
+    },
+    {
+      "term": "OS",
+      "definition": "Operating System"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "RSE",
+      "definition": "Roadside Equipment"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.597Z"
+}

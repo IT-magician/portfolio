@@ -1,0 +1,77 @@
+{
+  "pageId": "27427295",
+  "fileName": "27427295.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.3: Revoke Elector",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 23, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.3:RevokeElector-Goals\">Goals</h2><p>To produce the \"Revoke Elector\" message, signed by at least the required number (a quorum as defined in the Global Policy File) of non-revoked Electors, which SCMS Components and <abbr title=\"End Entities\">EEs</abbr> must receive through updates to the composite <abbr title=\"Certificate Revocation List\">CRL</abbr> and act on.</p><h2 id=\"Step11.2.3:RevokeElector-BackgroundandStrategicFit\"><span style=\"line-height: 1.5;\">Background and Strategic Fit</span></h2><p>The SCMS Manager determines that an elector is to be revoked. The SCMS Manager employs the non-revoked electors to authenticate the revocation of the impacted elector.&nbsp;The SCMS Manager creates the message indicating the revocation of the elector, including the elector's certificate and has this message signed by at least \"quorum\" (as defined in the GPF) of non-revoked electors. The SCMS Manager instructs each elector that it desires to sign this message, authenticating the removal of the impacted elector. These signatures on the message are accumulated into a final message. In this way the SCMS Manager controls the production of the&nbsp;\"Revoke Elector\"&nbsp;message,&nbsp;signed by at least&nbsp;<em>m</em>&nbsp;non-revoked electors. This message is&nbsp;delivered to all affected SCMS Components via the CRL (proprietary messaging may also be used for faster distribution). To validate the&nbsp;\"Revoke Elector\"&nbsp;message, components or EEs must verify at least <em>\"quorum\"</em>&nbsp;non-revoked electors&nbsp;signatures.</p><p>The TCotSCMSM will inform the PG to create a new <abbr title=\"Global Certificate Chain File\">GCCF</abbr>, removing the impacted elector signature from the root endorsement. If this causes the Root <abbr title=\"Certificate Authority\">CA</abbr> to be endorsed by fewer than \"quorum\" electors, then the TCotSCMSM must establish a new elector and have it endorse the existing root CA. The only alternative is to publish a GCCF with an un-endorsed root, which would implicitly revoke the root and cause all operations to cease.</p><h2 id=\"Step11.2.3:RevokeElector-Assumptions\">Assumptions</h2><ul><li>Root Management is performed according to the&nbsp;Elector&nbsp;scheme outlined in&nbsp;<a href=\"https://wiki.campllc.org/display/SP/Root+Management+and+Revocation+Recovery\" rel=\"nofollow\">Root Management and Revocation Recovery</a></li><li>Elector revocation is communicated to all SCMS components through updates to the CRL</li></ul><h2 class=\"p1\" id=\"Step11.2.3:RevokeElector-Procedure\">Procedure</h2><p class=\"p1\"><span class=\"s1\">To implement this process, an authorized agent of the SCMS manager will perform the following actions:</span></p><ol class=\"ol1\"><li class=\"li1\">Obtain a copy of the elector certificate that is to be revoked. The SCMS Manager shall define procedures for validating that the correct certificate is being revoked.</li><li class=\"li1\"><span class=\"s1\">An agent of the SCMS Manager will present the elector certificate to all existing, valid SCMS electors and request that they produce a digitally signed \"removeElector\" ballot. The collection of all independent signed ballots from existing electors is then assembled into one elector removal message with the sequence of elector signatures attached. The number of elector signatures must be greater than or equal to the value of 'quorum' defined in the current GPF. This is a manual process to be implemented by the TCotSCMSM.</span></li><li class=\"li1\"><span class=\"s1\">The complete elector removal message with signatures is then delivered to the <abbr title=\"Certificate Revocation List Generator\">CRLG</abbr> for inclusion in an updated composite CRL file. Note that the CRLG signature is not necessary for the root removal to be validated by SCMS components. The role of the CRLG in this case is to assemble updates to the composite CRL with all active elector removal messages included. </span></li><li class=\"li1\"><span class=\"s1\"><span class=\"s1\">SCMS components (including EEs) that receive a composite CRL with one or more elector removal messages attached must check to see if they have already removed the&nbsp;elector from their trust store. If they have not, they must validate the elector removal message by checking the attached signatures and confirming it has non-expired certificates for at least 'quorum' of the existing electors that signed the message. Once the message is validated, the SCMS component must remove the elector certificate&nbsp;from their trust store.&nbsp;</span>When validating an elector removal message, an entity must check that the data, which is signed in each elector endorsement (specifically the&nbsp;<em>TbsElectorEndorsement</em>&nbsp;element) is identical&nbsp;and that the&nbsp;<em>EndorsementType</em>&nbsp;element of the data has the value&nbsp;<em>removeElector</em>. </span></li><li class=\"li1\"><span class=\"s1\">When an elector is removed from a device's trust store, the device must then cease to trust any new messages endorsed by that elector.</span></li></ol><h2 id=\"Step11.2.3:RevokeElector-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.3:RevokeElector-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-188802599\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n\n    \n\n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step11.2.3:RevokeElector-Design\">Design</h2><p>The design for the elector-based management system is described in the <a href=\"Elector-based-Root-Management_27427051.html\">Elector-based Root Management</a>&nbsp;section.</p>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/Root+Management+and+Revocation+Recovery",
+      "text": "Root Management and Revocation Recovery",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Elector-based-Root-Management_27427051.html",
+      "text": "Elector-based Root Management",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "GCCF",
+      "definition": "Global Certificate Chain File"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List Generator"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.382Z"
+}

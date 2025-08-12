@@ -1,0 +1,93 @@
+{
+  "pageId": "27427328",
+  "fileName": "27427328.html",
+  "title": "SCMS CV Pilots Documentation : Step 19.3: Initial Download of\n                        OBE Identification Certificates",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 19: OBE Identification Certificate\n                                    Provisioning",
+      "href": "27427325.html"
+    }
+  ],
+  "metadata": "Last modified on Jul 20, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\">\n                        <div class=\"table-wrap\"></div>\n                    </div>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-Goals\">Goals</h2>\n                    <p>The goal is to provide a reliable, secure, and timely method for certified devices to download\n                        OBE identification certificates.&nbsp;</p>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-BackgroundandStrategicFit\">\n                        Background and Strategic Fit</h2>\n                    <p>The purpose of this use-case is to provide a defined method that a certified OBE can use to\n                        download OBE identification certificates. The download will include:</p>\n                    <ol>\n                        <li>File(s) X_i.zip that each include <span class=\"inline-comment-marker\" data-ref=\"83bb14de-fbcd-4af9-9fa2-0a2fb38affde\">one file X_i with a certificate</span>\n                        </li>\n                        <li>A .info file that includes the time when new certificates will be available<span class=\"inline-comment-marker\" data-ref=\"3e7f28ce-ce14-4b02-9226-23a260a2bdf9\">&nbsp;</span>\n                        </li>\n                        <li>A local certificate&nbsp;chain&nbsp;file containing all <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr>\n                            certificate chains required to validate the identification certificates, but not the policy\n                            file</li>\n                    </ol>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-Assumptions\">Assumptions</h2>\n                    <ul>\n                        <li>The OBE has successfully completed <a href=\"27427319.html\">Step 19.1: Request for OBE\n                                Identification Certificates</a></li>\n                        <li>The <abbr title=\"Registration Authority\">RA</abbr> retrieved the issued certificates from\n                            the PCA, zipped, and\n                            stored them in a folder for OBE to download</li>\n                    </ul>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-ProcessSteps\">Process Steps</h2>\n                    <ol>\n                        <li>The OBE downloads the&nbsp;<a href=\"27427311.html\">Local Policy File (LPF)</a> and the <a href=\"41353502.html\">Local Certificate Chain File (LCCF)</a>, as done before in <a href=\"27427319.html\">Step 19.1: Request for OBE Identification Certificates</a><br>\n                            <ol>\n                                <li>If there is an updated LCCF, the <abbr title=\"End Entity\">EE</abbr> applies all\n                                    changes to its trust-store\n                                    (necessary for the PCA Certificate Validations)</li>\n                                <li>If there is an updated LPF, the EE applies those changes<span class=\"confluence-link\">\n                                        <br></span></li>\n                            </ol>\n                        </li>\n                        <li>The OBE downloads the new OBE identification certificates using the API documented in <a href=\"RA---Download-Identification-Certificate_41353633.html\">RA - Download\n                                Identification Certificate</a></li>\n                        <li>The OBE downloads .info file using the API documented in <a href=\"RA---Download-.info-File_27427339.html\">RA - Download .info File</a></li>\n                    </ol>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-ErrorHandling\">Error Handling</h2>\n                    <ol>\n                        <li>The OBE will abandon further interactions with the RA after a certain number of failed\n                            communication attempts resulted in critical errors</li>\n                        <li>The OBE will not attempt to execute the certificate provisioning process if it finds itself\n                            on the latest <abbr title=\"Certificate Revocation List\">CRL</abbr> (assumes that a willful\n                            violator has not\n                            compromised the device). The\n                            device will need to execute the certification/bootstrap process again to exit a revoked\n                            state.</li>\n                    </ol>\n                    <h2 id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-Requirements\"></h2>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step19.3:InitialDownloadofOBEIdentificationCertificates-\"></span>\n                        <div class=\"scroll-title-body\">\n                            <p>\n                            </p><div id=\"refresh-module-1725535625\" class=\"refresh-module-id jira-table\">\n                                <p>\n                                </p>\n                            </div>\n                            <div class=\"scroll-title-macro-title\"></div>\n                        </div>\n                        <p><br></p>\n                    </div>\n                ",
+  "links": [
+    {
+      "originalHref": "27427319.html",
+      "text": "Step 19.1: Request for OBE\n                                Identification Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427311.html",
+      "text": "Local Policy File (LPF)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "41353502.html",
+      "text": "Local Certificate Chain File (LCCF)",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427319.html",
+      "text": "Step 19.1: Request for OBE Identification Certificates",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-Identification-Certificate_41353633.html",
+      "text": "RA - Download\n                                Identification Certificate",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Download-.info-File_27427339.html",
+      "text": "RA - Download .info File",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "OBE",
+      "definition": "Onboard Equipment"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.442Z"
+}

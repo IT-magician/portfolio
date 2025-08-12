@@ -1,0 +1,65 @@
+{
+  "pageId": "27427206",
+  "fileName": "27427206.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.1: Add SCMS Component",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.1:AddSCMSComponent-Goals\">Goals</h2><p>The goal of this use case with its collection of subsequent steps is to describe the procedures for adding backend SCMS components to the system. In all cases, before a component can be added it must first be setup correctly using the appropriate&nbsp;<a class=\"unresolved\" href=\"#\">Component Setup</a> use case.</p><h2 id=\"Step11.1:AddSCMSComponent-Assumptions\"><span>Assumptions</span></h2><ul><li>All components that will be added to the SCMS have already been configured using the&nbsp;appropriate&nbsp;<a class=\"unresolved\" href=\"#\">Component Setup</a>&nbsp;use case</li><li>All components that will be added to the SCMS have been certified and approved through a process defined by the SCMS Manager</li><li>The addition of any new SCMS component is coordinated and managed by an authorized agent of the SCMS Manage or local <abbr title=\"Intermediate Certificate Authority\">ICA</abbr> Manager</li><li>Many of the steps in the component add procedure are defined as \"manual\" and are not fully specified or defined in SCMS requirements. The details for these procedures will be defined by individual&nbsp;implementations. The goal of the SCMS requirements and these use cases are to preserve the security and integrity of the SCMS system and ensure&nbsp;compatibility&nbsp;among individual SCMS components while granting significant latitude for diverse implementations.</li></ul><h2 id=\"Step11.1:AddSCMSComponent-Conditions\">Conditions</h2><p>A new SCMS component may be added under five conditions. In many cases, these conditions require the same add procedure, but there are situations where the procedure is very different. The five conditions are defined here. Individual component use cases will describe the procedure for adding the new component or managing the transition to the component's parameters.</p><ol><li>Net New<ol><li>This is the case where a net-new component is being added to the SCMS. This new component will be configured to receive and process messages from other components.</li><li>New components are assumed to have internal storage that is prepared to store new data, but that is in a state that is initially cleared.</li></ol></li><li>SCMS Certificate Retired and Re-Issued<ol><li>Most SCMS components have an SCMS certificate that has a useful life that is shorter than the expiration time for the certificate. At the end of this useful life, the old certificate is retired and an ICA or root <abbr title=\"Certificate Authority\">CA</abbr> will issue a new certificate.</li><li>When a certificate is retired, previous signatures issued by that component may still be trusted, so normal operation may resume without the need to re-certify any sub-components.</li></ol></li><li><span>Component Decommissioned and Replaced</span><ol><li>An SCMS component may be securely decommissioned and replaced. At a high level, this implies that the private key is securely destroyed or the physical device is put into secure storage. When this happens, the SCMS Manager or local ICA Manager may determine that the component's SCMS certificate does not need to be revoked.</li><li>In this situation, a replacement component may share the same network address as the original component and it may be possible to transfer securely the internal storage of the original component to the new device. However, the replacement component will have a new SCMS certificate.</li><li>Note that this condition is very similar to a retired SCMS certificate, but in this case, the component is being replaced with a new device and it may happen prior to the planned end of useful life for the original SMCS certificate.</li></ol></li><li>SCMS Certificate Revoked, Component Replaced or Re-Certified<ol><li>When a component's certificate is revoked, it may be necessary to replace or re-certify the component.</li><li>In this situation, the replacement (or re-certified) component is assumed to have the same network address (but it will require a new <abbr title=\"Transport Layer Security\">TLS</abbr> certificate) as the original component but it will have a new key pair, new SCMS certificate, and the component's internal memory will be cleared.</li></ol></li><li>Certifying SCMS Certificate Revoked, Component Re-Certified<ol><li>When any higher level CA in the chain that issued a component's SCMS certificate is revoked, then the component' SCMS certificate shall also be treated as untrusted and implicitly revoked.</li><li>When this happens, the SCMS Manager or local ICA Manager may determine that the impacted components can be re-certified and re-used.</li><li>As in the case where the device itself is revoked, the component may retain the same network address (and possibly the same TLS certificate), but it will have a new SCMS certificate and the internal storage may be cleared.</li><li>Note that this condition is very similar to the case where the SCMS certificate of the component is revoked and is treated as equivalent in most of the component add use cases.</li></ol></li></ol>\n                    ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "Component Setup",
+      "isInternal": true
+    },
+    {
+      "originalHref": "#",
+      "text": "Component Setup",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.365Z"
+}

@@ -1,0 +1,80 @@
+{
+  "pageId": "Approved-Random-Number-Generators_41353610",
+  "fileName": "Approved-Random-Number-Generators_41353610.html",
+  "title": "SCMS CV Pilots Documentation : Approved Random Number Generators",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    }
+  ],
+  "metadata": "Last modified on Dec 07, 2016",
+  "content": "\n                    <p>This is a non-exhaustive list of recommended software random number generators. Generally,\n                        hardware random number generators are preferred. Both types should follow the requirements\n                        specified in <a href=\"https://wiki.campllc.org/display/SP/CB2%3A+Types+of+Cryptographic+Algorithms#CB2:TypesofCryptographicAlgorithms-RNG\" rel=\"nofollow\">CB2: Types of Cryptographic Algorithms</a>.</p>\n                    <p>Based on java documentation, a random number can be generated using SecureRandom. This class\n                        provides a cryptographically strong random number generator (RNG).</p>\n                    <div class=\"code panel pdl\" style=\"border-width: 1px;\">\n                        <div class=\"codeContent panelContent pdl\">\n                            <pre class=\"syntaxhighlighter-pre\" data-syntaxhighlighter-params=\"brush: java; gutter: false; theme: Confluence\" data-theme=\"Confluence\">public class SecureRandom extends Random\n/*\nA cryptographically strong random number minimally complies with the statistical random number generator\ntests specified in <abbr title=\"Federal Information Processing Standards\">FIPS</abbr> 140-2, Security Requirements for\nCryptographic Modules. SecureRandom must produce\nnon-deterministic output. SecureRandom is acceptable only if seeding/entropy source is provable sufficiently secure\n*/\npublic static void main(String[] args) t....... {\n    SecureRandom ranGen = new SecureRandom();\n}</pre>\n                        </div>\n                    </div>\n                    <p><strong>Implementation</strong></p>\n                    <ul>\n                        <li>A software based RNG solution shall be sufficient through CV pilot until hardware based\n                            solutions are identified and accepted.</li>\n                        <li>Java SecureRandom running on a virtual machine is only acceptable if the host machine\n                            entropy is accessible and used by the VM. This can be accomplished by employing utilities\n                            such as&nbsp;virtio-rng. Please check your desired VM implementation for support of such a\n                            feature.&nbsp;</li>\n                    </ul>\n                    <p><strong>Testing</strong></p>\n                    <ul>\n                        <li>The used RNG shall be tested using the <abbr title=\"National Institute of Standards and Technology\">NIST</abbr>\n                            SP800-22b statistical test suite\n                            \"sts-2.1.1\". A description of the test suite (<a href=\"http://csrc.nist.gov/publications/nistpubs/800-22-rev1a/SP800-22rev1a.pdf\" class=\"external-link\" rel=\"nofollow\">NIST Special Publication 800-22rev1a</a>, dated\n                            April 2010) and the NIST statistical test suite software sts-2.1.1 are available at <a href=\"http://csrc.nist.gov/groups/ST/toolkit/rng/documentation_software.html\" class=\"external-link\" rel=\"nofollow\">http://csrc.nist.gov/groups/ST/toolkit/rng/documentation_software.html</a>.&nbsp;\n                        </li>\n                        <li>The NIST test suite allows testing an input file of RNG output with various tests. The\n                            following tests shall be performed. All tests shall use sufficiently sized input files to\n                            the NIST test suite. &nbsp;<ol>\n                                <li><em>Test Randomness</em>: Generate random output of SecureRandom on the VM and run\n                                    <em>all</em> tests of the NIST test suite.</li>\n                                <li><em>Test Seeding</em>: Generate random output o_1 of SecureRandom on the VM at time\n                                    t (relative to start-up time). Restart the VM and generate random output o_2 of\n                                    SecureRandom on the VM at time t (relative to start-up time). Combine o_1 and o_2 in\n                                    a single file, and run the full NIST test suite. &nbsp;</li>\n                                <li><em>Test nonce and reconstruction values</em>: While an SCMS component operates\n                                    normally, store the output of SecureRandom in a file and run the full NIST test\n                                    suite.&nbsp;</li>\n                            </ol>\n                        </li>\n                        <li>A third party description of proper RNG testing can be found at&nbsp;<a href=\"http://www.st.com/web/en/resource/technical/document/application_note/DM00073853.pdf\" class=\"external-link\" rel=\"nofollow\">http://www.st.com/web/en/resource/technical/document/application_note/DM00073853.pdf</a>\n                            (cp. sections <span class=\"inline-comment-marker\" data-ref=\"c9193269-05e7-4a1a-a7c2-7db06a8e8cfb\">2 and 3). </span></li>\n                    </ul>\n                ",
+  "links": [
+    {
+      "originalHref": "https://wiki.campllc.org/display/SP/CB2%3A+Types+of+Cryptographic+Algorithms#CB2:TypesofCryptographicAlgorithms-RNG",
+      "text": "CB2: Types of Cryptographic Algorithms",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://csrc.nist.gov/publications/nistpubs/800-22-rev1a/SP800-22rev1a.pdf",
+      "text": "NIST Special Publication 800-22rev1a",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://csrc.nist.gov/groups/ST/toolkit/rng/documentation_software.html",
+      "text": "http://csrc.nist.gov/groups/ST/toolkit/rng/documentation_software.html",
+      "isInternal": true
+    },
+    {
+      "originalHref": "http://www.st.com/web/en/resource/technical/document/application_note/DM00073853.pdf",
+      "text": "http://www.st.com/web/en/resource/technical/document/application_note/DM00073853.pdf",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "FIPS",
+      "definition": "Federal Information Processing Standards"
+    },
+    {
+      "term": "NIST",
+      "definition": "National Institute of Standards and Technology"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/41353610/41353612.png",
+      "text": "image2016-4-5 14:43:1.png"
+    },
+    {
+      "href": "attachments/41353610/41353611.png",
+      "text": "image2016-4-5 14:45:57.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.479Z"
+}

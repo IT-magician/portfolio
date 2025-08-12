@@ -1,0 +1,135 @@
+{
+  "pageId": "CAMP-PSID-Transfer-Process_91357193",
+  "fileName": "CAMP-PSID-Transfer-Process_91357193.html",
+  "title": "SCMS CV Pilots\n                        Documentation : CAMP PSID Transfer Process",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "SCMS PoC\n                                    Supported V2X\n                                    Applications",
+      "href": "SCMS-PoC-Supported-V2X-Applications_27427021.html"
+    }
+  ],
+  "metadata": "Last modified on Jan 09, 2018",
+  "content": "\n                    <div>\n                        <div>\n                            <div class=\"im\">\n                                <div>Crash Avoidance Metric Partners LLC has registered 16 PSIDs with <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 and\n                                    IEEE <abbr title=\"Registration Authority\">RA</abbr> and included them in the <a href=\"Environments-documentation_60719122.html\">PROD</a> <abbr title=\"Intermediate Certificate Authority\">ICA</abbr> certificate. Before\n                                    requesting certificates with one of those PSIDs, the PSID has to be re-assigned\n                                    following this process, otherwise your request will be rejected:<br>\n                                    <ol>\n                                        <li>The requesting organization mails their request to <a href=\"mailto:psid-request@campllc.org\" class=\"external-link\" rel=\"nofollow\">psid-request@campllc.org</a>, with a copy also sent to <a href=\"mailto:ieee-registration-authority@ieee.org\" class=\"external-link\" rel=\"nofollow\">ieee-registration-authority@ieee.org</a>. The mail should\n                                            include:<ol>\n                                                <li>A specific note that this is a request for a transfer of one of the\n                                                    CAMP CV Pilot Application PSIDs</li>\n                                                <li>The standard PSID request form from&nbsp;<a href=\"http://standards.ieee.org/develop/regauth/psid/psid_application.pdf\" class=\"external-link\" rel=\"nofollow\">http://standards.ieee.org/develop/regauth/psid/psid_application.pdf</a>,\n                                                    filled out in full</li>\n                                                <li>An explanation of how the PSID will be used in the Pilot Deployments\n                                                    so that CAMP can determine whether the use case warrants the use of\n                                                    one of the CAMP PSIDs.&nbsp;</li>\n                                            </ol>\n                                        </li>\n                                        <li>If CAMP is not satisfied that there is a compelling reason to transfer, CAMP\n                                            engages in correspondence with the requester to understand why it is\n                                            necessary to use one of the CAMP PSIDs.&nbsp;</li>\n                                        <li>Once CAMP is satisfied that the transfer is necessary, CAMP mails a response\n                                            back to the requester and&nbsp;<a href=\"mailto:ieee-registration-authority@ieee.org\" class=\"external-link\" rel=\"nofollow\">ieee-registration-authority@ieee.org</a>. CAMP also sends\n                                            copies of its response to <a href=\"mailto:kevin.s.smith@cox.net\" class=\"external-link\" rel=\"nofollow\">kevin.s.smith@cox.net</a>&nbsp;and&nbsp;<a href=\"mailto:wwhyte@onboardsecurity.com\" class=\"external-link\" rel=\"nofollow\">wwhyte@onboardsecurity.com</a>. This mail includes a soft\n                                            copy of a letter on CAMP letterhead stating&nbsp;that the transfer is requested\n                                            by CAMP subject to review by the PSID allocation subgroup in 1609. The mail\n                                            instructs the requester to fill out the IEEE-RA Change of Information\n                                            form,&nbsp;<a href=\"http://standards.ieee.org/develop/regauth/psid/infocx.html\" class=\"external-link\" rel=\"nofollow\">http://standards.ieee.org/develop/regauth/psid/infocx.html</a>.\n                                        </li>\n                                        <li>The requesting organization fills out an IEEE-RA Change of Information\n                                            form.&nbsp; In that form, the requester must provide the email address of a\n                                            contact at CAMP who can approve the transfer (<a href=\"mailto:psid-request@campllc.org\" class=\"external-link\" rel=\"nofollow\">psid-request@campllc.org</a>), as well as the email\n                                            address of the organization’s contact.</li>\n                                        <li>The IEEE&nbsp;RA does their vetting:&nbsp;<ol>\n                                                <li>RA requires formal documentation from the entity, including the name\n                                                    of the application, etc. The RA may require other formal\n                                                    documentation from the entity as they see fit.</li>\n                                                <li>RA passes the request to the 1609 PSID allocation subgroup for\n                                                    review.</li>\n                                            </ol>\n                                        </li>\n                                        <li>The request is put on the agenda of the monthly PSID allocation meeting\n                                            (first Wednesday of every month) for 1609 review.</li>\n                                        <li>If the request is approved, the 1609 subgroup contacts CAMP (<a href=\"mailto:psid-request@campllc.org\" class=\"external-link\" rel=\"nofollow\">psid-request@campllc.org</a>), the\n                                            IEEE-RA (<a href=\"mailto:ieee-registration-authority@ieee.org\" class=\"external-link\" rel=\"nofollow\">ieee-registration-authority@ieee.org</a>), and the\n                                            original requester to inform them that the request has been approved.</li>\n                                        <li>IEEE-RA carries out any further necessary due diligence, updates the online\n                                            list of assigned PSIDs, and notifies the requesting organization, the 1609\n                                            subgroup, and CAMP that the transfer is complete.</li>\n                                    </ol>\n                                    <p>Once step 7 of the process is successfully completed, CAMP will update <a href=\"SCMS-PoC-Supported-V2X-Applications_27427021.html\">SCMS PoC Supported\n                                            <abbr title=\"Vehicle-to-everything\">V2X</abbr> Applications</a> and inform the <abbr title=\"United States Department of Transportation\">USDOT</abbr> and\n                                        their contractors to start\n                                        accepting enrollment requests with the transferred PSID for eligible devices.\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                ",
+  "links": [
+    {
+      "originalHref": "Environments-documentation_60719122.html",
+      "text": "PROD",
+      "isInternal": true
+    },
+    {
+      "originalHref": "mailto:psid-request@campllc.org",
+      "text": "psid-request@campllc.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:ieee-registration-authority@ieee.org",
+      "text": "ieee-registration-authority@ieee.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://standards.ieee.org/develop/regauth/psid/psid_application.pdf",
+      "text": "http://standards.ieee.org/develop/regauth/psid/psid_application.pdf",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:ieee-registration-authority@ieee.org",
+      "text": "ieee-registration-authority@ieee.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:kevin.s.smith@cox.net",
+      "text": "kevin.s.smith@cox.net",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:wwhyte@onboardsecurity.com",
+      "text": "wwhyte@onboardsecurity.com",
+      "isInternal": false
+    },
+    {
+      "originalHref": "http://standards.ieee.org/develop/regauth/psid/infocx.html",
+      "text": "http://standards.ieee.org/develop/regauth/psid/infocx.html",
+      "isInternal": true
+    },
+    {
+      "originalHref": "mailto:psid-request@campllc.org",
+      "text": "psid-request@campllc.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:psid-request@campllc.org",
+      "text": "psid-request@campllc.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "mailto:ieee-registration-authority@ieee.org",
+      "text": "ieee-registration-authority@ieee.org",
+      "isInternal": false
+    },
+    {
+      "originalHref": "SCMS-PoC-Supported-V2X-Applications_27427021.html",
+      "text": "SCMS PoC Supported\n                                            V2X Applications",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    },
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CAMP",
+      "definition": "Crash Avoidance Metrics Partners LLC"
+    },
+    {
+      "term": "PSID",
+      "definition": "Provider Service Identifier"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "V2X",
+      "definition": "Vehicle-to-everything"
+    },
+    {
+      "term": "USDOT",
+      "definition": "United States Department of Transportation"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.480Z"
+}

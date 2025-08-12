@@ -1,0 +1,70 @@
+{
+  "pageId": "27427311",
+  "fileName": "27427311.html",
+  "title": "SCMS CV Pilots Documentation : Step 18.2: Generate Local Policies for EEs",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 18: Provide and Enforce Technical Policies",
+      "href": "27427309.html"
+    }
+  ],
+  "metadata": "Last modified on Mar 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step18.2:GenerateLocalPoliciesforEEs-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>It is the responsibility of the authorized managers of EE operations to configure EEs properly. The <abbr title=\"Registration Authority\">RA</abbr>, therefore, needs to provide its own appropriate, RA-specific local policy file to the EEs under its jurisdiction.&nbsp;Local EE policies are defined by <abbr title=\"Original Equipment Manufacturer\">OEMs</abbr>, or other authorized managers of EE operations, for particular EE devices or EE device groups. The local EE policies must be consistent with relevant global policies. The RA needs to construct its own local policy file, within any restrictions imposed by global policies, and include all fields in the global policy file that are relevant to the EEs within that RA's jurisdiction.<span class=\"inline-comment-marker\" data-ref=\"0aa0f4c6-7f88-4ed0-b9a4-39ebdae750df\">&nbsp;</span></p><h2 id=\"Step18.2:GenerateLocalPoliciesforEEs-Design\"><span class=\"inline-comment-marker\" data-ref=\"18263fb3-edd0-45a1-bf7a-536f80316c79\">Design</span></h2><p>The Local Policy File (LPF) has one section of interest: Custom Policy. This section is a local representation of the Global Policy File with custom changes requested by the RA that issues the file. The RA has the option to remove any GPF values that are not relevant for any of the EE's that is services. The RA may also modify some global default values and replace them with local settings. The data elements for the Custom Policy section of the LPF are identical to the data elements for the GPF (listed here:&nbsp;<a href=\"27427310.html\">Step 18.1: Policy Configuration Options</a>). The Policy Generator (PG) must validate and sign the custom policy.</p><p>In creating the Custom Policy section of the LPF, it is assumed that the RA will start with the latest version of the Global Policy File (GPF) and make adjustments or delete specific data elements based on the needs of the EEs that it services. If the RA chooses to make no changes to the GPF, it must copy the content of the GPF into the Custom Policy section of the LPF. This allows the EEs to download a single policy file (the complete LPF) which contains all relevant policies.&nbsp;</p><p>Once the Custom Policy is created, the RA shall send a copy of the data structure to the PG to be validated and signed. Since the Custom Policy shares the same structure as the GPF, the RA's host ID is added to the Custom Policy to identify clearly which RA created the content. If the PG approves the Custom Policy, it will sign the complete structure (including the RA Host ID) and send it back to the RA. Note that if the RA Host ID changes, it will need to request a new Custom Policy signature to match the new Host ID.</p><p><span class=\"inline-comment-marker\" data-ref=\"4fc7ec9d-eec4-42de-acbb-3a09ef58e6ed\">Specific details on which GPF parameters may be modified or eliminated when translating the GPF into the Custom Policy section of the LPF must be defined by the SCMS Manager</span> and implemented by the Policy Generator in validating signature requests.</p><h2 id=\"Step18.2:GenerateLocalPoliciesforEEs-Access&amp;Download\">Access &amp; Download</h2><p style=\"text-align: left;\"><span>To download the LPF, the EE will retrieve it from an URL defined in <a href=\"RA---Services-View_27427336.html\">RA - Services View</a>.<br></span></p><p>The EE will download the files via a HTTP get request, analogous with the mechanism used to download the pseudonym certificate batch files.</p><h2 id=\"Step18.2:GenerateLocalPoliciesforEEs-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step18.2:GenerateLocalPoliciesforEEs-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module-1017743352\" class=\"refresh-module-id jira-table\">\n<p>\n    \n  \n</p></div><div class=\"scroll-title-macro-title\"></div></div><h2 id=\"Step18.2:GenerateLocalPoliciesforEEs-NotDoing\">Not Doing</h2><p>The current Design foresees two sections in the LPF, whereas the second section is not used in the current version of the SCMS but might be utilized in future versions:</p><ol><li>Custom Policy - This section is a local representation of the Global Policy File with custom changes requested by the RA that issues the file. The RA has the option to remove any GPF values that are not relevant to any of the EE's that is services. The RA may also modify some global default values and replace them with local settings. The data elements for the Custom Policy section of the LPF are identical to the data elements for the GPF (listed here:&nbsp;<a href=\"27427310.html\">Step 18.1: Policy Configuration Options</a>). The Policy Generator (PG) must validate and sign the custom policy.</li><li>Local Policy - This section contains local parameters that are not included in the Global Policy File but helps manage the EEs under RA's jurisdiction through additional configuration parameters. This section is signed by the RA only and added to the LPF after the Custom Policy was added.</li></ol>\n                    </div>\n\n                    \n                                                        \n                                      \n                ",
+  "links": [
+    {
+      "originalHref": "27427310.html",
+      "text": "Step 18.1: Policy Configuration Options",
+      "isInternal": true
+    },
+    {
+      "originalHref": "RA---Services-View_27427336.html",
+      "text": "RA - Services View",
+      "isInternal": true
+    },
+    {
+      "originalHref": "27427310.html",
+      "text": "Step 18.1: Policy Configuration Options",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "EEs",
+      "definition": "End Entities"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "OEMs",
+      "definition": "Original Equipment Manufacturer"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.413Z"
+}

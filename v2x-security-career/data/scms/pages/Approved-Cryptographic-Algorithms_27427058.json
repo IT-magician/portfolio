@@ -1,0 +1,64 @@
+{
+  "pageId": "Approved-Cryptographic-Algorithms_27427058",
+  "fileName": "Approved-Cryptographic-Algorithms_27427058.html",
+  "title": "SCMS CV Pilots Documentation : Approved Cryptographic Algorithms",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Cryptography",
+      "href": "Cryptography_27427057.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 06, 2017",
+  "content": "\n                    <p>The following algorithms are approved for use as specified in <a class=\"unresolved\" href=\"#\"><abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr>\n                            1609.2-2016</a>:</p>\n                    <ul>\n                        <li><strong>Signing:</strong>&nbsp;<abbr title=\"Elliptic Curve Digital Signature Algorithm\">ECDSA</abbr> over NIST\n                            P-256</li>\n                        <li><strong>Public key encryption:</strong>&nbsp;<abbr title=\"Elliptic Curve Integrated Encryption Scheme\">ECIES</abbr> over\n                            <abbr title=\"National Institute of Standards and Technology\">NIST</abbr> P-256</li>\n                        <li><strong>Hash:</strong>&nbsp;SHA-256</li>\n                        <li><strong>Symmetric Encryption:&nbsp;</strong>AES-CCM with 128-bit keys</li>\n                    </ul>\n                    <p>See IEEE 1609.2 for normative references to the definitions of the algorithms.</p>\n                ",
+  "links": [
+    {
+      "originalHref": "#",
+      "text": "IEEE\n                            1609.2-2016",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "ECDSA",
+      "definition": "Elliptic Curve Digital Signature Algorithm"
+    },
+    {
+      "term": "ECIES",
+      "definition": "Elliptic Curve Integrated Encryption Scheme"
+    },
+    {
+      "term": "NIST",
+      "definition": "National Institute of Standards and Technology"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.478Z"
+}

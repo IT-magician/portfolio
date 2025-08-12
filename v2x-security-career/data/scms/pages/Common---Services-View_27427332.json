@@ -1,0 +1,44 @@
+{
+  "pageId": "Common---Services-View_27427332",
+  "fileName": "Common---Services-View_27427332.html",
+  "title": "SCMS CV Pilots Documentation : Common - Services View",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    }
+  ],
+  "metadata": "Last modified on Nov 16, 2016",
+  "content": "\n                    <p>The&nbsp;Service View&nbsp;shows the architecture from the perspective of the services exposed by each\n                        component. Components interact with each other via service invocation. The service is therefore\n                        the point of contact between two collaborating components. A Service is a discrete piece of\n                        functionality that is made accessible for other components to consume over the network. While\n                        there are other types of services, we chose to design our solution in the style of&nbsp;<a href=\"http://en.wikipedia.org/wiki/Representational_state_transfer\" class=\"external-link\" rel=\"nofollow\">RESTful</a>&nbsp;Web Services, which provides&nbsp;the following advantages:</p>\n                    <ul>\n                        <li>Relatively simple connector implementation with plenty of tooling and libraries to support\n                            development</li>\n                        <li>Easier to introduce proxies, gateways, caches, and load balancers without affecting involved\n                            components</li>\n                        <li>Wide adoption by the industry at large</li>\n                    </ul>\n                    <p>However,&nbsp;the implementation will differ&nbsp;from a pure RESTful style&nbsp;in the following significant\n                        details:</p>\n                    <ol>\n                        <li>Payloads are not JSON or XML (as commonly used in most RESTful services) but binary messages\n                            generated from custom <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> grammars<span class=\"inline-comment-marker\" data-ref=\"f7cf451c-be08-4a39-9983-2958463678bf\">&nbsp;</span></li>\n                        <li>Cacheability of responses may not be used due to the nature of the problem domain</li>\n                        <li>Uniform Interface architectural constraint is not fully observed due to adherence to\n                            ASN.1-defined protocol and to keep payload sizes to the minimum possible</li>\n                    </ol>\n                ",
+  "links": [
+    {
+      "originalHref": "http://en.wikipedia.org/wiki/Representational_state_transfer",
+      "text": "RESTful",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.484Z"
+}

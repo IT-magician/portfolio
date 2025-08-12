@@ -1,0 +1,85 @@
+{
+  "pageId": "Step-11.2.1---Revoke-RA_27427291",
+  "fileName": "Step-11.2.1---Revoke-RA_27427291.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke RA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1-RevokeRA-Goals\">Goals</h2><p>Revoke an RA certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokeRA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The Technical Component of the SCMS Manager (TCotSCMSM) determines that an Registration Authority (RA) needs to be revoked, generates a certificate revocation message listing the RA certificate, and distributes it to all affected components. Relevant <abbr title=\"Pseudonym Certificate Authorities\">PCAs</abbr> are instructed to mark the affected RA as untrusted.</p><p>The TCotSCMSM must ensure that those PCAs have at least one other RA from which to receive individual certificate requests for pseudonym certificates.</p><p><abbr title=\"Device Configuration Managers\">DCM(s)</abbr> must no longer configure new end-entity devices to contact that RA to request pseudonym certificates.</p><p>All components and entities that receive the revocation notification also must cease to trust immediately any future message that was signed by the RA.</p><p>All end-entity devices that normally contact the revoked RA should obtain another RA’s certificate and address from which to request pseudonym certificates as soon as possible (the SCMS Manager may set performance requirements for how quickly this must happen).</p><h2 id=\"Step11.2.1-RevokeRA-Assumptions\">Assumptions</h2><ul><li>Messages and procedures need to be defined, potentially using existing data structures defined in <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 for <abbr title=\"Certificate Authority\">CA</abbr> revocation.</li><li>These data structures only support the case where the <abbr title=\"Certificate Revocation List\">CRL</abbr> is signed by a single signer.</li><li>If components use any other authentication mechanism, such as symmetric authentication or multiple signatures, the data structures, if used, would have to be redefined.</li></ul><span class=\"inline-comment-marker\" data-ref=\"ba63c3ab-15bd-4dbd-896c-14cf90a3dec8\"></span><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokeRA-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427291/27427292.png\">Untitled16.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "attachments/27427291/27427292.png",
+      "text": "Untitled16.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "PCAs",
+      "definition": "Pseudonym Certificate Authorities"
+    },
+    {
+      "term": "DCM(s)",
+      "definition": "Device Configuration Managers"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427291/27427292.png",
+      "text": "Untitled16.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.633Z"
+}

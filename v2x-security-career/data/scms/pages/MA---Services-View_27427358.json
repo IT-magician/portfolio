@@ -1,0 +1,65 @@
+{
+  "pageId": "MA---Services-View_27427358",
+  "fileName": "MA---Services-View_27427358.html",
+  "title": "SCMS CV Pilots\n                        Documentation : MA - Services View",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    }
+  ],
+  "metadata": "Last modified on Nov 14, 2016",
+  "content": "\n                    <p>Please refer to the&nbsp;<a href=\"http://wiki.campllc.org/display/SP/Common+-+Services+View\" class=\"external-link\" rel=\"nofollow\">Common - Services View</a>&nbsp;section for an introduction\n                        of the Services View.&nbsp;</p>\n                    <h2 id=\"MA-ServicesView-GeneralNotes\">General Notes</h2>\n                    <p>All Misbehavior Authority Services use the same scheme (<strong>https</strong>) and\n                        port&nbsp;<strong>8894</strong>.&nbsp; That is, all the requests to MA will have URLs that look like:</p>\n                    <pre>https://&lt;SERVER&gt;:8894/&lt;PATH&gt;</pre>\n                    <p>Where &lt;SERVER&gt; is the <abbr title=\"Internet Protocol\">IP</abbr> or host name, and PATH is\n                        the name of the service.</p>\n                    <p>For all the services, the <abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr>&nbsp;Content-Type is\n                        set to\n                        application/octet-stream.</p>\n                    <p><span class=\"inline-comment-marker\" data-ref=\"692a7be0-611b-4599-a9b4-fd5329c508d3\">No\n                            information is returned in case of error, just an HTTP code of 500.</span></p>\n                    <h2 id=\"MA-ServicesView-ServicesSummaryforEE-MACommunications\">Services Summary for <abbr title=\"End Entity\">EE</abbr>-MA\n                        Communications</h2>\n                    <div class=\"table-wrap\">\n                        <table class=\"wrapped confluenceTable\">\n                            <colgroup>\n                                <col>\n                                <col>\n                            </colgroup>\n                            <tbody>\n                                <tr>\n                                    <th class=\"confluenceTh\">Service Name</th>\n                                    <th class=\"confluenceTh\">&lt;PATH&gt;</th>\n                                </tr>\n                                <tr>\n                                    <td class=\"confluenceTd\"><a href=\"MA---Download-CRL_27427359.html\">MA - Download\n                                            <abbr title=\"Certificate Revocation List\">CRL</abbr></a></td>\n                                    <td class=\"confluenceTd\">/download-crl/</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                ",
+  "links": [
+    {
+      "originalHref": "http://wiki.campllc.org/display/SP/Common+-+Services+View",
+      "text": "Common - Services View",
+      "isInternal": false
+    },
+    {
+      "originalHref": "MA---Download-CRL_27427359.html",
+      "text": "MA - Download\n                                            CRL",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "MA",
+      "definition": "Misbehavior Authority"
+    },
+    {
+      "term": "IP",
+      "definition": "Internet Protocol"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.559Z"
+}

@@ -1,0 +1,93 @@
+{
+  "pageId": "Elector-based-Root-Management_27427051",
+  "fileName": "Elector-based-Root-Management_27427051.html",
+  "title": "SCMS CV Pilots Documentation : Elector-based Root Management",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots\n                                    Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and\n                                    Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 20, 2018",
+  "content": "\n                    <p>After a root <abbr title=\"Certificate Authority\">CA</abbr> certificate's validity period ends or\n                        a revocation was\n                        necessary and a new root\n                        CA certificate has been established for replacement, how can an <abbr title=\"End Entity\">EE</abbr> start\n                        trusting\n                        this new root CA certificate? The trust in an initial root CA certificate is implicit, as it is\n                        installed in\n                        a&nbsp;<a href=\"Secure-Environment-for-Device-Enrollment_27427267.html\">secure environment</a> with\n                        out-of-band communication during bootstrapping of the device. One option would be to get the\n                        device back to that secure environment and use out-of-band communication to install the new root\n                        CA certificate. However, this is suboptimal due to the required effort and will render the\n                        overall <abbr title=\"Vehicle-to-everything\">V2X</abbr> system partly out-of-order until all\n                        devices have installed the new certificate.</p>\n                    <p>To manage the root CA certificate over time and gain resilience against compromises on any level,\n                        the SCMS needs the ability to heal itself, which means to bring itself into a state where it can\n                        endure another single compromise or end of the validity period of a Root CA. This recovery\n                        should occur while keeping the devices operational whenever possible, that is, capable of\n                        sending, receiving and validating <abbr title=\"Basic Safety Message\">BSM</abbr>s, and be able to\n                        restore the system\n                        hierarchy without\n                        requiring physical access to devices. Elector-based Root Management is the solution that\n                        provides those means by installing a distributed management schema on top of the SCMS Root CAs.\n                    </p>\n                    <h2 id=\"Elector-basedRootManagement-DistributedManagement&amp;Electors\">Distributed Management &amp;\n                        Electors</h2>\n                    <p>A distributed management scheme, like a democracy, contains within itself the power to replace an\n                        established hierarchy and does not succumb to a single failure. The concept of\n                        <em><strong>Electors</strong></em>, which together have the power to change and manage the trust\n                        relationships of the system, adds such a scheme to the SCMS design. Within a system like the\n                        SCMS, the number of electors should be 2n+1, where n is the number of simultaneous elector\n                        expiration/compromises that the SCMS can tolerate.</p>\n                    <p>Like in a democracy the Elector-based Root Management introduces a <em><strong>Ballot</strong>\n                        </em>with <em><strong>Endorsements</strong></em>. The electors cast <em><strong>Votes</strong>\n                        </em>by signing an endorsement of a given root CA or elector certificate. A ballot aggregates\n                        all these endorsements. When a quorum of valid elector endorsements is on the ballot, any\n                        component in the system can trust the ballot.</p>\n                    <p>The electors are not part of the <abbr title=\"Public Key Infrastructure\">PKI</abbr> hierarchy,\n                        and therefore they can use a different\n                        crypto-system than the SCMS PKI. In fact, each of them can use a different one. This raises the\n                        probability that in case of a root CA or elector certificate compromise due to a broken\n                        cryptography, the system is still able to heal itself.</p>\n                    <p>The resulting system may have multiple, self-signed root CA certificates, each of which operates\n                        at the top of their trust chain. Each root CA's certificate is endorsed by a ballot with at\n                        least a quorum of votes from non-revoked electors. Devices need to verify the trust chain up to\n                        a root CA certificate, at which point they must verify that a quorum of non-revoked electors has\n                        endorsed that root CA certificate.</p>\n                    <h2 id=\"Elector-basedRootManagement-Ballots&amp;Endorsements\">Ballots &amp;&nbsp;Endorsements</h2>\n                    <p>Electors operate by signing endorsements. A ballot can include the following basic types of\n                        endorsements:</p>\n                    <ul>\n                        <li>Add root CA certificate</li>\n                        <li>Add elector certificate</li>\n                        <li>Revoke root CA certificate</li>\n                        <li>Revoke elector certificate</li>\n                    </ul>\n                    <p>Each ballot contains only one type of endorsement. SCMS components, including devices, receive\n                        ballots adding a certificate via a certificate chain file distributed by the <abbr title=\"Policy Generator\">PG</abbr>. They receive\n                        ballots removing a certificate via the <abbr title=\"Certificate Revocation List\">CRL</abbr>\n                        distributed by the CRL\n                        store.</p>\n                    <p>All components know the quorum and the certificates of the initial set of electors and therefore\n                        can validate the endorsements contained in the ballot. Once the ballot is validated, the\n                        component can follow the endorsed action to add or remove the ballot’s certificate from its\n                        trust store.</p>\n                    <p>The SCMS Manager will coordinate the production of the ballot messages.</p>\n                    <h3 id=\"Elector-basedRootManagement-StructureofBallots\">Structure of Ballots</h3>\n                    <p><span class=\"inline-comment-marker\" data-ref=\"f6010d2f-d89c-4d91-bd77-a27cc42d8be0\">The ballot\n                            which aggregates all independent elector endorsements is an <abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> structure. This structure\n                            contains the following elements:</span></p>\n                    <ol>\n                        <li>The certificate of the root CA or elector to be endorsed</li>\n                        <li>A sequence of endorsements, each containing:<ol>\n                                <li>The type of endorsement</li>\n                                <li>The hash id of the certificate to be endorsed</li>\n                                <li>The generation time of the endorsement</li>\n                                <li>A signature of the elector.</li>\n                            </ol>\n                        </li>\n                    </ol>\n                    <p>Note that the validity period of a ballot is implicitly given by the validity period of the\n                        endorsed certificate.</p>\n                    <h3 id=\"Elector-basedRootManagement-Revocation/EndorsementImpactonDevices\">Revocation/Endorsement\n                        Impact on Devices</h3>\n                    <p>A key consideration in the design of the root management system is to maintain secure operation\n                        of devices without requiring recall or manual re-enrollment of individual devices. The following\n                        table outlines the status of devices through the addition or revocation of Electors and Root\n                        CAs.</p>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Elector-basedRootManagement-\"></span>\n                        <div class=\"scroll-title-body\">\n                            <div class=\"table-wrap\">\n                                <table class=\"wrapped confluenceTable\">\n                                    <colgroup>\n                                        <col>\n                                        <col>\n                                    </colgroup>\n                                    <tbody>\n                                        <tr>\n                                            <th class=\"confluenceTh\">Operation</th>\n                                            <th class=\"confluenceTh\">Elector Model Implementation</th>\n                                        </tr>\n                                        <tr>\n                                            <td class=\"confluenceTd\">Revoking an Elector</td>\n                                            <td class=\"confluenceTd\">As long as there are at least three electors with a\n                                                quorum of two, then one elector may be removed without impacting\n                                                operation: The remaining electors are still a quorum and their\n                                                endorsements of the root CA certificate would still be valid. A single\n                                                revoked elector would not stop operations of any device. A replacement\n                                                elector may then be added back to the system to return to a state with\n                                                three valid electors. A larger number of electors may be used to improve\n                                                the system's resilience to compromise or failure of these top-level\n                                                trust anchors.</td>\n                                        </tr>\n                                        <tr>\n                                            <td colspan=\"1\" class=\"confluenceTd\">Revoking a Root CA</td>\n                                            <td colspan=\"1\" class=\"confluenceTd\">Revoking a root CA certificate would\n                                                stop operations of devices that possess certificates chaining up to the\n                                                revoked root CA certificate. Those devices would need to re-enroll and\n                                                be re-provisioned with a different root CA before they could be trusted\n                                                by other devices.</td>\n                                        </tr>\n                                        <tr>\n                                            <td class=\"confluenceTd\">Adding an Elector</td>\n                                            <td class=\"confluenceTd\">\n                                                <p>A new self-signed elector certificate that is endorsed by a quorum of\n                                                    valid electors can be trusted by devices and other SCMS components\n                                                    without the need of returning them to a secure environment.</p>\n                                                <p>In addition, this new elector can endorse existing root CA\n                                                    certificates without the need for any updates of the existing valid\n                                                    certificates, including the device's pseudonym certificates.</p>\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td colspan=\"1\" class=\"confluenceTd\">Adding a Root CA</td>\n                                            <td colspan=\"1\" class=\"confluenceTd\">\n                                                <p>A new, self-signed root CA certificate that is endorsed by a quorum\n                                                    of valid electors can be trusted by devices and other SCMS\n                                                    components without the need of returning them to a secure\n                                                    environment. Devices can immediately begin to trust messages that\n                                                    chain up to the new root CA.</p>\n                                            </td>\n                                        </tr>\n                                    </tbody>\n                                </table>\n                            </div>\n                        </div>\n                        <div class=\"scroll-title-macro-title\"><strong>EE Status through Addition/Revocation of Electors\n                                and Root CAs</strong></div>\n                    </div>\n                    <h3 id=\"Elector-basedRootManagement-EffectofVotingSchemesontheGCCF\">Effect of Voting Schemes on the\n                        GCCF</h3>\n                    <p>The Global Certificate Chain File (GCCF) contains all the trust chains needed by the SCMS\n                        (including EEs), including the Root CA certificates. With the elector model, the Root CA\n                        certificates are also accompanied with elector endorsements. The Root CA certificates in the\n                        GCCF will be supplied in the form of the \"Add Root CA\" ballots. The trust chain for\n                        certificates under a Root CA will be recorded in the GCCF as a list of <abbr title=\"Institute of Electrical and Electronics Engineers\">IEEE</abbr> 1609.2 certificates.\n                    </p>\n                    <h3 id=\"Elector-basedRootManagement-StructureoftheTrustHierarchy\">Structure of the Trust Hierarchy&nbsp;\n                    </h3>\n                    <p>The diagram below shows how the SCMS-specific implementation of the elector-based scheme (shown\n                        in <span style=\"color: rgb(51,153,102);\">green</span>) can be implemented in parallel with a\n                        standard PKI hierarchy, which supports all SCMS components and EEs. Note that all of the\n                        structures shown here can be implemented with standard IEEE 1609.2 certificates without\n                        modification. A significant advantage of the elector-based scheme is that, as new Electors are\n                        added at level 0, an existing root CA can receive new endorsements from an elector without\n                        having to change their certificates.</p>\n                    <div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Elector-basedRootManagement-EndorsementMethod\"></span>\n                        <div class=\"scroll-title-body\">\n                            <p><span class=\"confluence-embedded-file-wrapper confluence-embedded-manual-size\"><img alt=\"Trust hierarchy levels from 0 to n>=4\" class=\"confluence-embedded-image\" height=\"400\" src=\"attachments/27427051/128909334.jpg\" data-image-src=\"attachments/27427051/128909334.jpg\" data-unresolved-comment-count=\"0\" data-linked-resource-id=\"128909334\" data-linked-resource-version=\"1\" data-linked-resource-type=\"attachment\" data-linked-resource-default-alias=\"Endorsement Structure.jpg\" data-base-url=\"https://wiki.campllc.org\" data-linked-resource-content-type=\"image/jpeg\" data-linked-resource-container-id=\"27427051\" data-linked-resource-container-version=\"16\"></span>\n                            </p>\n                        </div>\n                        <div class=\"scroll-title-macro-title\"><strong>Endorsement Method Details</strong></div>\n                    </div>\n                    <p><br></p>\n                ",
+  "links": [
+    {
+      "originalHref": "Secure-Environment-for-Device-Enrollment_27427267.html",
+      "text": "secure environment",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "V2X",
+      "definition": "Vehicle-to-everything"
+    },
+    {
+      "term": "BSM",
+      "definition": "Basic Safety Message"
+    },
+    {
+      "term": "PKI",
+      "definition": "Public Key Infrastructure"
+    },
+    {
+      "term": "PG",
+      "definition": "Policy Generator"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "IEEE",
+      "definition": "Institute of Electrical and Electronics Engineers"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427051/27427053.png",
+      "text": "TAMP.001.png"
+    },
+    {
+      "href": "attachments/27427051/27427052.png",
+      "text": "Disaster Recovery_7.001.png"
+    },
+    {
+      "href": "attachments/27427051/128909334.jpg",
+      "text": "Endorsement Structure.jpg"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.503Z"
+}

@@ -1,0 +1,61 @@
+{
+  "pageId": "27427257",
+  "fileName": "27427257.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1: Revoke non-Root SCMS Component",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 24, 2016",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1:Revokenon-RootSCMSComponent-Goals\">Goals</h2><ul><li><p>Provide a mechanism for revoking an SCMS component other than root <abbr title=\"Certificate Authority\">CA</abbr>.</p></li><li><p>Define procedures to enable continued SCMS operations after the revocation.</p></li></ul><h2 id=\"Step11.2.1:Revokenon-RootSCMSComponent-Assumptions\">Assumptions</h2><ul><li><p>The technical component of the SCMS Manager will coordinate the revocation of SCMS components to enable continued operations.</p></li><li><p>When an SCMS component is revoked, the function that it provided will be taken over by a peer device with sufficient privileges and capabilities to continue operations. &nbsp;The peer device may be a pre-existing device that is taking on additional work or a newly added (i.e., replacement) device. &nbsp;</p></li><li><p>This use case specifies the requirements that are common among all non-root SCMS component revocations. &nbsp;Individual use cases will provide specific details that are unique to each component type.&nbsp;</p></li></ul><h2 id=\"Step11.2.1:Revokenon-RootSCMSComponent-Requirements\"><span style=\"line-height: 1.5;\"></span></h2><p>\n\n\n\n\n\n</p><div id=\"refresh-module--1647669837\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n    \n        \n\n</p>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427257/27427258.pdf\">original_requirements_table-11_2_1.pdf</a> (application/pdf)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "attachments/27427257/27427258.pdf",
+      "text": "original_requirements_table-11_2_1.pdf",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427257/27427258.pdf",
+      "text": "original_requirements_table-11_2_1.pdf"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.376Z"
+}

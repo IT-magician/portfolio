@@ -1,0 +1,70 @@
+{
+  "pageId": "Storage-Considerations_27427271",
+  "fileName": "Storage-Considerations_27427271.html",
+  "title": "SCMS  CV Pilots Documentation : Storage Considerations",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    },
+    {
+      "text": "Hardware, Software and OS Security Requirements",
+      "href": "27427262.html"
+    }
+  ],
+  "metadata": "Last modified  on Dec 02, 2016",
+  "content": "\n                    <h2 id=\"StorageConsiderations-HighAvailabilityandStandardAvailabilityStorage\">High Availability and Standard Availability Storage</h2><p>Our understanding is that there are at least the following grades of data storage medium for automotive electronics systems.</p><ul><li><abbr title=\"Read Only Memory\">ROM</abbr> stores code for use by <abbr title=\"Engine Control Units\">ECUs</abbr> and is written only once</li><li><abbr title=\"Electrically Erasable Programmable Read Only Memory\">EEPROM</abbr> stores code for use by ECUs and may be overwritten a limited number of times</li><li>Flash stores code and persistent data for use by ECUs and may be overwritten a (relatively) large number of times. It is more expensive than ROM or EEPROM</li><li>There may also be other grades of storage. Our understanding is that there is a spectrum of storage media from highly reliable and highly expensive (which are referred to as “automotive grade”) to less reliable but cheaper storage (which are referred to as “standard grade”). For example, infotainment systems may use less-reliable, cheaper storage to allow more storage to be provided.</li></ul><p>The following are assumptions:</p><ol><li>Automotive-grade storage is so expensive that less than 1 <abbr title=\"Mega Byte\">MB</abbr> will be available</li><li>Standard-grade storage will also be available and that it will be sufficiently cheap to be provided in larger volumes, 100 MB or more</li><li>Executable security and security management codes can be provided in a form that does not use the automotive-grade flash</li></ol><h2 id=\"StorageConsiderations-SecureStorage\">Secure Storage</h2><ul><li>The <abbr title=\"On Board Equipment\">OBE</abbr> needs to store the following in the highly available memory (encrypted):<ul><li>Local private keys for signing</li><li>Local CSR signing key</li><li>Any symmetric keys used for certificate management, i.e. for expanding the butterfly keys</li><li>Seed butterfly key</li></ul></li><li>If the OBE does not encrypt its certificates, there may be an attack that allows them to be read from storage, which in turn allows the OBE to be tracked. However, an attacker with this level of access to the OBE can probably carry out other attacks. There is no requirement for certificates to be encrypted in place as long as they are integrity-checked.</li><li>The OBE needs to provide integrity checks on the encrypted stored values noted above and also on the following:<ul><li>Root certificates</li><li>Its own local certificates (if not encrypted)</li><li>Any certificates used for validating software updates</li></ul></li><li>It is assumed that an arbitrary amount of automotive-grade storage can be converted to secure storage by using a hardware security module that stores a content encryption and authentication key.<ul><li>Integrity checks can be provided on a block wise basis rather than per data element. This reduces the storage overhead for integrity checks but increases the cost to check an integrity check (the entire block must be checked) and requires that the integrity check for the entire block is recalculated if any single element is changed.</li><li>The content encryption key should be protected by <abbr title=\"Trusted Platform Module\">TPM</abbr>-like mechanisms so it can only be accessed if the software platform is in a known good state</li></ul></li></ul>\n                    ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "OS",
+      "definition": "Operating System"
+    },
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "ROM",
+      "definition": "Read Only Memory"
+    },
+    {
+      "term": "ECUs",
+      "definition": "Engine Control Units"
+    },
+    {
+      "term": "EEPROM",
+      "definition": "Electrically Erasable Programmable Read Only Memory"
+    },
+    {
+      "term": "MB",
+      "definition": "Mega Byte"
+    },
+    {
+      "term": "OBE",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "TPM",
+      "definition": "Trusted Platform Module"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.633Z"
+}

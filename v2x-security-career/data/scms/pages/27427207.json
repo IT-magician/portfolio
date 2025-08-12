@@ -1,0 +1,58 @@
+{
+  "pageId": "27427207",
+  "fileName": "27427207.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.1.1: Add Non-Root SCMS Component",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.1: Add SCMS Component",
+      "href": "27427206.html"
+    }
+  ],
+  "metadata": "Last modified on Oct 13, 2016",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.1.1:AddNon-RootSCMSComponent-Goals\">Goals</h2><p>Provide a process&nbsp;for adding an SCMS component other than root <abbr title=\"Certificate Authority\">CA</abbr>, e.g. intermediate CA, <abbr title=\"Pseudonym Certificate Authority\">PCA</abbr>, <abbr title=\"Registration Authority\">RA</abbr>, etc.</p><h2 id=\"Step11.1.1:AddNon-RootSCMSComponent-Assumptions\"><span style=\"line-height: 1.5;\">Assumptions</span></h2><p>Use cases and more specific requirements are in the subsections under this heading.</p><h2 id=\"Step11.1.1:AddNon-RootSCMSComponent-Requirements\"></h2><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.1.1:AddNon-RootSCMSComponent-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div id=\"refresh-module--1657509553\" class=\"refresh-module-id jira-table\">\n<p>\n    \n        \n    \n        \n\n</p></div><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                    \n                                                      \n                ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credential Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicle"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "PCA",
+      "definition": "Pseudonym Certificate Authority"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.366Z"
+}

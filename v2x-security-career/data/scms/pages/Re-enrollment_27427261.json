@@ -1,0 +1,62 @@
+{
+  "pageId": "Re-enrollment_27427261",
+  "fileName": "Re-enrollment_27427261.html",
+  "title": "SCMS CV Pilots Documentation : Re-enrollment",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Common Requirements",
+      "href": "Common-Requirements_27427011.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 15, 2017",
+  "content": "\n                    <p>In order to avoid confusion around the terms used for enrollment after revocation, we will use terms as follows:</p><ul><li><strong>Re-instantiation:<span class=\"confluence-anchor-link\" id=\"Re-enrollment-Re-instantiation\"></span></strong>An <abbr title=\"End Entity\">EE</abbr> is reinstated if the original enrollment certificate is reinstated. This means that: (1) the enrollment certificate&nbsp;is removed from <abbr title=\"Registration Authority\">RA</abbr>'s blacklist&nbsp;by either directly removing it or by removing a <abbr title=\"Certificate Authority\">CA</abbr> certificate on the path to the root CA from the <abbr title=\"Certificate Revocation List\">CRL</abbr> and (2) that the EE keeps using the original enrollment certificate to request certificates from the SCMS.&nbsp;The already issued&nbsp;pseudonym/identification/application certificates&nbsp;can be used as before, or new certificates can be requested and issued.</li><li><strong>Re-bootstrapping</strong><strong>:<span class=\"confluence-anchor-link\" id=\"Re-enrollment-Re-bootstrapping\"></span></strong>An EE is re-bootstrapped if the EE's storage is&nbsp;completely erased&nbsp;(including all certificates and cryptographic credentials) and the bootstrap mechanism is executed. A new enrollment certificate is issued and there is no link between the original enrollment certificate and the new enrollment certificate. The re-bootstrapped EE cannot be distinguished to a factory-new EE.</li><li><strong>Re-issuance<strong>:<span class=\"confluence-anchor-link\" id=\"Re-enrollment-Re-issuance\"></span></strong></strong>An EE enrollment certificate may be re-issued if the&nbsp;public-key&nbsp;of the enrollment certificate stays and an&nbsp;<abbr title=\"Enrollment Certificate Authority\">ECA</abbr> issues a new enrollment certificate&nbsp;based on that same public key. The EE keeps all pseudonym certificates and keeps using the same butterfly key parameters.</li><li><strong>Re-establishment<strong>:<span class=\"confluence-anchor-link\" id=\"Re-enrollment-Re-establishment\"></span></strong></strong>An EE is re-established if the integrity of the EE can be verified remotely, and the EE generates a new key pair and receives a new enrollment certificate that contains the newly generated public key. &nbsp;</li><li><strong>Re-enrollment</strong>: A device is re-enrolled if either re-instantiation, re-bootstrap, a re-issue, or re-establishment is performed.</li></ul><p><u><strong>SCMS <abbr title=\"Proof of Concept\">PoC</abbr> for CV Pilots will initially only support re-bootstrapping in the first year of operation. Other forms of re-enrollment will be added at a later point. The SCMS will not support re-issuance.<br></strong></u></p>\n                    ",
+  "links": [],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "CA",
+      "definition": "Certificate Authority"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "ECA",
+      "definition": "Enrollment Certificate Authority"
+    },
+    {
+      "term": "PoC",
+      "definition": "Proof of Concept"
+    }
+  ],
+  "attachments": [],
+  "lastParsed": "2025-08-10T22:40:16.592Z"
+}

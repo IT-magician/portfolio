@@ -1,0 +1,98 @@
+{
+  "pageId": "Step-11.2.1---Revoke-ECA_27427277",
+  "fileName": "Step-11.2.1---Revoke-ECA_27427277.html",
+  "title": "SCMS CV Pilots Documentation : Step 11.2.1 - Revoke ECA",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Requirements and Specifications",
+      "href": "Requirements-and-Specifications_27426993.html"
+    },
+    {
+      "text": "Requirements by Use Case",
+      "href": "Requirements-by-Use-Case_27426994.html"
+    },
+    {
+      "text": "Use Case 11: Backend Management",
+      "href": "27427186.html"
+    },
+    {
+      "text": "Step 11.2: Revoke SCMS Component",
+      "href": "27427256.html"
+    },
+    {
+      "text": "Step 11.2.1: Revoke non-Root SCMS Component",
+      "href": "27427257.html"
+    }
+  ],
+  "metadata": "Last modified on Feb 24, 2017",
+  "content": "\n                    <div class=\"plugin-tabmeta-details\"><div class=\"table-wrap\"></div></div><h2 id=\"Step11.2.1-RevokeECA-Goals\">Goals</h2><p>The goal is to revoke an ECA certificate from the SCMS System.</p><h2 id=\"Step11.2.1-RevokeECA-BackgroundandStrategicFit\">Background and Strategic Fit</h2><p>The technical component of the SCMS Manager (or a local <abbr title=\"Intermediate Certificate Authority\">ICA</abbr> Manager in cooperation with the <abbr title=\"Technical Component of the SCMS Manager\">TCotSCMSM</abbr>) determines that an Enrollment Certificate Authority (ECA) needs to be revoked. It contacts the <abbr title=\"Certificate Revocation List\">CRLG</abbr> and instructs it to add the ECA certificate to the <abbr title=\"Certificate Revocation List\">CRL</abbr>.</p><p>All components and entities that receive the updated CRL will cease to trust any enrollment certificate issued by the ECA and stop communicating with the ECA. All end-entity devices whose enrollment certificate chains back to the revoked ECA should obtain a new enrollment certificate as soon as possible (the SCMS Manager may set performance requirements for how quickly this must happen).</p><h2 id=\"Step11.2.1-RevokeECA-Procedure\">Procedure</h2><ul><li>The local ICA Manager responsible for the revoked ECA must contact all <abbr title=\"Device Configuration Managers\">DCMs</abbr> that are configured to use the revoked component and remove it from their list of trusted ECAs for use in generating enrollment certificates. The ICA manager might reconfigure the DCMs to use a different ECA or stand up a new ECA following the procedures defined in the&nbsp;<a href=\"Step-11.1.1---Add-ECA_27427217.html\">Add ECA</a>&nbsp;use case.</li><li>The ICA manager must also inform the <abbr title=\"Registration Authority\">RA</abbr> that has the impacted ECA in its list of trusted ECAs and inform it to remove the revoked component. The RA will cease to pre-generate pseudonym certificates for any <abbr title=\"End Entity\">EE</abbr> enrolled by that ECA and cease to accept any new requests from EEs certified by that ECA.</li><li>EEs must have a proprietary mechanism to re-enroll in order to recover from the revocation of the ECA that signed their enrollment certificate. Once they are re-enrolled and associated with an RA, each impacted EE will have to request new&nbsp;pseudonym, application, or identification certificates.</li></ul><h2 id=\"Step11.2.1-RevokeECA-Assumptions\">Assumptions</h2><ul><li>Authorized&nbsp;managers of&nbsp;EEs must provide a trusted (and certified by an agent of the SCMS Manager) method for re-enrolling EEs under their jurisdiction that are impacted by a revoked ECA</li><li>A compromised DCM will require that all ECAs that were used with that DCM shall be revoked. All local ICA Managers will be required to record which ECAs were used in issuing enrollment certificates for every DCM.</li><li>The procedure requires that all DCMs provide a proprietary mechanism (i.e., there are no SCMS messages defined for this step) to remove a revoked ECA from the list of ECAs that they use for enrolling new EEs. Note that a&nbsp;DCM should remove by default an ECA from the list of components that they use upon receipt of the updated CRL listing the ECA as revoked. However, the proprietary mechanism described in the use case assumes that ICA Managers will want a mechanism to remove pro-actively a revoked ECA.</li><li>The procedure requires that all RAs provide a proprietary mechanism (i.e., there are no SCMS messages defined for this step) to remove a revoked ECA from the list of ECAs whose enrollment certificates they will trust.&nbsp;All RAs shall remove by default an ECA from the list of components that they trust as soon as they receive the updated CRL listing the ECA as revoked. However, the proprietary mechanism described in the use case assumes that ICA Managers will want a mechanism to remove pro-actively a revoked ECA.</li></ul><span class=\"inline-comment-marker\" data-ref=\"0f634beb-c09c-4975-9e28-1d646358386d\"></span><div class=\"scroll-title-macro\"><span class=\"confluence-anchor-link\" id=\"Step11.2.1-RevokeECA-\"></span><div class=\"scroll-title-body\"><p>\n\n\n\n\n\n</p><div class=\"scroll-title-macro-title\"></div></div>\n                    </div>\n\n                                        <div class=\"pageSection group\">\n                        <div class=\"pageSectionHeader\">\n                            <h2 id=\"attachments\" class=\"pageSectionTitle\">Attachments:</h2>\n                        </div>\n\n                        <div class=\"greybox\">\n                                                            <img src=\"images/icons/bullet_blue.gif\" height=\"8\" width=\"8\" alt=\"\">\n                                <a href=\"attachments/27427277/27427278.png\">Untitled14.png</a> (image/png)\n                                <br>\n                                                    </div>\n                    </div>\n                    \n                                                      \n                ",
+  "links": [
+    {
+      "originalHref": "Step-11.1.1---Add-ECA_27427217.html",
+      "text": "Add ECA",
+      "isInternal": true
+    },
+    {
+      "originalHref": "attachments/27427277/27427278.png",
+      "text": "Untitled14.png",
+      "isInternal": false
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "ECA",
+      "definition": "Enrollment Certificate Authorities"
+    },
+    {
+      "term": "ICA",
+      "definition": "Intermediate Certificate Authority"
+    },
+    {
+      "term": "TCotSCMSM",
+      "definition": "Technical Component of the SCMS Manager"
+    },
+    {
+      "term": "CRLG",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "CRL",
+      "definition": "Certificate Revocation List"
+    },
+    {
+      "term": "DCMs",
+      "definition": "Device Configuration Managers"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427277/27427278.png",
+      "text": "Untitled14.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.627Z"
+}

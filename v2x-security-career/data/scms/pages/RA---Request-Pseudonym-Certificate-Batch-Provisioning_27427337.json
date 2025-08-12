@@ -1,0 +1,105 @@
+{
+  "pageId": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337",
+  "fileName": "RA---Request-Pseudonym-Certificate-Batch-Provisioning_27427337.html",
+  "title": "SCMS CV Pilots Documentation : RA - Request Pseudonym Certificate Batch Provisioning",
+  "breadcrumb": [
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "index.html"
+    },
+    {
+      "text": "SCMS CV Pilots Documentation",
+      "href": "SCMS-CV-Pilots-Documentation_26838136.html"
+    },
+    {
+      "text": "Software Design Documents",
+      "href": "Software-Design-Documents_27427330.html"
+    },
+    {
+      "text": "RA - Services View",
+      "href": "RA---Services-View_27427336.html"
+    }
+  ],
+  "metadata": "Last modified on Aug 07, 2017",
+  "content": "\n                    <p><abbr title=\"On Board Equipment\">OBEs</abbr> use this service to request the initial batch of Pseudonym Certificates. After the initial batch is requested, subsequent batches are automatically provisioned.</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col style=\"width: 120.0px;\"><col style=\"width: 1222.0px;\"></colgroup><thead><tr><th colspan=\"1\" class=\"confluenceTh\">PORT</th><td colspan=\"1\" class=\"confluenceTd\">8892</td></tr><tr><th class=\"confluenceTh\">PATH</th><td class=\"confluenceTd\">/provision-pseudonym-certificate-batch</td></tr></thead><tbody><tr><th class=\"confluenceTh\"><abbr title=\"Hypertext Transfer Protocol\">HTTP</abbr> Method</th><td class=\"confluenceTd\">POST</td></tr><tr><th class=\"confluenceTh\"><p>HTTP Request Body</p></th><td class=\"confluenceTd\"><p><abbr title=\"Abstract Syntax Notation One\">ASN.1</abbr> serialized <a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#694\" class=\"external-link\" rel=\"nofollow\"><em>SecuredPseudonymCertProvisioningRequest</em></a></p></td></tr><tr><th class=\"confluenceTh\">HTTP Response Body</th><td class=\"confluenceTd\"><a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#769\" class=\"external-link\" rel=\"nofollow\"><em>SignedPseudonymCertProvisioningAck</em> </a>with a&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#151\" class=\"external-link\" rel=\"nofollow\"><em>requestHash</em>&nbsp;</a>property containing the lower 8 bytes of the request hash. This value will identify this device for the download of the requested certificate. The&nbsp;<em>reply</em>&nbsp;property contains a&nbsp;<a href=\"https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#159\" class=\"external-link\" rel=\"nofollow\"><em>PseudonymCertProvisioningAck</em> </a>with a&nbsp;<em>certDLTime</em>&nbsp;property containing the expected time for download of the requested batch, and a&nbsp;<em>certDLURL&nbsp;</em>property containing the <abbr title=\"Uniform Resource Locator\">URL</abbr> where the batch can be downloaded.</td></tr></tbody></table></div><h3 id=\"RA-RequestPseudonymCertificateBatchProvisioning-Preconditions\">Preconditions</h3><ol><li>Policy referenced in the request message is previously known</li><li><abbr title=\"Pre-Linkage Value\">PLV</abbr> Cache has at least one PLV chain</li><li>Device is not revoked</li></ol><h3 id=\"RA-RequestPseudonymCertificateBatchProvisioning-Postconditions\">Postconditions</h3><p>None.</p><h3 id=\"RA-RequestPseudonymCertificateBatchProvisioning-ErrorHandling\">Error Handling</h3><p>See \"RA-<abbr title=\"End Entity\">EE</abbr> Errors\" in <a href=\"Overview-of-Used-Error-Codes_41353603.html\">Overview of Used Error Codes</a></p><h3 id=\"RA-RequestPseudonymCertificateBatchProvisioning-QualityofService\">Quality of Service</h3><p>Estimated values are per logical unit, meaning multiple individual nodes can contribute to achieve the desired level of service. This service will be used once for each initial provisioning request for each new OBE. There may also be a very small addition of OBEs re-requesting provisioning in order to update their parameters. However, this should be a low enough volume to have no significant impact on these calculations.&nbsp;</p><div class=\"table-wrap\"><table class=\"wrapped confluenceTable\"><colgroup><col><col><col><col><col></colgroup><thead><tr><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">Quality Metric</div></th><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">1 Year</div></th><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">3 Years</div></th><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">5 Years</div></th><th class=\"confluenceTh\"><div class=\"tablesorter-header-inner\">10 Years</div></th></tr></thead><tbody><tr><td class=\"confluenceTd\">Throughput</td><td class=\"confluenceTd\"><p>(17,000,000 new vehicles)<br>/ 31,557,600 seconds/year</p><p>=&nbsp;.5&nbsp;batch requests / second</p></td><td class=\"confluenceTd\"><p>(17,000,000 new vehicles)<br>/ 31,557,600 seconds/year</p><p>=&nbsp;.5&nbsp;batch requests / second</p></td><td class=\"confluenceTd\"><p>(17,000,000 new vehicles)<br>/ 31,557,600 seconds/year</p><p>=&nbsp;.5&nbsp;batch requests / second</p></td><td class=\"confluenceTd\"><p>(17,000,000 new vehicles)<br>/ 31,557,600 seconds/year</p><p>=&nbsp;.5&nbsp;batch requests / second</p></td></tr></tbody></table></div><h3 id=\"RA-RequestPseudonymCertificateBatchProvisioning-QualityofProtection\">Quality of Protection</h3><ul><li>RA protects access with <abbr title=\"Hypertext Transfer Protocol Secure\">HTTPS</abbr> (<abbr title=\"Transport Layer Security\">TLS</abbr> V1.2)</li><li>Supports at a minimum OpenSSL cipher suite ECDHE-ECDSA-AES128-SHA256</li><li>Uses certificate-based client authentication of data signed by the device enrollment certificate, validated at the application layer. This is a supplement to the one-way TLS authentication, to provide two-way authentication with a TLS/1609.2 hybrid scheme.</li><li>Incoming message is encrypted (within the ASN.1 message structure) with the RA Component certificate public key</li></ul>\n                    ",
+  "links": [
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#694",
+      "text": "SecuredPseudonymCertProvisioningRequest",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/scms-protocol.asn?at=refs/heads/1.2#769",
+      "text": "SignedPseudonymCertProvisioningAck",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#151",
+      "text": "requestHash",
+      "isInternal": false
+    },
+    {
+      "originalHref": "https://stash.campllc.org/projects/SCMS/repos/scms-asn/browse/ee-ra.asn?at=refs/heads/1.2#159",
+      "text": "PseudonymCertProvisioningAck",
+      "isInternal": false
+    },
+    {
+      "originalHref": "Overview-of-Used-Error-Codes_41353603.html",
+      "text": "Overview of Used Error Codes",
+      "isInternal": true
+    }
+  ],
+  "glossaryTerms": [
+    {
+      "term": "SCMS",
+      "definition": "Security Credentials Management System"
+    },
+    {
+      "term": "CV",
+      "definition": "Connected Vehicles"
+    },
+    {
+      "term": "RA",
+      "definition": "Registration Authority"
+    },
+    {
+      "term": "OBEs",
+      "definition": "On Board Equipment"
+    },
+    {
+      "term": "HTTP",
+      "definition": "Hypertext Transfer Protocol"
+    },
+    {
+      "term": "ASN.1",
+      "definition": "Abstract Syntax Notation One"
+    },
+    {
+      "term": "URL",
+      "definition": "Uniform Resource Locator"
+    },
+    {
+      "term": "PLV",
+      "definition": "Pre-Linkage Value"
+    },
+    {
+      "term": "EE",
+      "definition": "End Entity"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "term": "TLS",
+      "definition": "Transport Layer Security"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "attachments/27427337/27427338.png",
+      "text": "worddavdeb6a7f85be137752cd598a00a4fbe10.png"
+    }
+  ],
+  "lastParsed": "2025-08-10T22:40:16.588Z"
+}
