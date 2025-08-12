@@ -1,0 +1,16 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <!-- 방패 배경 -->
+    <path d="M32 4 L52 14 L52 35 Q52 50 32 58 Q12 50 12 35 L12 14 Z" 
+          fill="#3B82F6" stroke="none"/>
+    <!-- 자동차 옆모습 -->
+    <path d="M18 32 L18 38 L46 38 L46 32 L40 32 L36 26 L28 26 L24 32 Z" fill="white"/>
+    <!-- 바퀴 -->
+    <circle cx="25" cy="38" r="3" fill="#3B82F6"/>
+    <circle cx="39" cy="38" r="3" fill="#3B82F6"/>
+    <!-- 창문 -->
+    <path d="M26 32 L28 28 L36 28 L38 32 Z" fill="#3B82F6" opacity="0.5"/>
+    <!-- 우측 상단 원형 전파 -->
+    <circle cx="48" cy="20" r="6" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <circle cx="48" cy="20" r="10" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <circle cx="48" cy="20" r="14" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/>
+</svg>
