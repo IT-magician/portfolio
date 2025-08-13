@@ -404,27 +404,21 @@
             
             const firstDir = pathParts[0];
             
-            // 알려진 정적 파일 제외
-            const staticFiles = ['hello.html', 'about.html', 'assets', 'images', 'favicon'];
-            if (staticFiles.some(file => firstDir.includes(file))) {
+            // 알려진 정적 파일 및 시스템 경로 제외
+            const staticPaths = [
+                'assets', 'images', 'css', 'js', 'fonts', 
+                'favicon', '_next', '.well-known', 'api'
+            ];
+            
+            // 정적 파일 확장자 체크
+            const hasFileExtension = firstDir.includes('.');
+            
+            if (staticPaths.includes(firstDir) || hasFileExtension) {
                 setTimeout(showError, 500);
                 return;
             }
             
-            // 알려진 SPA 프로젝트 설정 (라우팅 방식 포함)
-            const knownSPAs = {
-                'v2x-security-career': { type: 'hash' },  // HashRouter 사용
-                'react-portfolio': { type: 'browser' },    // BrowserRouter 사용
-                'vue-dashboard': { type: 'hash' }          // Vue Hash 모드
-                // 새 프로젝트 추가 시: 'project-name': { type: 'hash' | 'browser' }
-            };
-            
-            if (knownSPAs[firstDir]) {
-                redirectToSPA(firstDir, path, knownSPAs[firstDir].type);
-                return;
-            }
-            
-            // 동적 감지 (알려지지 않은 프로젝트)
+            // 모든 디렉토리를 잠재적 SPA 프로젝트로 간주하고 동적으로 체크
             checkIfProjectExists(firstDir, path);
             
             async function checkIfProjectExists(projectName, fullPath) {
@@ -436,9 +430,9 @@
                     });
                     
                     if (response.ok) {
-                        // SPA 발견 - 기본적으로 hash 라우팅 사용
+                        // SPA 발견
                         console.log(`Found SPA: ${projectName}`);
-                        redirectToSPA(projectName, fullPath, 'hash');
+                        redirectToSPA(projectName, fullPath);
                     } else {
                         setTimeout(showError, 500);
                     }
@@ -447,7 +441,7 @@
                 }
             }
             
-            function redirectToSPA(projectName, fullPath, routingType = 'hash') {
+            function redirectToSPA(projectName, fullPath) {
                 // 프로젝트 경로 이후의 하위 경로 추출
                 const projectBasePath = `/${projectName}`;
                 const subPath = fullPath.substring(projectBasePath.length) || '/';
@@ -456,25 +450,16 @@
                 attempted.push(fullPath);
                 sessionStorage.setItem(attemptedKey, JSON.stringify(attempted));
                 
-                let redirectUrl;
+                // BrowserRouter를 사용하는 프로젝트
+                // sessionStorage에 원래 경로 저장 (프로젝트에서 처리)
+                sessionStorage.setItem('spa_redirect_path', subPath);
+                sessionStorage.setItem('spa_redirect_from_404', 'true');
                 
-                if (routingType === 'hash') {
-                    // HashRouter를 사용하는 프로젝트
-                    // 하위 경로를 해시로 변환
-                    redirectUrl = `${projectBasePath}/#${subPath}`;
-                    pathInfo.textContent = `Found ${projectName} project! Redirecting to hash route...`;
-                } else if (routingType === 'browser') {
-                    // BrowserRouter를 사용하는 프로젝트
-                    // sessionStorage에 원래 경로 저장 (프로젝트에서 처리)
-                    sessionStorage.setItem('spa_redirect_path', subPath);
-                    sessionStorage.setItem('spa_redirect_from_404', 'true');
-                    
-                    // URL 파라미터로도 전달 (대체 방법)
-                    const encodedPath = encodeURIComponent(subPath);
-                    redirectUrl = `${projectBasePath}/?redirect=${encodedPath}`;
-                    pathInfo.textContent = `Found ${projectName} project! Redirecting with path info...`;
-                }
+                // URL 파라미터로도 전달 (대체 방법)
+                const encodedPath = encodeURIComponent(subPath);
+                const redirectUrl = `${projectBasePath}/?redirect=${encodedPath}`;
                 
+                pathInfo.textContent = `Found ${projectName} project! Redirecting...`;
                 console.log(`Redirecting from ${fullPath} to ${redirectUrl}`);
                 
                 setTimeout(() => {
@@ -501,39 +486,32 @@
     
     <!-- 
     ============================================
-    각 SPA 프로젝트의 index.html에 추가해야 할 코드
+    각 React 프로젝트의 App.js에 추가해야 할 코드
     ============================================
     
-    BrowserRouter를 사용하는 React 프로젝트의 경우:
+    BrowserRouter를 사용하는 모든 React 프로젝트에 RedirectHandler 컴포넌트를 추가하세요.
+    위에서 제공한 App.js 코드를 참고하거나 아래 코드를 App.js에 추가:
     
-    <script>
-        // 404.html에서 리다이렉트된 경우 처리
-        (function() {
-            // sessionStorage에서 경로 확인
-            const redirectPath = sessionStorage.getItem('spa_redirect_path');
-            const isFrom404 = sessionStorage.getItem('spa_redirect_from_404');
-            
-            if (isFrom404 === 'true' && redirectPath) {
-                // 정리
-                sessionStorage.removeItem('spa_redirect_path');
-                sessionStorage.removeItem('spa_redirect_from_404');
-                
-                // React Router로 네비게이션
-                window.history.replaceState(null, '', redirectPath);
-            }
-            
-            // URL 파라미터 확인 (대체 방법)
-            const urlParams = new URLSearchParams(window.location.search);
-            const redirectParam = urlParams.get('redirect');
-            
-            if (redirectParam) {
-                const decodedPath = decodeURIComponent(redirectParam);
-                window.history.replaceState(null, '', decodedPath);
-            }
-        })();
-    </script>
-    
-    HashRouter를 사용하는 프로젝트는 별도 처리 불필요 (자동으로 해시 라우팅됨)
+    useEffect(() => {
+        const redirectPath = sessionStorage.getItem('spa_redirect_path');
+        const isFrom404 = sessionStorage.getItem('spa_redirect_from_404');
+        
+        if (isFrom404 === 'true' && redirectPath) {
+            sessionStorage.removeItem('spa_redirect_path');
+            sessionStorage.removeItem('spa_redirect_from_404');
+            navigate(redirectPath, { replace: true });
+        }
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectParam = urlParams.get('redirect');
+        
+        if (redirectParam) {
+            const decodedPath = decodeURIComponent(redirectParam);
+            const newUrl = window.location.pathname;
+            window.history.replaceState(null, '', newUrl);
+            navigate(decodedPath, { replace: true });
+        }
+    }, [navigate]);
     -->
 </body>
 </html>
