@@ -371,7 +371,110 @@
 
     <script>
         (function() {
-            const path = window.location.pathname;
+            // 보안 및 경로 유틸리티 함수들
+            const SecurityUtils = {
+                // 경로 정규화 및 보안 검증
+                sanitizePath: function(path) {
+                    // 기본 정리
+                    let sanitized = path
+                        .replace(/\/+/g, '/')  // 중복 슬래시 제거
+                        .replace(/\\/g, '/')   // 백슬래시를 슬래시로
+                        .trim();
+                    
+                    // 경로 탐색 공격 방어
+                    if (sanitized.includes('../') || sanitized.includes('..\\')) {
+                        console.warn('Path traversal attempt detected:', path);
+                        return '/';
+                    }
+                    
+                    // URL 디코딩 (안전하게)
+                    try {
+                        sanitized = decodeURIComponent(sanitized);
+                    } catch (e) {
+                        // 잘못된 인코딩은 그대로 사용
+                        console.warn('Invalid URL encoding:', sanitized);
+                    }
+                    
+                    // 특수 문자 검증
+                    const validPathRegex = /^[a-zA-Z0-9\-_\/\.\@\~\!\$\&\'\(\)\*\+\,\;\=\:\s]+$/;
+                    if (!validPathRegex.test(sanitized) && !/[\u0080-\uFFFF]/.test(sanitized)) {
+                        console.warn('Invalid characters in path:', sanitized);
+                        return '/';
+                    }
+                    
+                    return sanitized;
+                },
+                
+                // XSS 방어를 위한 HTML 이스케이프
+                escapeHtml: function(text) {
+                    const map = {
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#039;'
+                    };
+                    return text.replace(/[&<>"']/g, m => map[m]);
+                },
+                
+                // 프로젝트명 검증
+                isValidProjectName: function(name) {
+                    // 프로젝트명 규칙: 영문, 숫자, 하이픈, 언더스코어만
+                    return /^[a-zA-Z0-9\-_]+$/.test(name) && name.length < 100;
+                }
+            };
+            
+            // 상태 관리
+            const StateManager = {
+                maxAttempts: 3,
+                attemptCount: 0,
+                
+                // 무한 루프 방지
+                checkInfiniteLoop: function() {
+                    const loopKey = 'redirect_loop_count';
+                    const loopTime = 'redirect_loop_time';
+                    const now = Date.now();
+                    const lastTime = parseInt(sessionStorage.getItem(loopTime) || '0');
+                    let count = parseInt(sessionStorage.getItem(loopKey) || '0');
+                    
+                    // 5초 내에 3번 이상 리다이렉트 시도
+                    if (now - lastTime < 5000) {
+                        count++;
+                        if (count > 3) {
+                            sessionStorage.removeItem(loopKey);
+                            sessionStorage.removeItem(loopTime);
+                            return true; // 무한 루프 감지
+                        }
+                    } else {
+                        count = 1;
+                    }
+                    
+                    sessionStorage.setItem(loopKey, count.toString());
+                    sessionStorage.setItem(loopTime, now.toString());
+                    return false;
+                },
+                
+                // 동시 실행 방지
+                lockRedirect: function() {
+                    const lockKey = 'redirect_lock';
+                    const lock = sessionStorage.getItem(lockKey);
+                    const now = Date.now();
+                    
+                    if (lock && (now - parseInt(lock)) < 1000) {
+                        return false; // 이미 실행 중
+                    }
+                    
+                    sessionStorage.setItem(lockKey, now.toString());
+                    return true;
+                },
+                
+                unlockRedirect: function() {
+                    sessionStorage.removeItem('redirect_lock');
+                }
+            };
+            
+            // 메인 로직
+            const rawPath = window.location.pathname;
             const origin = window.location.origin;
             
             // UI 요소
@@ -380,9 +483,23 @@
             const pathInfo = document.getElementById('pathInfo');
             const errorPath = document.getElementById('errorPath');
             
-            // 현재 경로 표시
-            pathInfo.textContent = `Checking: ${path}`;
-            errorPath.textContent = path;
+            // 보안: 경로 정리 및 표시
+            const path = SecurityUtils.sanitizePath(rawPath);
+            pathInfo.textContent = `Checking: ${SecurityUtils.escapeHtml(path)}`;
+            errorPath.textContent = SecurityUtils.escapeHtml(path);
+            
+            // 무한 루프 체크
+            if (StateManager.checkInfiniteLoop()) {
+                console.error('Redirect loop detected!');
+                showError();
+                return;
+            }
+            
+            // 동시 실행 방지
+            if (!StateManager.lockRedirect()) {
+                console.warn('Redirect already in progress');
+                return;
+            }
             
             // 재귀 방지
             const attemptedKey = 'attempted_404_paths';
@@ -391,6 +508,7 @@
             if (attempted.includes(path)) {
                 // 이미 시도했던 경로면 진짜 404
                 sessionStorage.removeItem(attemptedKey);
+                StateManager.unlockRedirect();
                 showError();
                 return;
             }
@@ -398,22 +516,41 @@
             // 경로 분석
             const pathParts = path.split('/').filter(Boolean);
             if (pathParts.length === 0) {
+                StateManager.unlockRedirect();
                 window.location.replace('/');
                 return;
             }
             
             const firstDir = pathParts[0];
             
+            // 프로젝트명 검증
+            if (!SecurityUtils.isValidProjectName(firstDir)) {
+                console.warn('Invalid project name:', firstDir);
+                StateManager.unlockRedirect();
+                showError();
+                return;
+            }
+            
             // 알려진 정적 파일 및 시스템 경로 제외
             const staticPaths = [
                 'assets', 'images', 'css', 'js', 'fonts', 
-                'favicon', '_next', '.well-known', 'api'
+                'favicon', '_next', '.well-known', 'api',
+                'node_modules', '.git', 'dist', 'build'
             ];
             
-            // 정적 파일 확장자 체크
-            const hasFileExtension = firstDir.includes('.');
+            // 정적 파일 확장자 체크 (더 엄격하게)
+            const staticExtensions = [
+                '.html', '.css', '.js', '.json', '.xml', '.txt',
+                '.jpg', '.jpeg', '.png', '.gif', '.svg', '.ico',
+                '.pdf', '.zip', '.woff', '.woff2', '.ttf', '.eot'
+            ];
             
-            if (staticPaths.includes(firstDir) || hasFileExtension) {
+            const hasFileExtension = staticExtensions.some(ext => 
+                firstDir.toLowerCase().endsWith(ext)
+            );
+            
+            if (staticPaths.includes(firstDir.toLowerCase()) || hasFileExtension) {
+                StateManager.unlockRedirect();
                 setTimeout(showError, 500);
                 return;
             }
@@ -423,20 +560,45 @@
             
             async function checkIfProjectExists(projectName, fullPath) {
                 try {
+                    // 타임아웃 설정 (3초)
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 3000);
+                    
                     const checkUrl = `${origin}/${projectName}/index.html`;
                     const response = await fetch(checkUrl, { 
                         method: 'HEAD',
-                        cache: 'no-cache' 
+                        cache: 'no-cache',
+                        signal: controller.signal
                     });
                     
+                    clearTimeout(timeoutId);
+                    
                     if (response.ok) {
+                        // Content-Type 검증
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && !contentType.includes('text/html')) {
+                            console.warn('Not an HTML file:', contentType);
+                            StateManager.unlockRedirect();
+                            setTimeout(showError, 500);
+                            return;
+                        }
+                        
                         // SPA 발견
                         console.log(`Found SPA: ${projectName}`);
                         redirectToSPA(projectName, fullPath);
                     } else {
+                        StateManager.unlockRedirect();
                         setTimeout(showError, 500);
                     }
                 } catch (error) {
+                    console.error('Error checking project:', error);
+                    StateManager.unlockRedirect();
+                    
+                    // 네트워크 오류 시 재시도
+                    if (error.name === 'AbortError') {
+                        console.warn('Request timeout');
+                    }
+                    
                     setTimeout(showError, 500);
                 }
             }
@@ -444,7 +606,10 @@
             function redirectToSPA(projectName, fullPath) {
                 // 프로젝트 경로 이후의 하위 경로 추출
                 const projectBasePath = `/${projectName}`;
-                const subPath = fullPath.substring(projectBasePath.length) || '/';
+                let subPath = fullPath.substring(projectBasePath.length) || '/';
+                
+                // 서브 경로 정리
+                subPath = SecurityUtils.sanitizePath(subPath);
                 
                 // 재귀 방지 기록
                 attempted.push(fullPath);
@@ -454,23 +619,43 @@
                 // sessionStorage에 원래 경로 저장 (프로젝트에서 처리)
                 sessionStorage.setItem('spa_redirect_path', subPath);
                 sessionStorage.setItem('spa_redirect_from_404', 'true');
+                sessionStorage.setItem('spa_redirect_timestamp', Date.now().toString());
+                
+                // 목표 경로를 sessionStorage에도 저장 (뒤로가기 방어용)
+                sessionStorage.setItem('spa_target_path', fullPath);
                 
                 // URL 파라미터로도 전달 (대체 방법)
                 const encodedPath = encodeURIComponent(subPath);
                 const redirectUrl = `${projectBasePath}/?redirect=${encodedPath}`;
                 
+                // 너무 긴 URL 방지 (브라우저 제한)
+                if (redirectUrl.length > 2000) {
+                    console.warn('URL too long, using sessionStorage only');
+                    window.location.replace(projectBasePath);
+                    return;
+                }
+                
                 pathInfo.textContent = `Found ${projectName} project! Redirecting...`;
                 console.log(`Redirecting from ${fullPath} to ${redirectUrl}`);
                 
+                // 정리
+                StateManager.unlockRedirect();
+                
+                // replace를 사용해 히스토리에서 404 페이지를 대체
+                // 이렇게 하면 뒤로가기 시 404 페이지로 돌아오지 않음
                 setTimeout(() => {
                     window.location.replace(redirectUrl);
-                }, 500);
+                }, 300);
             }
             
             function showError() {
+                // 모든 임시 데이터 정리
                 sessionStorage.removeItem(attemptedKey);
                 sessionStorage.removeItem('spa_redirect_path');
                 sessionStorage.removeItem('spa_redirect_from_404');
+                sessionStorage.removeItem('spa_redirect_timestamp');
+                sessionStorage.removeItem('redirect_lock');
+                
                 loadingState.style.display = 'none';
                 errorState.style.display = 'block';
             }
@@ -478,40 +663,16 @@
             // 10초 후에도 로딩 중이면 에러 표시
             setTimeout(() => {
                 if (loadingState.style.display !== 'none') {
+                    StateManager.unlockRedirect();
                     showError();
                 }
             }, 10000);
+            
+            // 페이지 언로드 시 정리
+            window.addEventListener('unload', () => {
+                StateManager.unlockRedirect();
+            });
         })();
     </script>
-    
-    <!-- 
-    ============================================
-    각 React 프로젝트의 App.js에 추가해야 할 코드
-    ============================================
-    
-    BrowserRouter를 사용하는 모든 React 프로젝트에 RedirectHandler 컴포넌트를 추가하세요.
-    위에서 제공한 App.js 코드를 참고하거나 아래 코드를 App.js에 추가:
-    
-    useEffect(() => {
-        const redirectPath = sessionStorage.getItem('spa_redirect_path');
-        const isFrom404 = sessionStorage.getItem('spa_redirect_from_404');
-        
-        if (isFrom404 === 'true' && redirectPath) {
-            sessionStorage.removeItem('spa_redirect_path');
-            sessionStorage.removeItem('spa_redirect_from_404');
-            navigate(redirectPath, { replace: true });
-        }
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const redirectParam = urlParams.get('redirect');
-        
-        if (redirectParam) {
-            const decodedPath = decodeURIComponent(redirectParam);
-            const newUrl = window.location.pathname;
-            window.history.replaceState(null, '', newUrl);
-            navigate(decodedPath, { replace: true });
-        }
-    }, [navigate]);
-    -->
 </body>
 </html>
