@@ -411,16 +411,16 @@
                 return;
             }
             
-            // 알려진 SPA 프로젝트 (빠른 처리)
-            const knownSPAs = [
-                'v2x-security-career',
-                'react-portfolio',
-                'vue-dashboard'
-                // 새 프로젝트 추가 시 여기에 추가
-            ];
+            // 알려진 SPA 프로젝트 설정 (라우팅 방식 포함)
+            const knownSPAs = {
+                'v2x-security-career': { type: 'hash' },  // HashRouter 사용
+                'react-portfolio': { type: 'browser' },    // BrowserRouter 사용
+                'vue-dashboard': { type: 'hash' }          // Vue Hash 모드
+                // 새 프로젝트 추가 시: 'project-name': { type: 'hash' | 'browser' }
+            };
             
-            if (knownSPAs.includes(firstDir)) {
-                redirectToSPA(firstDir, path);
+            if (knownSPAs[firstDir]) {
+                redirectToSPA(firstDir, path, knownSPAs[firstDir].type);
                 return;
             }
             
@@ -436,9 +436,9 @@
                     });
                     
                     if (response.ok) {
-                        // SPA 발견
+                        // SPA 발견 - 기본적으로 hash 라우팅 사용
                         console.log(`Found SPA: ${projectName}`);
-                        redirectToSPA(projectName, fullPath);
+                        redirectToSPA(projectName, fullPath, 'hash');
                     } else {
                         setTimeout(showError, 500);
                     }
@@ -447,24 +447,45 @@
                 }
             }
             
-            function redirectToSPA(projectName, fullPath) {
-                // 경로 저장
-                sessionStorage.setItem('spa_redirect_path', fullPath);
+            function redirectToSPA(projectName, fullPath, routingType = 'hash') {
+                // 프로젝트 경로 이후의 하위 경로 추출
+                const projectBasePath = `/${projectName}`;
+                const subPath = fullPath.substring(projectBasePath.length) || '/';
                 
                 // 재귀 방지 기록
                 attempted.push(fullPath);
                 sessionStorage.setItem(attemptedKey, JSON.stringify(attempted));
                 
-                // 리다이렉트 메시지
-                pathInfo.textContent = `Found ${projectName} project! Redirecting...`;
+                let redirectUrl;
+                
+                if (routingType === 'hash') {
+                    // HashRouter를 사용하는 프로젝트
+                    // 하위 경로를 해시로 변환
+                    redirectUrl = `${projectBasePath}/#${subPath}`;
+                    pathInfo.textContent = `Found ${projectName} project! Redirecting to hash route...`;
+                } else if (routingType === 'browser') {
+                    // BrowserRouter를 사용하는 프로젝트
+                    // sessionStorage에 원래 경로 저장 (프로젝트에서 처리)
+                    sessionStorage.setItem('spa_redirect_path', subPath);
+                    sessionStorage.setItem('spa_redirect_from_404', 'true');
+                    
+                    // URL 파라미터로도 전달 (대체 방법)
+                    const encodedPath = encodeURIComponent(subPath);
+                    redirectUrl = `${projectBasePath}/?redirect=${encodedPath}`;
+                    pathInfo.textContent = `Found ${projectName} project! Redirecting with path info...`;
+                }
+                
+                console.log(`Redirecting from ${fullPath} to ${redirectUrl}`);
                 
                 setTimeout(() => {
-                    window.location.replace(`/${projectName}/`);
+                    window.location.replace(redirectUrl);
                 }, 500);
             }
             
             function showError() {
                 sessionStorage.removeItem(attemptedKey);
+                sessionStorage.removeItem('spa_redirect_path');
+                sessionStorage.removeItem('spa_redirect_from_404');
                 loadingState.style.display = 'none';
                 errorState.style.display = 'block';
             }
@@ -477,5 +498,42 @@
             }, 10000);
         })();
     </script>
+    
+    <!-- 
+    ============================================
+    각 SPA 프로젝트의 index.html에 추가해야 할 코드
+    ============================================
+    
+    BrowserRouter를 사용하는 React 프로젝트의 경우:
+    
+    <script>
+        // 404.html에서 리다이렉트된 경우 처리
+        (function() {
+            // sessionStorage에서 경로 확인
+            const redirectPath = sessionStorage.getItem('spa_redirect_path');
+            const isFrom404 = sessionStorage.getItem('spa_redirect_from_404');
+            
+            if (isFrom404 === 'true' && redirectPath) {
+                // 정리
+                sessionStorage.removeItem('spa_redirect_path');
+                sessionStorage.removeItem('spa_redirect_from_404');
+                
+                // React Router로 네비게이션
+                window.history.replaceState(null, '', redirectPath);
+            }
+            
+            // URL 파라미터 확인 (대체 방법)
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectParam = urlParams.get('redirect');
+            
+            if (redirectParam) {
+                const decodedPath = decodeURIComponent(redirectParam);
+                window.history.replaceState(null, '', decodedPath);
+            }
+        })();
+    </script>
+    
+    HashRouter를 사용하는 프로젝트는 별도 처리 불필요 (자동으로 해시 라우팅됨)
+    -->
 </body>
 </html>
