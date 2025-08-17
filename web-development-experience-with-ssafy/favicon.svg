@@ -1,16 +1,9 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-    <!-- 방패 배경 -->
-    <path d="M32 4 L52 14 L52 35 Q52 50 32 58 Q12 50 12 35 L12 14 Z" 
-          fill="#3B82F6" stroke="none"/>
-    <!-- 자동차 옆모습 -->
-    <path d="M18 32 L18 38 L46 38 L46 32 L40 32 L36 26 L28 26 L24 32 Z" fill="white"/>
-    <!-- 바퀴 -->
-    <circle cx="25" cy="38" r="3" fill="#3B82F6"/>
-    <circle cx="39" cy="38" r="3" fill="#3B82F6"/>
-    <!-- 창문 -->
-    <path d="M26 32 L28 28 L36 28 L38 32 Z" fill="#3B82F6" opacity="0.5"/>
-    <!-- 우측 상단 원형 전파 -->
-    <circle cx="48" cy="20" r="6" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
-    <circle cx="48" cy="20" r="10" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
-    <circle cx="48" cy="20" r="14" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/>
+    <!-- Pen & Paper Design -->
+    <rect x="16" y="8" width="32" height="48" rx="2" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="24" y1="20" x2="40" y2="20" stroke="#E5E7EB" stroke-width="2"/>
+    <line x1="24" y1="28" x2="40" y2="28" stroke="#E5E7EB" stroke-width="2"/>
+    <line x1="24" y1="36" x2="32" y2="36" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="36" y="32" width="4" height="24" rx="1" fill="#3B82F6" transform="rotate(-45 38 44)"/>
+    <polygon points="28,48 32,52 24,52" fill="#1E40AF"/>
 </svg>

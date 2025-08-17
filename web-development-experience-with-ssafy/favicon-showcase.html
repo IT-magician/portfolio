@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Design Showcase - Web Development With SSAFY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .favicon-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .favicon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .favicon-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .size-16, .size-32, .size-64 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .size-label {
+            font-size: 11px;
+            color: #666;
+        }
+        .favicon-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .favicon-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .tier-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .tier-1 { background: #fbbf24; color: #78350f; }
+        .tier-2 { background: #60a5fa; color: #1e3a8a; }
+        .tier-3 { background: #a78bfa; color: #4c1d95; }
+        .dark-bg {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .light-bg {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Favicon Design Showcase</h1>
+        <div class="grid">
+            
+            <!-- Design 1: Dynamic Growth Curve -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-1">Tier 1 - Enterprise</span>
+                <h3 class="favicon-title">1. Dynamic Growth Curve</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,48 Q24,40 32,24 T56,8" stroke="#10B981" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <circle cx="56" cy="8" r="3" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,48 Q24,40 32,24 T56,8" stroke="#10B981" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <circle cx="56" cy="8" r="3" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,48 Q24,40 32,24 T56,8" stroke="#10B981" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <circle cx="56" cy="8" r="3" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">S자 성장 곡선으로 학습 곡선 이론을 시각화. 다크 배경으로 최신 OS 다크모드 최적화.</p>
+            </div>
+
+            <!-- Design 2: Modular Grid System -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-1">Tier 1 - Enterprise</span>
+                <h3 class="favicon-title">2. Modular Grid System</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect x="8" y="8" width="20" height="20" fill="#3B82F6"/>
+                            <rect x="36" y="8" width="20" height="20" fill="#60A5FA"/>
+                            <rect x="8" y="36" width="20" height="20" fill="#93C5FD"/>
+                            <rect x="36" y="36" width="20" height="20" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect x="8" y="8" width="20" height="20" fill="#3B82F6"/>
+                            <rect x="36" y="8" width="20" height="20" fill="#60A5FA"/>
+                            <rect x="8" y="36" width="20" height="20" fill="#93C5FD"/>
+                            <rect x="36" y="36" width="20" height="20" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect x="8" y="8" width="20" height="20" fill="#3B82F6"/>
+                            <rect x="36" y="8" width="20" height="20" fill="#60A5FA"/>
+                            <rect x="8" y="36" width="20" height="20" fill="#93C5FD"/>
+                            <rect x="36" y="36" width="20" height="20" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">4-quadrant 디자인으로 Agile의 iterative development 표현. 색상 진행은 숙련도 향상.</p>
+            </div>
+
+            <!-- Design 3: Fibonacci Spiral -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-1">Tier 1 - Enterprise</span>
+                <h3 class="favicon-title">3. Fibonacci Spiral</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="white"/>
+                            <path d="M32,32 Q48,32 48,16 Q48,8 40,8 Q32,8 32,16 Q32,24 36,24 Q40,24 40,20" stroke="#6366F1" stroke-width="3" fill="none"/>
+                            <circle cx="32" cy="32" r="2" fill="#6366F1"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="white"/>
+                            <path d="M32,32 Q48,32 48,16 Q48,8 40,8 Q32,8 32,16 Q32,24 36,24 Q40,24 40,20" stroke="#6366F1" stroke-width="3" fill="none"/>
+                            <circle cx="32" cy="32" r="2" fill="#6366F1"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="white"/>
+                            <path d="M32,32 Q48,32 48,16 Q48,8 40,8 Q32,8 32,16 Q32,24 36,24 Q40,24 40,20" stroke="#6366F1" stroke-width="3" fill="none"/>
+                            <circle cx="32" cy="32" r="2" fill="#6366F1"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">황금비 나선은 자연스러운 성장 패턴. Tech 업계에서 완벽과 정밀함의 상징.</p>
+            </div>
+
+            <!-- Design 4: Knowledge Graph Node -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-3">Tier 3 - Innovative</span>
+                <h3 class="favicon-title">4. Knowledge Graph Node</h3>
+                <div class="favicon-preview dark-bg">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="8" fill="#6366F1"/>
+                            <g stroke="#CBD5E1" stroke-width="2">
+                                <line x1="32" y1="24" x2="32" y2="8"/>
+                                <line x1="40" y1="32" x2="56" y2="32"/>
+                                <line x1="32" y1="40" x2="32" y2="56"/>
+                                <line x1="24" y1="32" x2="8" y2="32"/>
+                            </g>
+                            <g fill="#E0E7FF">
+                                <circle cx="32" cy="8" r="3"/>
+                                <circle cx="56" cy="32" r="3"/>
+                                <circle cx="32" cy="56" r="3"/>
+                                <circle cx="8" cy="32" r="3"/>
+                            </g>
+                        </svg>
+                        <span class="size-label" style="color: white;">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="8" fill="#6366F1"/>
+                            <g stroke="#CBD5E1" stroke-width="2">
+                                <line x1="32" y1="24" x2="32" y2="8"/>
+                                <line x1="40" y1="32" x2="56" y2="32"/>
+                                <line x1="32" y1="40" x2="32" y2="56"/>
+                                <line x1="24" y1="32" x2="8" y2="32"/>
+                            </g>
+                            <g fill="#E0E7FF">
+                                <circle cx="32" cy="8" r="3"/>
+                                <circle cx="56" cy="32" r="3"/>
+                                <circle cx="32" cy="56" r="3"/>
+                                <circle cx="8" cy="32" r="3"/>
+                            </g>
+                        </svg>
+                        <span class="size-label" style="color: white;">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="8" fill="#6366F1"/>
+                            <g stroke="#CBD5E1" stroke-width="2">
+                                <line x1="32" y1="24" x2="32" y2="8"/>
+                                <line x1="40" y1="32" x2="56" y2="32"/>
+                                <line x1="32" y1="40" x2="32" y2="56"/>
+                                <line x1="24" y1="32" x2="8" y2="32"/>
+                            </g>
+                            <g fill="#E0E7FF">
+                                <circle cx="32" cy="8" r="3"/>
+                                <circle cx="56" cy="32" r="3"/>
+                                <circle cx="32" cy="56" r="3"/>
+                                <circle cx="8" cy="32" r="3"/>
+                            </g>
+                        </svg>
+                        <span class="size-label" style="color: white;">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">Knowledge Graph는 현대 AI/ML의 핵심. 연결된 노드는 학습의 네트워크 효과.</p>
+            </div>
+
+            <!-- Design 5: Loading Progress -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">5. Loading Progress Ring</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#E5E7EB" stroke-width="4"/>
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="176" stroke-dashoffset="44" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#E5E7EB" stroke-width="4"/>
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="176" stroke-dashoffset="44" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#E5E7EB" stroke-width="4"/>
+                            <circle cx="32" cy="32" r="28" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="176" stroke-dashoffset="44" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">75% 완료 상태. "거의 도달" 심리 활용. CSS animation ready 구조.</p>
+            </div>
+
+            <!-- Design 6: Pulse Rhythm -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">6. Pulse Rhythm</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,32 L16,32 L20,20 L24,44 L28,24 L32,40 L36,28 L40,36 L44,32 L56,32" stroke="#10B981" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,32 L16,32 L20,20 L24,44 L28,24 L32,40 L36,28 L40,36 L44,32 L56,32" stroke="#10B981" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#0F172A"/>
+                            <path d="M8,32 L16,32 L20,20 L24,44 L28,24 L32,40 L36,28 L40,36 L44,32 L56,32" stroke="#10B981" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">EKG 패턴으로 생명력과 활동성 표현. 웹 애플리케이션의 "살아있음".</p>
+            </div>
+
+            <!-- Design 7: Growth Steps -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">7. Growth Steps</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect x="8" y="48" width="12" height="8" fill="#94A3B8"/>
+                            <rect x="20" y="40" width="12" height="16" fill="#64748B"/>
+                            <rect x="32" y="32" width="12" height="24" fill="#475569"/>
+                            <rect x="44" y="24" width="12" height="32" fill="#334155"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect x="8" y="48" width="12" height="8" fill="#94A3B8"/>
+                            <rect x="20" y="40" width="12" height="16" fill="#64748B"/>
+                            <rect x="32" y="32" width="12" height="24" fill="#475569"/>
+                            <rect x="44" y="24" width="12" height="32" fill="#334155"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect x="8" y="48" width="12" height="8" fill="#94A3B8"/>
+                            <rect x="20" y="40" width="12" height="16" fill="#64748B"/>
+                            <rect x="32" y="32" width="12" height="24" fill="#475569"/>
+                            <rect x="44" y="24" width="12" height="32" fill="#334155"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">계단식 막대 그래프로 단계적 성장 표현. 색상 강도로 레벨 구분.</p>
+            </div>
+
+            <!-- Design 8: Connected Dots -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">8. Connected Dots</h3>
+                <div class="favicon-preview light-bg">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <g stroke="#CBD5E1" stroke-width="2" fill="none">
+                                <line x1="16" y1="48" x2="32" y2="32"/>
+                                <line x1="32" y1="32" x2="48" y2="16"/>
+                            </g>
+                            <circle cx="16" cy="48" r="4" fill="#94A3B8"/>
+                            <circle cx="32" cy="32" r="5" fill="#3B82F6"/>
+                            <circle cx="48" cy="16" r="6" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <g stroke="#CBD5E1" stroke-width="2" fill="none">
+                                <line x1="16" y1="48" x2="32" y2="32"/>
+                                <line x1="32" y1="32" x2="48" y2="16"/>
+                            </g>
+                            <circle cx="16" cy="48" r="4" fill="#94A3B8"/>
+                            <circle cx="32" cy="32" r="5" fill="#3B82F6"/>
+                            <circle cx="48" cy="16" r="6" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <g stroke="#CBD5E1" stroke-width="2" fill="none">
+                                <line x1="16" y1="48" x2="32" y2="32"/>
+                                <line x1="32" y1="32" x2="48" y2="16"/>
+                            </g>
+                            <circle cx="16" cy="48" r="4" fill="#94A3B8"/>
+                            <circle cx="32" cy="32" r="5" fill="#3B82F6"/>
+                            <circle cx="48" cy="16" r="6" fill="#10B981"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">연결된 점들로 학습 경로 표현. 크기 증가는 지식 축적.</p>
+            </div>
+
+            <!-- Design 9: Hexagon Grid -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-1">Tier 1 - Enterprise</span>
+                <h3 class="favicon-title">9. Hexagon Grid</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <polygon points="32,8 48,16 48,32 32,40 16,32 16,16" fill="#6366F1"/>
+                            <polygon points="32,24 40,28 40,36 32,40 24,36 24,28" fill="white"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <polygon points="32,8 48,16 48,32 32,40 16,32 16,16" fill="#6366F1"/>
+                            <polygon points="32,24 40,28 40,36 32,40 24,36 24,28" fill="white"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <polygon points="32,8 48,16 48,32 32,40 16,32 16,16" fill="#6366F1"/>
+                            <polygon points="32,24 40,28 40,36 32,40 24,36 24,28" fill="white"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">육각형은 효율적 구조의 상징. 벌집 패턴으로 지식 축적 표현.</p>
+            </div>
+
+            <!-- Design 10: Wave Pattern -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-3">Tier 3 - Innovative</span>
+                <h3 class="favicon-title">10. Wave Pattern</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#F0F9FF"/>
+                            <path d="M0,32 Q16,16 32,32 T64,32 L64,64 L0,64 Z" fill="#3B82F6"/>
+                            <path d="M0,40 Q16,24 32,40 T64,40 L64,64 L0,64 Z" fill="#60A5FA" opacity="0.7"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#F0F9FF"/>
+                            <path d="M0,32 Q16,16 32,32 T64,32 L64,64 L0,64 Z" fill="#3B82F6"/>
+                            <path d="M0,40 Q16,24 32,40 T64,40 L64,64 L0,64 Z" fill="#60A5FA" opacity="0.7"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#F0F9FF"/>
+                            <path d="M0,32 Q16,16 32,32 T64,32 L64,64 L0,64 Z" fill="#3B82F6"/>
+                            <path d="M0,40 Q16,24 32,40 T64,40 L64,64 L0,64 Z" fill="#60A5FA" opacity="0.7"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">파도 패턴으로 지속적 흐름과 변화 표현. 웹의 유동성.</p>
+            </div>
+
+            <!-- Design 11: Minimal S -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-1">Tier 1 - Enterprise</span>
+                <h3 class="favicon-title">11. Minimal 'S' (SSAFY)</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#1E40AF"/>
+                            <text x="32" y="44" font-family="Arial Black" font-size="36" font-weight="900" text-anchor="middle" fill="white">S</text>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#1E40AF"/>
+                            <text x="32" y="44" font-family="Arial Black" font-size="36" font-weight="900" text-anchor="middle" fill="white">S</text>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" fill="#1E40AF"/>
+                            <text x="32" y="44" font-family="Arial Black" font-size="36" font-weight="900" text-anchor="middle" fill="white">S</text>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">SSAFY 브랜드 직접 표현. 굵은 서체로 명확한 가독성.</p>
+            </div>
+
+            <!-- Design 12: Gradient Circle -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">12. Gradient Circle</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3B82F6"/>
+                                    <stop offset="100%" style="stop-color:#10B981"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="32" r="28" fill="url(#grad1)"/>
+                            <circle cx="32" cy="32" r="20" fill="white"/>
+                            <circle cx="32" cy="32" r="12" fill="url(#grad1)"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3B82F6"/>
+                                    <stop offset="100%" style="stop-color:#10B981"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="32" r="28" fill="url(#grad2)"/>
+                            <circle cx="32" cy="32" r="20" fill="white"/>
+                            <circle cx="32" cy="32" r="12" fill="url(#grad2)"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3B82F6"/>
+                                    <stop offset="100%" style="stop-color:#10B981"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="32" r="28" fill="url(#grad3)"/>
+                            <circle cx="32" cy="32" r="20" fill="white"/>
+                            <circle cx="32" cy="32" r="12" fill="url(#grad3)"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">동심원 구조로 목표 도달 표현. 파랑→초록 그라데이션.</p>
+            </div>
+
+            <!-- Design 13: Arrow Up -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-2">Tier 2 - Modern</span>
+                <h3 class="favicon-title">13. Arrow Up</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect width="64" height="64" rx="12" fill="#10B981"/>
+                            <path d="M32,16 L44,32 L36,32 L36,48 L28,48 L28,32 L20,32 Z" fill="white"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect width="64" height="64" rx="12" fill="#10B981"/>
+                            <path d="M32,16 L44,32 L36,32 L36,48 L28,48 L28,32 L20,32 Z" fill="white"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect width="64" height="64" rx="12" fill="#10B981"/>
+                            <path d="M32,16 L44,32 L36,32 L36,48 L28,48 L28,32 L20,32 Z" fill="white"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">명확한 상승 화살표로 성장 직관적 표현. 둥근 모서리로 친근함.</p>
+            </div>
+
+            <!-- Design 14: Book Pages -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-3">Tier 3 - Innovative</span>
+                <h3 class="favicon-title">14. Book Pages</h3>
+                <div class="favicon-preview">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <rect x="12" y="16" width="20" height="32" rx="2" fill="#6366F1"/>
+                            <rect x="32" y="16" width="20" height="32" rx="2" fill="#818CF8"/>
+                            <rect x="14" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="14" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                        </svg>
+                        <span class="size-label">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <rect x="12" y="16" width="20" height="32" rx="2" fill="#6366F1"/>
+                            <rect x="32" y="16" width="20" height="32" rx="2" fill="#818CF8"/>
+                            <rect x="14" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="14" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                        </svg>
+                        <span class="size-label">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <rect x="12" y="16" width="20" height="32" rx="2" fill="#6366F1"/>
+                            <rect x="32" y="16" width="20" height="32" rx="2" fill="#818CF8"/>
+                            <rect x="14" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="14" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="20" width="16" height="2" fill="white" opacity="0.5"/>
+                            <rect x="34" y="24" width="16" height="2" fill="white" opacity="0.5"/>
+                        </svg>
+                        <span class="size-label">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">펼쳐진 책으로 학습 직접 표현. 텍스트 라인으로 내용 암시.</p>
+            </div>
+
+            <!-- Design 15: Rocket -->
+            <div class="favicon-card">
+                <span class="tier-badge tier-3">Tier 3 - Innovative</span>
+                <h3 class="favicon-title">15. Rocket Launch</h3>
+                <div class="favicon-preview dark-bg">
+                    <div class="size-16">
+                        <svg width="16" height="16" viewBox="0 0 64 64">
+                            <path d="M32,8 L40,24 L40,40 L32,48 L24,40 L24,24 Z" fill="#EF4444"/>
+                            <path d="M24,28 L16,36 L20,40 L24,36 Z" fill="#FCA5A5"/>
+                            <path d="M40,28 L48,36 L44,40 L40,36 Z" fill="#FCA5A5"/>
+                            <circle cx="32" cy="28" r="4" fill="white" opacity="0.8"/>
+                            <path d="M28,48 L32,56 L36,48" fill="#FCD34D"/>
+                        </svg>
+                        <span class="size-label" style="color: white;">16×16</span>
+                    </div>
+                    <div class="size-32">
+                        <svg width="32" height="32" viewBox="0 0 64 64">
+                            <path d="M32,8 L40,24 L40,40 L32,48 L24,40 L24,24 Z" fill="#EF4444"/>
+                            <path d="M24,28 L16,36 L20,40 L24,36 Z" fill="#FCA5A5"/>
+                            <path d="M40,28 L48,36 L44,40 L40,36 Z" fill="#FCA5A5"/>
+                            <circle cx="32" cy="28" r="4" fill="white" opacity="0.8"/>
+                            <path d="M28,48 L32,56 L36,48" fill="#FCD34D"/>
+                        </svg>
+                        <span class="size-label" style="color: white;">32×32</span>
+                    </div>
+                    <div class="size-64">
+                        <svg width="64" height="64" viewBox="0 0 64 64">
+                            <path d="M32,8 L40,24 L40,40 L32,48 L24,40 L24,24 Z" fill="#EF4444"/>
+                            <path d="M24,28 L16,36 L20,40 L24,36 Z" fill="#FCA5A5"/>
+                            <path d="M40,28 L48,36 L44,40 L40,36 Z" fill="#FCA5A5"/>
+                            <circle cx="32" cy="28" r="4" fill="white" opacity="0.8"/>
+                            <path d="M28,48 L32,56 L36,48" fill="#FCD34D"/>
+                        </svg>
+                        <span class="size-label" style="color: white;">64×64</span>
+                    </div>
+                </div>
+                <p class="favicon-description">로켓 발사로 빠른 성장과 도약 표현. 스타트업 정신.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
