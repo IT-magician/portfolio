@@ -1,0 +1,2 @@
+/* Copyright (c) 2025 Isaac Kim. All rights reserved. */
+import{j as e}from"./react-vendor-Brk13XEX.js";function s({steps:s}){return e.jsx("div",{className:"step-container",children:s.map((s,t)=>e.jsxs("div",{className:"step",children:[e.jsx("div",{className:"step-number",children:t+1}),e.jsxs("div",{className:"step-content",children:[e.jsx("div",{className:"step-title",children:s.title}),e.jsx("p",{children:s.content})]})]},t))})}export{s as S};
