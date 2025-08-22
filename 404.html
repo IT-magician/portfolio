@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Loading... | Portfolio</title>
     <style>
         :root {
@@ -371,6 +374,40 @@
 
     <script>
         (function() {
+            // BFCache 무효화 - 페이지가 캐시되지 않도록 강제
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    // BFCache에서 복원된 경우
+                    console.log('Page restored from BFCache, forcing reload');
+                    window.location.reload();
+                }
+            });
+            
+            // unload 이벤트 추가로 BFCache 방지 (일부 브라우저)
+            window.addEventListener('unload', function() {});
+            
+            // 이미 처리한 경로인지 확인
+            const currentPath = window.location.pathname;
+            const lastProcessedPath = sessionStorage.getItem('last_404_processed');
+            const lastProcessedTime = parseInt(sessionStorage.getItem('last_404_time') || '0');
+            const now = Date.now();
+            
+            // 2초 이내에 같은 경로를 다시 처리하려고 하면
+            if (lastProcessedPath === currentPath && (now - lastProcessedTime) < 2000) {
+                // 프로젝트 루트로 즉시 이동
+                const pathParts = currentPath.split('/').filter(Boolean);
+                if (pathParts.length > 0) {
+                    const projectBase = `/${pathParts[0]}`;
+                    console.log('Duplicate 404 processing detected, redirecting to:', projectBase);
+                    window.location.replace(projectBase);
+                    return;
+                }
+            }
+            
+            // 현재 처리 기록
+            sessionStorage.setItem('last_404_processed', currentPath);
+            sessionStorage.setItem('last_404_time', now.toString());
+            
             // 보안 및 경로 유틸리티 함수들
             const SecurityUtils = {
                 // 경로 정규화 및 보안 검증
@@ -642,10 +679,8 @@
                 StateManager.unlockRedirect();
                 
                 // replace를 사용해 히스토리에서 404 페이지를 대체
-                // 이렇게 하면 뒤로가기 시 404 페이지로 돌아오지 않음
-                setTimeout(() => {
-                    window.location.replace(redirectUrl);
-                }, 300);
+                // 즉시 리다이렉트 (지연 제거)
+                window.location.replace(redirectUrl);
             }
             
             function showError() {

@@ -8,39 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* ==================== Reset & Base ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* ==================== Design System Variables ==================== */
         :root {
-            /* Enhanced Swiss Design Color System */
-            --primary: #FF6B35;      /* 활력있는 코랄 오렌지 - 주목성 강화 */
-            --secondary: #004643;    /* 깊은 터콰이즈 - 신뢰감과 전문성 */
-            --accent: #F8B400;       /* 따뜻한 골드 - 포인트 컬러 */
-            --background: #FAFAFA;   /* 깨끗한 화이트 */
-            --surface: #FFFFFF;      /* 순수한 화이트 표면 */
-            --surface-dark: #0A0E27; /* 다크모드 대비용 */
-            --text-primary: #0A0E27; /* 진한 네이비 - 가독성 극대화 */
-            --text-secondary: #6C7B8B; /* 부드러운 그레이 블루 */
-            --text-light: #FFFFFF;   /* 라이트 텍스트 */
+            /* Swiss Design Color System */
+            --primary: #FF6B35;
+            --secondary: #004643;
+            --accent: #F8B400;
+            --background: #FAFAFA;
+            --surface: #FFFFFF;
+            --surface-dark: #0A0E27;
+            --text-primary: #0A0E27;
+            --text-secondary: #6C7B8B;
+            --text-light: #FFFFFF;
             --grid-color: rgba(0, 0, 0, 0.03);
+            
+            /* Shadows */
             --shadow-sm: 0 2px 8px rgba(10, 14, 39, 0.05);
             --shadow-md: 0 4px 24px rgba(10, 14, 39, 0.08);
             --shadow-lg: 0 8px 48px rgba(10, 14, 39, 0.12);
             
-            /* Grid System */
+            /* Layout */
             --grid-columns: 12;
             --grid-gap: 24px;
             --margin: 48px;
         }
 
-        html {
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-        }
-
+        /* ==================== Typography ==================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
         
         body {
@@ -49,136 +49,24 @@
             line-height: 1.6;
             background: var(--background);
             color: var(--text-primary);
-            overflow-x: hidden;
+            overflow: hidden; /* Changed from overflow-x: hidden */
+            height: 100vh;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Grid System Background */
-        .grid-overlay {
+        /* ==================== Fullpage Container ==================== */
+        #fullpage-container {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: -1;
-            background-image: 
-                repeating-linear-gradient(
-                    90deg,
-                    var(--grid-color) 0,
-                    var(--grid-color) 1px,
-                    transparent 1px,
-                    transparent calc(100% / var(--grid-columns))
-                );
-            opacity: 0.5;
-        }
-        
-        /* Subtle Corner Gradient Effects */
-        .corner-gradient {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0;
-            animation: cornerGlow 12s ease-in-out infinite;
-        }
-        
-        .corner-gradient.top-left {
-            top: -200px;
-            left: -200px;
-            background: radial-gradient(circle at center, 
-                rgba(255, 107, 53, 0.25) 0%,
-                rgba(255, 140, 90, 0.18) 20%,
-                rgba(255, 180, 120, 0.12) 40%,
-                rgba(255, 200, 150, 0.06) 60%,
-                transparent 80%
-            );
-            animation-delay: 0s;
-        }
-        
-        .corner-gradient.top-right {
-            top: -200px;
-            right: -200px;
-            background: radial-gradient(circle at center, 
-                rgba(255, 120, 60, 0.25) 0%,
-                rgba(255, 160, 100, 0.18) 20%,
-                rgba(248, 180, 130, 0.12) 40%,
-                rgba(255, 210, 160, 0.06) 60%,
-                transparent 80%
-            );
-            animation-delay: 3s;
-        }
-        
-        .corner-gradient.bottom-left {
-            bottom: -200px;
-            left: -200px;
-            background: radial-gradient(circle at center, 
-                rgba(248, 130, 50, 0.25) 0%,
-                rgba(248, 180, 100, 0.18) 20%,
-                rgba(255, 190, 130, 0.12) 40%,
-                rgba(255, 220, 170, 0.06) 60%,
-                transparent 80%
-            );
-            animation-delay: 6s;
-        }
-        
-        .corner-gradient.bottom-right {
-            bottom: -200px;
-            right: -200px;
-            background: radial-gradient(circle at center, 
-                rgba(255, 100, 40, 0.25) 0%,
-                rgba(255, 150, 80, 0.18) 20%,
-                rgba(255, 170, 110, 0.12) 40%,
-                rgba(255, 200, 140, 0.06) 60%,
-                transparent 80%
-            );
-            animation-delay: 9s;
-        }
-        
-        @keyframes cornerGlow {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(0.9) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.15) rotate(8deg);
-            }
-        }
-        
-        /* Subtle breathing effect on page load */
-        body {
-            animation: pageBreath 20s ease-in-out infinite;
-        }
-        
-        @keyframes pageBreath {
-            0%, 100% {
-                background: var(--background);
-            }
-            50% {
-                background: linear-gradient(135deg, 
-                    var(--background) 0%, 
-                    rgba(255, 245, 235, 0.5) 50%, 
-                    var(--background) 100%
-                );
-            }
-        }
-        
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .corner-gradient {
-                width: 250px;
-                height: 250px;
-            }
-            .corner-gradient.top-left { top: -125px; left: -125px; }
-            .corner-gradient.top-right { top: -125px; right: -125px; }
-            .corner-gradient.bottom-left { bottom: -125px; left: -125px; }
-            .corner-gradient.bottom-right { bottom: -125px; right: -125px; }
+            width: 100%;
+            height: 100vh;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            will-change: transform;
         }
 
-        /* Enhanced Typography System */
+        /* Typography Classes */
         .heading-1 {
             font-size: clamp(48px, 8vw, 88px);
             line-height: 0.95;
@@ -197,13 +85,6 @@
             letter-spacing: -0.03em;
         }
 
-        .heading-3 {
-            font-size: clamp(24px, 3vw, 36px);
-            line-height: 1.2;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
         .body-text {
             font-size: 18px;
             line-height: 1.7;
@@ -220,7 +101,113 @@
             color: var(--primary);
         }
 
-        /* Layout Container */
+        /* ==================== Background Effects ==================== */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            background-image: repeating-linear-gradient(
+                90deg,
+                var(--grid-color) 0,
+                var(--grid-color) 1px,
+                transparent 1px,
+                transparent calc(100% / var(--grid-columns))
+            );
+            opacity: 0.5;
+        }
+        
+        .corner-gradient {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            animation: cornerGlow 12s ease-in-out infinite;
+            transform: translateZ(0); /* GPU acceleration */
+            backface-visibility: hidden;
+        }
+        
+        .corner-gradient.top-left {
+            top: -200px;
+            left: -200px;
+            background: radial-gradient(circle at center, 
+                rgba(255, 107, 53, 0.25) 0%,
+                transparent 80%
+            );
+            animation-delay: 0s;
+        }
+        
+        .corner-gradient.top-right {
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(circle at center, 
+                rgba(255, 120, 60, 0.25) 0%,
+                transparent 80%
+            );
+            animation-delay: 3s;
+        }
+        
+        .corner-gradient.bottom-left {
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle at center, 
+                rgba(248, 130, 50, 0.25) 0%,
+                transparent 80%
+            );
+            animation-delay: 6s;
+        }
+        
+        .corner-gradient.bottom-right {
+            bottom: -200px;
+            right: -200px;
+            background: radial-gradient(circle at center, 
+                rgba(255, 100, 40, 0.25) 0%,
+                transparent 80%
+            );
+            animation-delay: 9s;
+        }
+        
+        @keyframes cornerGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.9) rotate(0deg) translateZ(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.15) rotate(8deg) translateZ(0);
+            }
+        }
+        
+        /* Page breathing effect - optimized */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            background: linear-gradient(135deg, 
+                transparent 0%, 
+                rgba(255, 245, 235, 0.3) 50%, 
+                transparent 100%
+            );
+            opacity: 0;
+            animation: pageBreath 20s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes pageBreath {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ==================== Layout System ==================== */
         .container {
             max-width: 1440px;
             margin: 0 auto;
@@ -230,18 +217,123 @@
             gap: var(--grid-gap);
         }
 
-        /* Sections */
         .section {
-            min-height: 100vh;
-            scroll-snap-align: start;
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             opacity: 0;
-            animation: sectionFadeIn 0.8s ease forwards;
+            transition: opacity 0.6s ease;
         }
 
-        /* Header Section Card Design */
+        .section.active {
+            opacity: 1;
+        }
+
+        /* ==================== Navigation ==================== */
+        .nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item-line {
+            width: 40px;
+            height: 2px;
+            background: var(--text-secondary);
+            opacity: 0.3;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        
+        .nav-item-dot {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--text-secondary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            text-align: right;
+        }
+        
+        /* Navigation Active & Hover States */
+        .nav-item.active .nav-item-line {
+            width: 60px;
+            background: var(--primary);
+            opacity: 1;
+            height: 3px;
+        }
+        
+        .nav-item.active .nav-item-dot {
+            opacity: 1;
+            background: var(--primary);
+            border-color: var(--primary);
+            width: 12px;
+            height: 12px;
+        }
+        
+        .nav-item.active .nav-item-text {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--primary);
+        }
+        
+        .nav-item:hover .nav-item-line {
+            width: 50px;
+            opacity: 0.6;
+        }
+        
+        .nav-item:hover .nav-item-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-item:hover .nav-item-dot {
+            opacity: 1;
+        }
+        
+        .nav-progress {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+            transition: height 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* ==================== Header Section ==================== */
         .header {
             background: var(--background);
             display: flex;
@@ -274,6 +366,7 @@
             background: radial-gradient(circle, var(--primary), transparent);
             opacity: 0.03;
             animation: float 20s ease-in-out infinite;
+            transform: translateZ(0);
         }
 
         .header-left {
@@ -319,6 +412,15 @@
         .header-title span:nth-child(2) {
             color: var(--primary);
         }
+        
+        .header-greeting {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+            opacity: 0;
+            animation: slideIn 0.8s ease 0.3s forwards;
+        }
 
         .header-subtitle {
             color: var(--text-secondary);
@@ -326,53 +428,6 @@
             max-width: 400px;
             opacity: 0;
             animation: slideIn 0.8s ease 0.2s forwards;
-        }
-
-        .header-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: var(--primary);
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-radius: 50px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            opacity: 0;
-            animation: slideIn 0.8s ease 0.4s forwards;
-            box-shadow: 0 4px 24px rgba(255, 107, 53, 0.3);
-        }
-        
-        .header-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-        
-        .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
-        }
-        
-        .header-cta:hover::before {
-            transform: translateX(100%);
-        }
-        
-        .header-cta::after {
-            content: '→';
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .header-cta:hover::after {
-            transform: translateX(4px);
         }
 
         .header-right {
@@ -391,18 +446,6 @@
             animation: fadeInScale 1s ease 0.6s forwards;
         }
         
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        /* Dynamic Gradient Orb */
         .header-visual::before {
             content: '';
             position: absolute;
@@ -413,15 +456,15 @@
             filter: blur(60px);
             opacity: 0.4;
             animation: morphGradient 8s ease-in-out infinite;
+            transform: translateZ(0);
         }
         
         @keyframes morphGradient {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            33% { transform: rotate(120deg) scale(1.1); }
-            66% { transform: rotate(240deg) scale(0.95); }
+            0%, 100% { transform: rotate(0deg) scale(1) translateZ(0); }
+            33% { transform: rotate(120deg) scale(1.1) translateZ(0); }
+            66% { transform: rotate(240deg) scale(0.95) translateZ(0); }
         }
         
-        /* Floating Elements Grid */
         .visual-grid {
             position: absolute;
             inset: 0;
@@ -439,6 +482,8 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
+            will-change: transform;
         }
         
         .visual-block::before {
@@ -458,7 +503,7 @@
             grid-column: 2;
             grid-row: 2;
             background: var(--primary);
-            transform: scale(1.2);
+            transform: scale(1.2) translateZ(0);
             z-index: 2;
         }
         .visual-block:nth-child(6) { animation: float 6s ease-in-out 2s infinite; }
@@ -467,12 +512,12 @@
         .visual-block:nth-child(9) { animation: float 6s ease-in-out 3.5s infinite; }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
+            0%, 100% { transform: translateY(0) rotate(0deg) translateZ(0); }
+            50% { transform: translateY(-10px) rotate(2deg) translateZ(0); }
         }
         
         .visual-block:hover {
-            transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg) translateZ(0);
             box-shadow: var(--shadow-lg);
             z-index: 3;
         }
@@ -481,7 +526,7 @@
             opacity: 1;
         }
 
-        /* Work Sections */
+        /* ==================== Work Sections ==================== */
         .work {
             background: var(--surface);
         }
@@ -633,337 +678,17 @@
             opacity: 0.2;
         }
         
-        .work-visual span {
+        .work-visual i {
             z-index: 1;
-            filter: grayscale(0%);
+            font-size: 64px;
             transition: all 0.3s ease;
         }
         
-        .work-visual:hover span {
+        .work-visual:hover i {
             transform: scale(1.2) rotate(5deg);
         }
 
-        /* Vertical ToC Navigation */
-        .nav {
-            position: fixed;
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: flex-end;
-        }
-        
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 12px 0;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item-line {
-            width: 40px;
-            height: 2px;
-            background: var(--text-secondary);
-            opacity: 0.3;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-        }
-        
-        .nav-item-dot {
-            position: absolute;
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--surface);
-            border: 2px solid var(--text-secondary);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item-text {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateX(10px);
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            text-align: right;
-        }
-        
-        .nav-item.active .nav-item-line {
-            width: 60px;
-            background: var(--primary);
-            opacity: 1;
-            height: 3px;
-        }
-        
-        .nav-item.active .nav-item-dot {
-            opacity: 1;
-            background: var(--primary);
-            border-color: var(--primary);
-            width: 12px;
-            height: 12px;
-        }
-        
-        .nav-item.active .nav-item-text {
-            opacity: 1;
-            transform: translateX(0);
-            color: var(--primary);
-        }
-        
-        .nav-item:hover .nav-item-line {
-            width: 50px;
-            opacity: 0.6;
-        }
-        
-        .nav-item:hover .nav-item-text {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .nav-item:hover .nav-item-dot {
-            opacity: 1;
-        }
-        
-        /* Navigation Progress */
-        .nav-progress {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
-            transition: height 0.3s ease;
-            border-radius: 2px;
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-32px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* Responsive - Tablet */
-        @media (max-width: 1024px) {
-            :root {
-                --margin: 32px;
-                --grid-gap: 16px;
-            }
-
-            .heading-1 { font-size: clamp(36px, 6vw, 48px); }
-            .heading-2 { font-size: clamp(28px, 4vw, 32px); }
-            .heading-3 { font-size: clamp(20px, 3vw, 24px); }
-            
-            .header-content {
-                padding: 40px;
-            }
-        }
-
-        /* Responsive - Mobile */
-        @media (max-width: 768px) {
-            :root {
-                --margin: 20px;
-                --grid-columns: 1;
-                --grid-gap: 16px;
-            }
-            
-            html {
-                scroll-snap-type: none;
-            }
-            
-            /* Fix section visibility on mobile */
-            .section {
-                min-height: auto;
-                padding: 60px 0;
-                opacity: 1 !important;
-                animation: none !important;
-            }
-            
-            .header {
-                min-height: 100vh;
-            }
-            
-            .thank-you {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .container {
-                display: block;
-                padding: 0 var(--margin);
-            }
-            
-            .header-content {
-                display: flex;
-                flex-direction: column;
-                padding: 30px 20px;
-                gap: 30px;
-            }
-
-            .header-left,
-            .header-right {
-                grid-column: unset;
-                width: 100%;
-            }
-            
-            .header-visual {
-                max-width: 250px;
-                margin: 0 auto;
-            }
-            
-            .work-content {
-                display: flex;
-                flex-direction: column;
-                padding: 30px 20px;
-                gap: 20px;
-            }
-
-            .work-number,
-            .work-info,
-            .work-visual {
-                grid-column: unset;
-                width: 100%;
-            }
-
-            .work-number {
-                font-size: 36px;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-            
-            .work-info {
-                text-align: center;
-                padding: 0;
-            }
-            
-            .work-visual {
-                max-width: 200px;
-                height: 200px;
-                margin: 20px auto;
-            }
-
-            .nav {
-                position: fixed;
-                bottom: 20px;
-                right: 50%;
-                transform: translateX(50%);
-                top: auto;
-                flex-direction: row;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                padding: 8px 16px 28px;
-                border-radius: 30px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-item {
-                flex-direction: row;
-                padding: 8px;
-            }
-            
-            .nav-item-text {
-                display: none;
-                position: absolute;
-                bottom: -20px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 10px;
-                font-weight: 600;
-                color: var(--primary);
-                white-space: nowrap;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            
-            .nav-item.active .nav-item-text {
-                display: block;
-                opacity: 1;
-            }
-            
-            .nav-item-line {
-                width: 24px;
-                height: 3px;
-            }
-            
-            .nav-item.active .nav-item-line {
-                width: 32px;
-                background: var(--primary);
-            }
-            
-            .nav-progress {
-                display: none;
-            }
-            
-            /* Mobile-specific typography */
-            .body-text {
-                font-size: 16px;
-            }
-            
-            .caption {
-                font-size: 11px;
-            }
-        }
-
-        /* Enhanced Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .reveal-scale.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        /* Parallax Effect */
-        .parallax-element {
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform;
-        }
-        
-        /* Smooth Section Transitions - Removed duplicate opacity */
-        /* Animation is handled per section for better control */
-        
-        @keyframes sectionFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Thank You Section - Subtle Fade-out Design */
+        /* ==================== Thank You Section ==================== */
         .thank-you {
             background: linear-gradient(180deg, var(--background) 0%, rgba(250, 250, 250, 0.5) 100%);
             display: flex;
@@ -1049,348 +774,272 @@
             opacity: 0.3;
             letter-spacing: 0.05em;
         }
-        
-        /* Stagger Animation for Work Items */
-        .work-content.visible .work-info > * {
-            opacity: 0;
-            animation: staggerIn 0.6s ease forwards;
-        }
-        
-        .work-content.visible .work-info > *:nth-child(1) { animation-delay: 0s; }
-        .work-content.visible .work-info > *:nth-child(2) { animation-delay: 0.1s; }
-        .work-content.visible .work-info > *:nth-child(3) { animation-delay: 0.2s; }
-        .work-content.visible .work-info > *:nth-child(4) { animation-delay: 0.3s; }
-        .work-content.visible .work-info > *:nth-child(5) { animation-delay: 0.4s; }
-        
-        @keyframes staggerIn {
+
+        /* ==================== Animations ==================== */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-32px);
+            }
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Grid Overlay -->
-    <div class="grid-overlay"></div>
-    
-    <!-- Corner Gradient Effects -->
-    <div class="corner-gradient top-left"></div>
-    <div class="corner-gradient top-right"></div>
-    <div class="corner-gradient bottom-left"></div>
-    <div class="corner-gradient bottom-right"></div>
 
-    <!-- Vertical ToC Navigation -->
-    <nav class="nav">
-        <div class="nav-progress"></div>
-        <div class="nav-item active" data-section="0">
-            <span class="nav-item-text">Welcome</span>
-            <div class="nav-item-line">
-                <span class="nav-item-dot"></span>
-            </div>
-        </div>
-        <div class="nav-item" data-section="1">
-            <span class="nav-item-text">V2X Security</span>
-            <div class="nav-item-line">
-                <span class="nav-item-dot"></span>
-            </div>
-        </div>
-        <div class="nav-item" data-section="2">
-            <span class="nav-item-text">SSAFY</span>
-            <div class="nav-item-line">
-                <span class="nav-item-dot"></span>
-            </div>
-        </div>
-        <div class="nav-item" data-section="3">
-            <span class="nav-item-text">Portfolio</span>
-            <div class="nav-item-line">
-                <span class="nav-item-dot"></span>
-            </div>
-        </div>
-        <div class="nav-item" data-section="4">
-            <span class="nav-item-text">Thank You</span>
-            <div class="nav-item-line">
-                <span class="nav-item-dot"></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header Section -->
-    <section class="section header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left">
-                    <p class="caption header-label">Portfolio System 2025</p>
-                    <h1 class="heading-1 header-title">
-                        <span class="parallax-element">Isaac</span>
-                        <span class="parallax-element">Kim</span>
-                    </h1>
-                    <p class="body-text header-greeting" style="font-size: 22px; color: var(--primary); margin-bottom: 20px; font-weight: 500; opacity: 0; animation: slideIn 0.8s ease 0.3s forwards;">
-                        안녕하세요, 아이작입니다.
-                    </p>
-                    <p class="body-text header-subtitle">
-                        '생각이 많음'의 본성을</br>
-                        깊은 사고력으로 전환하여</br>
-                        성과를 낼 수 있는 장점을 가지고 있습니다.
-                    </p>
-                </div>
-                <div class="header-right">
-                    <div class="header-visual">
-                        <div class="visual-grid">
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                            <div class="visual-block"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work 1: V2X Security (moved to first) -->
-    <section id="work1" class="section work">
-        <div class="container">
-            <div class="work-content reveal-scale">
-                <div class="work-number">01</div>
-                <div class="work-info">
-                    <p class="caption work-label">V2X Security Career • 2024.02 - 2025.08</p>
-                    <h2 class="heading-2 work-title">Vehicle<br>Security</h2>
-                    <p class="body-text work-description">
-                        차세대 모빌리티 보안 기술.</br>
-                        SCMS와 PKI 시스템을 통한</br>
-                        안전한 차량 통신 구현의 V2X 통신 보안 상용화 참여.
-                    </p>
-                    <div class="work-tags">
-                        <span class="tag">V2X</span>
-                        <span class="tag">SCMS</span>
-                        <span class="tag">PKI</span>
-                        <span class="tag">새솔테크</span>
-                        <span class="tag">LG전자</span>
-                        <span class="tag">JLR(Jaguar Land Rover)</span>
-                    </div>
-                    <a href="./v2x-security-career/career-highlight" class="work-link">Enter Portfolio</a>
-                </div>
-                <div class="work-visual"><i class="fa-solid fa-shield-halved" style="font-size: 64px; color: var(--primary);"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work 2: SSAFY (moved to second) -->
-    <section id="work2" class="section work">
-        <div class="container">
-            <div class="work-content reveal-scale">
-                <div class="work-number">02</div>
-                <div class="work-info">
-                    <p class="caption work-label">SSAFY Academy • 2022.07 - 2023.06</p>
-                    <h2 class="heading-2 work-title">Collaborative<br>Innovation</h2>
-                    <p class="body-text work-description">
-                        삼성 SW 아카데미에서의 성장.</br>
-                        팀 프로젝트와 애자일 개발 프로젝트를 통한</br>
-                        실무 역량 강화.
-                    </p>
-                    <div class="work-tags">
-                        <span class="tag">WeB DEV</span>
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">CI/CD</span>
-                        <span class="tag">Devops</span>
-                    </div>
-                    <a href="./web-development-experience-with-ssafy/thinking-evolution/overview" class="work-link">Enter Portfolio</a>
-                </div>
-                <div class="work-visual"><i class="fa-solid fa-rocket" style="font-size: 64px; color: var(--accent);"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work 3: Main Portfolio (moved to third) -->
-    <section id="work3" class="section work">
-        <div class="container">
-            <div class="work-content reveal-scale">
-                <div class="work-number">03</div>
-                <div class="work-info">
-                    <p class="caption work-label">Main Portfolio • 2015 - 2023</p>
-                    <h2 class="heading-2 work-title">Development<br>Journey</h2>
-                    <p class="body-text work-description">
-                        학업부터 실무 전까지의 개발 경험.</br>
-                        다양한 프로젝트를 통해</br>
-                        쌓아온 전문성.
-                    </p>
-                    <div class="work-tags">
-                        <span class="tag">Personal Project</span>
-                        <span class="tag">Many Deep Challenge</span>
-                        <span class="tag">Growth</span>
-                    </div>
-                    <a href="./working" class="work-link">Enter Portfolio</a>
-                </div>
-                <div class="work-visual"><i class="fa-solid fa-code" style="font-size: 64px; color: var(--secondary);"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Thank You Section -->
-    <section id="thank-you" class="section thank-you">
-        <div class="container">
-            <div class="thank-you-content">
-                <p class="caption thank-you-label">END</p>
-                <h2 class="thank-you-title">감사합니다</h2>
-                <p class="thank-you-subtitle">
-                    시간 내어 포트폴리오를 봐주셔서 감사합니다.<br>
-                    언제든 편하게 연락 주세요.
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:hoan123432@naver.com" class="contact-link">
-                        <i class="fa-regular fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/it-magician" class="contact-link" target="_blank">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/noprofile" class="contact-link" target="_blank">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <p class="copyright">© 2025 Taehun Kim. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Swiss Grid Navigation
-        const sections = document.querySelectorAll('.section');
-        const navItems = document.querySelectorAll('.nav-item');
-        let currentSection = 0;
-        let isScrolling = false;
-
-        // Navigation clicks  
-        navItems.forEach((item, index) => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentSection = index;
-                
-                // Update nav immediately
-                updateNav();
-                
-                // Then scroll to section
-                if (sections[currentSection]) {
-                    sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        function updateNav() {
-            navItems.forEach((item, index) => {
-                item.classList.toggle('active', index === currentSection);
-            });
-            
-            // Update progress bar
-            const progress = document.querySelector('.nav-progress');
-            if (progress) {
-                const height = ((currentSection + 1) / sections.length) * 100;
-                progress.style.height = `${height}%`;
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
-        // Wheel navigation - Only on desktop
-        if (window.innerWidth > 768) {
-            window.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                if (isScrolling) return;
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-                isScrolling = true;
-                
-                if (e.deltaY > 0 && currentSection < sections.length - 1) {
-                    currentSection++;
-                } else if (e.deltaY < 0 && currentSection > 0) {
-                    currentSection--;
-                }
-
-                sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-                updateNav();
-
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 800);
-            }, { passive: false });
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        // Mobile scroll tracking
-        if (window.innerWidth <= 768) {
-            let ticking = false;
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Parallax */
+        .parallax-element {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        /* ==================== Responsive - Tablet ==================== */
+        @media (max-width: 1024px) {
+            :root {
+                --margin: 32px;
+                --grid-gap: 16px;
+            }
+
+            .heading-1 { font-size: clamp(36px, 6vw, 48px); }
+            .heading-2 { font-size: clamp(28px, 4vw, 32px); }
             
-            function updateMobileNav() {
-                const scrollPos = window.pageYOffset;
-                const windowHeight = window.innerHeight;
-                const docHeight = document.documentElement.scrollHeight;
-                
-                sections.forEach((section, index) => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
-                        currentSection = index;
-                        updateNav();
-                    }
-                });
-                
-                ticking = false;
+            .header-content {
+                padding: 40px;
             }
             
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateMobileNav);
-                    ticking = true;
-                }
-            });
+            .corner-gradient {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .corner-gradient.top-left { top: -150px; left: -150px; }
+            .corner-gradient.top-right { top: -150px; right: -150px; }
+            .corner-gradient.bottom-left { bottom: -150px; left: -150px; }
+            .corner-gradient.bottom-right { bottom: -150px; right: -150px; }
         }
 
-        // Enhanced Reveal Animation with Stagger
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Add stagger effect to child elements
-                    const children = entry.target.querySelectorAll('.stagger-item');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.classList.add('visible');
-                        }, index * 100);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal, .reveal-scale').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Parallax Effect on Mouse Move
-        document.addEventListener('mousemove', (e) => {
-            const parallaxElements = document.querySelectorAll('.parallax-element');
-            const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
-            const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+        /* ==================== Responsive - Mobile ==================== */
+        @media (max-width: 768px) {
+            :root {
+                --margin: 20px;
+                --grid-columns: 1;
+                --grid-gap: 16px;
+            }
             
-            parallaxElements.forEach((el, index) => {
-                const speed = (index + 1) * 10;
-                const xPos = x * speed;
-                const yPos = y * speed;
-                el.style.transform = `translate(${xPos}px, ${yPos}px)`;
-            });
-        });
-        
-        // Smooth Scroll Progress Indicator
-        const progressBar = document.createElement('div');
-        progressBar.style.cssText = `
+            /* Mobile scroll behavior with CSS Scroll Snap */
+            html {
+                scroll-snap-type: y mandatory;
+                scroll-behavior: smooth;
+                overscroll-behavior-y: contain;
+            }
+            
+            body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: auto;
+                -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+            }
+            
+            #fullpage-container {
+                position: relative;
+                transform: none !important;
+                height: auto;
+            }
+            
+            .section {
+                height: 100vh;
+                height: 100dvh; /* Dynamic viewport height for mobile browsers */
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                opacity: 1 !important;
+                position: relative;
+            }
+            
+            /* Layout adjustments */
+            .container {
+                display: block;
+                padding: 0 var(--margin);
+            }
+            
+            /* Header mobile */
+            .header {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 100px;
+            }
+            
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .header-left,
+            .header-right {
+                grid-column: unset;
+                width: 100%;
+            }
+            
+            .header-visual {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            /* Work sections mobile */
+            .work-content {
+                display: flex;
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 20px;
+            }
+
+            .work-number,
+            .work-info,
+            .work-visual {
+                grid-column: unset;
+                width: 100%;
+            }
+
+            .work-number {
+                font-size: 36px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            
+            .work-info {
+                text-align: center;
+                padding: 0;
+            }
+            
+            .work-tags {
+                justify-content: center;
+            }
+            
+            .work-visual {
+                display: none;
+            }
+            
+            /* Thank You mobile */
+            .thank-you {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Mobile Navigation */
+            .nav {
+                position: fixed;
+                bottom: 20px;
+                right: 50%;
+                transform: translateX(50%);
+                top: auto;
+                flex-direction: row;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 8px 16px 28px;
+                border-radius: 30px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-item {
+                flex-direction: row;
+                padding: 8px;
+            }
+            
+            .nav-item-text {
+                display: none;
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 10px;
+                font-weight: 600;
+                color: var(--primary);
+                white-space: nowrap;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            
+            .nav-item.active .nav-item-text {
+                display: block;
+                opacity: 1;
+            }
+            
+            .nav-item-line {
+                width: 24px;
+                height: 3px;
+            }
+            
+            .nav-item.active .nav-item-line {
+                width: 32px;
+                background: var(--primary);
+            }
+            
+            .nav-progress {
+                display: none;
+            }
+            
+            /* Typography mobile */
+            .body-text {
+                font-size: 16px;
+            }
+            
+            .caption {
+                font-size: 11px;
+            }
+            
+            /* Corner gradients mobile */
+            .corner-gradient {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .corner-gradient.top-left { top: -125px; left: -125px; }
+            .corner-gradient.top-right { top: -125px; right: -125px; }
+            .corner-gradient.bottom-left { bottom: -125px; left: -125px; }
+            .corner-gradient.bottom-right { bottom: -125px; right: -125px; }
+        }
+
+        /* Progress Bar */
+        .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
@@ -1399,43 +1048,621 @@
             z-index: 1000;
             transition: width 0.3s ease;
             width: 0%;
-        `;
-        document.body.appendChild(progressBar);
-        
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrolled / maxScroll) * 100;
-            progressBar.style.width = `${progress}%`;
-        });
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="grid-overlay"></div>
+    <div class="corner-gradient top-left"></div>
+    <div class="corner-gradient top-right"></div>
+    <div class="corner-gradient bottom-left"></div>
+    <div class="corner-gradient bottom-right"></div>
 
-        // Keyboard navigation - Only on desktop
-        if (window.innerWidth > 768) {
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
-                    currentSection++;
-                    sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-                    updateNav();
-                } else if (e.key === 'ArrowUp' && currentSection > 0) {
-                    currentSection--;
-                    sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-                    updateNav();
-                }
+    <!-- Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation (Auto-generated) -->
+    <nav class="nav">
+        <!-- Navigation items will be generated by JavaScript -->
+    </nav>
+
+    <!-- Fullpage Container -->
+    <div id="fullpage-container">
+        <!-- Header Section -->
+        <section class="section header active" data-nav-title="Welcome">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-left">
+                        <p class="caption header-label">Portfolio System 2025</p>
+                        <h1 class="heading-1 header-title">
+                            <span class="parallax-element">Isaac</span>
+                            <span class="parallax-element">Kim</span>
+                        </h1>
+                        <p class="body-text header-greeting">
+                            안녕하세요, 아이작입니다.
+                        </p>
+                        <p class="body-text header-subtitle">
+                            '생각이 많음'의 본성을</br>
+                            깊은 사고력으로 전환하여</br>
+                            성과를 낼 수 있는 장점을 가지고 있습니다.
+                        </p>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-visual">
+                            <div class="visual-grid">
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                                <div class="visual-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work 1: V2X Security -->
+        <section id="work1" class="section work" data-nav-title="V2X Security">
+            <div class="container">
+                <div class="work-content reveal-scale">
+                    <div class="work-number">01</div>
+                    <div class="work-info">
+                        <p class="caption work-label">V2X Security Career • 2024.02 - 2025.08</p>
+                        <h2 class="heading-2 work-title">Vehicle<br>Security</h2>
+                        <p class="body-text work-description">
+                            차세대 모빌리티 보안 기술.</br>
+                            SCMS와 PKI 시스템을 통한</br>
+                            안전한 차량 통신 구현의 V2X 통신 보안 상용화 참여.
+                        </p>
+                        <div class="work-tags">
+                            <span class="tag">V2X</span>
+                            <span class="tag">SCMS</span>
+                            <span class="tag">PKI</span>
+                            <span class="tag">새솔테크</span>
+                            <span class="tag">LG전자</span>
+                            <span class="tag">JLR(Jaguar Land Rover)</span>
+                        </div>
+                        <a href="./v2x-security-career/career-highlight" class="work-link">Enter Portfolio</a>
+                    </div>
+                    <div class="work-visual">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work 2: SSAFY -->
+        <section id="work2" class="section work" data-nav-title="SSAFY">
+            <div class="container">
+                <div class="work-content reveal-scale">
+                    <div class="work-number">02</div>
+                    <div class="work-info">
+                        <p class="caption work-label">SSAFY Academy • 2022.07 - 2023.06</p>
+                        <h2 class="heading-2 work-title">Collaborative<br>Innovation</h2>
+                        <p class="body-text work-description">
+                            삼성 SW 아카데미에서의 성장.</br>
+                            팀 프로젝트와 애자일 개발 프로젝트를 통한</br>
+                            실무 역량 강화.
+                        </p>
+                        <div class="work-tags">
+                            <span class="tag">WeB DEV</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Devops</span>
+                        </div>
+                        <a href="./web-development-experience-with-ssafy/thinking-evolution/overview" class="work-link">Enter Portfolio</a>
+                    </div>
+                    <div class="work-visual">
+                        <i class="fa-solid fa-rocket" style="color: var(--accent);"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work 3: Main Portfolio -->
+        <section id="work3" class="section work" data-nav-title="Portfolio">
+            <div class="container">
+                <div class="work-content reveal-scale">
+                    <div class="work-number">03</div>
+                    <div class="work-info">
+                        <p class="caption work-label">Main Portfolio • 2015 - 2023</p>
+                        <h2 class="heading-2 work-title">Development<br>Journey</h2>
+                        <p class="body-text work-description">
+                            학업부터 실무 전까지의 개발 경험.</br>
+                            다양한 프로젝트를 통해</br>
+                            쌓아온 전문성.
+                        </p>
+                        <div class="work-tags">
+                            <span class="tag">Personal Project</span>
+                            <span class="tag">Many Deep Challenge</span>
+                            <span class="tag">Growth</span>
+                        </div>
+                        <a href="./working" class="work-link">Enter Portfolio</a>
+                    </div>
+                    <div class="work-visual">
+                        <i class="fa-solid fa-code" style="color: var(--secondary);"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Section -->
+        <section id="thank-you" class="section thank-you" data-nav-title="Thank You">
+            <div class="container">
+                <div class="thank-you-content">
+                    <p class="caption thank-you-label">END</p>
+                    <h2 class="thank-you-title">감사합니다</h2>
+                    <p class="thank-you-subtitle">
+                        시간 내어 포트폴리오를 봐주셔서 감사합니다.<br>
+                        언제든 편하게 연락 주세요.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:hoan123432@naver.com" class="contact-link">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://github.com/it-magician" class="contact-link" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/noprofile" class="contact-link" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                    <p class="copyright">© 2025 Taehun Kim. All rights reserved.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ==================== Configuration ====================
+        const config = {
+            scrollDuration: 600, // Faster for better UX
+            scrollThreshold: 50,
+            debounceDelay: 100,
+            touchSensitivity: 50,
+            parallaxEnabled: true,
+            mobileBreakpoint: 768,
+            smoothScrollEasing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' // Smoother easing
+        };
+
+        // ==================== State Management ====================
+        const state = {
+            currentSection: 0,
+            isScrolling: false,
+            isMobile: window.innerWidth <= config.mobileBreakpoint,
+            touchStartY: 0,
+            touchStartTime: 0,
+            lastWheelTime: 0,
+            wheelAccumulator: 0,
+            resizeTimer: null
+        };
+
+        // ==================== DOM Elements ====================
+        const elements = {
+            container: document.getElementById('fullpage-container'),
+            sections: document.querySelectorAll('.section'),
+            navItems: document.querySelectorAll('.nav-item'),
+            navProgress: document.querySelector('.nav-progress'),
+            scrollProgress: document.querySelector('.scroll-progress'),
+            parallaxElements: document.querySelectorAll('.parallax-element')
+        };
+
+        // ==================== Core Functions ====================
+        
+        // Generate navigation dynamically based on sections
+        function generateNavigation() {
+            const nav = document.querySelector('.nav');
+            if (!nav) return;
+            
+            // Clear existing navigation
+            nav.innerHTML = '<div class="nav-progress"></div>';
+            
+            // Generate nav items for each section
+            elements.sections.forEach((section, index) => {
+                const title = section.dataset.navTitle || `Section ${index + 1}`;
+                const navItem = document.createElement('div');
+                navItem.className = `nav-item ${index === 0 ? 'active' : ''}`;
+                navItem.dataset.section = index;
+                
+                navItem.innerHTML = `
+                    <span class="nav-item-text">${title}</span>
+                    <div class="nav-item-line">
+                        <span class="nav-item-dot"></span>
+                    </div>
+                `;
+                
+                nav.appendChild(navItem);
+            });
+            
+            // Re-cache nav elements
+            elements.navItems = document.querySelectorAll('.nav-item');
+            elements.navProgress = document.querySelector('.nav-progress');
+            
+            // Re-attach click listeners to new nav items
+            elements.navItems.forEach(item => {
+                item.addEventListener('click', handleNavClick);
             });
         }
         
-        // Window resize handler
-        window.addEventListener('resize', () => {
-            const isMobile = window.innerWidth <= 768;
+        // Update navigation UI
+        function updateNavigation() {
+            elements.navItems.forEach((item, index) => {
+                item.classList.toggle('active', index === state.currentSection);
+            });
             
-            if (isMobile) {
-                document.documentElement.style.scrollSnapType = 'none';
-                document.body.style.overflow = 'auto';
-            } else {
-                document.documentElement.style.scrollSnapType = 'y mandatory';
-                document.body.style.overflow = 'hidden';
+            // Update progress bar for desktop
+            if (!state.isMobile && elements.navProgress) {
+                const height = ((state.currentSection + 1) / elements.sections.length) * 100;
+                elements.navProgress.style.height = `${height}%`;
             }
-        });
+            
+            // Update scroll progress
+            updateScrollProgress();
+        }
+
+        // Update scroll progress bar
+        function updateScrollProgress() {
+            const progress = ((state.currentSection + 1) / elements.sections.length) * 100;
+            elements.scrollProgress.style.width = `${progress}%`;
+        }
+
+        // Scroll to specific section
+        function scrollToSection(index, instant = false) {
+            // Validate index
+            if (index < 0 || index >= elements.sections.length) return;
+            if (state.isScrolling && !instant) return;
+            
+            // Update state
+            state.isScrolling = true;
+            const previousSection = state.currentSection;
+            state.currentSection = index;
+            
+            // Update UI
+            updateNavigation();
+            
+            // Handle mobile with CSS Scroll Snap
+            if (state.isMobile) {
+                // For mobile, use scrollTo for better control with CSS Scroll Snap
+                const targetY = elements.sections[index].offsetTop;
+                window.scrollTo({
+                    top: targetY,
+                    behavior: instant ? 'auto' : 'smooth'
+                });
+                
+                // Allow time for scroll to complete
+                setTimeout(() => {
+                    state.isScrolling = false;
+                }, instant ? 0 : 300);
+                return;
+            }
+            
+            // Desktop: transform container with improved easing
+            const offset = -index * 100;
+            elements.container.style.transition = instant ? 'none' : `transform ${config.scrollDuration}ms ${config.smoothScrollEasing}`;
+            elements.container.style.transform = `translateY(${offset}vh)`;
+            
+            // Add subtle scale effect for visual feedback
+            if (!instant) {
+                elements.sections[index].style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    elements.sections[index].style.transform = 'scale(1)';
+                }, 100);
+            }
+            
+            // Update section visibility
+            elements.sections.forEach((section, i) => {
+                if (i === index) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            
+            // Reset scrolling flag
+            setTimeout(() => {
+                state.isScrolling = false;
+            }, config.scrollDuration);
+            
+            // Trigger reveal animations
+            if (elements.sections[index]) {
+                const reveals = elements.sections[index].querySelectorAll('.reveal, .reveal-scale');
+                reveals.forEach(el => {
+                    setTimeout(() => el.classList.add('visible'), 100);
+                });
+            }
+        }
+
+        // ==================== Event Handlers ====================
+        
+        // Navigation click handler
+        function handleNavClick(e) {
+            const item = e.currentTarget;
+            const targetSection = parseInt(item.dataset.section);
+            if (!isNaN(targetSection)) {
+                scrollToSection(targetSection);
+            }
+        }
+
+        // Improved wheel event handler with trackpad detection
+        function handleWheel(e) {
+            if (state.isMobile || state.isScrolling) return;
+            
+            e.preventDefault();
+            
+            const now = Date.now();
+            const timeDelta = now - state.lastWheelTime;
+            state.lastWheelTime = now;
+            
+            // Detect if using trackpad vs mouse wheel
+            const deltaY = Math.abs(e.deltaY);
+            const isTrackpad = deltaY < 50 && e.deltaMode === 0;
+            
+            // Different thresholds for trackpad vs mouse wheel
+            const threshold = isTrackpad ? 30 : config.scrollThreshold;
+            
+            // Faster reset for better responsiveness
+            if (timeDelta > 50) {
+                state.wheelAccumulator = 0;
+            }
+            
+            // Accumulate wheel delta
+            state.wheelAccumulator += deltaY;
+            
+            // Check if threshold is met
+            if (state.wheelAccumulator >= threshold) {
+                state.wheelAccumulator = 0;
+                
+                // Add inertia scroll prevention for trackpad
+                if (isTrackpad && timeDelta < 50) {
+                    return; // Skip if scrolling too fast (inertia)
+                }
+                
+                if (e.deltaY > 0) {
+                    // Scroll down
+                    if (state.currentSection < elements.sections.length - 1) {
+                        scrollToSection(state.currentSection + 1);
+                    }
+                } else {
+                    // Scroll up
+                    if (state.currentSection > 0) {
+                        scrollToSection(state.currentSection - 1);
+                    }
+                }
+            }
+        }
+
+        // Touch event handlers - simplified for CSS Scroll Snap
+        function handleTouchStart(e) {
+            // Removed - CSS Scroll Snap handles this
+        }
+
+        function handleTouchEnd(e) {
+            // Removed - CSS Scroll Snap handles this
+        }
+
+        // Enhanced keyboard navigation with number keys and space
+        function handleKeydown(e) {
+            if (state.isMobile || state.isScrolling) return;
+            
+            // Prevent default for navigation keys
+            const navigationKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', '1', '2', '3', '4', '5'];
+            if (navigationKeys.includes(e.key)) {
+                e.preventDefault();
+            }
+            
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'PageDown':
+                    if (state.currentSection < elements.sections.length - 1) {
+                        scrollToSection(state.currentSection + 1);
+                    }
+                    break;
+                case 'ArrowUp':
+                case 'PageUp':
+                    if (state.currentSection > 0) {
+                        scrollToSection(state.currentSection - 1);
+                    }
+                    break;
+                case ' ': // Space key
+                    if (e.shiftKey) {
+                        // Shift+Space = Previous section
+                        if (state.currentSection > 0) {
+                            scrollToSection(state.currentSection - 1);
+                        }
+                    } else {
+                        // Space = Next section
+                        if (state.currentSection < elements.sections.length - 1) {
+                            scrollToSection(state.currentSection + 1);
+                        }
+                    }
+                    break;
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                    // Direct section navigation with number keys
+                    const sectionIndex = parseInt(e.key) - 1;
+                    if (sectionIndex < elements.sections.length) {
+                        scrollToSection(sectionIndex);
+                    }
+                    break;
+                case 'Home':
+                    scrollToSection(0);
+                    break;
+                case 'End':
+                    scrollToSection(elements.sections.length - 1);
+                    break;
+            }
+        }
+
+        // Parallax effect
+        function handleMouseMove(e) {
+            if (state.isMobile || !config.parallaxEnabled) return;
+            
+            requestAnimationFrame(() => {
+                const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+                const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+                
+                elements.parallaxElements.forEach((el, index) => {
+                    const speed = (index + 1) * 10;
+                    const xPos = x * speed;
+                    const yPos = y * speed;
+                    el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                });
+            });
+        }
+
+        // Handle resize
+        function handleResize() {
+            clearTimeout(state.resizeTimer);
+            state.resizeTimer = setTimeout(() => {
+                const wasMobile = state.isMobile;
+                state.isMobile = window.innerWidth <= config.mobileBreakpoint;
+                
+                // If switching between mobile and desktop
+                if (wasMobile !== state.isMobile) {
+                    // Reset to current section
+                    scrollToSection(state.currentSection, true);
+                    
+                    // Clean up or re-attach event listeners
+                    if (state.isMobile) {
+                        removeDesktopListeners();
+                        addMobileListeners();
+                    } else {
+                        removeMobileListeners();
+                        addDesktopListeners();
+                    }
+                }
+            }, 250);
+        }
+
+        // Mobile scroll handler with improved section detection
+        let scrollEndTimer = null;
+        function handleMobileScroll() {
+            if (!state.isMobile) return;
+            
+            const scrolled = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxScroll) * 100;
+            elements.scrollProgress.style.width = `${progress}%`;
+            
+            // Clear existing timer
+            clearTimeout(scrollEndTimer);
+            
+            // Update current section based on scroll position
+            let closestSection = 0;
+            let minDistance = Infinity;
+            
+            elements.sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const sectionCenter = rect.top + rect.height / 2;
+                const viewportCenter = window.innerHeight / 2;
+                const distance = Math.abs(sectionCenter - viewportCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestSection = index;
+                }
+            });
+            
+            if (state.currentSection !== closestSection) {
+                state.currentSection = closestSection;
+                updateNavigation();
+            }
+            
+            // Detect scroll end and ensure snap alignment
+            scrollEndTimer = setTimeout(() => {
+                // Check if perfectly aligned, if not, snap to closest
+                const currentSectionRect = elements.sections[state.currentSection].getBoundingClientRect();
+                if (Math.abs(currentSectionRect.top) > 5) {
+                    // Only snap if significantly misaligned
+                    elements.sections[state.currentSection].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 150);
+        }
+
+        // ==================== Event Listener Management ====================
+        
+        function addDesktopListeners() {
+            window.addEventListener('wheel', handleWheel, { passive: false });
+            document.addEventListener('keydown', handleKeydown);
+            document.addEventListener('mousemove', handleMouseMove);
+        }
+
+        function removeDesktopListeners() {
+            window.removeEventListener('wheel', handleWheel);
+            document.removeEventListener('keydown', handleKeydown);
+            document.removeEventListener('mousemove', handleMouseMove);
+        }
+
+        function addMobileListeners() {
+            document.addEventListener('touchstart', handleTouchStart, { passive: true });
+            document.addEventListener('touchend', handleTouchEnd, { passive: true });
+            window.addEventListener('scroll', handleMobileScroll, { passive: true });
+        }
+
+        function removeMobileListeners() {
+            document.removeEventListener('touchstart', handleTouchStart);
+            document.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('scroll', handleMobileScroll);
+        }
+
+        // ==================== Initialization ====================
+        
+        function init() {
+            // Set initial state
+            state.isMobile = window.innerWidth <= config.mobileBreakpoint;
+            
+            // Generate navigation based on sections
+            generateNavigation();
+            
+            // Add appropriate event listeners
+            if (state.isMobile) {
+                addMobileListeners();
+            } else {
+                addDesktopListeners();
+            }
+            
+            // Add resize listener
+            window.addEventListener('resize', handleResize);
+            
+            // Initialize first section
+            scrollToSection(0, true);
+            
+            // Setup Intersection Observer for reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.reveal, .reveal-scale').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Start the application
+        init();
     </script>
 </body>
 </html>
