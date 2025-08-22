@@ -1,0 +1,48 @@
+{
+  "workExperience": [
+    {
+      "id": "work1",
+      "area": "Server & Network Management",
+      "company": "대한민국 국방부 합참 소속 데이터 센터 근무",
+      "period": "Feb 2017 ~ Dec 2018"
+    }
+  ],
+  "education": [
+    {
+      "id": "edu1",
+      "area": "정보통신공학",
+      "institution": "안동대학교",
+      "period": "Mar 2015 ~ Dec 2021"
+    },
+    {
+      "id": "edu2",
+      "area": "삼성청년SW아카데미",
+      "institution": "삼성전자주식회사",
+      "period": "Jul 2022 ~ Aug 2023"
+    },
+    {
+      "id": "edu3",
+      "area": "DNA 중심 SW서비스 전문가 양성교육",
+      "institution": "안동대학교 산업협력단",
+      "period": "Oct 2019 ~ Dec 2019"
+    },
+    {
+      "id": "edu4",
+      "area": "R Shiny를 이용한 웹 어플리케이션 개발",
+      "institution": "안동대학교 SW중심대학사업단",
+      "period": "Oct 2019 ~ Nov 2019"
+    },
+    {
+      "id": "edu5",
+      "area": "SW산업인력육성교육",
+      "institution": "경북SW융합클러스터",
+      "period": "Sep 2019 ~ Nov 2019"
+    },
+    {
+      "id": "edu6",
+      "area": "R을 활용한 빅데이터 분석 전문가 양성 과정",
+      "institution": "KFQ 한국품질재단",
+      "period": "Sep 2019 ~ Sep 2019"
+    }
+  ]
+}

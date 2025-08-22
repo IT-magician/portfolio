@@ -1,0 +1,786 @@
+{
+  "portfolioItems": [
+    {
+      "id": "detail14",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "Vuddy (삼성청년SW아카데미 자율프로젝트)",
+      "checkboxId": "detail14",
+      "images": [
+        "https://github.com/IT-magician/Vuddy/blob/master/readmeasset/service_architecture.jpg?raw=true",
+        "./asset/img/ssafy-project3/argocd-app.png",
+        "./asset/img/ssafy-project3/argocd-app-log.png",
+        "./asset/img/ssafy-project3/nginx-ingress-prometheus.PNG"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/IT-magician/Vuddy",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "projectIntro": "GPS 기반으로 친구의 위치를 공유하고, 장소에 대한 게시글로 추억을 남기는 SNS",
+        "role": [
+          "CI/CD",
+          "인프라 관리(AWS 클라우드)"
+        ],
+        "contribution": "15%",
+        "teamSize": "본인 외 5명",
+        "technologies": [
+          "쿠버네티스(Deployment resource, HPA & karpenter, Argo CD & Role & RBAC, Helm 패키징, External DNS, Prometheus & Grafana)",
+          "AWS Cloud (EKS, EC2 & Loadbalancer, route53, IAM(Policy, Role, OIDC, IRSA), certifacte Manager, S3, Dynamo DB)",
+          "IaC(테라폼)",
+          "CI/CD (Gitlab Runner, Argo CD)",
+          "Docker Container",
+          "Docker Engine, Docker Compose, NGINX"
+        ],
+        "activities": [
+          "NGINX Auth_request 플러그인으로, MSA 아키텍처 어플리케이션간 결합도를 낮춤",
+          "무중단 CI/CD 배포",
+          "이미지 변경횟수를 최소한으로 하는 CLOUD NATIVE 어플리케이션 제작에 기여",
+          "쿠버네티스 환경 운영전에 docker에 NGINX와 어플리케이션을 올려서 프로젝트 진행을 빠르게 함.",
+          "쿠버네티스의 RBAC 접근제어 기능으로 Argo CD의 '읽기전용 개발자 계정 생성' & 해당 계정으로 팀원들이 현재 쿠버네티스 레플리카수나 백엔드 서비스의 로그를 볼 수 있게 함",
+          "쿠버네티스의 External DNS와 Helm, Argo CD, 테라폼 백엔드 기능을 사용하여 'gitOps 방식을 구현' & DNS 등록 등 불필요한 프로세스 제거",
+          "IaC를 사용하여 인프라를 코드로 관리",
+          "locust으로 부하테스트",
+          "HPA와 Karpenter으로 오토스케일링을 구현하여 1만명당 1만개의 데이터를 보내는 응답속도를 1초 이내로 만듬",
+          "gitlab runner을 사용하여 CI/CD 및 무중단 배포 적용",
+          "MySQL의 SQL 스키마까지 도커파일에 패키징해서, production 운용환경에서 적용하는 RDB 컨테이너 이미지를 만듬",
+          "MySQL, Redis, Kafka Cluster 구축"
+        ],
+        "issues": [
+          "AWS EKS의 기본설정 POD IP개수가 노드당 최대 17개까지만 할당할 수 있음. 그리고 그에 따라서 새로 스케줄링될 파드가 pending상태로 stuck되거나, 실행중인 파드가 방출되는 Pod Eviction 문제도 발생함 </br> -> IP Prefix 방식중에 하나인 'WARM_PREFIX_TARGET'를 적용하거나, HPA가 최대로 할당할 수 있는 Pod 개수를 적절하게 계산해서 노드수를 최소한으로 사용하는 방법 중에 후자를 선택함",
+          "Android 및 백엔드단에서 unknown host가 발생하는 문제 </br> -> AWS Loadbalancer가 IPv4, IPv6의 2가지 방식의 주소를 갖는 문제 때문에, DNS resolve시에 IPv6이면 어플리케이션(안드로이드, 스프링)단에서 'http://[ipv6 주소]'로 변환해주야함. 이를 해결하기 위해 개발팀에게 IPv4만을 사용하게 설정하는 방법을 알려줌",
+          "백엔드단에서 MySQL Max Connection 초과 에러 </br> 151개에서 1만개로 설정변경함.",
+          "쿠버네티스 Add-on인 AWS Autoscaler 속도 때문에 서비스 품질저하가 발생하는 문제 </br> AWS Autoscaler Add-on은 인프라를 프로비저닝후에 노드를 join하기 때문에, 노드를 확장하는 속도가 매우 느림. karpenter나 warm pool을 사용하여 문제를 해결할 수 있는데, 전자를 선택함"
+        ]
+      }
+    },
+    {
+      "id": "detail13",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "Eighteen (삼성청년SW아카데미 특화프로젝트)",
+      "checkboxId": "detail13",
+      "images": [
+        "./asset/img/ssafy-project2/logo.png",
+        "./asset/img/ssafy-project2/intro1.png",
+        "./asset/img/ssafy-project2/intro2.png",
+        "https://github.com/IT-magician/eighteen/blob/main/images/gitlab_runner1.jpeg?raw=true",
+        "https://github.com/IT-magician/eighteen/blob/main/images/gitlab_runner2.jpeg?raw=true",
+        "https://github.com/IT-magician/eighteen/blob/main/images/gitlab_runner3.jpg?raw=true"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/IT-magician/eighteen",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "projectIntro": "TJ Media 노래방 곡 정보를 Netflix, Youtube 등에 사용되는 '추천 알고리즘'으로 추천해주는 플랫폼",
+        "role": [
+          "ES기반 검색엔진 개발",
+          "CI/CD",
+          "인프라 관리(AWS EC2)"
+        ],
+        "teamSize": "본인 외 4명",
+        "technologies": [
+          "Elasticsearch & n-gram",
+          "Spring Boot",
+          "REST API",
+          "Git & Gitlab",
+          "Jira & Mattermost",
+          "Docker & Docker-compose",
+          "NGINX",
+          "AWS EC2",
+          "CI/CD (Gitlab Runner)",
+          "Git & Gitlab"
+        ],
+        "activities": [
+          "ES기반으로 초성검색 엔진을 구현 </br> 1) n-gram을 사용하여 'ㅅㅈㅎㅈ'을 검색하면 '소주한잔'의 결과를 반환 2) ES인덱싱을 사용하여 RDB의 Full Scaning 방지",
+          "JSoup, selenium을 사용하여 TJ Media 노래방 노래목록을 crawling",
+          "리액트 및 스프링 프레임워크, flask를 도커 컨테이너 이미지로 패키징",
+          "CI/CD 적용",
+          "팀장으로써 팀원들이 서로 뭉쳐서 개발할 수 있도록 노력함"
+        ],
+        "issues": [
+          "Elasticsearch에 8만 곡의 TJ 미디어 노래목록을 REST API로 전송하면, postman이 stuck되는 현상이 있음. </br> -> 원인 : ES에 원격으로 데이터를 넣는 속도가 원래 느리다고 함. 실제로 네이버 라인 등 ES를 사용하는 기업도 이러한 문제가 있어서, 특정단위로 데이터를 쪼개는 병렬전송방식으로 운영하고 있음. </br>(출처 : 유튜브의 라인 공식 컨퍼런스 채널) </br> 해결한 방법 : 노래목록은 정적데이터이기 때문에, 도커 컨테이너에 접속해서 데이터를 삽입함('docker exec -t Elasticsearch /bin/bash [rest api 명령어]' </br></br>rest api 명령어의 예시 : curl -d \"key1=value1&key2=value2\" -H \"Content-Type: application/x-www-form-urlencoded\" -X POST http://localhost:9300/data)",
+          "Elasticsearch 한개의 인덱스 크기당 데이터 개수 제한",
+          "한 팀원이 행동에 대해 문제가 있었음.</br> 이전팀에서 자신에 대한 안좋은 소문이 있다는 이유로 회의도 제대로 참여하지 않고, 같은 팀원에게 일부러 상처를 뱉는 말을 함. 해당 팀원에게 진심을 전해보기도 하고, 직장생활을 했던 컨설턴트님으로부터 해결방법을 물어보면서 최대한 좋은 결과를 내기 위해 노력함. 결과적으로는 해당 팀원의 중도퇴소를 막고 프로젝트를 성공적으로 마무리함."
+        ],
+        "regrets": [
+          "삼성청년SW아카데미에서 지원해주는 2.5주간의 클라우드 특강(강사 : 김문주)까지 들으면서 '쿠버네티스'를 적용하려고 했지만, '코로나19 걸림', '팀장으로써 팀원 관리' 등의 이유로 적용을 못했던게 아쉬웠음."
+        ]
+      }
+    },
+    {
+      "id": "detail12",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "Playground (삼성청년SW아카데미 공통프로젝트)",
+      "checkboxId": "detail12",
+      "images": [
+        "https://user-images.githubusercontent.com/67595512/222070331-ed9960c4-ccf8-4b09-a528-e7a0596bf7ea.png?raw=true",
+        "https://github.com/IT-magician/playground/raw/develop/gif_files/team_match_automatcing.gif",
+        "./asset/img/award1.jpg"
+      ],
+      "links": [
+        {
+          "url": "https://github.com/employmentRescue/playground",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "projectIntro": "장소, 팀원의 능력치 등 원하는 조건에서 운동모임을 하고 싶은 사람들이 운동을 지속적으로 할 수 있도록 도와주는 플랫폼",
+        "specialNote": "전국본선 진출 및 최종평가에서 1위 수상",
+        "contribution": "35% </br>담당 컨설턴트님으로부터 제가 사용했던 Spring Cloud, Flutter 등의 다양한 기술을 짧은 시간내에 적절하게 사용한 점을, 높게 평가받아서 후보로 올라감. 발표내용도 사용기술에 대해 중점으로 어필을 해서 3위에서 1위로 최종평가를 받음",
+        "teamSize": "본인 외 5명",
+        "role": [
+          "MSA 아키텍처 설계 및 구축",
+          "무중단 CI/CD 배포",
+          "React 웹 프레임워크가 앱애서 실행될 수 있도록, Hybrid App 제작",
+          "Firebase Cloud Message 백엔드 작성 및 FE 가이드",
+          "OAUTH2 기반 카카오 소셜 인증 및 사용자 정보 서비스 백엔드 작성"
+        ],
+        "technologies": [
+          "Spring Boot 3.0.2",
+          "Lombok",
+          "Redis",
+          "JPA & queryDSL & MySQL",
+          "REST API",
+          "Firebase Cloud Message",
+          "OAUTH2 & Kakao Open API",
+          "Docker Container & Docker Engine, Docker Compose",
+          "CI/CD (Jenkins & Jenkins's Blue Ocean 플러그인, Gitlab Integration CI/CD)",
+          "Spring Cloud(Eureka Server/Service Discovery, Gateway)",
+          "AWS EC2",
+          "Git & Gitlab",
+          "Jira & Mattermost",
+          "VMWare & XCode, Android Studio, Flutter"
+        ],
+        "activities": [
+          "OAuth2기반으로 카카오 소셜 로그인",
+          "Redis를 사용하여 access_token 및 refresh_token 발급 </br>1) 기간지나면 자동으로 삭제되게 설정했음. 2) 해킹감지시에 토큰삭제를 목적으로 설계를 했음",
+          "(Spring boot기반) Firebase Cloud Message를 사용하여 App Push 알림을 발생시키는 것과 queryDSL & JPA를 이용해서 사용자 정보를 CRUD하는 서비스의 REST API 개발",
+          "MSA 아키텍처 설계 및 예외 테스트케이스 고려 </br> 1) MSA 아키텍처에서 사용되는 Hystrix와 같은 Circuit Breaker 등에서 필요한 기능을 조사 2) 채팅서비스를 오토스케일링했을 때, 같은 방에 있는 사용자를 관리하는 객체를 찾지 못하는 점을 Kafka와 같은 Pub/Sub 모델을 팀원에게 제안",
+          "ERD 다이어그램 설계 </br> 1) 테이블 정규화 2) 부모/자식관계 테이블 설계",
+          "Flutter를 사용하여 웹뿐만 아니라 Android, IOS 플랫폼을 기반으로한 Hybrid App 개발을 통해 여러 플랫폼에서 사용이 가능하도록 만듬",
+          "Jenkins 파이프라인 스크립트 작성, 병렬처리 스크립트로 8개의 어플리케이션 빌드시간을 9분에서 1분으로 단축",
+          "Gitlab Integration CI/CD를 통해, 팀원들이 jenkins 동작상황을 Gitlab에서도 볼 수 있게 만듬",
+          "AWS EC2 해킹공격후 조치 </br> 1) 빠른 서비스 복구를 위한 도커이미지를 docker hub에 올리고, docker compose 스크립트를 미리 작성하여 'docker compose up -d' 명령어 하나만으로 복구를 할 수 있게 만듬 2) 채팅, 매칭 서비스 등 각 서비스마다 서로 다른 SSL 인증키 발급 3) 팀원들과 회의를 통하여 MySQL 등의 암호를 보다 복잡하게 설정",
+          "API Gateway단에서 Cors 처리설정"
+        ],
+        "issues": [
+          "백엔드단에서 CORS 설정이 안먹히는 문제 </br>-> Postman의 http header 응답내용을 분석후, API Gateway가 중복헤더 필터링을 통해 문제해결",
+          "스프링부트 3.0.2에서 Swagger, queryDSL 등의 dependencies를 설정하는 방법이 기존버전과 다름 </br>->로그를 보며 차근차근 해결을 해나감",
+          "JPA의 단방향/양방향 관계 </br>->JPA는 테이블 모델이 아닌 객체 모델로 생각하고 개발해야한다는 점을 알게됨"
+        ],
+        "learnings": [
+          "MSA 아키텍처를 구현을 해보면서, 프로젝트의 규모가 클 수록 개발 난이도를 낮춰준다는 것을 알았습니다. 또한 어플리케이션들을 분리를 통해 서비스 자체를 중단하지 않고, 수정된 어플리케이션만 내용을 반영하는 무중단 배포의 장점을 느꼈습니다.",
+          "도커와 Hypervisor의 차이점을 알게 되었습니다.",
+          "git 사용실력이 늘었습니다. </br> 팀원들과 jira로 git을 연동하기 위해 git 브랜치 전략을 함께 이야기를 했고, 거기에 따라서 git을 사용을 했습니다. </br> 그러다보니 amend, merge request 등의 git 기능까지도 사용을 하면서 예전보다 실력이 많이 향상되었습니다.",
+          "Spring Boot으로 REST API를 작성하면서, JPA와 OAUTH2인증에 대해 알게 되었습니다.",
+          "데이터를 DB에서 자주 가져와야하는 경우 캐쉬서버로부터 데이터를 가져와야한다는 것을 알게 되었습니다. </br> MSA 아키텍처를 컨펌받으로 갔을 때, 컨설턴트님이 채팅서버 부분을 지적한 적이 있습니다. \"채팅은 1초만해도 데이터를 엄청 많이 가져오는 것 때문에 DB를 많이 힘들게 한다. 안그래도 DB는 느린데, 이렇게 짜면 현업에서는 DBA한테 혼난다. 다른 방법을 구상해라!\"라고 말씀을 해주셨습니다.",
+          "NoSQL을 왜 사용하는지 알게 되었습니다.",
+          "Firebase Cloud Message를 사용하는 방법을 알게 되었습니다.",
+          "JPA에 관한 것을 배울수있었습니다. 예를 들면 '순환참조', 'N+1' 문제 등이 왜 발생하며, 어떻게 해결해야하는지를 배울 수 있었습니다.",
+          "웹은 해킹에 항상 노출이 되어있으니 조심해야겠다고 느꼈습니다. </br> 단순히 교육용 프로젝트이기 때문에 해킹에 별위험이 없다고 생각을 했지만, 실제로 DB나 AWS EC2를 탈취를 당한적이 있었습니다.</br> 또한 Redis 비밀번호를 설정하지 않았다가 web bot이라는 crawler가 지멋대로 저희의 redis 데이터를 수정했습니다. </br> 그 후에 DB에 비밀번호를 복잡하게 설정하거나 SSL 적용 등 해킹에 경각심을 가졌습니다.",
+          "Spring이 버전업을 하면서 블록킹 방식인 tomcat에서 넌-블로킹방식의 netty를 사용해서 속도를 높히게 된다는 것을 알게 되었습니다.",
+          "JPA에서 @Embeddable이나 @IdClass으로 '복합키를 사용'하는 방법을 배웠습니다"
+        ]
+      }
+    },
+    {
+      "id": "detail11",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "Travel - SSAFY Final Project in first semester",
+      "checkboxId": "detail11",
+      "videos": [
+        {
+          "src": "./asset/img/landing.mp4",
+          "title": "Landing Page"
+        },
+        {
+          "src": "./asset/img/home.mp4",
+          "title": "Home Page"
+        },
+        {
+          "src": "./asset/img/building.mp4",
+          "title": "Building Search Page"
+        },
+        {
+          "src": "./asset/img/explore.mp4",
+          "title": "Park Search Page"
+        },
+        {
+          "src": "./asset/img/board.mp4",
+          "title": "게시판 Page"
+        },
+        {
+          "src": "./asset/img/account.mp4",
+          "title": "사용자 계정정보 수정"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/final%20project",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "motivation": "우리가 조용한 공원, 북카페에서 혼자만의 시간을 보내거나, 식당, 호프집 등 지인과 함께 이야기를 하며 스트레스를 풉니다. 이 모든게 하나의 공간이라는 곳에서 이루어지는 점을 착안하여, 새로운 장소를 탐색할 수 있도록 기획을 했습니다. </br>우리의 서비스는 사람들이 장소에 대해 사진과 함께 글을 남기면서, 한번도 가보지 않았던 곳, 혹은 알지 못했지만 매력적인 장소를 발견하게 해주는데 목적이 있습니다.",
+        "results": [
+          "네이버 블로그 editor처럼 게시글에 이미지를 업로드 하는 방법을 배웠습니다.",
+          "Vue.js를 cli가 아닌 cdn만으로 하는 방법을 배웠습니다"
+        ],
+        "technologies": [
+          "Spring Boot",
+          "MySQL",
+          "Spring Security",
+          "JWT for login",
+          "MyBatis",
+          "Vue.js",
+          "HTML & Javascript & SCSS",
+          "Javascript Library : 'summernote'"
+        ],
+        "userConvenience": "사용자 입력에 따른 반응 등 CSS로 UX를 높히려고 노력했습니다.",
+        "teamSize": "본인 외 1명",
+        "role": [
+          "Front End",
+          "Login & Account Info edit Backend",
+          "Spring Security for JWT(인가받지 않은 접근 403에러 처리)",
+          "Landing 페이지 Backend",
+          "Home 페이지 Backend",
+          "아파트 매매 정보 조회 Backend",
+          "게시판(이미지 업로드 및 다운로드 처리(Spring, DB 등록),게시글 업로드 및 조회, 게시글 카테고리 필터링) Backend"
+        ]
+      }
+    },
+    {
+      "id": "detail10",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "SSAFY Project(version2,version3~4,version5) in first semester",
+      "checkboxId": "detail10",
+      "nestedVersions": {
+        "version2": {
+          "images": [
+            {
+              "src": "./asset/img/craft2/1.png",
+              "title": "대시보드 페이지"
+            },
+            {
+              "src": "./asset/img/craft2/1.png",
+              "title": "아파트 상세정보 검색1"
+            },
+            {
+              "src": "./asset/img/craft2/2.png",
+              "title": "아파트 상세정보 검색2"
+            },
+            {
+              "src": "./asset/img/craft2/3.png",
+              "title": "로그인"
+            },
+            {
+              "src": "./asset/img/craft2/4.png",
+              "title": "회원가입"
+            },
+            {
+              "src": "./asset/img/craft2/5.png",
+              "title": "사용자 정보 수정(user 계정)"
+            },
+            {
+              "src": "./asset/img/craft2/6.png",
+              "title": "사용자 정보 수정(admin 계정)"
+            },
+            {
+              "src": "./asset/img/craft2/7.png",
+              "title": "xml data loading (공공데이터 포털 다운로드 양이 많아서 화면에 표시하는게 지연 될때, 렉이 아님을 사용자에게 보여주기 위한 페이지)"
+            }
+          ],
+          "links": [
+            {
+              "url": "https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/2%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5",
+              "text": "보러가기"
+            }
+          ],
+          "mission": "순수 자바스크립트만으로 공공데이터 포탈의 데이터를 받아와서, 화면에 표시하는 과제입니다.",
+          "results": [
+            "Vue.js 없이 Javascript만으로 SPA(Single Page Application)를 만들었습니다. </br>&nbsp;&nbsp;다시 고친다면 프레임워크를 사용하여 더 신경써야할 부분에 에너지를 써서 완성도를 높히고, XmlHttpRequest의 onprogress속성을 사용하여 정확한 다운로드 진행률을 보여줄 계획입니다.",
+            "지도와 함께 볼 수 있는 '아파트 상세 검색'은 'click'이벤트를 추가하였습니다. </br>오른쪽에 있는 card를 누르면, 지도의 center가 해당 아파트의 위치로 이동하게 했습니다. </br>해당 아파트에 해당하지 않는 InfoWindow를 닫고, 하나의 InfoWindow만 열어서 사용자가 내용에 집중하도록 만들었습니다.",
+            "계정 권한에 따라 사용자 정보를 수정할 수 있게 했습니다. </br>(admin 계정 권한을 별도로 추가했던 이유는 실제 사용자를 위해서입니다. 데이터센터 근무경험에서 관리자 권한을 분리하지 않아서 자주 문제가 생겼던 기억이 있어서, 권한 분리를 통해 사용성을 높히려고 만들어습니다.)"
+          ],
+          "technologies": [
+            "Vanila JS & ES6",
+            "SCSS",
+            "Rest API by Javascript for use of getting data"
+          ],
+          "role": [
+            "프론트 작성",
+            "최근에 검색한 아파트를 Stack 자료구조에 넣고, 이것을 Dashboard에서 표시하도록 만들었습니다.",
+            "대쉬보드 동작(사용자의 검색 기록 표시(Recent Views)) 작성",
+            "아파트 실거래가 표시(Table 및 Kakao 지도)",
+            "사용자 정보 수정(User 및 Admin 계정권한에 따라 수정가능하게 만들었습니다)"
+          ]
+        },
+        "version3": {
+          "images": [
+            {
+              "src": "./asset/img/crafts3/main.PNG",
+              "title": "메인 페이지"
+            },
+            {
+              "src": "./asset/img/crafts3/register.PNG",
+              "title": "회원가입"
+            },
+            {
+              "src": "./asset/img/crafts3/register_fail.PNG",
+              "title": "회원가입 실패"
+            },
+            {
+              "src": "./asset/img/crafts3/login.PNG",
+              "title": "로그인"
+            },
+            {
+              "src": "./asset/img/crafts3/login_fail.PNG",
+              "title": "로그인 실패"
+            },
+            {
+              "src": "./asset/img/crafts3/login_success.PNG",
+              "title": "로그인 성공"
+            },
+            {
+              "src": "./asset/img/crafts3/userFavor-district1.PNG",
+              "title": "사용자 선호 지역 설정 1"
+            },
+            {
+              "src": "./asset/img/crafts3/userFavor-district2.PNG",
+              "title": "사용자 선호 지역 설정 2"
+            },
+            {
+              "src": "./asset/img/crafts3/search1.PNG",
+              "title": "건물 상세정보 검색 1"
+            },
+            {
+              "src": "./asset/img/crafts3/search2.PNG",
+              "title": "건물 상세정보 검색 2"
+            },
+            {
+              "src": "./asset/img/crafts3/recent-search.PNG",
+              "title": "최근에 사용자들이 검색한 건물 정보"
+            }
+          ],
+          "links": [
+            {
+              "url": "https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/3%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5",
+              "text": "보러가기"
+            }
+          ],
+          "mission": "팀원들이 2번째 관통 때 만들었던 프로젝트를 JSP로 만드는 과제입니다. </br>사용자 선호 지역을 저장하는 미션도 추가로 주어졌습니다.",
+          "results": [
+            "기존 코드에서는 건물 상세 정보를 받아오기 위해 동까지 선택했던 것을 '구/군'까지만 선택해도 검색이 가능하도록 만들었습니다.",
+            "로그인 후 우측 상단의 사용자 ID를 선택하면, 사용자 선호 지역을 설정하는 페이지가 나오게 했습니다."
+          ],
+          "technologies": [
+            "HTML & CSS(SCSS) & Javascript",
+            "Java Servlet",
+            "MySQL"
+          ],
+          "role": [
+            "팀원이 만들었던 웹페이지에서 레이아웃 벗어나는 것 수정",
+            "아파트 상세정보 표시 </br>(기존에 만들어져있던 것을 Backend를 사용해서 받아오는 구조로 수정)",
+            "사용자 선호 지역 설정 기능 제작 (Front End & DB Table 설계)"
+          ]
+        },
+        "version4": {
+          "images": [
+            {
+              "src": "./asset/img/crafts3/main.PNG",
+              "title": "메인 페이지"
+            }
+          ],
+          "links": [
+            {
+              "url": "https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/4%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5",
+              "text": "보러가기"
+            }
+          ],
+          "mission": "팀원들이 3번째 관통 때 만들었던 프로젝트를 Spring/Spring Boot로 만드는 과제입니다.",
+          "results": [
+            "백엔드에서 Rest API로 Front End에 필요한 데이터를 전송하도록 설계했습니다."
+          ],
+          "technologies": [
+            "HTML & CSS(SCSS) & Javascript",
+            "Spring Boot",
+            "MySQL",
+            "MyBatis",
+            "Rest API"
+          ],
+          "role": [
+            "3번째 관통 때 맡았던 기능들을 Spring에 맞게 로직으로 옮김",
+            "JSP를 Spring으로 구조 변경함"
+          ]
+        },
+        "version5": {
+          "images": [
+            {
+              "src": "./asset/img/crafts5/preview0.png",
+              "title": "컴포넌트 구조화"
+            },
+            {
+              "src": "./asset/img/crafts5/preview1.png",
+              "title": "회원 가입 (Rest API 및 Vue 사용)"
+            },
+            {
+              "src": "./asset/img/crafts5/preview2.png",
+              "title": "로그인"
+            },
+            {
+              "src": "./asset/img/crafts5/preview3.PNG",
+              "title": "로그인 성공"
+            },
+            {
+              "src": "./asset/img/crafts5/preview4.PNG",
+              "title": "회원 정보 수정, 삭제"
+            },
+            {
+              "src": "./asset/img/crafts5/preview5.PNG",
+              "title": "아파트 매매 정보 조회"
+            },
+            {
+              "src": "./asset/img/crafts5/preview6.PNG",
+              "title": "클래스 다이어그램"
+            }
+          ],
+          "links": [
+            {
+              "url": "https://github.com/IT-magician/SSAFY_CRAFTS/tree/main/5%EB%B2%88%EC%A7%B8%20%EA%B4%80%ED%86%B5",
+              "text": "보러가기"
+            }
+          ],
+          "mission": "팀원들이 3번째 관통 때 만들었던 프로젝트를 Vue.js 기반으로 만드는 과제입니다.",
+          "results": [
+            "Vue.js를 CLI가 아닌 CDN기반으로 시도했습니다."
+          ],
+          "technologies": [
+            "Vue.js",
+            "HTML & CSS(SCSS) & Javascript",
+            "Spring Boot",
+            "MySQL",
+            "MyBatis",
+            "Rest API"
+          ],
+          "role": [
+            "3번째 관통 때 맡았던 기능들을 Spring에 맞게 로직으로 옮김",
+            "JSP를 Spring으로 구조 변경함"
+          ]
+        }
+      }
+    },
+    {
+      "id": "detail9",
+      "category": "embeded",
+      "subtitle": "Web & Embeded system development",
+      "title": "Smart Farm",
+      "checkboxId": "detail9",
+      "images": [
+        "./asset/img/smartFarm.png"
+      ],
+      "youtubeEmbeds": [
+        "https://www.youtube.com/embed//slsYdW502Ok",
+        "https://www.youtube.com/embed//p4Kk4Fti6zo",
+        "https://www.youtube.com/embed//kN-Kz-ALSp8"
+      ],
+      "details": {
+        "motivation": "4차 산업혁명 기술과 농사를 접목시켜서 노동력 절감, 효율성 증대를 통하여 우리농업의 경쟁력을 높이고 미래성장선업으로서 나아갈 방향을 제시해줍니다. 단순한 노동력 절감 이외의 시간적, 공간적 구속으로부터 자유로워져 여유시간 증대, 삶의 질 개선으로 인해 청년층의 유입이 증가할 것으로 기대하면서 제작했습니다.",
+        "results": [
+          "Qt라는 프레임워크를 사용해서 리눅스, 윈도우, 안드로이드 등 운영체제에 상관없이 하나만의 코드로 GUI를 제공할 수 있다는 것을 알게 되었습니다.",
+          "SSL 인증서는 open SSL을 활용해서 임시로 발급받을 수 있어서 급하게 SSL로 보안을 만드는데 편하지만 사용자 입장에서의 보안위협 때문에, 실제 상용화 서비스의 경우에는 CA 업체를 통해서 신뢰성이 있는 인증을 제공해야겠다고 느꼈습니다."
+        ],
+        "technologies": [
+          "Linux & Raspberry Pi & Arduino",
+          "HTML & CSS & Javascript & WebSocket",
+          "IIS & SSL & Domain Name",
+          "Cloud CCTV(프로젝트 'view detail' 참조)",
+          "Qt for touch pad controller GUI",
+          "Fusion 360(3D Modeling) & 3D Printing"
+        ],
+        "userConvenience": [
+          "IoT 자동문 </br>(웹페이지 및 터치패드에서 임시 비밀번호 발급 그리고 비밀번호 변경, 원격으로 개폐 등)",
+          "천장 가림막 햇빛에 예민한 식물을 위해 PLDC를 사용하여 햇빛의 양을 조절하였습니다.",
+          "스프링쿨러",
+          "전구 및 열전구",
+          "웹 및 터치패드 컨트롤러 </br>현장 출입구에서는 터치패드로, 작업 중 혹은 외출중으로 터치패드로 제어하기 힘든 경우에는 웹페이지에서 제어가 가능하도록 만들었습니다. </br>스프링쿨러, 천장 가림막 등 장치를 제어할 수 있을 뿐만 아니라 현재 온도, 조도, 자동문 열림 상태 등 스마트팜의 상태를 관제할 수 있는 서비스를 제공하였습니다.",
+          "Cloud CCTV"
+        ],
+        "teamSize": "본인외 3명",
+        "role": [
+          "웹 제작 : Front(CSS & JS) & Backend(센서, 모터 등의 GPIO 신호 제어)",
+          "리눅스 GUI 제작 for touch pad controller",
+          "서버 구축 (IIS, NGINIX, Apache Tomcat)",
+          "Freenom에서 Domain Name 받아오고, Open SSL로 인증서를 받아와서 'https://www.naver.com'과 같이 웹페이지를 접근가능하도록 적용",
+          "Cloud CCTV 제작",
+          "3D Modeling"
+        ]
+      }
+    },
+    {
+      "id": "detail8",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "Cloud CCTV",
+      "checkboxId": "detail8",
+      "images": [
+        "./asset/img/cloud_cctv1.png"
+      ],
+      "details": {
+        "motivation": "원격으로 농장상태를 모니터링할 수 있도록 하기 위해 CLOUD CCTV를 만들었습니다.</br>스마트팜을 사용하는 농장주에게 필수적인 것이 무엇인지를 고민했고, 아버지 지인분들이 자주 밖을 나가는 것을 떠올렸습니다. </br>또한 네트워크에 연결된 자동문과 함께 활용한다면, 농장주와 일을 부탁받은 작업자가 현장에 같이 있는 것처럼 원격으로 소통이 가능할 것을 기대하면서 제작하였습니다.",
+        "results": [
+          "프레임워크를 사용함으로써 개발의 시간과 효율성을 높혀준다는 것을 알게 되었습니다.</br>(기존에는 HTML, Javascript 등을 배포하는 정적 웹서버를 TCP소켓으로 하나씩 만들어서 오래걸렸지만, Java Servlet을 사용함으로써 단축된 시간을 다른 영역에 더 투자할 수 있었습니다.)",
+          "정적 서버를 비디오 스트리밍 서버로 사용하기에 적절하지 않다는 것을 알았습니다. </br>처음에는 전날의 영상을 다시 볼 수 있도록 하기 위해서, 정적 서버로 계획했습니다. 하지만 재생위치를 변경하면 영상이 맨처음부터 다시 재생되는 문제가 있어서, 패킷분석툴로 원인을 파악했습니다. 사용자가 영상의 위치를 변경할 경우, 브라우저는 HTTP header에 range라는 attribute에 재생위치를 담아서 전송하지만, 정적서버는 이 내용을 해석하지 않아서 영상의 재생위치를 변경할 수 없다는 문제점이 있었습니다. 이것을 Java Servlet으로 작성해서, 요청에 맞게 반응하도록 만들었습니다.",
+          "라이브 스트리밍 기술을 습득했습니다. 실시간 스트리밍에는 rtmp 등 여러가지 프로토콜을 사용해왔고, 현재는 애플에서 개발한 HLS를 넷플릭스, 유튜브 등에서 사용하고 있다는 사실을 알았습니다. 저는 이 기술을 사용하면서, 어렸을 때만 해도 라이브 스트리밍이 영상과 소리의 싱크가 맞지 않았던 문제가 있었지만 많은 개발자들이 노력한 결과로 고품질 라이브 스트리밍 서비스를 누리고 있다는 것을 알게 되었습니다."
+        ],
+        "technologies": [
+          "openCV (초기에만 사용하고, 최종때는 사용안함)",
+          "FFMPEG",
+          "NGNIX",
+          "HLS",
+          "Java Servlet",
+          "Apache Tomcat",
+          "ASP"
+        ],
+        "teamSize": "개인 담당"
+      }
+    },
+    {
+      "id": "detail7",
+      "category": "embeded",
+      "subtitle": "Web & Embeded system development",
+      "title": "IoT 스마트홈 시스템",
+      "checkboxId": "detail7",
+      "images": [
+        "./asset/img/embeded_computer.jpg"
+      ],
+      "youtubeEmbeds": [
+        "https://www.youtube.com/embed/7L7Mgk3pNyY",
+        "https://www.youtube.com/embed/ONvE1gfWzhY",
+        "https://www.youtube.com/embed/L8KxY5oBEAg",
+        "https://www.youtube.com/embed/6UxrWTex8ks",
+        "https://www.youtube.com/embed/YmUqllXGcEk"
+      ],
+      "links": [
+        {
+          "url": "https://o365anu-my.sharepoint.com/:p:/g/personal/20151301_student_anu_ac_kr/Edd8dbAeBRNMi_t-3J3g_dkBQL9Vx8nO5gB9a-rmhKHlHA?e=HegZGy",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "motivation": "보드게임 등 여러가지 주제 중에서 폭팔적으로 성장하고 있는 4차 산업기술인 IoT를 활용해서, 주어진 임베디드 장비(h-smart4412tku)를 사용해 사용자에게 편리한 서비스를 제공하고 싶었습니다.",
+        "results": [
+          "IoT를 구현함으로써 사용자를 포함한 가족 구성원이 모두 외출중인 상황이라도, 주변지인에게 연락할 필요없이 에어컨, 보일러 등을 원격으로 즉시 확인 및 제어를 가능하게 만들었습니다.",
+          "Qt, Spring과 같은 프레임워크 없이 브라우저와 리눅스 OS간 TCP기반 통신을 하게 만든 경험을 통해서, 유연한 사고를 얻었습니다. </br>(회사에서 개발하고 있는 프로젝트에 필요한 기술이 지원하지 않아서 어려운 상황에 쳐했을 때, C/C++를 이용해 C#,Java 등의 라이브러리로 제작후 제공해서 팀 프로젝트에 도움이 될 수 있는 사람으로 성장했다고 생각합니다.)"
+        ],
+        "technologies": [
+          "리눅스(gcc, network config(ifconfig, udhcpc, ...) 등)",
+          "HTML & Javascript & CSS",
+          "WebSocket",
+          "IIS",
+          "DDNS"
+        ],
+        "userConvenience": "LAN선이 아닌 Wifi로 인터넷에 연결하고, 어플리케이션을 설치할 필요없이 웹페이지에서 서비스를 이용가능하게 만들어서, 시간 및 공간이라는 벽을 허물었습니다.",
+        "teamSize": "본인 & 타학과 학생(컴퓨터공학과)",
+        "role": [
+          "리눅스와 브라우저간에 통신을 위해 WebSocket 구현(WAS 역할)",
+          "웹서버(IIS) 구축",
+          "웹페이지의 Javascript 구현",
+          "임베디드 보드의 tact switch, led 등을 활용하여 하나의 장치로 만들고, 사용자의 명령에 따라 반응하도록 만듬 </br>(예 : 임시비밀번호 발급, 문 열기/닫기, 전등, 에어컨 등 전원 모니터링)",
+          "팀원의 프론트엔드 작업 보조"
+        ]
+      }
+    },
+    {
+      "id": "detail6",
+      "category": "etc",
+      "subtitle": "VBA Project",
+      "title": "기상청 웹크롤러",
+      "checkboxId": "detail6",
+      "images": [
+        "./asset/img/crawling1.png"
+      ],
+      "details": {
+        "motivation": "타학과 교수님이 3년치 이상의 기상청 데이터를 엑셀로 만들어야 한다고 했습니다. 그 이야기를 듣고 Ctrl_C + Ctrl_V의 반복적인 작업을 사람 대신 컴퓨터가 하게 만들면, 100년 치 이상의 수많은 데이터라고 하더라도 사람이 하는 것보다 1,000배이상 빠르게 할 수 있을 거라고 생각했습니다.",
+        "results": [
+          "원래 계획했던 기간인 '6개월'에서 '1초'로 자료조사기간을 단축시켰습니다. 단축된 시간으로 날씨에 따른 사과병 연관도 조사 등 연구에 더 매진할 수 있게 했습니다.",
+          "창의적인 생각이 업무 시간을 효율적으로 단축시킬 수 있으며, 프로젝트의 완성도를 높이는데 시간을 투자할 수 있게 만든다는 것을 알게 되었습니다",
+          "VBA라는 프로그래밍 언어를 추가적으로 습득을 했습니다. 그리고 Maven 등 외부라이브러리 없이 간단하게 엑셀로 데이터를 만드는 방법을 알게 되었습니다."
+        ],
+        "technologies": [
+          "VBA",
+          "TCP 소켓 : 기상청 페이지에 접속하는 역할을 합니다. 그리고 년,월,일 등의 날짜 parameter를 Http 패킷에 Get방식으로 받아오게 하였습니다.",
+          "HTML Parsing"
+        ],
+        "userConvenience": [
+          "사용자에게 익숙한 환경으로 사용할 수 있게 하기 위해서, VBA를 이용해 기상청 데이터를 엑셀파일로 만들었습니다."
+        ],
+        "teamSize": "개인 프로젝트"
+      }
+    },
+    {
+      "id": "detail5",
+      "category": "embeded",
+      "subtitle": "MCU development",
+      "title": "Playbox with AT89S52 Microprocessor",
+      "checkboxId": "detail5",
+      "images": [
+        "./asset/img/playbox.png"
+      ],
+      "links": [
+        {
+          "url": "https://o365anu-my.sharepoint.com/:p:/g/personal/20151301_student_anu_ac_kr/Ed9bw8huXbpHuA2hiG9k-8oBrGY5Hjurj7IaugBLqGNYBQ?rtime=hMsZ5zjU2kg",
+          "text": "보러가기"
+        }
+      ],
+      "details": {
+        "motivation": "사용자가 스마트폰처럼 pmp, mp3 player 등의 하나의 장치로 여러가지 기능을 이용할 수 있는 것을 선호하는 것처럼, 하나의 장치로 다양한 기능을 사용할 수 있게하고 싶었습니다.",
+        "results": [
+          "운영체제 도움 없이 MCU를 제어할 수 있는 firmware 제작 역량을 얻었습니다."
+        ],
+        "technologies": [
+          "MCU Programming"
+        ],
+        "userConvenience": [
+          "러시안룰렛을 하다가 '벌칙버튼'을 누르면 LED, CLCD뿐만 아니라 interrupt를 활용해 PWM으로 음악을 발생시켜서 사용자 경험을 높이는데 집중했습니다.",
+          "피아노는 wheel로 옥타브를 변경해서 다양한 음을 낼 수 있게 했습니다."
+        ],
+        "teamSize": "본인 외 1명",
+        "role": [
+          "MCU 프로그래밍"
+        ]
+      }
+    },
+    {
+      "id": "detail4",
+      "category": "web",
+      "subtitle": "Web development",
+      "title": "AGC장비 관리방식 개선 공모전",
+      "checkboxId": "detail4",
+      "images": [
+        "./asset/img/watchall.jpg"
+      ],
+      "details": {
+        "motivation": "기존에는 관제자가 5분 마다 AGC 장비의 값을 측정후 엑셀에 기록하기 때문에, 관리의 불편함이 있었습니다. 저희는 DB와 웹을 활용하여 WATCHALL이라는 관제프로그램처럼 즉각적으로 AGC의 상태를 모니터링할 수 있을 뿐만 아니라, 관련된 여러부서에서 데이터를 활용할 수 있게 만들었습니다.",
+        "results": [
+          "사령부로부터 공동 1위 수상 및 3박 4일 포상",
+          "인생의 전환점이 되었습니다.</br>웹 디자인, 알지 못했던 Ajax, Apache Tomcat과 같은 기술 등 여러가지로 많이 알게 되었고, 팀원들과 같이 프로젝트를 하면서 앞으로 어떻게 학교 생활을 해야할지 마음을 결정한 계기였습니다. 그래서 전공 공부 등 학교 생활을 열심히 해서, 높은 성적을 받았습니다. 또한 다양한 도전을 하려고 노력했습니다."
+        ],
+        "technologies": [
+          "MySQL",
+          "HTML & CSS & Javascript & Ajax",
+          "Arduino"
+        ],
+        "userConvenience": "데이터를 txt파일로 저장하지 않고, DB에 저장해서 여러 관련된 부서가 데이터를 활용할 수 있게 했습니다. 또한 실시간으로 데이터량이 늘어나는 점을 DBA 등의 관리자가 클러스터링 인덱싱 등으로 데이터 접근속도를 늘릴 수 있도록 설계했습니다.",
+        "teamSize": "본인외 3명",
+        "role": [
+          "DB Schema 제작(CRUD, 정규화 여부)",
+          "AGC의 출력을 아두이노로 읽고, Serial통신으로 읽어온 데이터를 윈도우에서 전압값으로 정확하게 계산해서 MySQL에 전송",
+          "보안구역으로부터 IDE, Apache Tomcat과 같은 Dependency 소프트웨어를 인가후 반입",
+          "Project Manager - (기여 : DB와 웹 서비스 기반으로 프로젝트를 제안)"
+        ]
+      }
+    },
+    {
+      "id": "detail3",
+      "category": "etc",
+      "subtitle": "Network & Web development",
+      "title": "Packet Creator",
+      "checkboxId": "detail3",
+      "images": [
+        "./asset/img/packet_creator.PNG"
+      ],
+      "details": {
+        "motivation": "컴퓨터 네트워크 수업에서 TCP, HTTP 등의 이론을 배우면서, 네트워크의 내부 동작을 직접 관찰해보고 싶었습니다. (데이터센터에서 NAC, Firewall 등을 관리하면서 어떻게 구현하는지 궁금하기도 했습니다.)",
+        "results": [
+          "Windows Installer를 만들어서 담당 과목 교수님께 전달했습니다.",
+          "패킷 분석 능력을 얻었습니다. (WireShark로 제가 Packet Creator로 생성한 패킷뿐만 아니라 유튜브 등 현재 이용하고 있는 서비스의 패킷을 관찰했습니다. 그리고 수많은 패킷 중에 필요한 데이터만 필터링해서 패킷이 분할전송되었는지 여부 등을 파악할 수 있습니다.)",
+          "지금 생각을 해보면 Packet Creator 제작과정을 통해서, 네트워크 지식뿐만 아니라 웹 개발에도 많은 도움이 되고 있는 것 같습니다. </br>패킷을 분석하면서 모바일과 데스크탑에 따라서 HTTP Header 영역의 'User-Agent'라는 Attribute에 다른 값이 담긴다는 사실을 알았었는데, 이를 활용해서 백엔드 서버에서 모바일용과 PC용의 서비스를 독립적으로 제공할 수 있습니다."
+        ],
+        "technologies": [
+          "Window API (Network Device Driver를 읽어오는 용도)",
+          "WinPCap (프로그래밍으로 패킷을 Read/Write하는 외부 라이브러리)",
+          "HTML & CSS & Javascript & WebSocket"
+        ],
+        "userConvenience": [
+          "기존에 개발했던 CLI 환경에서 웹 기반 GUI로 UX를 변경했습니다.",
+          "사용자 컴퓨터에 WinPCap 및 서비스 등을 자동으로 설치해주는 Windows Package Installer로 프로젝트를 배포했습니다."
+        ],
+        "teamSize": "개인 프로젝트"
+      }
+    },
+    {
+      "id": "detail2",
+      "category": "etc",
+      "subtitle": "Network development",
+      "title": "C/C++기반 WebSocket Server",
+      "checkboxId": "detail2",
+      "images": [
+        "./asset/img/websocket.PNG"
+      ],
+      "links": [
+        {
+          "url": "https://blog.naver.com/hoan123432/221585391213",
+          "text": "보러가기1"
+        },
+        {
+          "url": "https://blog.naver.com/hoan123432/221720008509",
+          "text": "보러가기2"
+        },
+        {
+          "url": "https://blog.naver.com/hoan123432/221583620947",
+          "text": "보러가기3"
+        }
+      ],
+      "details": {
+        "motivation": "프로토콜을 요구사항 정의서에 맞게 개발할 수 있는 사람이 되고 싶어서 만들었습니다. 이 당시에는 HTML5가 도입이 된지 얼마되지 않은 시기라서 WebSocket이 신기술이었고, HTTP, Ajax의 단점을 보완하는 Full Deplex를 지원하는 프로토콜이어서 선정했습니다.",
+        "results": [
+          "웹소켓은 ISO와 같은 표준협약기구인 RFC기관에서 만들어지는데, 이러한 기관들은 한 주제에 대해서 문서를 작성하고 배포함으로써 여러사람/업체들이 기술을 구현하는데 있어서 표준화를 하고 있다는 것을 알았습니다.",
+          "MDN 재단도 WebSocket에 대해서 기록을 해놓은 문서를 보면서, 이 재단이 웹에 관련해서 꾸준히 문서를 작성해서 표준화를 하도록 노력한다는 것을 알았습니다.",
+          "'프로토콜'의 정의가 '약속'이라는 말이 와닿았습니다. 수업에서 교수님이 '프로토콜이 뭔가요?'라고 질문을 받으면, 답변을 하면서도 '이게 맞나?'라는 생각을 했습니다. 하지만 WebSocket이라는 프로토콜을 개발을 통해 상대에게 프로토콜이 왜 '약속','언어' 등 여러가지로 정의될 수 있는 이유를 설명을 할 수 있습니다. </br>HTTP통신에서 WebSocket으로 전환하기 위한 'HTTP/1.1 101 Switching Protocols Upgrade' 작업에서 SHA1을 비트기반이 아닌 바이트 단위로 전송하면 실패한다는 점을 몰라 고생을 했습니다. </br>비트기반으로 SHA1 해싱을 할 때도 빅 엔디안 방식으로 해싱값을 만들어야 최종적으로 WebSocket을 사용할 수 있었기에, 상대와 내가 모두 이해할 수 있는 언어를 만드는 작업이 프로토콜을 만든다는 것을 알게 된 계기였습니다."
+        ],
+        "technologies": [
+          "TCP",
+          "SHA1",
+          "BASE64"
+        ],
+        "teamSize": "개인 프로젝트"
+      }
+    },
+    {
+      "id": "detail1",
+      "category": "embeded",
+      "subtitle": "MCU development",
+      "title": "라즈베리파이 기반 드론",
+      "checkboxId": "detail1",
+      "images": [
+        "./asset/img/drone.png"
+      ],
+      "details": {
+        "motivation": "라즈베리파이랑 아두이노로 신호등, wifi 공유기 등을 만들면서, 좀 더 복잡한 프로젝트를 해보면서 능력을 성장시키고 싶었기 때문입니다. </br>(자동차, 모터로 구동되는 배 등의 후보중에 드론을 선정해야 했던 이유는 드론만 어떻게 만들어야할지 상상이 안가서 선정했습니다.)",
+        "results": [
+          "MCU 제어 역량이 크게 성장했습니다. SPI, Serial, I2C 등의 통신으로 센서를 제어해봤으며, 모터를 제어하기도 했던 경험이 Intel Microprocessor를 C언어로 프로그래밍 하는데 어려움 없이 접근하게 해주었습니다.",
+          "센서의 잡음, 외부적 요인 등을 상보필터, 칼만필터 등의 알고리즘으로 해결하는 방법을 습득했습니다.",
+          "모터의 속도를 조절하는 방법을 알게 되었습니다. 뿐만 아니라 DC, BLDC 등의 다양한 모터를 제어할 수 있습니다.",
+          "포기하지 않고 임무를 끝까지 수행할 수 있는 끊기가 생겼습니다. PID알고리즘에서 D게인을 잘못 맞춰서 손바닥이 아예 파여버리는 등의 많은 어려움이 있었습니다. 하지만 시험비행에 성공을 하고 나니, 어려워보여서 포기하기보다는 일단 도전해보자라는 마인드가 생겼기 때문입니다."
+        ],
+        "technologies": [
+          "상보필터",
+          "칼만필터 (비용이 커서 최종때는 사용을 안함)",
+          "PID",
+          "I2C & SPI",
+          "Raspberry Pi & Linux Kernel Thread"
+        ],
+        "teamSize": "개인 프로젝트"
+      }
+    }
+  ]
+}
