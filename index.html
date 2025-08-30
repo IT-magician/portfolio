@@ -429,6 +429,51 @@
             opacity: 0;
             animation: slideIn 0.8s ease 0.2s forwards;
         }
+        
+        /* Resume Link - Subtle Design */
+        .resume-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            animation: slideIn 0.8s ease 0.4s forwards;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .resume-link i {
+            font-size: 12px;
+            opacity: 0.7;
+            transition: transform 0.3s ease;
+        }
+        
+        .resume-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .resume-link:hover {
+            color: var(--primary);
+        }
+        
+        .resume-link:hover::after {
+            width: 100%;
+        }
+        
+        .resume-link:hover i {
+            transform: translateX(2px);
+        }
 
         .header-right {
             grid-column: span 5;
@@ -1087,6 +1132,10 @@
                             깊은 사고력으로 전환하여</br>
                             성과를 낼 수 있는 장점을 가지고 있습니다.
                         </p>
+                        <a href="./resume" class="resume-link">
+                            Resume
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
                     <div class="header-right">
                         <div class="header-visual">
