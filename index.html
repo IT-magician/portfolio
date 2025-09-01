@@ -627,16 +627,28 @@
             margin-bottom: 32px;
             flex-wrap: wrap;
         }
+        
+        /* V2X 섹션의 분리된 태그 스타일 */
+        #work1 .work-tags {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .tags-tech, .tags-company {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
         .tag {
             padding: 6px 14px;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 70, 67, 0.1));
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.12), rgba(248, 180, 0, 0.08));
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.04em;
             border-radius: 20px;
             color: var(--secondary);
-            border: 1px solid rgba(0, 70, 67, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.3);
             transition: all 0.3s ease;
         }
         
@@ -645,6 +657,27 @@
             color: var(--text-light);
             border-color: var(--primary);
             transform: translateY(-2px);
+        }
+        
+        /* 회사 태그 스타일 - V2X 섹션에만 적용 */
+        .tag-company {
+            background: rgba(0, 70, 67, 0.05);
+            border-color: rgba(0, 70, 67, 0.15);
+            font-size: 11px;
+            padding: 5px 12px;
+            opacity: 0.8;
+        }
+        
+        .tag-company:hover {
+            opacity: 1;
+            background: rgba(0, 70, 67, 0.1);
+        }
+
+        .work-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
         }
 
         .work-link {
@@ -657,6 +690,7 @@
             position: relative;
             transition: all 0.3s ease;
             padding-bottom: 4px;
+            width: fit-content;
         }
         
         .work-link::before {
@@ -686,6 +720,57 @@
         
         .work-link:hover {
             color: var(--primary);
+        }
+        
+        /* Detailed link styles */
+        .work-link-detailed {
+            align-items: center;
+        }
+        
+        .work-link-detailed .link-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-right: -8px;
+            align-items: flex-start;
+        }
+        
+        .work-link-detailed .link-main {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .work-link-detailed .link-sub-line1 {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-primary);
+            background: rgba(248, 180, 0, 0.08);
+            padding: 2px 5px;
+            border-radius: 2px;
+            display: inline-block;
+            letter-spacing: 0.01em;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .work-link-detailed .link-sub-line2 {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            line-height: 1.4;
+            margin-top: -2px;
+        }
+        
+        .work-link-detailed:hover .link-sub-line1 {
+            background: rgba(248, 180, 0, 0.12);
+            opacity: 0.9;
+        }
+        
+        .work-link-detailed:hover .link-sub-line2 {
+            color: var(--text-primary);
+            opacity: 0.8;
         }
 
         .work-visual {
@@ -997,6 +1082,24 @@
                 justify-content: center;
             }
             
+            #work1 .work-tags {
+                align-items: center;
+            }
+            
+            .tags-tech, .tags-company {
+                justify-content: center;
+            }
+            
+            .work-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+            }
+            
+            .work-link {
+                font-size: 14px;
+            }
+            
             .work-visual {
                 display: none;
             }
@@ -1170,14 +1273,30 @@
                             안전한 차량 통신 구현의 V2X 통신 보안 상용화 참여.
                         </p>
                         <div class="work-tags">
-                            <span class="tag">V2X</span>
-                            <span class="tag">SCMS</span>
-                            <span class="tag">PKI</span>
-                            <span class="tag">새솔테크</span>
-                            <span class="tag">LG전자</span>
-                            <span class="tag">JLR(Jaguar Land Rover)</span>
+                            <div class="tags-tech">
+                                <span class="tag tag-tech">V2X</span>
+                                <span class="tag tag-tech">SCMS</span>
+                                <span class="tag tag-tech">PKI</span>
+                            </div>
+                            <div class="tags-company">
+                                <span class="tag tag-company">새솔테크</span>
+                                <span class="tag tag-company">LG전자</span>
+                                <span class="tag tag-company">JLR(Jaguar Land Rover)</span>
+                                <span class="tag tag-company">Commsignia</span>
+                                <span class="tag tag-company">GHS ISS</span>
+                            </div>
                         </div>
-                        <a href="./v2x-security-career/career-highlight" class="work-link">Enter Portfolio</a>
+                        <div class="work-links">
+                            <a href="./v2x-security-career/career-highlight" class="work-link">Career Highlight</a>
+                            <a href="./v2x-security-career/pki-journey/overview" class="work-link">PKI Journey</a>
+                            <a href="./v2x-security-career/v2x-httpsd-development-journal/page-1" class="work-link work-link-detailed">
+                                <div class="link-content">
+                                    <span class="link-main">C++ 데몬 개발일지</span>
+                                    <span class="link-sub-line1">v2x-httpsd</span>
+                                    <span class="link-sub-line2">자동차의 통신에서 PKI Client와 Server를 연결 역할</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     <div class="work-visual">
                         <i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i>
