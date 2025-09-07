@@ -29,6 +29,11 @@
             opacity: 0;
         }
         
+        /* Nested version view - override width */
+        .nested-version-view {
+            width: auto !important;
+        }
+        
     </style>
 
     <!-- Local File Protocol Detection -->
@@ -329,7 +334,8 @@
                             
                             <!-- Portfolio Details -->
                             <div class="portfolio-details" :class="{ unfold: item.isExpanded }">
-                                <div class="portfolio-details-view">
+                                <!-- For items WITHOUT nested versions -->
+                                <div v-if="!item.nestedVersions" class="portfolio-details-view">
                                     <!-- Images Section -->
                                     <div class="portfolio-details-view-img" v-if="item.images && item.images.length > 0">
                                         <template v-for="(img, imgIndex) in item.images" :key="imgIndex">
@@ -339,7 +345,35 @@
                                         </template>
                                     </div>
                                     
-                                    <!-- YouTube Embeds (if any) -->
+                                    <!-- Videos Section -->
+                                    <div v-if="item.videos && item.videos.length > 0" class="portfolio-details-view-img">
+                                        <div v-for="(video, vidIndex) in item.videos" :key="vidIndex">
+                                            <h5 v-if="video.title" style="margin-bottom: 10px;">{{ video.title }}</h5>
+                                            <video controls style="width: 100%; max-width: 800px;">
+                                                <source :src="video.src" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div v-if="vidIndex < item.videos.length - 1" 
+                                                 style="width: 100%;height: var(--scroll--mb);visibility: hidden;"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- YouTube Embeds -->
+                                    <div v-if="item.youtubeEmbeds && item.youtubeEmbeds.length > 0" class="portfolio-details-view-img">
+                                        <div v-for="(embed, embedIndex) in item.youtubeEmbeds" :key="embedIndex">
+                                            <iframe :src="embed" 
+                                                    width="100%" 
+                                                    height="450" 
+                                                    frameborder="0" 
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                    allowfullscreen>
+                                            </iframe>
+                                            <div v-if="embedIndex < item.youtubeEmbeds.length - 1" 
+                                                 style="width: 100%;height: var(--scroll--mb);visibility: hidden;"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- YouTube Embed (single, deprecated) -->
                                     <div v-if="item.youtubeEmbed" class="portfolio-details-view-img">
                                         <div v-html="item.youtubeEmbed"></div>
                                     </div>
@@ -351,12 +385,86 @@
                                     </div>
                                 </div>
                                 
+                                <!-- For items WITH nested versions -->
+                                <div v-if="item.nestedVersions" class="portfolio-details-view nested-version-view">
+                                    <!-- Nested Versions Section -->
+                                    <div>
+                                        <ul>
+                                            <li v-for="(version, versionKey) in item.nestedVersions" :key="versionKey" 
+                                                class="portfolio-details unfold hide-scrollbar is-inner">
+                                                
+                                                <div class="left">
+                                                    <h4>{{ versionKey }}</h4>
+                                                    
+                                                    <!-- Nested Version Images -->
+                                                    <div class="portfolio-details-view" v-if="version.images && version.images.length > 0">
+                                                        <div v-for="(img, imgIdx) in version.images" :key="imgIdx"
+                                                             class="portfolio-details-view-img" 
+                                                             :title-attr="img.title || ''">
+                                                            <img :src="img.src || img" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="right">
+                                                    <ul>
+                                                        <!-- Mission -->
+                                                        <li v-if="version.mission">
+                                                            <h4>프로젝트 제작 미션</h4>
+                                                            <span v-html="version.mission"></span>
+                                                        </li>
+                                                        
+                                                        <!-- Results -->
+                                                        <li v-if="version.results && version.results.length > 0">
+                                                            <h4>결과</h4>
+                                                            <ol v-for="result in version.results" :key="result">
+                                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+                                                                <div class="portfolio-item-text" v-html="result"></div>
+                                                            </ol>
+                                                        </li>
+                                                        
+                                                        <!-- Technologies -->
+                                                        <li v-if="version.technologies && version.technologies.length > 0">
+                                                            <h4>사용한 기술</h4>
+                                                            <ol v-for="tech in version.technologies" :key="tech">
+                                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+                                                                <div class="portfolio-item-text">{{ tech }}</div>
+                                                            </ol>
+                                                        </li>
+                                                        
+                                                        <!-- Role -->
+                                                        <li v-if="version.role && version.role.length > 0">
+                                                            <h4>역할</h4>
+                                                            <ol v-for="role in version.role" :key="role">
+                                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+                                                                <div class="portfolio-item-text">{{ role }}</div>
+                                                            </ol>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <!-- Nested Version Links -->
+                                                    <div v-if="version.links && version.links.length > 0" class="portfolio-details-view-link">
+                                                        <a v-for="link in version.links" :key="link.url" 
+                                                           class="button" :href="link.url">{{ link.text }}</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
                                 <!-- Details List -->
                                 <ul v-if="item.details">
                                     <!-- Project Introduction -->
                                     <li v-if="item.details && item.details.projectIntro">
                                         <h4>프로젝트 소개</h4>
                                         {{ item.details.projectIntro }}
+                                    </li>
+                                    
+                                    <!-- Special Note -->
+                                    <li v-if="item.details && item.details.specialNote">
+                                        <h4 style="color: #f39c12;">특별 사항</h4>
+                                        <strong>{{ item.details.specialNote }}</strong>
                                     </li>
                                     
                                     <!-- Motivation -->
@@ -432,6 +540,20 @@
                                             <i class="fa-regular fa-keyboard portfolio-icon"></i>
                                             <div class="portfolio-item-text" v-html="improvement"></div>
                                         </ol>
+                                    </li>
+                                    
+                                    <!-- User Convenience -->
+                                    <li v-if="item.details && item.details.userConvenience">
+                                        <h4>사용자 편의성</h4>
+                                        <template v-if="Array.isArray(item.details.userConvenience)">
+                                            <ol v-for="convenience in item.details.userConvenience" :key="convenience">
+                                                <i class="fa-regular fa-keyboard portfolio-icon"></i>
+                                                <div class="portfolio-item-text" v-html="convenience"></div>
+                                            </ol>
+                                        </template>
+                                        <template v-else>
+                                            <span v-html="item.details.userConvenience"></span>
+                                        </template>
                                     </li>
                                     
                                     <!-- Learnings -->
