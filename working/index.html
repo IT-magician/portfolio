@@ -34,6 +34,28 @@
             width: auto !important;
         }
         
+        /* Video section styling */
+        .portfolio-details-view-video {
+            padding: 1rem;
+            margin: 1rem;
+        }
+        
+        /* YouTube embed styling */
+        .portfolio-details-view-embed {
+            padding: 1rem;
+            margin: 1rem;
+            position: relative;
+            width: 600px;
+            max-width: calc(100% - 2rem);
+        }
+        
+        .portfolio-details-view-embed iframe {
+            aspect-ratio: 16/9;
+            width: 100%;
+            height: auto;
+        }
+        
+        
     </style>
 
     <!-- Local File Protocol Detection -->
@@ -346,10 +368,10 @@
                                     </div>
                                     
                                     <!-- Videos Section -->
-                                    <div v-if="item.videos && item.videos.length > 0" class="portfolio-details-view-img">
+                                    <div v-if="item.videos && item.videos.length > 0" class="portfolio-details-view-video">
                                         <div v-for="(video, vidIndex) in item.videos" :key="vidIndex">
                                             <h5 v-if="video.title" style="margin-bottom: 10px;">{{ video.title }}</h5>
-                                            <video controls style="width: 100%; max-width: 800px;">
+                                            <video controls style="width: 100%; max-width: 800px; height: auto; max-height: 450px;">
                                                 <source :src="video.src" type="video/mp4">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -359,7 +381,7 @@
                                     </div>
                                     
                                     <!-- YouTube Embeds -->
-                                    <div v-if="item.youtubeEmbeds && item.youtubeEmbeds.length > 0" class="portfolio-details-view-img">
+                                    <div v-if="item.youtubeEmbeds && item.youtubeEmbeds.length > 0" class="portfolio-details-view-embed">
                                         <div v-for="(embed, embedIndex) in item.youtubeEmbeds" :key="embedIndex">
                                             <iframe :src="embed" 
                                                     width="100%" 
