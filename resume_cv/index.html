@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력기술서 - V2X 차량용 범용 HTTPS 통신 데몬 개발</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.4;
+            color: #000;
+            background: #ffffff;
+            font-size: 10pt;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 10mm;
+            background: white;
+        }
+
+        /* 제목 스타일 */
+        .main-title {
+            color: #000;
+            font-size: 14pt;
+            font-weight: 700;
+            border-bottom: 2px solid #000;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #000;
+            font-size: 12pt;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            padding-left: 5px;
+            border-left: 3px solid #333;
+        }
+
+        /* 프로젝트 개요 스타일 */
+        .project-overview {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-overview ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-overview li {
+            padding: 3px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 9pt;
+        }
+
+        .project-overview li:last-child {
+            border-bottom: none;
+        }
+
+        .project-overview strong {
+            color: #000;
+            display: inline-block;
+            min-width: 70px;
+            font-weight: 600;
+            font-size: 9pt;
+        }
+
+        /* 섹션 구분선 */
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        /* 수행 역할 섹션 */
+        .role-section {
+            margin-bottom: 12px;
+        }
+
+        .role-section > strong {
+            display: block;
+            color: #000;
+            font-size: 11pt;
+            font-weight: 600;
+            margin-bottom: 6px;
+            padding: 4px 8px;
+            background: #f0f0f0;
+            border-left: 2px solid #333;
+        }
+
+        /* 리스트 스타일 */
+        ul {
+            padding-left: 18px;
+            margin: 4px 0;
+        }
+
+        li {
+            margin: 3px 0;
+            line-height: 1.4;
+            font-size: 9pt;
+        }
+
+        /* 중요 내용 강조 */
+        strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* 인용 표시 제거 */
+        .citation {
+            display: none;
+        }
+
+        /* 결과 및 성과 섹션 */
+        .results-section {
+            background: #f5f5f5;
+            border-left: 3px solid #333;
+            padding: 8px 10px;
+            margin: 8px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .results-section li {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        /* 기술 스택 섹션 */
+        .tech-stack {
+            background: #f5f5f5;
+            padding: 8px 10px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .tech-stack ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-stack li {
+            padding: 3px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 9pt;
+        }
+
+        .tech-stack li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-stack strong {
+            color: #000;
+            display: inline-block;
+            min-width: 100px;
+            font-weight: 600;
+            font-size: 9pt;
+        }
+
+        /* 인쇄 최적화 */
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                font-size: 9pt;
+                width: 210mm !important;
+                min-width: 210mm !important;
+            }
+
+            .container {
+                padding: 0;
+                max-width: 100%;
+                width: 210mm !important;
+                min-width: 210mm !important;
+            }
+
+            .main-title {
+                page-break-after: avoid;
+                font-size: 13pt;
+                margin-bottom: 8px;
+            }
+
+            h4 {
+                page-break-after: avoid;
+                font-size: 11pt;
+                margin-top: 8px;
+                margin-bottom: 6px;
+            }
+
+            .project-overview {
+                page-break-inside: avoid;
+                padding: 6px 8px;
+            }
+
+            .role-section {
+                page-break-inside: avoid;
+                margin-bottom: 10px;
+            }
+
+            .results-section {
+                page-break-inside: avoid;
+                padding: 6px 8px;
+            }
+
+            .tech-stack {
+                page-break-inside: avoid;
+                padding: 6px 8px;
+            }
+
+            li {
+                page-break-inside: avoid;
+                font-size: 8.5pt;
+                line-height: 1.3;
+                margin: 2px 0;
+            }
+
+            ul {
+                margin: 2px 0;
+                padding-left: 15px;
+            }
+
+            hr {
+                margin: 8px 0;
+            }
+
+            /* 색상 단순화 */
+            * {
+                color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .main-title {
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="main-title">[프로젝트] V2X 차량용 범용 HTTPS 통신 데몬 개발 및 기술 자문</h3>
+
+        <h4>1. 프로젝트 개요</h4>
+        <div class="project-overview">
+            <ul>
+                <li><strong>프로젝트명</strong>: v2x-httpsd (Vehicle-to-Everything HTTP Secure Daemon for PKI Client)</li>
+                <li><strong>개발 기간</strong>: 2025.03 ~ 2025.06</li>
+                <li><strong>목표</strong>: 완성차 기업(OEM)별 상이한 통신 데몬으로 인한 개발 지연 문제 해결. OEM이 자체 데몬을 제공하기 전까지 내부 공정 계획을 미리 진행할 수 있도록, 여러 OEM(JLR, BMW) 및 Third-Party PKI Client를 지원하는 범용 테스트 데몬 개발</li>
+                <li><strong>참여 역할</strong>: 아키텍처 설계 및 코드 구현 총괄 (1인 개발), LG전자 V2X Manager팀 및 베트남 지사 개발팀 대상 기술 자문</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h4>2. 수행 역할 및 상세 활동</h4>
+
+        <div class="role-section">
+            <strong>가. S/W 아키텍처 설계 및 구현</strong>
+
+            <ul>
+                <li><strong>초기 전략 수립</strong>: 과거 프로젝트(ASN.1 자동화 툴)의 지연 경험을 바탕으로, <strong>초기 3주는 C언어 스타일로 핵심 기능(PCL-libcurl 연동)의 프로토타입을 신속하게 구현</strong>하는 전략을 채택했습니다. 이를 통해 v2x-httpsd의 완성도와 무관하게 V2X Manager와의 연동 테스트 등 고객사의 공정 계획이 선행될 수 있도록 지원했습니다. 기능 동작 검증 후, 약 1개월 시점부터 객체지향 및 Spring 프레임워크 설계 철학을 적용하여 코드를 리팩토링했습니다.</li>
+
+                <li><strong>확장성을 고려한 아키텍처 설계</strong>:
+                    <ul>
+                        <li><strong>OCP(개방-폐쇄 원칙) 적용</strong>: 신규 Third-Party PKI Client SDK 추가 시, 기존 코드 수정 없이 기능 확장이 가능하도록 <strong>C++ 템플릿 특수화(Template Specialization)를 적용</strong>하여 아키텍처를 설계했습니다.</li>
+                        <li><strong>SRP(단일 책임 원칙) 적용</strong>: CurlWrapper, HTTP_Url, Adapter 등 각 클래스의 책임을 명확히 분리하여 설계했습니다. 이를 통해 통신 관련 이슈 발생 시 <strong>트러블슈팅 시간을 기존 1일 이상에서 30분 이내로 단축</strong>하는 성과를 달성했습니다.</li>
+                        <li><strong>템플릿 메소드 패턴 적용</strong>: IPC 종류(PCL, Posix Queue 등)와 무관하게 공통 직렬화/역직렬화 로직을 공유하도록 <strong>IPC_API 추상 인터페이스를 설계</strong>하여, JLR(PCL)과 BMW(Posix Queue)의 상이한 요구사항을 단일 아키텍처 내에서 수용했습니다.</li>
+                    </ul>
+                </li>
+
+                <li><strong>IPC 라이브러리(PCL) 한계 극복</strong>:
+                    <ul>
+                        <li>PCL 라이브러리 read 함수의 비직관적 동작 방식(원하는 토픽을 지정할 수 없는 문제)을 해결하기 위해 <strong>생산자-소비자(Producer-Consumer) 패턴</strong>을 적용한 Pcl_ReceivedQueueMonitor 클래스를 설계했습니다.</li>
+                        <li>백그라운드 스레드가 모든 토픽을 수신하여 내부 큐에 분류하고, 사용자는 일반적인 <strong>동기식 I/O처럼 원하는 토픽의 데이터만 읽을 수 있도록 API 동작 방식을 개선</strong>했습니다.</li>
+                    </ul>
+                </li>
+
+                <li><strong>안정성 확보를 위한 저수준(Low-level) 시스템 분석 및 적용</strong>:
+                    <ul>
+                        <li>C++ 예외(Exception) 미처리 시 RAII 기반의 자원 해제가 실패하는 문제를 방지하기 위해, <strong>리눅스 커널의 프로세스 종료 메커니즘(do_exit, SIGABRT 등)을 분석</strong>했습니다.</li>
+                        <li>커널 동작 분석 결과를 바탕으로, 프로세스 비정상 종료 시에도 등록된 정리 함수가 호출되도록 <strong>안정적인 종료(Graceful Termination) 처리 로직을 구현</strong>하여 시스템 안정성을 확보했습니다.</li>
+                        <li>임베디드 환경의 메모리 안정성을 위해 <strong>RAII, 스마트 포인터 등 C++ Core Guideline을 준수</strong>하여 개발했습니다.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="role-section">
+            <strong>나. 글로벌 기술 자문 및 협업 (베트남 개발팀 대상)</strong>
+
+            <ul>
+                <li><strong>기술적 방향성 제시 및 설득</strong>: 프로젝트 초기, 특정 SDK에 종속적인 API 설계에 대한 동료의 우려("It makes the code depends on CMS")에 대해, 향후 다른 SDK 확장까지 고려한 <strong>객체지향 설계의 기술적 타당성(OCP, SRP)을 근거로 제시하며 설득</strong>했습니다.</li>
+
+                <li><strong>선제적인 문제 진단 및 해결책 제공</strong>:
+                    <ul>
+                        <li><strong>시간 동기화 문제 해결</strong>: 과거 BMW 프로젝트 경험을 바탕으로, 동료가 겪던 원인 불명의 SSL 통신 오류의 근본 원인이 '디바이스 시간 불일치'임을 로그("The log says your device time is not correct")를 통해 진단했습니다. 문제 재발을 막기 위해 <strong>시스템의 UTC 시간을 확인하는 -u 옵션을 v2x-httpsd에 추가 개발하여 제공</strong>했습니다.</li>
+                        <li><strong>타사 SDK 버그 분석</strong>: 인증서 발급 실패의 원인이 타사 SDK(CMS PKI Client)의 버그에 있음을 분석했습니다. 요청 데이터 크기가 <strong>566바이트여야 함에도 144바이트만 전송되는 문제를 특정</strong>하여 원인을 규명했습니다.</li>
+                        <li><strong>서버 환경 문제 해결</strong>: 테스트 실패 원인이 서버 측 <strong>API 토큰 사용 횟수 제한(30회)</strong>임을 파악하고, 관리자에게 요청하여 <strong>사용 한도를 100회로 증설</strong>하여 안정적인 테스트 환경을 구축했습니다.</li>
+                    </ul>
+                </li>
+
+                <li><strong>원격 협업 효율화를 위한 기술 지원</strong>:
+                    <ul>
+                        <li><strong>빌드 환경 지원</strong>: Yocto 빌드에 실패하는 동료에게 정확한 빌드 레시피(.bb 파일)를 제공했습니다.</li>
+                        <li><strong>테스트 환경 지원</strong>: 테스트 서버에 로그인하지 못하는 동료를 위해 직접 계정 비밀번호 초기화를 지원했습니다.</li>
+                        <li><strong>기술 문서 제공</strong>: 원활한 테스트와 시스템 이해를 돕기 위해 테스트 가이드 및 시스템 시퀀스 다이어그램을 직접 작성하여 공유했습니다.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h4>3. 결과 및 성과</h4>
+        <div class="results-section">
+            <ul>
+                <li><strong>핵심 목표 달성</strong>: 다수의 기술적 난관을 해결하고, 최종적으로 <strong>V2X 차량에 보안 인증서가 성공적으로 저장</strong>되는 프로젝트의 핵심 목표를 달성했습니다.</li>
+                <li><strong>고객사 요구사항 100% 충족</strong>: JLR(PCL), BMW(Posix Queue)의 상이한 IPC 요구사항을 모두 충족하는 유연한 구조를 완성했으며, 사설 SSL/TLS 인증서 지원 및 JSON ZIP 변환 기능 등 모든 요구사항을 구현했습니다.</li>
+                <li><strong>프로세스 효율화</strong>: 단일 책임 원칙(SRP) 기반 설계를 통해, 원인 파악에 <strong>1일 이상 소요되던 통신 관련 이슈의 트러블슈팅 시간을 30분 이내로 단축</strong>했습니다.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h4>4. 적용 기술</h4>
+        <div class="tech-stack">
+            <ul>
+                <li><strong>Language</strong>: C++17</li>
+                <li><strong>Core Concepts</strong>: OOP, SOLID Principles (OCP, SRP), Design Patterns (Template Method, Producer-Consumer)</li>
+                <li><strong>Libraries & Tools</strong>: libcurl, PCL, POSIX IPC (Queue, Socket), Yocto Project, Git, CMake</li>
+                <li><strong>Knowledge</strong>: Linux Kernel (Process Termination), Network (HTTP/TLS)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
