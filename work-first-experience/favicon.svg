@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- 배경 -->
+  <rect width="32" height="32" rx="4" fill="#f3f4f6"/>
+
+  <!-- 문서 아이콘 -->
+  <rect x="7" y="5" width="18" height="22" rx="1" fill="#ffffff" stroke="#4b5563" stroke-width="1"/>
+
+  <!-- 프로필 원 -->
+  <circle cx="16" cy="11" r="3" fill="#60a5fa"/>
+
+  <!-- 텍스트 라인들 -->
+  <rect x="10" y="17" width="12" height="1.5" rx="0.5" fill="#9ca3af"/>
+  <rect x="10" y="20" width="12" height="1.5" rx="0.5" fill="#9ca3af"/>
+  <rect x="10" y="23" width="8" height="1.5" rx="0.5" fill="#9ca3af"/>
+
+  <!-- 코드 브라켓 (기술 표시) -->
+  <text x="21" y="12" font-family="monospace" font-size="8" font-weight="bold" fill="#10b981">&lt;/&gt;</text>
+</svg>
