@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header styles */
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .main-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        @media print {
+            .portfolio-header {
+                margin-bottom: 10pt;
+            }
+
+            .main-title {
+                font-size: 13pt;
+                margin-bottom: 6pt;
+            }
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3182ce;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Lists */
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Skills section */
+        .skills-list {
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skills-list li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+        }
+
+        .skills-list strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        /* Project section */
+        .project-header {
+            margin-bottom: 1rem;
+        }
+
+        .project-date {
+            font-style: italic;
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-label {
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .achievement-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-content {
+            margin-left: 1.5rem;
+        }
+
+        .achievement-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        /* Code/technical terms styling */
+        code {
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border: 1px solid #ffcc80;
+            border-radius: 2px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #e65100;
+            font-weight: 500;
+        }
+
+        /* Link styling */
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        .blog-link {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2rem 0;
+        }
+
+        /* Print styles - Optimized for single page */
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm 15mm;
+            }
+
+            body {
+                font-size: 9pt;
+                line-height: 1.3;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            h2 {
+                font-size: 11pt;
+                page-break-after: avoid;
+                margin-bottom: 6pt;
+                margin-top: 0;
+                padding-bottom: 2pt;
+                border-bottom-width: 1pt;
+            }
+
+            h3 {
+                font-size: 10pt;
+                page-break-after: avoid;
+                margin-top: 8pt;
+                margin-bottom: 4pt;
+            }
+
+            h4 {
+                font-size: 9pt;
+                page-break-after: avoid;
+                margin-top: 6pt;
+                margin-bottom: 3pt;
+            }
+
+            p, li {
+                font-size: 8pt;
+                line-height: 1.3;
+                margin-bottom: 3pt;
+            }
+
+            ul {
+                page-break-inside: avoid;
+                margin-bottom: 4pt;
+                margin-left: 12pt;
+            }
+
+            .skills-list {
+                margin-bottom: 4pt;
+            }
+
+            .skills-list li {
+                margin-bottom: 2pt;
+                padding-left: 8pt;
+            }
+
+            .project-date {
+                font-size: 7.5pt;
+                margin-bottom: 4pt;
+            }
+
+            .section-label {
+                font-size: 8.5pt;
+                margin-top: 6pt;
+                margin-bottom: 3pt;
+                page-break-after: avoid;
+            }
+
+            .achievement-item {
+                page-break-inside: avoid;
+                margin-bottom: 6pt;
+            }
+
+            .achievement-title {
+                font-size: 8.5pt;
+                margin-bottom: 2pt;
+            }
+
+            .achievement-content {
+                margin-left: 12pt;
+            }
+
+            .achievement-content li {
+                font-size: 7.5pt;
+                margin-bottom: 2pt;
+                line-height: 1.3;
+            }
+
+            code {
+                font-size: 7pt;
+                background-color: #fff3e0;
+                border: 0.5pt solid #ffcc80;
+                padding: 0.5pt 2pt;
+                font-weight: 500;
+            }
+
+            a {
+                color: #2563eb;
+                text-decoration: none;
+                font-size: 7.5pt;
+            }
+
+            .blog-link {
+                page-break-inside: avoid;
+                margin-top: 6pt;
+                padding-top: 4pt;
+                border-top-width: 0.5pt;
+            }
+
+            hr {
+                margin: 6pt 0;
+                border-top-width: 0.5pt;
+            }
+
+            /* Ensure project sections stay together when possible */
+            .project-section {
+                page-break-inside: avoid;
+            }
+
+            /* Hide screen-only elements */
+            .screen-only {
+                display: none;
+            }
+        }
+
+        /* Screen only styles */
+        @media screen {
+            body {
+                background: #f7fafc;
+            }
+
+            .container {
+                background: white;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="portfolio-header">
+            <h1 class="main-title">백엔드 개발과 DevOps의 시너지를 위한 준비 이력</h1>
+        </header>
+
+        <section>
+            <h2>TECHNICAL SKILLS</h2>
+            <ul class="skills-list">
+                <li><strong>Backend:</strong> Java, Spring Boot, MSA Design Principles</li>
+                <li><strong>Container & Orchestration:</strong> Docker, Kubernetes, AWS EKS</li>
+                <li><strong>CI/CD & GitOps:</strong> Git, GitLab, Helm, Argo CD</li>
+                <li><strong>Infrastructure as Code (IaC):</strong> Terraform, eksctl</li>
+                <li><strong>Cloud (AWS):</strong> EC2, VPC, Route53, EFS, IAM (IRSA), Load Balancers (ALB/NLB)</li>
+                <li><strong>Monitoring & Observability:</strong> Prometheus, Grafana, Alertmanager, Metrics Server</li>
+                <li><strong>Databases & Storage:</strong> MySQL, Redis, Kafka</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>PROJECTS</h2>
+
+            <div class="project-section">
+                <div class="project-header">
+                    <h3>MSA 기반 커뮤니티 서비스 플랫폼 구축 (SSAFY 자율 프로젝트)</h3>
+                    <div class="project-date">2023.04 - 2023.05</div>
+                </div>
+
+                <div class="section-label">[프로젝트 요약]</div>
+                <p>Spring Boot 기반의 여러 마이크로서비스로 구성된 커뮤니티 서비스를 개발하고, 이를 AWS EKS 환경에 배포 및 운영했습니다. 백엔드 개발 과정에서 마주친 복잡한 배포, 비효율적인 리소스 관리, 잦은 환경 설정 오류 등의 문제를 해결하기 위해 직접 DevOps 파이프라인과 클라우드 네이티브 인프라를 구축했습니다.</p>
+
+                <div class="section-label">[My Role & Key Achievements]</div>
+
+                <div class="achievement-item">
+                    <div class="achievement-title">• GitOps 워크플로우 확립을 통한 개발 문화 개선</div>
+                    <ul class="achievement-content">
+                        <li><code>Argo CD</code>와 <code>Helm</code>을 도입하여, Git 저장소를 '단일 진실 공급원(Single Source of Truth)'으로 사용하는 <strong>GitOps 환경을 구축</strong>했습니다.</li>
+                        <li><code>git commit</code> 이력을 통해 모든 인프라 및 애플리케이션의 변경사항을 추적하고, 문제 발생 시 특정 시점으로 롤백할 수 있는 안정적인 운영 기반을 마련했습니다.</li>
+                        <li>개발자가 <strong>익숙한 Git 플로우만으로 배포, 스케일링, DNS 설정까지 직접 처리</strong>할 수 있는 셀프 서비스(Self-service) 환경을 제공하여, <strong>팀의 전체 개발 속도와 생산성을 향상</strong>시켰습니다.</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-title">• 모니터링 시스템 구축을 통한 애플리케이션 성능 분석 및 안정성 확보</div>
+                    <ul class="achievement-content">
+                        <li><code>Prometheus</code>와 <code>Grafana</code>를 연동하여 각 마이크로서비스의 <strong>CPU/Memory 사용량, HTTP 요청 수, Latency 등 핵심 성능 지표(Metric)를 시각화</strong>했습니다.</li>
+                        <li><code>Alertmanager</code>와 <code>Slack</code>을 연동하여 리소스 임계치 초과 등 <strong>장애 징후를 사전에 감지하고 대응</strong>할 수 있는 자동 알림 시스템을 구축했습니다.</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-title">• 탄력적 인프라 구성을 통한 서비스 확장성 및 비용 효율성 개선</div>
+                    <ul class="achievement-content">
+                        <li><code>HPA</code>와 <code>Karpenter</code>를 적용하여, 부하 테스트로 발생하는 <strong>트래픽 양에 따라 백엔드 서비스의 파드와 EC2 노드가 자동으로 확장/축소</strong>되도록 구성했습니다.</li>
+                        <li>이를 통해 갑작스러운 트래픽 증가에도 안정적인 서비스를 보장하는 <strong>탄력성(Resilience)을 확보</strong>하고, 유휴 시간에는 리소스를 최소화하여 <strong>클라우드 비용을 최적화</strong>했습니다.</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-title">• 클라우드 네이티브 네트워킹 및 스토리지 설계</div>
+                    <ul class="achievement-content">
+                        <li><code>Ingress Controller</code>와 <code>ExternalDNS</code>를 연동하여, 새로운 서비스가 추가될 때 <strong>Route53에 DNS 레코드가 자동으로 등록</strong>되도록 구성하여 MSA 확장성을 확보했습니다.</li>
+                        <li><code>EFS</code>와 <code>PVC</code>를 연동하여 MySQL과 같은 <strong>상태 저장(Stateful) 애플리케이션의 데이터 영속성을 보장</strong>하도록 설계했습니다.</li>
+                    </ul>
+                </div>
+
+                <div class="blog-link">
+                    <strong>블로그 링크:</strong> <a href="https://blog.naver.com/PostList.naver?blogId=hoan123432&from=postList&categoryNo=75">https://blog.naver.com/PostList.naver?blogId=hoan123432&from=postList&categoryNo=75</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
