@@ -524,6 +524,11 @@
             const path = SecurityUtils.sanitizePath(rawPath);
             pathInfo.textContent = `Checking: ${SecurityUtils.escapeHtml(path)}`;
             errorPath.textContent = SecurityUtils.escapeHtml(path);
+
+            if (path === '/v2x-security') {
+                window.location.replace('/v2x-security-career/pki-journey/cryptic-language'); 
+                return;
+            }
             
             // 무한 루프 체크
             if (StateManager.checkInfiniteLoop()) {
