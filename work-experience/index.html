@@ -1,15 +1,334 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/work-experience/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>경력기술서 - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/work-experience/assets/index-DOajGYE_.js"></script>
-    <link rel="stylesheet" crossorigin href="/work-experience/assets/index-CvAF6HSO.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+    <title>경력기술서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            font-size: 11pt;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border: 2px solid #000;
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+        
+        .project {
+            margin-bottom: 50px;
+            border: 1px solid #000;
+        }
+        
+        .project-header {
+            background-color: #d9d9d9;
+            border-bottom: 1px solid #000;
+            padding: 8px 15px;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        table th, table td {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            width: 180px;
+        }
+        
+        .section-number {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 11pt;
+        }
+        
+        .subsection {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .subsection-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .content-list {
+            padding-left: 20px;
+        }
+        
+        .content-list div {
+            margin-bottom: 6px;
+        }
+        
+        .tech-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        
+        .tech-item {
+            margin: 6px 0;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        /* PDF 출력 최적화 */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: 10pt;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 20px;
+                box-shadow: none;
+            }
+            
+            .header {
+                display: none;
+            }
+            
+            .project {
+                page-break-inside: avoid;
+            }
+            
+            .project:first-child {
+                page-break-after: always;
+            }
+            
+            .project-header {
+                page-break-after: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            .section-number {
+                page-break-after: avoid;
+            }
+            
+            .subsection {
+                page-break-inside: avoid;
+            }
+            
+            .tech-section {
+                page-break-inside: avoid;
+            }
+            
+            * {
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>경력기술서</h1>
+        </div>
+        
+        <!-- 프로젝트 1 -->
+        <div class="project">
+            <div class="project-header">[프로젝트 1] JLR(자동차 회사, Jaguar Land Rover) 텔레매틱스 개발 공정</div>
+            <div class="project-content">
+                <table>
+                    <tr>
+                        <th>1. 연계/소속회사</th>
+                        <td>(발주처) LG전자 / (소속) 새솔테크</td>
+                    </tr>
+                    <tr>
+                        <th>2. 주요 업무</th>
+                        <td>C++ 기반 REST API Client(API Gateway) 개발, 자율주행통신(V2X) 보안 영역의 기술자문(질의응답·공정 관리)</td>
+                    </tr>
+                    <tr>
+                        <th>3. 업무 기간</th>
+                        <td>2025.01 ~ 2025.07 (약 7개월)</td>
+                    </tr>
+                    <tr>
+                        <th>4. 개발 인원</th>
+                        <td>총 6명 (LG전자 본사 V2X Manager팀 3명, 베트남 지사 2명, 본인)</td>
+                    </tr>
+                    <tr>
+                        <th>5. 기여도</th>
+                        <td><span class="highlight">100%</span></td>
+                    </tr>
+                    <tr>
+                        <th>6. 직책</th>
+                        <td>선임</td>
+                    </tr>
+                </table>
+                
+                <div class="section-number">7. 상세 내용</div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">가. 차량용 임베디드 환경(ECU)에서 3rd-party PKI Client 연동을 위한 API Gateway를 설계·구현</div>
+                    <div class="content-list">
+                        <div>1) C++ 기반 API Gateway 설계·구현(REST, SSL/TLS)로 PKI 연동 및 발급 처리 흐름 구축</div>
+                        <div>2) 로깅·프로토콜 변환·SSL 세션 관리 개발으로 장애 대응 시간 1개월 → 1주 단축(약 75%)</div>
+                        <div>3) C/C++ 기반 멀티 쓰레드 구현을 통한 프로그래밍 이론 적용(디자인 패턴 中 Producer-Consumer)으로 라이브러리 API의 복잡한 사용성 개선</div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">나. 차량용 통신 ECU 개발 일정 지연으로 인한 네트워크 단절 문제 해결책 제시</div>
+                    <div class="content-list">
+                        <div>1) 운영체제 커널 레벨 네트워크 스택과 기업 보안 정책을 분석하여 NAT 기반 우회 해결책을 제시함으로써 서버 연결 불가 문제를 해소</div>
+                        <div>2) API Gateway와 서버의 네트워크 연결 문제해결을 통한 3rd-party PKI Client 연동으로 선행 공정을 6개월 이상 단축</div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">다. 미국, 헝가리 등 글로벌 기업의 외부 솔루션 SW 업체 제품에 대한 신기술(자율주행통신) 적용 대응 방향 수립 및 기술 검증</div>
+                    <div class="content-list">
+                        <div>1) 외부 보안 솔루션 SW(서버·PKI Client)의 신규 버전 오류를 재현·분석, 패킷 검증, 표준 문서 역추적을 통해 글로벌 회사들에게 해결책 제시</div>
+                        <div>2) 차량에 탑재되는 자율주행통신 보안 솔루션 적용 단계의 보안 허점에 대해 Smack 등 보안 전략 제시</div>
+                    </div>
+                </div>
+                
+                <div class="tech-section">
+                    <div class="section-number" style="margin-top: 0;">8. 기술 스택</div>
+                    <div class="tech-item"><strong>가. 개발 환경:</strong> (언어) C++, (REST API) libcurl, json-c/nlohmann-json, (IPC) posix queue/unix domain socket/shared memory</div>
+                    <div class="tech-item"><strong>나. 빌드 환경:</strong> Yocto Linux, CMake, GNU Make, GNU Autotools</div>
+                    <div class="tech-item"><strong>다. 기타:</strong> Git, Gerrit, CI/CD/CT, Confluence, Codebeamer, Issue Tracker, Ubuntu, VSCode Online, MS Teams</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 프로젝트 2 -->
+        <div class="project">
+            <div class="project-header">[프로젝트 2] BMW(자동차 회사) 텔레매틱스 개발 공정</div>
+            <div class="project-content">
+                <table>
+                    <tr>
+                        <th>1. 연계/소속회사</th>
+                        <td>(발주처) LG전자 / (소속) 새솔테크</td>
+                    </tr>
+                    <tr>
+                        <th>2. 주요 업무</th>
+                        <td>단말솔루션팀 소속 PKI Client 개발자로써, 파견 팀의 경력 퇴사자 공백 지원</td>
+                    </tr>
+                    <tr>
+                        <th>3. 업무 기간</th>
+                        <td>2024.11 ~ 2024.12 (약 2개월)</td>
+                    </tr>
+                    <tr>
+                        <th>4. 개발 인원</th>
+                        <td>총 8명 (LG전자 본사 V2X Manager팀 4명, 새솔테크 4명, BMW 프로젝트 그룹)</td>
+                    </tr>
+                    <tr>
+                        <th>5. 기여도</th>
+                        <td><span class="highlight">25%</span></td>
+                    </tr>
+                    <tr>
+                        <th>6. 직책</th>
+                        <td>사원</td>
+                    </tr>
+                </table>
+                
+                <div class="section-number">7. 상세 내용</div>
+                <div class="subsection">
+                    <div class="content-list">
+                        <div>• LG전자 코드의 Yocto Linux 이미지를 임베디드 보드(시료)에 플래싱 및 보안 환경 설정을 포함한 프로비저닝을 수행하여, V2X 메시지 송수신이 정상적으로 동작하도록 구성 후 고객사 직원에 전달</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 프로젝트 3 -->
+        <div class="project">
+            <div class="project-header">[프로젝트 3] 자율주행통신(V2X) 보안 솔루션(SW) PoC 및 제품 출시</div>
+            <div class="project-content">
+                <table>
+                    <tr>
+                        <th>1. 연계/소속회사</th>
+                        <td>(소속) 새솔테크</td>
+                    </tr>
+                    <tr>
+                        <th>2. 주요 업무</th>
+                        <td>C 기반 REST API Client(PKI Client) 개발, C 빌드 환경 관리</td>
+                    </tr>
+                    <tr>
+                        <th>3. 업무 기간</th>
+                        <td>2024.02 ~ 2024.12 (약 11개월)</td>
+                    </tr>
+                    <tr>
+                        <th>4. 개발 인원</th>
+                        <td>총 8명</td>
+                    </tr>
+                    <tr>
+                        <th>5. 기여도</th>
+                        <td><span class="highlight">20%</span></td>
+                    </tr>
+                    <tr>
+                        <th>6. 직책</th>
+                        <td>사원</td>
+                    </tr>
+                </table>
+                
+                <div class="section-number">7. 상세 내용</div>
+                <div class="subsection">
+                    <div class="content-list">
+                        <div><strong>가.</strong> C 기반 국제 표준(IEEE/ETSI/CCSA) 기반 인증·암호 모듈(C/ECC/HSM) 개발 및 제품화</div>
+                        <div><strong>나.</strong> Docker Registry 기반 C/C++ 빌드 환경 구성으로 단말 환경 설정 시간 3시간 → 5분(약 97%)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6대 이상 장비, 8명 개발 인력의 중복 작업 제거로 테스트 효율 36배)</div>
+                        <div><strong>다.</strong> TTA 표준 적합성 100% 통과, 보안 솔루션 수익 모델 창출 기여</div>
+                    </div>
+                </div>
+                
+                <div class="tech-section">
+                    <div class="section-number" style="margin-top: 0;">8. 기술 스택</div>
+                    <div class="tech-item"><strong>가. 개발 환경:</strong> (언어) C, (REST API) libcurl, openssl, 여러 제조사의 HSM API 라이브러리</div>
+                    <div class="tech-item"><strong>나. 빌드 환경:</strong> CMake, GNU Make</div>
+                    <div class="tech-item"><strong>다. 기타:</strong> Git</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
